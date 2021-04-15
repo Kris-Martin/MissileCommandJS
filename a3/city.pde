@@ -8,19 +8,33 @@ class city{
   PVector dim = new PVector();
   
   //constructors
-  city(int Health, int PositionX){
-    this.health = Health;
+  city(int PositionX){
+    this.health = cityDefaultHealth*level;
     this.posX = PositionX;
-    this.dim.x = cityDim.x;
-    this.dim.y = cityDim.y;
+    this.dim.x = 80;
+    this.dim.y = 40;
   }
   
   
+  
+  /*
+  Purpose: Displays the object
+  Arguments: Null
+  Returns: Null
+  */
+  void process(){
+
+  }
+  
+  
+  
+  /*
+  Purpose: Displays the object
+  Arguments: Null
+  Returns: Null
+  */
   void display(){
     //change this
     image(city1,posX-dim.x/2,height-dim.y,dim.x,dim.y);
   }
-  
-  
-  //methods
 }

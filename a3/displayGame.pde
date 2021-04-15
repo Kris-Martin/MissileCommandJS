@@ -5,8 +5,6 @@ Returns: Null
 */
 void displayGame(){
   levelBackground(level);
-  displayScore();
-  displayCannon();
   for (city c : cities){
     c.display();
   }
@@ -16,6 +14,10 @@ void displayGame(){
   for (shell s : shells){
     s.display();
   }
+  //display mouse crossHair, seperated so shells can have crosshairs too
+  player.display();
+  displayCrossHair(mousePos,cursorSize,60,180,180);
+  displayScore();
 }
 
 
@@ -33,16 +35,17 @@ void levelBackground(int level){
 
 
 /*
-Purpose: Displays score
-Arguments: Null
+Purpose: Displays CrossHair
+Arguments: Current level
 Returns: Null
 */
-void displayCannon(){
-  //change this
-  stroke(0);
-  strokeWeight(2);
-  fill(64,64,128);
-  rect((width*1/2)-cannonDim.x/2,height-cannonDim.y,cannonDim.x,cannonDim.y);
+void displayCrossHair(PVector pos, int size,int r, int g, int b){
+  stroke(r,g,b);
+  int gap = size/2;
+  line(pos.x+gap,pos.y,pos.x+size+gap,pos.y);
+  line(pos.x-gap,pos.y,pos.x-size-gap,pos.y);
+  line(pos.x,pos.y+gap,pos.x,pos.y+size+gap);
+  line(pos.x,pos.y-gap,pos.x,pos.y-size-gap);
 }
 
 
@@ -54,11 +57,12 @@ Returns: Null
 */
 void displayScore(){
   //change this
+  String text = "Score: "+score;
   stroke(0);
   strokeWeight(2);
   fill(50);
-  rect(5,5,84,28);
-  fill(200);
+  rect(5,5,textWidth(text)+textWidth("   "),28,6);
+  fill(60,180,120);
   textSize(20);
-  text(score,10,26);
+  text(text,15,26);
 }

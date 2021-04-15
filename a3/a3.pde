@@ -1,32 +1,46 @@
-//final var
+/*
+  Assignment 3 Group Project: Arcade Missile defence
+  By Group 16 - Nathan Hall, Kris Martin, Simon Colman
+*/
+
+
+
+/*
+Notes:
+while mouse is pressed, and reload = 100%, spawn new shell, aimed at mouse, it stores the mousePos vector and displays its own crosshair
+at some point work out rotation for the turret
+change boolean state to more complete, start menu with settings, in game(level), between level upgrade selection, game over screen with option to return to menu
+*/
+
+
 
 //which game state/screen
 boolean inMenu;
-//points is just total score minus spent on upgrades
+//points is just total score minus spent on upgrades. kinda like money
 int score, points;
 //level number and time in level. Used for difficulty/spawn rates
 int level, time;
+//Mouse/Cursor as vector
+PVector mousePos = new PVector();
+int cursorSize;
 
 //ArrayLists for various numerous objects
 ArrayList<city> cities;
 ArrayList<shell> shells;
 ArrayList<missile> missiles;
 
-//    Default object var
-//cannon
-PVector cannonDim = new PVector();
-PVector barrelDim = new PVector();
-PVector barrelAim = new PVector();
-
-//city
-int cityDefaultHealth;
-PVector cityDim = new PVector();
-//shell
-//missile
-  
+//player as cannon object. no need for array
+cannon player;
 
 //resources
 PImage city1;
+PImage cannonBase;
+PImage cannonWheel;
+PImage cannonBarrel;
+
+//Default Object Values
+int cityDefaultHealth=100;
+
 
 
 /*
@@ -43,15 +57,27 @@ void setup(){
   level = 0; //count like array?
   time = 0;
   
+  cursorSize = 12;
+  
   loadResources();
-  setDefaultObjectVariables();
   setLevel(); //clears and reinitiallisers ArrayLists etc
 }
 
 
+
+/*
+Purpose: Loads Image Objects
+Arguments: Null
+Returns: Null
+*/
 void loadResources(){
-  city1 = loadImage("city1.png");
+  city1 = loadImage("images/city1.png");
+  cannonBase = loadImage("images/cannonBase.png");
+  cannonWheel = loadImage("images/cannonWheel.png");
+  cannonBarrel = loadImage("images/cannonBarrel.png");
 }
+
+
 
 /*
 Purpose: Simply seperates/branches code for ease of use
@@ -68,22 +94,4 @@ void draw(){
     processGame();
     displayGame();
   }
-}
-
-
-void setDefaultObjectVariables(){
-  //Player/Cannon
-  cannonDim.x = 60;
-  cannonDim.y = 60;
-  barrelDim.x = 60;
-  barrelDim.y = 10; //these values may alter as player upgrades
-  
-  //City
-  cityDefaultHealth = 100;
-  cityDim.x = 60;
-  cityDim.y = 40;
-
-  //Shells
-  
-  //Missiles
 }

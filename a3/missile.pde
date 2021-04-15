@@ -7,6 +7,12 @@ class missile{
   //constructors
   
   //methods
+  void process(){
+    
+  }
+  
+  
+  
   void display(){
     
   }
