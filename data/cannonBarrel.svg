@@ -14,7 +14,7 @@
    id="svg8"
    inkscape:version="1.0.2 (e86c8708, 2021-01-15)"
    sodipodi:docname="cannonBarrel.svg"
-   inkscape:export-filename="/Users/kristymartin/OneDrive - University of New England/cocs101/assignment3/cosc101_assignment3_assets/cannonWithPlatoform.png"
+   inkscape:export-filename="/Users/kristymartin/Desktop/cannonBarrel.png"
    inkscape:export-xdpi="96"
    inkscape:export-ydpi="96">
   <defs
@@ -123,7 +123,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
