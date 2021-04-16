@@ -37,7 +37,7 @@ class cannon{
     
     reloadDim.x = 38;
     reloadDim.y = 6;   
-    reloadPeriod = 128;
+    reloadPeriod = 16;  //change to 128
     reloadTime = 0;
 }
   
@@ -64,6 +64,7 @@ class cannon{
   Returns: Null
   */
   void reloadBar(){
+    stroke(0);
     float reloadRatio = (float)reloadTime/reloadPeriod;
     fill(40,40,80);
     rect(mousePos.x-reloadDim.x/2,mousePos.y+cursorSize*2,reloadDim.x,reloadDim.y,8);
@@ -86,7 +87,6 @@ class cannon{
     else if (reloadTime==reloadPeriod && mousePressed && mouseButton == LEFT){
       reloadTime = 0;
       shells.add(new shell(mousePos));
-      if (reloadPeriod>8){reloadPeriod-=8;}
     }
   }
   

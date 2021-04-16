@@ -37,6 +37,7 @@ PImage city1;
 PImage cannonBase;
 PImage cannonWheel;
 PImage cannonBarrel;
+PImage background1;
 
 //Default Object Values
 int cityDefaultHealth=100;
@@ -75,6 +76,7 @@ void loadResources(){
   cannonBase = loadImage("images/cannonBase.png");
   cannonWheel = loadImage("images/cannonWheel.png");
   cannonBarrel = loadImage("images/cannonBarrel.png");
+  background1 = loadImage("images/NebulaBackground2.png");
 }
 
 

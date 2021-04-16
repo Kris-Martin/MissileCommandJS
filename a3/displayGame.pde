@@ -30,6 +30,7 @@ Returns: Null
 void levelBackground(int level){
   //change this
   background(16,16,64);
+  //image(background1,0,0,width,height);  //laggy, too high res for repeat draw
 }
 
 
