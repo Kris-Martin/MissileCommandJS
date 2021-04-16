@@ -4,7 +4,9 @@
 ## Description
 COSC101 Group Project - Assignment 3 is based on Missile Command an arcade classic originally developed in 1980 by Atari. It conatins the following elements:
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/uJijGLGHRTE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+![Link to Youtube of original Atari Missile Command Game Play](data/missileCommand1980.png)
+[Missile Command Game Play](https://www.youtube.com/embed/uJijGLGHRTE "Original 1980 Missile Command.")
+
 
 * The player must defend six cities that sit at the bottom of the screen from randomly falling balistic misslies, using an anti-missile battery. 
 
