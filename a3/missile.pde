@@ -1,7 +1,7 @@
 /*
 Purpose: The hostile ammunition attacking the cities. Potentially add subclasses or just field specific methods for varient missiles 
  */
-class missile {
+class Missile {
   //fields
   PVector pos = new PVector();
   PVector vel = new PVector();
@@ -9,7 +9,7 @@ class missile {
   int velocity;
   //constructors
 
-  missile() {
+  Missile() {
     dim.x = 20;
     dim.y = 20;
     pos.x = random(0, width);

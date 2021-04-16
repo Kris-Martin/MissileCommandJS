@@ -1,14 +1,14 @@
 /*
 Purpose: The pseudo-health of the player. the static objects to be protected, potentially have variant textures to display city health
 */
-class city{
+class City{
   //fields
   int health;
   int posX;
   PVector dim = new PVector();
   
   //constructors
-  city(int PositionX){
+  City(int PositionX){
     this.health = cityDefaultHealth*level;
     this.posX = PositionX;
     this.dim.x = 80;

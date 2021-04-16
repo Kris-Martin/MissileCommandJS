@@ -25,12 +25,12 @@ PVector mousePos = new PVector();
 int cursorSize;
 
 //ArrayLists for various numerous objects
-ArrayList<city> cities;
-ArrayList<shell> shells;
-ArrayList<missile> missiles;
+ArrayList<City> cities;
+ArrayList<Shell> shells;
+ArrayList<Missile> missiles;
 
 //player as cannon object. no need for array
-cannon player;
+Cannon player;
 
 //resources
 PImage city1;
@@ -55,7 +55,8 @@ void setup(){
   inMenu = false;
   score = 0;
   points = 0;
-  level = 0; //count like array?
+  level = 1;  //so to display custom background for now
+//  level = 0; //count like array?
   time = 0;
   
   cursorSize = 12;
@@ -77,6 +78,7 @@ void loadResources(){
   cannonWheel = loadImage("images/cannonWheel.png");
   cannonBarrel = loadImage("images/cannonBarrel.png");
   background1 = loadImage("images/NebulaBackground2.png");
+  background1.resize(width,height);
 }
 
 

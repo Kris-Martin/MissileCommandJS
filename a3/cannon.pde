@@ -1,7 +1,7 @@
 /*
 The players defence turret/cannon
 */
-class cannon{
+class Cannon{
   PVector baseDim = new PVector();
   PVector basePos = new PVector();
   
@@ -21,7 +21,7 @@ class cannon{
   Arguments: Null
   Returns: Null
   */
-  cannon(){
+  Cannon(){
     baseDim.x = 80;
     baseDim.y = 24;
     basePos.x = width/2;
@@ -86,7 +86,7 @@ class cannon{
     }
     else if (reloadTime==reloadPeriod && mousePressed && mouseButton == LEFT){
       reloadTime = 0;
-      shells.add(new shell(mousePos));
+      shells.add(new Shell(mousePos));
     }
   }
   

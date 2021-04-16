@@ -5,13 +5,13 @@ Returns: Null
 */
 void displayGame(){
   levelBackground(level);
-  for (city c : cities){
+  for (City c : cities){
     c.display();
   }
-  for (missile m : missiles){
+  for (Missile m : missiles){
     m.display();
   }
-  for (shell s : shells){
+  for (Shell s : shells){
     s.display();
   }
   //display mouse crossHair, seperated so shells can have crosshairs too
@@ -29,8 +29,14 @@ Returns: Null
 */
 void levelBackground(int level){
   //change this
-  background(16,16,64);
-  //image(background1,0,0,width,height);  //laggy, too high res for repeat draw
+  switch(level){
+    case 0:
+      background(16,16,64);
+      break;
+    case 1:
+      image(background1,0,0);  //laggy, too high res for repeat draw
+      break;
+  }
 }
 
 

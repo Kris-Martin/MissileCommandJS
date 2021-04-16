@@ -8,19 +8,19 @@ void processGame() {
   
   //city loop
   for (int i=0; i<cities.size(); i++) {
-    city c = cities.get(i);
+    City c = cities.get(i);
     c.process();
   }
   
   //missile loop
   for (int i=0; i<missiles.size(); i++) {
-    missile m = missiles.get(i);
+    Missile m = missiles.get(i);
     m.process();
   }
   
   //shell loop
   for (int i=0; i<shells.size(); i++) {
-    shell s = shells.get(i);
+    Shell s = shells.get(i);
     if(!s.exist){
       shells.remove(s);
     }
@@ -55,7 +55,7 @@ void processCursor() {
 
   void spawnMissiles() {
     if (time % 64 == 0){
-    missiles.add(new missile());
+    missiles.add(new Missile());
     }
     
  

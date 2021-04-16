@@ -1,7 +1,7 @@
 /*
 Purpose: The ammunition fired by players cannon. Potentially add subclasses or just field specific methods for varient shells 
 */
-class shell{
+class Shell{
   boolean exist;
   
   PVector pos = new PVector();
@@ -18,7 +18,7 @@ class shell{
   Args:
   Returns:
   */
-  shell(PVector target){
+  Shell(PVector target){
     exist = true;
     dim.x = 8;
     dim.y = 8;
