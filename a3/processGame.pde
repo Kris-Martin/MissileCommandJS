@@ -4,15 +4,30 @@ Purpose: ?
  Returns: Null
  */
 void processGame() {
-  for (city c : cities) {
+  time++;  //make better XD
+  
+  //city loop
+  for (int i=0; i<cities.size(); i++) {
+    city c = cities.get(i);
     c.process();
   }
-  for (missile m : missiles) {
+  
+  //missile loop
+  for (int i=0; i<missiles.size(); i++) {
+    missile m = missiles.get(i);
     m.process();
   }
-  for (shell s : shells) {
+  
+  //shell loop
+  for (int i=0; i<shells.size(); i++) {
+    shell s = shells.get(i);
+    if(!s.exist){
+      shells.remove(s);
+    }
     s.process();
   }
+  
+  //other
   processCursor();
   player.reloadAndShoot();
   spawnMissiles();
@@ -39,7 +54,7 @@ void processCursor() {
 }
 
   void spawnMissiles() {
-    if (missiles.size() < 3){
+    if (time % 64 == 0){
     missiles.add(new missile());
     }
     
