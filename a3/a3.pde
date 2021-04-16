@@ -90,6 +90,8 @@ Returns: Null
 */
 void draw(){
   //draw just redirects to the main states process and display. functions branch from there
+  //should we have multiple menu types, and so instead of boolean if, have int switch?
+  //menu types; Main/options | Upgrade screen | Game Over
   if (inMenu){
     processMenu();
     displayMenu();

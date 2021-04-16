@@ -1,41 +1,44 @@
 # List of Classes
 
-### A3:
+### a3:
 Main program, contains global variables, setup, draw and loadResources methods.
 
 ### Cannon:
 
-Players missile defence/canon.
+Players defence/canon that fires shells.
 
 ### City:
 
 City object, fields include health, position and dimensions.
 
-### DisplayGame:
+### displayGame:
 
 Game display class, includes levelBackground, displayCrossHair, and displayScore methods.
+Central loop that calls all Obj.display() methods
 
-### DisplayMenu:
+### displayMenu:
 
 Display game menu.
+Not yet implemented, and may alter how menu's work
 
 ### Missile:
 
 Enemy ammunition. Includes position, velocity and dimensions.
 
-### ProcessGame:
+### processGame:
 
 Main game loop. Controls game assets.
 
-### ProcessMenu:
+### processMenu:
 
-// TODO: Add description here
+Main Menu loop, controls menu and I/O
 
-### SetLevel:
+### setLevel:
 
 Initialise/reset game assets.
+Call at start of each level.
 
 ### Shell:
 
-Player ammunition fired by player's canon.
+Ammunition fired by player's cannon.
 
