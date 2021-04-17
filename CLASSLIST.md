@@ -25,7 +25,9 @@ Ammunition fired by player's cannon.
 
 A class to manage sound effects and theme music.
 
-##Seperate files - Functions or function groupings
+
+
+## Seperate files - Functions or function groupings
 
 ### processGame:
 
