@@ -66,11 +66,9 @@ void processCursor() {
 }
 
   void spawnMissiles() {
-    if (time % 256 == 0){
+    if (time % 256 == 0){  //scale by level
     missiles.add(new Missile());
-    }
-    
- 
+    } 
   }
 
 /*

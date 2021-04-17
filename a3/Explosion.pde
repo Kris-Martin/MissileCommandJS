@@ -49,8 +49,9 @@ class Explosion{
       }
     }
     //score to add = count^2 + closeness to ground all time by 100
-    scoreAdd = (int)((pow(destroyCount,2)+((float)pos.y/height))*100);
-    
+    if (destroyCount>0){
+      scoreAdd = (int)((pow(destroyCount+(float)pos.y/height,2))*250);
+    }
     //end explosion, add points to score
     if (time>duration*2){
       score+= scoreAdd;
@@ -75,7 +76,7 @@ class Explosion{
     fill(80,240,80);
     //display score addition
     if (destroyCount>0){
-      textSize(20*destroyCount);
+      textSize(scoreAdd/(25+level*5));  //alter based on level, as you expect increasing points
       text("+"+scoreAdd,pos.x+size/2,pos.y);
     }
   }
