@@ -89,4 +89,38 @@ class Sound {
         
         bombDropImpact.play();
     }
+    
+    void test() {
+        if (keyPressed) {
+        
+            if (key == '1') {
+                shortLaser();
+            }
+            if (key == '2') {
+                laserCannon();
+            }
+            if (key == '3') {
+                laserWeapon();
+            }
+            if (key == '4') {
+                plasmaGunPowerUp();
+            }
+            if (key == '5') {
+                plasmaGunPower();
+            }
+            if (key == '6') {
+                battleLaserShots();
+            }
+            if (key == '7') {
+                shatterShotExplosion();
+            }
+            if (key == '8') {
+                massiveExplosion();
+            }
+            if (key == '9') {
+                bombDropImpact();
+            }
+       
+        }  
+    }
 }
