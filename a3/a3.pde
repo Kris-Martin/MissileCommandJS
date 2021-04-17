@@ -34,11 +34,7 @@ ArrayList<Explosion> explosions;
 Cannon player;
 
 //resources
-PImage city1;
-PImage cannonBase;
-PImage cannonWheel;
-PImage cannonBarrel;
-PImage background1;
+Resources resource;
 
 //Default Object Values
 int cityDefaultHealth=100;
@@ -61,26 +57,9 @@ void setup(){
   
   cursorSize = 12;
   
-  loadResources();
+  resource = new Resources();
   setLevel(); //clears and reinitiallisers ArrayLists etc
 }
-
-
-
-/*
-Purpose: Loads Image Objects
-Arguments: Null
-Returns: Null
-*/
-void loadResources(){
-  city1 = loadImage("images/city1.png");
-  cannonBase = loadImage("images/cannonBase.png");
-  cannonWheel = loadImage("images/cannonWheel.png");
-  cannonBarrel = loadImage("images/cannonBarrel.png");
-  background1 = loadImage("images/NebulaBackground2.png");
-  background1.resize(width,height);
-}
-
 
 
 /*
