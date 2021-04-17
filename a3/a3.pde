@@ -9,7 +9,7 @@
 Notes:
 while mouse is pressed, and reload = 100%, spawn new shell, aimed at mouse, it stores the mousePos vector and displays its own crosshair
 at some point work out rotation for the turret
-change boolean state to more complete, start menu with settings, in game(level), between level upgrade selection, game over screen with option to return to menu
+change boolean state to more complete, start menu with settings, in game(level, between level upgrade selection, game over screen with option to return to menu
 */
 
 
@@ -46,8 +46,12 @@ Purpose: Initialtes all starting parameters
 Arguments: Null
 Returns: Null
 */
+public void settings() {
+    size(1024,768);
+}
+
 void setup(){
-  size(1024,768);
+  
   frameRate(60); //specific so counters are consistant
   inMenu = false;
   score = 0;
