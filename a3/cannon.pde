@@ -50,6 +50,7 @@ class Cannon{
   */
   void display(){
     //change this
+    //need to implement barrel rotation
     image(cannonBase,basePos.x-baseDim.x/2,height-baseDim.y,baseDim.x,baseDim.y);
     image(cannonBarrel,basePos.x-barrelDim.x/2,height-baseDim.y-barrelDim.y*(5./8.),barrelDim.x,barrelDim.y);
     image(cannonWheel,basePos.x-wheelDim.x/2,height-baseDim.y-wheelDim.y/2,wheelDim.x,wheelDim.y);

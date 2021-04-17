@@ -10,7 +10,7 @@ COSC101 Group Project - Assignment 3 is based on Missile Command an arcade class
 
 * The player must defend six cities that sit at the bottom of the screen from randomly falling balistic misslies, using an anti-missile battery. 
 
-* The anit-missile battery fires counter-missiles to intercept and destroy the ballistic missiles raining down. 
+* The anti-missile battery fires counter-missiles to intercept and destroy the ballistic missiles raining down. 
 
 * The player controls a cross-hair that specifies where the counter-missile will detonate. 
 
