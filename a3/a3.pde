@@ -7,9 +7,10 @@
 
 /*
 Notes:
-while mouse is pressed, and reload = 100%, spawn new shell, aimed at mouse, it stores the mousePos vector and displays its own crosshair
 at some point work out rotation for the turret
-change boolean state to more complete, start menu with settings, in game(level, between level upgrade selection, game over screen with option to return to menu
+change boolean state to more complete, start menu with settings, in game(level), between level upgrade selection, game over screen with option to return to menu
+at in audioFX
+Yall can write here too, these are internal notes, or TODO list if you will
 */
 
 
