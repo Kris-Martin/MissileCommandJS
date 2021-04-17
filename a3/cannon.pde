@@ -90,6 +90,7 @@ class Cannon {
         } else if (reloadTime==reloadPeriod && mousePressed && mouseButton == LEFT) {
             reloadTime = 0;
             shells.add(new Shell(mousePos));
+            sound.laserWeapon.play();
         }
     }
 

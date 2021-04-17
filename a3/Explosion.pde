@@ -45,6 +45,7 @@ class Explosion{
     for (Missile m : missiles){
       if (pos.dist(m.pos)<(radius+m.dim.x)/2){
         m.exist = false;
+        sound.shatterShotExplosion.play();
         destroyCount++;
       }
     }

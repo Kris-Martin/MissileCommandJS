@@ -36,6 +36,7 @@ Cannon player;
 
 //resources
 Resources resource;
+Sound sound;
 
 //Default Object Values
 int cityDefaultHealth=100;
@@ -63,6 +64,7 @@ void setup(){
   cursorSize = 12;
   
   resource = new Resources();
+  sound = new Sound(this);
   setLevel(); //clears and reinitiallisers ArrayLists etc
 }
 
