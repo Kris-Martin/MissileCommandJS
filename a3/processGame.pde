@@ -71,6 +71,8 @@ void processCursor() {
     } 
   }
 
+
+
 /*
 Purpose:  Calculates a vector between two vectors
  Args:  Vectors a & b
