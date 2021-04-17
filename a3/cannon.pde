@@ -66,6 +66,7 @@ class Cannon{
   */
   void reloadBar(){
     stroke(0);
+    strokeWeight(1.5);
     float reloadRatio = (float)reloadTime/reloadPeriod;
     fill(40,40,80);
     rect(mousePos.x-reloadDim.x/2,mousePos.y+cursorSize*2,reloadDim.x,reloadDim.y,8);

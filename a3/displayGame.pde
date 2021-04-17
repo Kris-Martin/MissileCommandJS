@@ -33,11 +33,11 @@ Returns: Null
 void levelBackground(int level){
   //change this
   switch(level){
-    case 0:
-      background(16,16,64);
-      break;
     case 1:
       image(background1,0,0);  //laggy, too high res for repeat draw
+      break;
+    default:
+      background(level*32);
       break;
   }
 }
@@ -71,7 +71,8 @@ void displayScore(){
   stroke(0);
   strokeWeight(2);
   fill(50);
-  rect(5,5,textWidth(text)+textWidth("   "),28,6);
+  rect(5,5,width-10,28,6);
+  
   fill(60,180,120);
   textSize(20);
   text(text,15,26);

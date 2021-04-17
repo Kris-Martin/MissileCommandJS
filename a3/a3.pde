@@ -57,7 +57,6 @@ void setup(){
   score = 0;
   points = 0;
   level = 1;  //so to display custom background for now
-//  level = 0; //count like array?
   time = 0;
   
   cursorSize = 12;
