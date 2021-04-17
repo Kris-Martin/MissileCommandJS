@@ -9,6 +9,7 @@ void setLevel(){
   cities = new ArrayList<City>();
   shells = new ArrayList<Shell>();
   missiles = new ArrayList<Missile>();
+  explosions = new ArrayList<Explosion>();
   
   //create 6 cities
   cities.add(new City((int)(width*1./8)));

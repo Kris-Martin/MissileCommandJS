@@ -2,16 +2,18 @@
 Purpose: The hostile ammunition attacking the cities. Potentially add subclasses or just field specific methods for varient missiles 
  */
 class Missile {
-  //fields
+  boolean exist;
+  
   PVector pos = new PVector();
   PVector vel = new PVector();
   PVector dim = new PVector();
-  int velocity;
+  float velocity;
   //constructors
 
   Missile() {
-    dim.x = 20;
-    dim.y = 20;
+    exist = true;
+    dim.x = 12;
+    dim.y = 12;
     pos.x = random(0, width);
     pos.y = 0;
     velocity = 1;
@@ -22,6 +24,9 @@ class Missile {
   //methods
   void process() {
     pos.add(vel);
+    if (pos.y>height){
+      exist = false;
+    }
   }
 
 

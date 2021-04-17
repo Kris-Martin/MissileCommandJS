@@ -27,7 +27,7 @@ class Shell{
     
     aim.set(target);
     
-    velocity=2;
+    velocity=4;
     //create vel as heading of diff vector between 2 points, pos and target
     vel.set(vectorDiff(target,pos).normalize().mult(velocity));
     
@@ -37,9 +37,17 @@ class Shell{
   
   void process(){
     pos.add(vel);
-    
-    if (pos.dist(aim)<velocity){
-      //explosion here, either altered process of shell, or new spawned object
+    boolean hit = false;
+    //detect missile collision
+    for (Missile m : missiles){
+      if (pos.dist(m.pos)<(dim.x+m.dim.x)/2){
+        hit = true;
+        break;
+      }
+    }
+    //trigger explosion if reach target or hit missile
+    if (pos.dist(aim)<velocity || hit){
+      explosions.add(new Explosion(pos));
       exist=false;
     }
   }

@@ -16,15 +16,27 @@ void processGame() {
   for (int i=0; i<missiles.size(); i++) {
     Missile m = missiles.get(i);
     m.process();
+    if(!m.exist){
+      missiles.remove(m);
+    }
   }
   
   //shell loop
   for (int i=0; i<shells.size(); i++) {
     Shell s = shells.get(i);
+    s.process();
     if(!s.exist){
       shells.remove(s);
     }
-    s.process();
+  }
+  
+  //missile loop
+  for (int i=0; i<explosions.size(); i++) {
+    Explosion e = explosions.get(i);
+    e.process();
+    if(!e.exist){
+      explosions.remove(e);
+    }
   }
   
   //other
@@ -54,7 +66,7 @@ void processCursor() {
 }
 
   void spawnMissiles() {
-    if (time % 64 == 0){
+    if (time % 256 == 0){
     missiles.add(new Missile());
     }
     

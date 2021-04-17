@@ -28,6 +28,7 @@ int cursorSize;
 ArrayList<City> cities;
 ArrayList<Shell> shells;
 ArrayList<Missile> missiles;
+ArrayList<Explosion> explosions;
 
 //player as cannon object. no need for array
 Cannon player;

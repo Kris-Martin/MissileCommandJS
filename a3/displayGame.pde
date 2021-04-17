@@ -14,6 +14,9 @@ void displayGame(){
   for (Shell s : shells){
     s.display();
   }
+  for (Explosion e : explosions){
+    e.display();
+  }
   //display mouse crossHair, seperated so shells can have crosshairs too
   player.display();
   displayCrossHair(mousePos,cursorSize,60,180,180);
