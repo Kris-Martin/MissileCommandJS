@@ -3,16 +3,17 @@ import processing.sound.*;
 
 class Sound {
     
-    private SoundFile shortLaser;
-    private SoundFile laserCannon;
-    private SoundFile plasmaGunPowerUp;
-    private SoundFile plasmaGunPower;
-    private SoundFile battleLaserShots;
-    private SoundFile shatterShotExplosion;
-    private SoundFile massiveExplosion;
-    private SoundFile laserWeapon;
-    private SoundFile bombDropImpact;
-    
+    SoundFile 
+        shortLaser, 
+        laserCannon, 
+        plasmaGunPowerUp, 
+        plasmaGunPower,
+        battleLaserShots,
+        shatterShotExplosion,
+        massiveExplosion,
+        laserWeapon, 
+        bombDropImpact,
+        fastRocketWhoosh;
     
     Sound(PApplet p) {
         
@@ -48,6 +49,9 @@ class Sound {
             
         bombDropImpact = new SoundFile(
             p, "mixkit-bomb-drop-impact-2804.wav");
+            
+        fastRocketWhoosh = new SoundFile(
+            p, "mixkit-fast-rocket-whoosh-1714.wav");
     }
     
     void test() {
@@ -80,6 +84,9 @@ class Sound {
              }
              if (key == '9') {
                  bombDropImpact.play();
+             }
+             if (key == '0') {
+                 fastRocketWhoosh.play();
              }
          }  
     }
