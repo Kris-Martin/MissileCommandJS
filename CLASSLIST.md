@@ -42,3 +42,7 @@ Call at start of each level.
 
 Ammunition fired by player's cannon.
 
+### Sound:
+
+A class to manage sound effects and theme music.
+
