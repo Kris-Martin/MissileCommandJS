@@ -6,6 +6,15 @@ Purpose: ?
 void processGame() {
   time++;  //make better XD
   
+  //trail loop
+  for (int i=0; i<trails.size(); i++) {
+    Trail t = trails.get(i);
+    t.process();
+    if(!t.exist){
+      trails.remove(t);
+    }
+  }
+
   //city loop
   for (int i=0; i<cities.size(); i++) {
     City c = cities.get(i);
@@ -50,26 +59,23 @@ Purpose: To add the missiles to the array
  Arguments: Null
  Returns: Null
  */
+void spawnMissiles() {
+  if (time % 256 == 0){  //scale by level
+    missiles.add(new Missile());
+  }
+}
 
-
-//int lastMillis=0;
 
 
 /*
 Purpose: ?
- Arguments: Null
- Returns: Null
- */
+Arguments: Null
+Returns: Null
+*/
 void processCursor() {
   mousePos.x = mouseX;
   mousePos.y = mouseY;
 }
-
-  void spawnMissiles() {
-    if (time % 256 == 0){  //scale by level
-    missiles.add(new Missile());
-    } 
-  }
 
 
 

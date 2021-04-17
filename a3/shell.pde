@@ -36,15 +36,21 @@ class Shell{
   
   
   void process(){
+    //add velocity
     pos.add(vel);
-    boolean hit = false;
+    
+    //create trail
+    trails.add(new Trail(pos,64,#00a0f0));
+    
     //detect missile collision
+    boolean hit = false;
     for (Missile m : missiles){
       if (pos.dist(m.pos)<(dim.x+m.dim.x)/2){
         hit = true;
         break;
       }
     }
+    
     //trigger explosion if reach target or hit missile
     if (pos.dist(aim)<velocity || hit){
       explosions.add(new Explosion(pos));

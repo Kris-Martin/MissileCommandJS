@@ -23,7 +23,13 @@ class Missile {
 
   //methods
   void process() {
+    //add velocity
     pos.add(vel);
+    
+    //create trail
+    trails.add(new Trail(pos,128,#f0c000));
+
+    //change this once collision to cities and ground is implemented
     if (pos.y>height){
       exist = false;
     }
@@ -31,16 +37,10 @@ class Missile {
 
 
 
-  void display() {
-    //basic bitch trial, make better
-    stroke(250);
-    line(pos.x,pos.y,pos.x-vel.x*128,pos.y-vel.y*128);
-    
+  void display() {    
     //basic missile
     stroke(0);
     fill(#F70505);
     ellipse(pos.x, pos.y, dim.x, dim.y);
-    
-
   }
 }

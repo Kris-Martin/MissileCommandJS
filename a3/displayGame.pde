@@ -5,6 +5,9 @@ Purpose: ?
  */
 void displayGame() {
     levelBackground(level);
+    for (Trail t : trails) {
+        t.display();
+    }
     for (City c : cities) {
         c.display();
     }

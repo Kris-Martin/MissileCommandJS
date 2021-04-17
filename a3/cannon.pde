@@ -37,7 +37,7 @@ class Cannon {
 
         reloadDim.x = 38;
         reloadDim.y = 6;   
-        reloadPeriod = 128;
+        reloadPeriod = 32;  //128
         reloadTime = 0;
     }
 

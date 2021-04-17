@@ -31,6 +31,7 @@ ArrayList<City> cities;
 ArrayList<Shell> shells;
 ArrayList<Missile> missiles;
 ArrayList<Explosion> explosions;
+ArrayList<Trail> trails;
 
 //player as cannon object. no need for array
 Cannon player;
