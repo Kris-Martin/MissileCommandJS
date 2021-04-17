@@ -3,7 +3,7 @@ import processing.sound.*;
 
 class Sound {
     
-    private SoundFile shortLaserShot;
+    private SoundFile shortLaser;
     private SoundFile laserCannon;
     private SoundFile plasmaGunPowerUp;
     private SoundFile plasmaGunPower;
@@ -16,7 +16,13 @@ class Sound {
     
     Sound(PApplet p) {
         
-        shortLaserShot = new SoundFile(
+        loadFiles(p);
+            
+    }
+    
+    void loadFiles(PApplet p) {
+
+        shortLaser = new SoundFile(
             p, "mixkit-short-laser-gun-shot-1670.wav" );
             
         laserCannon = new SoundFile(
@@ -42,85 +48,39 @@ class Sound {
             
         bombDropImpact = new SoundFile(
             p, "mixkit-bomb-drop-impact-2804.wav");
-            
-    }
-    
-    void shortLaser() {
-        
-        shortLaserShot.play();
-    }
-    
-    void laserCannon() {
-        
-        laserCannon.play();
-    }
-    
-    void plasmaGunPowerUp() {
-        
-        plasmaGunPowerUp.play();
-    }
-    
-    void plasmaGunPower() {
-    
-        plasmaGunPower.play();
-    }
-    
-    void battleLaserShots() {
-    
-        battleLaserShots.play();
-    }
-    
-    void shatterShotExplosion() {
-        
-        shatterShotExplosion.play();
-    }
-    
-    void massiveExplosion() {
-    
-        massiveExplosion.play();
-    }
-    
-    void laserWeapon() {
-    
-        laserWeapon.play();
-    }
-    
-    void bombDropImpact() {
-        
-        bombDropImpact.play();
     }
     
     void test() {
-        if (keyPressed) {
+
+         if (keyPressed) {
         
-            if (key == '1') {
-                shortLaser();
-            }
-            if (key == '2') {
-                laserCannon();
-            }
-            if (key == '3') {
-                laserWeapon();
-            }
-            if (key == '4') {
-                plasmaGunPowerUp();
-            }
-            if (key == '5') {
-                plasmaGunPower();
-            }
-            if (key == '6') {
-                battleLaserShots();
-            }
-            if (key == '7') {
-                shatterShotExplosion();
-            }
-            if (key == '8') {
-                massiveExplosion();
-            }
-            if (key == '9') {
-                bombDropImpact();
-            }
-       
-        }  
+             if (key == '1') {
+                 shortLaser.play();
+             }
+             if (key == '2') {
+                 laserCannon.play();
+             }
+             if (key == '3') {
+                 laserWeapon.play();
+             }
+             if (key == '4') {
+                 plasmaGunPowerUp.play();
+             }
+             if (key == '5') {
+                 plasmaGunPower.play();
+             }
+             if (key == '6') {
+                 battleLaserShots.play();
+             }
+             if (key == '7') {
+                 shatterShotExplosion.play();
+             }
+             if (key == '8') {
+                 massiveExplosion.play();
+             }
+             if (key == '9') {
+                 bombDropImpact.play();
+             }
+         }  
     }
 }
