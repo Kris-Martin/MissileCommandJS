@@ -52,7 +52,14 @@ class Cannon {
         //change this
         //need to implement barrel rotation
         image(resource.cannonBase, basePos.x-baseDim.x/2, height-baseDim.y, baseDim.x, baseDim.y);
-        image(resource.cannonBarrel, basePos.x-barrelDim.x/2, height-baseDim.y-barrelDim.y*(5./8.), barrelDim.x, barrelDim.y);
+        
+        //rotate barrel, display, then unrotate
+        translate(basePos.x,height-baseDim.y);
+        rotate(vectorDiff(new PVector(basePos.x,height-baseDim.y),mousePos).heading()-PI/2);
+        image(resource.cannonBarrel, -barrelDim.x/2, -barrelDim.y*(5./8.), barrelDim.x, barrelDim.y);
+        rotate(-vectorDiff(new PVector(basePos.x,height-baseDim.y),mousePos).heading()+PI/2);
+        translate(-(basePos.x),-(height-baseDim.y));
+        
         image(resource.cannonWheel, basePos.x-wheelDim.x/2, height-baseDim.y-wheelDim.y/2, wheelDim.x, wheelDim.y);
         this.reloadBar();
     }
