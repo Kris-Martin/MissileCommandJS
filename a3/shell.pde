@@ -40,7 +40,7 @@ class Shell{
     pos.add(vel);
     
     //create trail
-    trails.add(new Trail(pos,64,#00a0f0));
+    trails.add(new Trail(pos,vel,64,(int)dim.x,#00a0f0));
     
     //detect missile collision
     boolean hit = false;
@@ -61,8 +61,9 @@ class Shell{
   
   
   void display(){
+    strokeWeight(2);
     stroke(0);
-    fill(180,120,120);
+    fill(80,180,80);
     //why does rectangle draw from side, but ellipse from centre, it keeps screwing with me
     ellipse(pos.x,pos.y,dim.x,dim.y);
     

@@ -4,13 +4,16 @@ Purpose: The trails that follow missiles and shells
 class Trail{
   boolean exist;
   int time, duration;
-  int size; //?
+  int size;
   PVector pos = new PVector();
+  PVector pre = new PVector();
   color col;
   
-  Trail(PVector position, int lifeTime, color colour){
+  Trail(PVector position, PVector previous, int lifeTime, int trailWidth, color colour){
     exist = true;
     pos.set(position);
+    pre.set(previous);
+    size = trailWidth;
     duration = lifeTime;
     col = colour;
   }
@@ -37,7 +40,8 @@ Arguments: Null
 Returns: Null
 */
   void display(){
+    strokeWeight(size);
     stroke(col,256-time*(256/duration));
-    point(pos.x,pos.y);
+    line(pos.x,pos.y,pos.x-pre.x,pos.y-pre.y);
   }
 }

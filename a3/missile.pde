@@ -27,7 +27,7 @@ class Missile {
     pos.add(vel);
     
     //create trail
-    trails.add(new Trail(pos,128,#f0c000));
+    trails.add(new Trail(pos,vel,128,(int)dim.x,#f0c000));
 
     //change this once collision to cities and ground is implemented
     if (pos.y>height){
@@ -39,6 +39,7 @@ class Missile {
 
   void display() {    
     //basic missile
+    strokeWeight(2);
     stroke(0);
     fill(#F70505);
     ellipse(pos.x, pos.y, dim.x, dim.y);

@@ -8,7 +8,6 @@
 /*
 Notes:
 Yall can write here too, these are internal notes, or TODO list if you will
-at some point work out rotation for the turret
 setLevel() takes level to generate starting values for things
 add in score modifier for distance from width/2 or diff calculation for diffulculty to hit
 */
