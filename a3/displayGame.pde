@@ -53,7 +53,7 @@ Purpose: Displays CrossHair
  Returns: Null
  */
 void displayCrossHair(PVector pos, int size, int r, int g, int b) {
-    strokeWeight(1);
+    strokeWeight(2);
     stroke(r, g, b);
     int gap = size/2;
     line(pos.x+gap, pos.y, pos.x+size+gap, pos.y);

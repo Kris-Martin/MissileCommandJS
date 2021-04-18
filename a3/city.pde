@@ -11,7 +11,7 @@ class City {
 
     //constructors
     City(int PositionX) {
-        this.health = cityDefaultHealth*level;
+        this.health = 100*level;
         this.posX = PositionX;
         this.dim.x = 80;
         this.dim.y = 40;

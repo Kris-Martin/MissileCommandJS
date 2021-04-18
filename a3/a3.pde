@@ -10,12 +10,13 @@ Notes:
 Yall can write here too, these are internal notes, or TODO list if you will
 setLevel() takes level to generate starting values for things
 add in score modifier for distance from width/2 or diff calculation for diffulculty to hit
+multiple city pic varients, mainly to display health, more health steps, the better, from full city to pure rubble
 */
 
 
 
 //which game state/screen
-//0 = Main menu, 1 = inGame, 10 / 2 = upgrade menu, 3 / -1 = game over.
+//0 = Main menu, 1 = inGame, 10 = upgrade menu, -1 = game over.
 int gameState;
 //points is just total score minus spent on upgrades. kinda like money
 int score, points;
@@ -39,22 +40,14 @@ Cannon player;
 Resources resource;
 Sound sound;
 
-//Default Object Values
-int cityDefaultHealth=100;
-
-
 
 /*
 Purpose: Initialtes all starting parameters
 Arguments: Null
 Returns: Null
 */
-public void settings() {
-    size(1024,768);
-}
-
 void setup(){
-  
+  size(1024,768);
   frameRate(60); //specific so counters are consistant
   gameState = 1;
   score = 0;
@@ -66,6 +59,7 @@ void setup(){
   
   resource = new Resources();
   sound = new Sound(this);
+  
   setLevel(); //clears and reinitiallisers ArrayLists etc
 }
 
