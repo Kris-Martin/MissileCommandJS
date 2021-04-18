@@ -22,6 +22,8 @@ int gameState;
 int score, points;
 //level number and time in level. Used for difficulty/spawn rates
 int level, time;
+//number of starting shells and missiles per wave
+int shellCount, missileCount;
 //Mouse/Cursor as vector
 PVector mousePos = new PVector();
 int cursorSize;
@@ -48,12 +50,14 @@ Returns: Null
 */
 void setup(){
   size(1024,768);
-  frameRate(60); //specific so counters are consistant
+  frameRate(60);
   gameState = 1;
   score = 0;
   points = 0;
-  level = 1;  //so to display custom background for now
+  level = 1;
   time = 0;
+  shellCount = 64;   //(64+bought)*level
+  missileCount = 8;  //2^(level+2)
   
   cursorSize = 12;
   
