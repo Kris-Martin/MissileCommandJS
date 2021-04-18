@@ -17,6 +17,10 @@ City object, fields include health, position and dimensions.
 
 Enemy ammunition. Includes position, velocity and dimensions.
 
+### Resources
+
+A class to mange sounds and theme music
+
 ### Shell:
 
 Ammunition fired by player's cannon.
@@ -25,7 +29,9 @@ Ammunition fired by player's cannon.
 
 A class to manage sound effects and theme music.
 
+### Trail:
 
+A class to manage the missile trails.
 
 ## Seperate files - Functions or function groupings
 
