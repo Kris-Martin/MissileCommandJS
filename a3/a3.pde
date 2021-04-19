@@ -11,6 +11,7 @@ Yall can write here too, these are internal notes, or TODO list if you will
 setLevel() takes level to generate starting values for things
 add in score modifier for distance from width/2 or diff calculation for diffulculty to hit
 multiple city pic varients, mainly to display health, more health steps, the better, from full city to pure rubble
+should cities be reset as of current, or persist? functionally
 */
 
 
@@ -18,15 +19,21 @@ multiple city pic varients, mainly to display health, more health steps, the bet
 //which game state/screen
 //0 = Main menu, 1 = inGame, 10 = upgrade menu, -1 = game over.
 int gameState;
+
 //points is just total score minus spent on upgrades. kinda like money
 int score, points;
+
 //level number and time in level. Used for difficulty/spawn rates
 int level, time;
-//number of starting shells and missiles per wave
-int shellCount, missileCount;
+
+//number of, starting shells and total missiles, per wave
+int shellCount, missileCount, missileMax;
+
 //Mouse/Cursor as vector
 PVector mousePos = new PVector();
-int cursorSize;
+
+//cursor size
+final int Cursor_Size = 12;
 
 //ArrayLists for various numerous objects
 ArrayList<City> cities;
@@ -43,6 +50,7 @@ Resources resource;
 Sound sound;
 
 
+
 /*
 Purpose: Initialtes all starting parameters
 Arguments: Null
@@ -51,19 +59,13 @@ Returns: Null
 void setup(){
   size(1024,768);
   frameRate(60);
-  gameState = 1;
-  score = 0;
-  points = 0;
-  level = 1;
-  time = 0;
-  shellCount = 64;   //(64+bought)*level
-  missileCount = 8;  //2^(level+2)
   
-  cursorSize = 12;
+  gameState = 1;
   
   resource = new Resources();
   sound = new Sound(this);
   
+  level = 1;
   setLevel(); //clears and reinitiallisers ArrayLists etc
 }
 

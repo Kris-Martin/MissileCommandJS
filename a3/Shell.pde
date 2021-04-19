@@ -67,6 +67,6 @@ class Shell{
     //why does rectangle draw from side, but ellipse from centre, it keeps screwing with me
     ellipse(pos.x,pos.y,dim.x,dim.y);
     
-    displayCrossHair(aim,cursorSize/2,180,60,60);
+    displayCrossHair(aim,Cursor_Size/2,180,60,60);
   }
 }

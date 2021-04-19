@@ -6,7 +6,7 @@ Returns: Null
 void setLevel(){
   //should reset all arrays iirc
   player = new Cannon();
-  cities = new ArrayList<City>();
+  cities = new ArrayList<City>();  //refresh cities? or persist due to health?
   shells = new ArrayList<Shell>();
   missiles = new ArrayList<Missile>();
   explosions = new ArrayList<Explosion>();
@@ -20,4 +20,14 @@ void setLevel(){
   cities.add(new City((int)(width*5./8)));
   cities.add(new City((int)(width*6./8)));
   cities.add(new City((int)(width*7./8)));
+  
+  //
+  time = 0;
+  score = 0;
+  points = 0;
+  //
+  shellCount = 32*level;
+  missileCount = 0;
+  missileMax = (int)pow(2,level+3);  //starts at 16, doubles per level
+  //  
 }

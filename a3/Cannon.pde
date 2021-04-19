@@ -35,7 +35,7 @@ class Cannon {
         barrelPos.x = basePos.x;
         barrelPos.y = height-baseDim.y;
 
-        reloadDim.x = 38;
+        reloadDim.x = 40;
         reloadDim.y = 6;   
         reloadPeriod = 32;  //128
         reloadTime = 0;
@@ -61,13 +61,33 @@ class Cannon {
         translate(-(basePos.x),-(height-baseDim.y));
         
         image(resource.cannonWheel, basePos.x-wheelDim.x/2, height-baseDim.y-wheelDim.y/2, wheelDim.x, wheelDim.y);
-        this.reloadBar();
+        reloadBar();
+        ammoCount();
     }
 
 
 
-    /*
-  Purpose: Displays the reload
+
+     /*
+     Purpose: Reloads Cannon, on click: Creates and fires a new shell
+     Arguments: Null
+     Returns: Null
+     */
+    void reloadAndShoot() {
+        if (reloadTime<reloadPeriod) {
+            reloadTime++;
+        } else if (reloadTime==reloadPeriod && shellCount>0 && mousePressed && mouseButton == LEFT) {
+            reloadTime = 0;
+            shellCount--;
+            shells.add(new Shell(mousePos));
+            sound.laserWeapon.play();
+        }
+    }
+
+
+
+     /*
+     Purpose: Displays the reload
      Arguments: Null
      Returns: Null
      */
@@ -76,36 +96,39 @@ class Cannon {
         strokeWeight(1.5);
         float reloadRatio = (float)reloadTime/reloadPeriod;
         fill(40, 40, 80);
-        rect(mousePos.x-reloadDim.x/2, mousePos.y+cursorSize*2, reloadDim.x, reloadDim.y, 8);
+        rect(mousePos.x-reloadDim.x/2, mousePos.y+Cursor_Size*2, reloadDim.x, reloadDim.y, 8);
         fill(80, 180, 240);
         if (reloadRatio==1) {
             fill(80, 240, 80);
         }
-        rect(mousePos.x-reloadDim.x/2, mousePos.y+cursorSize*2, reloadRatio*reloadDim.x, reloadDim.y, 8);
-    }
-
-
-
-    /*
-  Purpose: Reloads Cannon, on click: Creates and fires a new shell
-     Arguments: Null
-     Returns: Null
-     */
-    void reloadAndShoot() {
-        if (reloadTime<reloadPeriod) {
-            reloadTime++;
-        } else if (reloadTime==reloadPeriod && mousePressed && mouseButton == LEFT) {
-            reloadTime = 0;
-            shells.add(new Shell(mousePos));
-            sound.laserWeapon.play();
+        if (shellCount==0){
+          fill(240, 80, 80);
+          reloadRatio = 1;
         }
+        rect(mousePos.x-reloadDim.x/2, mousePos.y+Cursor_Size*2, reloadRatio*reloadDim.x, reloadDim.y, 8);
     }
-
-
-
-    /*
-  Purpose: ?
+    
+    
+    
+     /*
+     Purpose: Displays the reload
      Arguments: Null
      Returns: Null
      */
+    void ammoCount() {
+      //draw full lines worth of *8 ammo, then partial line of next row
+      int magazineSize = 8;
+      stroke(80, 240, 240);
+      strokeWeight(1);
+      for (int i=magazineSize; i<shellCount; i+=magazineSize){       
+        line(mousePos.x-reloadDim.x/2, mousePos.y+Cursor_Size*3 +i*4/magazineSize, mousePos.x+reloadDim.x/2, mousePos.y+Cursor_Size*3 +i*4/magazineSize);
+      }
+      int loadedCount = shellCount%magazineSize ==0 && shellCount!=0 ? magazineSize : shellCount%magazineSize;
+      float roundRatio = reloadDim.x/magazineSize;
+      for (int i=0; i<loadedCount; i++){
+        stroke(0);
+        fill(80, 240, 240);
+        rect(mousePos.x-reloadDim.x/2 + i*(roundRatio), mousePos.y+Cursor_Size*2.8, roundRatio,4);
+      }
+    }
 }

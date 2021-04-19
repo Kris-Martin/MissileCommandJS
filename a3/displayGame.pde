@@ -22,7 +22,7 @@ void displayGame() {
     }
     //display mouse crossHair, seperated so shells can have crosshairs too
     player.display();
-    displayCrossHair(mousePos, cursorSize, 60, 180, 180);
+    displayCrossHair(mousePos, Cursor_Size, 60, 180, 180);
     displayScore();
 }
 

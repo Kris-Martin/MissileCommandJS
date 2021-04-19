@@ -60,9 +60,11 @@ Purpose: To add the missiles to the array
  Returns: Null
  */
 void spawnMissiles() {
-  int spawnRate = 256;
-  if (time % spawnRate == 0){
+  int spawnRate = 256;  //scale based on level
+  if (time % spawnRate == 0 && missileCount<missileMax){
     missiles.add(new Missile());
+    missileCount++;
+    println(missileCount+" "+missileMax);
   }
 }
 
