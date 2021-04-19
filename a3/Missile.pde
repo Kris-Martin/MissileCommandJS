@@ -32,6 +32,7 @@ class Missile {
     //change this once collision to cities and ground is implemented
     if (pos.y>height){
       exist = false;
+      arcadeHealth--;
     }
   }
 

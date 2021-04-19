@@ -77,7 +77,7 @@ class Explosion{
     fill(80,240,80);
     //display score addition
     if (destroyCount>0){
-      textSize(scoreAdd/(25+level*5));  //alter based on level, as you expect increasing points
+      textSize(scoreAdd/(25+level));  //alter based on level, as you expect increasing points
       text("+"+scoreAdd,pos.x+size/2,pos.y);
     }
   }

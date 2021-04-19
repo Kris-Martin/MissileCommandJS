@@ -21,13 +21,16 @@ should cities be reset as of current, or persist? functionally
 int gameState;
 
 //points is just total score minus spent on upgrades. kinda like money
-int score, points;
+int score, points;  //score array to track each level?
 
 //level number and time in level. Used for difficulty/spawn rates
 int level, time;
 
 //number of, starting shells and total missiles, per wave
 int shellCount, missileCount, missileMax;
+int spawnRate;
+
+int arcadeHealth = 4;  //temp value.
 
 //Mouse/Cursor as vector
 PVector mousePos = new PVector();

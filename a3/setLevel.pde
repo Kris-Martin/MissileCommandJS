@@ -26,8 +26,13 @@ void setLevel(){
   score = 0;
   points = 0;
   //
-  shellCount = 32*level;
+  shellCount = 16*level;
   missileCount = 0;
-  missileMax = (int)pow(2,level+3);  //starts at 16, doubles per level
-  //  
+  missileMax = (int)pow(2,level+2);  //starts at 16, doubles per level
+  //
+  spawnRate = 256-level*32>32 ? 256-level*32 : 32;  //scale better
+  player.reloadPeriod = 128-level*16>16 ? 128-level*16 : 16;  //scale better
+  
+  //temp value
+  arcadeHealth+=level;
 }

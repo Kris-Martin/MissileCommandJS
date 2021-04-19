@@ -6,6 +6,11 @@ Purpose: ?
 void processGame() {
   time++;  //make better XD
   
+  //temp
+  if (arcadeHealth<=0){
+    gameState = -1;
+  }
+  
   //trail loop
   for (int i=0; i<trails.size(); i++) {
     Trail t = trails.get(i);
@@ -54,17 +59,20 @@ void processGame() {
   spawnMissiles();
 }
 
+
+
 /*
 Purpose: To add the missiles to the array 
  Arguments: Null
  Returns: Null
  */
 void spawnMissiles() {
-  int spawnRate = 256;  //scale based on level
   if (time % spawnRate == 0 && missileCount<missileMax){
     missiles.add(new Missile());
     missileCount++;
-    println(missileCount+" "+missileMax);
+  }
+  if (missileCount==missileMax && missiles.size()==0){
+    gameState = 10;
   }
 }
 

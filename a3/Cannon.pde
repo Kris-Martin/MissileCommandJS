@@ -37,7 +37,7 @@ class Cannon {
 
         reloadDim.x = 40;
         reloadDim.y = 6;   
-        reloadPeriod = 32;  //128
+        reloadPeriod = 128;  //128
         reloadTime = 0;
     }
 
@@ -111,7 +111,7 @@ class Cannon {
     
     
      /*
-     Purpose: Displays the reload
+     Purpose: Displays the shell/ammo count
      Arguments: Null
      Returns: Null
      */
@@ -119,7 +119,7 @@ class Cannon {
       //draw full lines worth of *8 ammo, then partial line of next row
       int magazineSize = 8;
       stroke(80, 240, 240);
-      strokeWeight(1);
+      strokeWeight(2);
       for (int i=magazineSize; i<shellCount; i+=magazineSize){       
         line(mousePos.x-reloadDim.x/2, mousePos.y+Cursor_Size*3 +i*4/magazineSize, mousePos.x+reloadDim.x/2, mousePos.y+Cursor_Size*3 +i*4/magazineSize);
       }
@@ -127,8 +127,9 @@ class Cannon {
       float roundRatio = reloadDim.x/magazineSize;
       for (int i=0; i<loadedCount; i++){
         stroke(0);
+        strokeWeight(1);
         fill(80, 240, 240);
-        rect(mousePos.x-reloadDim.x/2 + i*(roundRatio), mousePos.y+Cursor_Size*2.8, roundRatio,4);
+        rect(mousePos.x-reloadDim.x/2 + i*(roundRatio), mousePos.y+Cursor_Size*2.8, roundRatio,4,1);
       }
     }
 }

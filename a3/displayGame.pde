@@ -24,6 +24,7 @@ void displayGame() {
     player.display();
     displayCrossHair(mousePos, Cursor_Size, 60, 180, 180);
     displayScore();
+    displayProgress();
 }
 
 
@@ -37,10 +38,10 @@ void levelBackground(int level) {
     //change this
     switch(level) {
     case 1:
-        image(resource.background1, 0, 0);  //laggy, too high res for repeat draw
+        image(resource.background1, 0, 0);
         break;
     default:
-        background(level*32);
+        image(resource.background1, 0, 0);
         break;
     }
 }
@@ -78,6 +79,31 @@ void displayScore() {
     rect(5, 5, width-10, 28, 6);
 
     fill(60, 180, 120);
+    textAlign(LEFT);
     textSize(20);
     text(text, 15, 26);
+    
+    //temp
+    textSize(40);
+    text("Health: "+arcadeHealth, 15, 120);
+}
+
+
+
+/*
+Purpose: Displays the missile count
+Arguments: Null
+Returns: Null
+*/
+void displayProgress() {
+  stroke(240, 120, 80);
+  strokeWeight(2);
+  int padding = 6;
+  float roundRatio = (float)(width-padding*2)/missileMax;
+  for (int i=0; i<missileMax-missileCount; i++){
+    stroke(0);
+    strokeWeight(2);
+    fill(180, 60, 60);
+    rect(padding+i*(roundRatio), 40, roundRatio, 20, 4);
+  }
 }
