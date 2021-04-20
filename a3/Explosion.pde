@@ -16,15 +16,15 @@ class Explosion{
   Args:
   Returns:
   */
-  Explosion(PVector position){
+  Explosion(PVector position,int power, int lifeTime){
     exist = true;
     
     pos.set(position);
     
     time=0;
-    duration = 32;
+    duration = lifeTime;
     radius = 0;
-    size = 64;    
+    size = power;    
     destroyCount = 0;
     scoreAdd = 0;
   }
@@ -41,6 +41,25 @@ class Explosion{
     //radius grows and shrinks over duration.
     radius = (int) (size -abs(duration-time)*((float)size/duration));  //need to fix. so that duration doesnt need to match size
     
+    missileCollide();
+    cityCollide();
+    
+    //end explosion, add points to score
+    if (time>duration*2){
+      score+= scoreAdd;
+      exist=false;
+    }
+  
+  }
+  
+  
+  
+  /*
+  Purpose:  
+  Args:
+  Returns:
+  */
+  void missileCollide(){
     //detect missile collision, destroy and tally destroyCount based on number destroyed
     for (Missile m : missiles){
       if (pos.dist(m.pos)<(radius+m.dim.x)/2){
@@ -53,13 +72,27 @@ class Explosion{
     if (destroyCount>0){
       scoreAdd = (int)((pow(destroyCount+(float)pos.y/height,2))*250);
     }
-    //end explosion, add points to score
-    if (time>duration*2){
-      score+= scoreAdd;
-      exist=false;
-    }
+  }  
   
-  }
+  
+  
+  /*
+  Purpose:  Displays object
+  Args:
+  Returns:
+  */
+  void cityCollide(){
+    //detect city collision, deal damage based on proximity (general% or closest discrete?)
+    for (City c : cities){
+      float dist = pos.dist(c.pos);
+      if (dist<(radius+c.dim.x)/2){
+        c.health -= size/pow(dist,2);
+        if (c.health<0){
+          c.health=0;
+        }
+      }
+    }
+  }  
   
   
   
@@ -69,7 +102,6 @@ class Explosion{
   Returns:
   */
   void display(){
-    //some reason i am either getting double display or double object
     stroke(0);
     strokeWeight(1);
     fill(240,80,80);

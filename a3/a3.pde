@@ -30,8 +30,6 @@ int level, time;
 int shellCount, missileCount, missileMax;
 int spawnRate;
 
-int arcadeHealth = 4;  //temp value.
-
 //Mouse/Cursor as vector
 PVector mousePos = new PVector();
 

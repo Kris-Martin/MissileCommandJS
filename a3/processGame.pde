@@ -7,9 +7,7 @@ void processGame() {
   time++;  //make better XD
   
   //temp
-  if (arcadeHealth<=0){
-    gameState = -1;
-  }
+  int Health = 0;
   
   //trail loop
   for (int i=0; i<trails.size(); i++) {
@@ -24,6 +22,7 @@ void processGame() {
   for (int i=0; i<cities.size(); i++) {
     City c = cities.get(i);
     c.process();
+    Health+= c.health;
   }
   
   //missile loop
@@ -53,6 +52,10 @@ void processGame() {
     }
   }
   
+  if (Health<=0){
+    gameState = -1;
+  }
+  
   //other
   processCursor();
   player.reloadAndShoot();
@@ -71,7 +74,7 @@ void spawnMissiles() {
     missiles.add(new Missile());
     missileCount++;
   }
-  if (missileCount==missileMax && missiles.size()==0){
+  if (missileCount==missileMax && missiles.size()==0 && explosions.size()==0){
     gameState = 10;
   }
 }

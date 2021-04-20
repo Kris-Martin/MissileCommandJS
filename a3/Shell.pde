@@ -53,7 +53,7 @@ class Shell{
     
     //trigger explosion if reach target or hit missile
     if (pos.dist(aim)<velocity || hit){
-      explosions.add(new Explosion(pos));
+      explosions.add(new Explosion(pos,64,32));
       exist=false;
     }
   }

@@ -82,10 +82,6 @@ void displayScore() {
     textAlign(LEFT);
     textSize(20);
     text(text, 15, 26);
-    
-    //temp
-    textSize(40);
-    text("Health: "+arcadeHealth, 15, 120);
 }
 
 

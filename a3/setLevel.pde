@@ -33,6 +33,4 @@ void setLevel(){
   spawnRate = 256-level*32>32 ? 256-level*32 : 32;  //scale better
   player.reloadPeriod = 128-level*16>16 ? 128-level*16 : 16;  //scale better
   
-  //temp value
-  arcadeHealth+=level;
 }
