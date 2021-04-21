@@ -3,6 +3,7 @@ Purpose:  Explosions triggerd by shell, they grow and shrink, destroying all the
 */
 class Explosion{
   boolean exist;
+  boolean parentIsPlayer;
   
   PVector pos = new PVector();
   int time, duration;
@@ -16,8 +17,9 @@ class Explosion{
   Args:
   Returns:
   */
-  Explosion(PVector position,int power, int lifeTime){
+  Explosion(PVector position,int power, int lifeTime, boolean parent){
     exist = true;
+    parentIsPlayer = parent;
     
     pos.set(position);
     
@@ -41,7 +43,7 @@ class Explosion{
     //radius grows and shrinks over duration.
     radius = (int) (size -abs(duration-time)*((float)size/duration));  //need to fix. so that duration doesnt need to match size
     
-    missileCollide();
+    if(parentIsPlayer){missileCollide();}
     cityCollide();
     
     //end explosion, add points to score
@@ -85,8 +87,8 @@ class Explosion{
     //detect city collision, deal damage based on proximity (general% or closest discrete?)
     for (City c : cities){
       float dist = pos.dist(c.pos);
-      if (dist<(radius+c.dim.x)/2){
-        c.health -= size/pow(dist,2);
+      if (dist<(radius+c.dim.x)/2 && radius==size){
+        c.health -= size;
         if (c.health<0){
           c.health=0;
         }

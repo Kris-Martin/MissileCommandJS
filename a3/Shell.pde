@@ -53,7 +53,8 @@ class Shell{
     
     //trigger explosion if reach target or hit missile
     if (pos.dist(aim)<velocity || hit){
-      explosions.add(new Explosion(pos,64,32));
+      //numbers should be replaces with upgradable values
+      explosions.add(new Explosion(pos,64,32,true));
       exist=false;
     }
   }

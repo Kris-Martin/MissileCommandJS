@@ -9,7 +9,7 @@ class City {
 
   //constructors
   City(int PositionX) {
-      healthMax = 100*level;
+      healthMax = 128*level;
       health = healthMax;
       pos.x = PositionX;
       pos.y = height;

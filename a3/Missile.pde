@@ -32,7 +32,8 @@ class Missile {
     //change this once collision to cities and ground is implemented
     if (pos.y>height){
       exist = false;
-      explosions.add(new Explosion(pos,128,64));
+      //numbers should be replaces with upgradable values
+      explosions.add(new Explosion(pos,128,64,false));
     }
   }
 
