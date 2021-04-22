@@ -6,12 +6,13 @@
 
 
 /*
-Notes:
-Yall can write here too, these are internal notes, or TODO list if you will
+Notes / TODO:
 setLevel() takes level to generate starting values for things
 add in score modifier for distance from width/2 or diff calculation for diffulculty to hit
 multiple city pic varients, mainly to display health, more health steps, the better, from full city to pure rubble
 should cities be reset as of current, or persist? functionally
+Missiles grow larger, faster, more numerous and ultimately more varied as levels increase.
+Level end should 'freeze' and calculate remaining munnitions before moving to GameMenu
 */
 
 
