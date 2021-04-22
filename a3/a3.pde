@@ -80,19 +80,23 @@ Returns: Null
 void draw(){
   //draw just redirects to the main states process and display. functions branch from there
   switch (gameState){
-    case 0:
+    case 0:  //new game
       processMainMenu();
       displayMainMenu();
       break;
-    case 1:
+    case 2:  //options,exit
+      processPauseMenu();
+      displayPauseMenu();
+      break;
+    case 1:  //playing
       processGame();
       displayGame();
       break;
-    case 10:
+    case 10:  //upgrades between levels
       processGameMenu();
       displayGameMenu();
       break;
-    case -1:
+    case -1:  //game over screen
       processGameOver();
       displayGameOver();
       break;
