@@ -66,6 +66,7 @@ void setup(){
   image = new Image();
   sound = new Sound(this);
   
+  // Play menu music on loop
   sound.intro.loop();
 
   level = 1;
@@ -79,6 +80,12 @@ Arguments: Null
 Returns: Null
 */
 void draw(){
+   
+  // Stop menu music if inGame  
+  if (gameState == 1) {
+      sound.intro.stop();
+  }  
+  
   //draw just redirects to the main states process and display. functions branch from there
   switch (gameState){
     case 0:  //new game
