@@ -23,11 +23,3 @@ void drawStars() {
     stars[i].show();
   }
 }
-
-// void playTheme(){
-//   sound.intro.loop();
-// }
-
-void loadAssets(){
-  loadFont("heading48.vlw");
-}
