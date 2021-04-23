@@ -1,4 +1,5 @@
 // these 2 functions displayHeading and drawStars need to be in all the menus
+Star[] stars = new Star[400];
 
 void displayHeading() {
   textAlign(LEFT, BOTTOM);

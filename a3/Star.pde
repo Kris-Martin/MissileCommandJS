@@ -1,8 +1,6 @@
 //https://www.youtube.com/watch?v=17WoOqgXsRM&t=323s
 //reference but converted the variables into PVector methods
   
-Star[] stars = new Star[400];
-
 class Star {
   PVector position = new PVector(random(-width, width), random(-height, height), random(width));
   PVector speed = new PVector();
