@@ -58,7 +58,7 @@ Arguments: Null
 Returns: Null
 */
 void setup(){
-  size(1100,768);
+  size(1024,768);
   frameRate(60);
   
   gameState = 0;
