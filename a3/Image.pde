@@ -1,4 +1,4 @@
-// A class to manage files, images, sounds and assets.
+// A class to manage images and graphics
 
 class Image {
     
