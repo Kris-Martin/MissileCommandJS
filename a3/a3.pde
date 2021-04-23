@@ -13,6 +13,7 @@ multiple city pic varients, mainly to display health, more health steps, the bet
 should cities be reset as of current, or persist? functionally
 Missiles grow larger, faster, more numerous and ultimately more varied as levels increase.
 Level end should 'freeze' and calculate remaining munnitions before moving to GameMenu
+Please fix fonts for other game text
 */
 
 
@@ -62,7 +63,7 @@ void setup(){
   size(1024,768);
   frameRate(60);
   
-  gameState = 1;
+  gameState = 0;
   
   resource = new Resources();
   sound = new Sound(this);

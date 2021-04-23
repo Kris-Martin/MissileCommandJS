@@ -8,6 +8,7 @@ class HScrollbar {
   boolean locked;
   float ratio;
 
+  //improve variable names, especially in function calls, so we now what its doing. add function headers pls also
   HScrollbar (float xp, float yp, int sw, int sh, int l) {
     swidth = sw;
     sheight = sh;
