@@ -21,10 +21,6 @@ class Sound {
         loadFiles(p);
             
     }
-    
-    void playTheme(){
-        intro.loop();
-    }
 
     void loadFiles(PApplet p) {
 
@@ -60,42 +56,5 @@ class Sound {
 
         intro = new SoundFile(
             p, "sound/intro_trim.wav");
-    }
-    
-    void test() {
-
-         if (keyPressed) {
-        
-             if (key == '1') {
-                 shortLaser.play();
-             }
-             if (key == '2') {
-                 laserCannon.play();
-             }
-             if (key == '3') {
-                 laserWeapon.play();
-             }
-             if (key == '4') {
-                 plasmaGunPowerUp.play();
-             }
-             if (key == '5') {
-                 plasmaGunPower.play();
-             }
-             if (key == '6') {
-                 battleLaserShots.play();
-             }
-             if (key == '7') {
-                 shatterShotExplosion.play();
-             }
-             if (key == '8') {
-                 massiveExplosion.play();
-             }
-             if (key == '9') {
-                 bombDropImpact.play();
-             }
-             if (key == '0') {
-                 fastRocketWhoosh.play();
-             }
-         }  
     }
 }
