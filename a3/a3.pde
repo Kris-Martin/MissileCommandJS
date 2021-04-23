@@ -58,14 +58,14 @@ Arguments: Null
 Returns: Null
 */
 void setup(){
-  size(1024,768);
+  size(1100,768);
   frameRate(60);
   
   gameState = 0;
   
   image = new Image();
   sound = new Sound(this);
-  
+  loadAssets();
   level = 1;
   setLevel(); //clears and reinitiallisers ArrayLists etc
 }
@@ -82,10 +82,12 @@ void draw(){
     case 0:  //new game
       processMainMenu();
       displayMainMenu();
+      //menuGeneralDisplay();
       break;
     case 2:  //options,exit
       processPauseMenu();
       displayPauseMenu();
+      //menuGeneralDisplay();
       break;
     case 1:  //playing
       processGame();
