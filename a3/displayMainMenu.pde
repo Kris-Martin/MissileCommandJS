@@ -9,7 +9,6 @@ void displayMainMenu() {
   displayOptionsButton();
   displayStartGameButton();
   displayHighScoresButton();
-  // playTheme();
   drawStars();
 }
 

@@ -1,7 +1,7 @@
 //Options Menu and Pause Menu
 PVector musicVolume = new PVector();
 PVector backButton = new PVector();
-Star starfield = new Star();
+
 
 //To sort
 HScrollbar hs1;
