@@ -17,9 +17,9 @@ City object, fields include health, position and dimensions.
 
 Enemy ammunition. Includes position, velocity and dimensions.
 
-### Resources
+### Images
 
-A class to mange sounds and theme music
+A class to mange images and graphics
 
 ### Shell:
 
