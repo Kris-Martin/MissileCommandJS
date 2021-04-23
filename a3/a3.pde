@@ -65,6 +65,7 @@ void setup(){
   
   image = new Image();
   sound = new Sound(this);
+  sound.intro.loop();
   loadAssets();
   level = 1;
   setLevel(); //clears and reinitiallisers ArrayLists etc

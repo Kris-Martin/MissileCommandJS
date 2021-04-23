@@ -27,7 +27,7 @@ void volumeControl() {
   float scrollBarPosition = hs1.getPos();
   float volume = 1.0;
   volume = map(scrollBarPosition, 0, width, 0.0, 1.0);
-  intro.amp(volume);
+  sound.intro.amp(volume);
 }
 
 void displayMusicVolumeHeading() {
