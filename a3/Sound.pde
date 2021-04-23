@@ -13,7 +13,8 @@ class Sound {
         massiveExplosion,
         laserWeapon, 
         bombDropImpact,
-        fastRocketWhoosh;
+        fastRocketWhoosh,
+        intro;
     
     Sound(PApplet p) {
         
@@ -21,6 +22,10 @@ class Sound {
             
     }
     
+    void playTheme(){
+        intro.loop();
+    }
+
     void loadFiles(PApplet p) {
 
         shortLaser = new SoundFile(
@@ -52,6 +57,9 @@ class Sound {
             
         fastRocketWhoosh = new SoundFile(
             p, "sound/mixkit-fast-rocket-whoosh-1714.wav");
+
+        intro = new SoundFile(
+            p, "sound/intro_trim.wav");
     }
     
     void test() {

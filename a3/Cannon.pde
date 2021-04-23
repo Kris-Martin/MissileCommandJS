@@ -51,16 +51,16 @@ class Cannon {
     void display() {
         //change this
         //need to implement barrel rotation
-        image(resource.cannonBase, basePos.x-baseDim.x/2, height-baseDim.y, baseDim.x, baseDim.y);
+        image(image.cannonBase, basePos.x-baseDim.x/2, height-baseDim.y, baseDim.x, baseDim.y);
         
         //rotate barrel, display, then unrotate
         translate(basePos.x,height-baseDim.y);
         rotate(vectorDiff(new PVector(basePos.x,height-baseDim.y),mousePos).heading()-PI/2);
-        image(resource.cannonBarrel, -barrelDim.x/2, -barrelDim.y*(5./8.), barrelDim.x, barrelDim.y);
+        image(image.cannonBarrel, -barrelDim.x/2, -barrelDim.y*(5./8.), barrelDim.x, barrelDim.y);
         rotate(-vectorDiff(new PVector(basePos.x,height-baseDim.y),mousePos).heading()+PI/2);
         translate(-(basePos.x),-(height-baseDim.y));
         
-        image(resource.cannonWheel, basePos.x-wheelDim.x/2, height-baseDim.y-wheelDim.y/2, wheelDim.x, wheelDim.y);
+        image(image.cannonWheel, basePos.x-wheelDim.x/2, height-baseDim.y-wheelDim.y/2, wheelDim.x, wheelDim.y);
         reloadBar();
         ammoCount();
     }

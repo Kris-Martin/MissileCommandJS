@@ -38,10 +38,10 @@ void levelBackground(int level) {
     //change this
     switch(level) {
     case 1:
-        image(resource.background1, 0, 0);
+        image(image.background1, 0, 0);
         break;
     default:
-        image(resource.background1, 0, 0);
+        image(image.background1, 0, 0);
         break;
     }
 }

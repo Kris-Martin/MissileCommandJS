@@ -49,7 +49,7 @@ ArrayList<Trail> trails;
 Cannon player;
 
 //resources
-Resources resource;
+Image image;
 Sound sound;
 
 
@@ -65,7 +65,7 @@ void setup(){
   
   gameState = 0;
   
-  resource = new Resources();
+  image = new Image();
   sound = new Sound(this);
   
   level = 1;

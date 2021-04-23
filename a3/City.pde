@@ -34,7 +34,7 @@ class City {
   void display() {
     if (health>0){
     tint(255,health*(255./healthMax));
-    image(resource.city1, pos.x-dim.x/2, height-dim.y, dim.x, dim.y);
+    image(image.city1, pos.x-dim.x/2, height-dim.y, dim.x, dim.y);
     tint(255,255);
     }
   }

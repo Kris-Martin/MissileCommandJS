@@ -29,7 +29,7 @@ void displayStartGameButton() {
   fill(R, G, B);
   startGame.x = width * 3.2/12;
   startGame.y =  height * 2.5/5;
-  textFont(resource.menuFont);
+  textFont(image.menuFont);
   String startGameTxt = "Start Game";
   text(startGameTxt.toUpperCase(), startGame.x, startGame.y);
 }
@@ -50,7 +50,7 @@ void displayOptionsButton() {
   fill(R, G, B);
   options.x = width * 4/12;
   options.y =  height * 3.5/5;
-  textFont(resource.menuFont);
+  textFont(image.menuFont);
   String startGameTxt = "Options";
   text(startGameTxt.toUpperCase(), options.x, options.y);
 }
@@ -68,7 +68,7 @@ void displayHighScoresButton() {
   fill(R, G, B);
   highScores.x = width * 3.1/12;
   highScores.y =  height * 4.5/5;
-  textFont(resource.menuFont);
+  textFont(image.menuFont);
   String startGameTxt = "High Scores";
   text(startGameTxt.toUpperCase(), highScores.x, highScores.y);
 }

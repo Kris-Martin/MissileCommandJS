@@ -1,18 +1,17 @@
 // A class to manage files, images, sounds and assets.
 
-class Resources {
+class Image {
     
     PImage city1, cannonBase, cannonWheel, cannonBarrel, background1;
-    SoundFile intro;
     PFont menuFont, zigBlack;
     String[] fontList = PFont.list();  //?
-
-    Resources() {
+    
+    Image() {
         
         loadImages();
-        loadSounds();
         loadStarsArray();
         loadScrollBar();
+        loadFonts();
         background1.resize(width, height);
     }
     
@@ -24,21 +23,18 @@ class Resources {
         background1 = loadImage("images/NebulaBackground2.png");
     }
     
-    void loadSounds(){
-        //intro = new SoundFile(this, "intro_trim.wav");  //dont know whats wrong
-        //intro.loop();
-        loadFont("data/heading48.vlw");
+    void loadFonts() {
+        zigBlack = loadFont("data/heading48.vlw");
         menuFont = loadFont("data/menu76.vlw");
-        
     }
     
-    void loadStarsArray(){
-      for (int i=0; i<stars.length; i++) 
-        stars[i] = new Star();
+    void loadStarsArray() {
+        for (int i = 0; i < stars.length; i++) 
+            stars[i] = new Star();
     }
-
-    void loadScrollBar(){
-      hs1 = new HScrollbar(0, height/2-8, width, 16, 16);
+    
+    void loadScrollBar() {
+        hs1 = new HScrollbar(0, height / 2 - 8, width, 16, 16);
     }
     
 }

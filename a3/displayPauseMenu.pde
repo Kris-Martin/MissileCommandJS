@@ -38,7 +38,7 @@ void displayMusicVolumeHeading(){
   fill(R, G, B);
   musicVolume.x = width * 2.8/12;
   musicVolume.y =  height * 2/5;
-  textFont(resource.menuFont);
+  textFont(image.menuFont);
   String startGameTxt = "Music Volume";
   text(startGameTxt.toUpperCase(), musicVolume.x, musicVolume.y);
 }
