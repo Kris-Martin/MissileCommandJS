@@ -7,7 +7,6 @@ HScrollbar hs1;
 
 
 void displayPauseMenu(){
-  starfield.show(); 
   displayScrollBar();
   displayMusicVolumeHeading();
   volumeControl();

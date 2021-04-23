@@ -9,8 +9,8 @@ void displayMainMenu() {
   displayStartGameButton();
   displayHighScoresButton();
   displayHeading();
-  drawStars();
-  //sound.intro.play();
+  starfield.show();
+  sound.intro.loop();
 }
 
 void displayStartGameButton() {
