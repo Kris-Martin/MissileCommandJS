@@ -52,8 +52,6 @@ Cannon player;
 Image image;
 Sound sound;
 
-
-
 /*
 Purpose: Initialtes all starting parameters
 Arguments: Null
