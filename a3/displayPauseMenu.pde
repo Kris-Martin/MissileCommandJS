@@ -1,12 +1,13 @@
 //Options Menu and Pause Menu
 PVector musicVolume = new PVector();
+Star starfield = new Star();
 
 //To sort
 HScrollbar hs1;
 
 
 void displayPauseMenu(){
-   
+  starfield.show(); 
   displayScrollBar();
   displayMusicVolumeHeading();
   volumeControl();

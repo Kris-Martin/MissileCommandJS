@@ -10,7 +10,7 @@ void displayMainMenu() {
   displayHighScoresButton();
   displayHeading();
   drawStars();
-  sound.intro.loop();
+  //sound.intro.play();
 }
 
 void displayStartGameButton() {
