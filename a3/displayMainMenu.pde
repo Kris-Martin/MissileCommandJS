@@ -21,6 +21,7 @@ void displayStartGameButton() {
     G = 255;
     B = 255;
     if(mousePressed){
+      sound.intro.stop();
       gameState = 1;
     }
 
