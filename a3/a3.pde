@@ -29,8 +29,8 @@ int score, points;  //score array to track each level?
 int level, time;
 
 //number of, starting shells and total missiles, per wave
-int shellCount, missileCount, missileMax;
-int spawnRate;
+int shellCount, missileCount, missileMax, spawnRate;
+int waveCount, waveMax, waveTime, waveDuration;  //reconfigure level/waves?
 
 //Mouse/Cursor as vector
 PVector mousePos = new PVector();
