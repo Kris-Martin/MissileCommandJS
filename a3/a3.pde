@@ -37,7 +37,7 @@
  * for diffulculty to hit.
  *
  * TODO: Multiple city pic varients, mainly to display health, more health 
- * steps, the * better, from full city to pure rubble.
+ * steps, the better, from full city to pure rubble.
  *
  * TODO: GameMenu - class and methods
  *
