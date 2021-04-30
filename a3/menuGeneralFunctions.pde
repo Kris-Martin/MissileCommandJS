@@ -2,14 +2,15 @@
 Star[] stars = new Star[400];
 
 void displayHeading() {
-  textAlign(LEFT, BOTTOM);
+  textAlign(CENTER, BOTTOM);
   color headingColor = color(random(0, 255), random(0, 255), random(0, 255));
   fill(headingColor);
   PVector heading = new PVector();
-  heading.x = width/24;
-  heading.y = height/5;
+  heading.x = width/2;
+  heading.y = height/4;
   PFont headingFont = image.zigBlack;
   textFont(headingFont);
+  textSize(96);
   String headingString = "Missile Command";
   text(headingString.toUpperCase(), heading.x, heading.y);
 }
