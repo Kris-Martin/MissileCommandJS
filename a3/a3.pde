@@ -1,62 +1,92 @@
-/*
-  Assignment 3 Group Project: Arcade Missile defence
-  By Group 16 - Nathan Hall, Kris Martin, Simon Colman
-*/
+/**
+ * Program:     Missile Command - COSC101 Assignment 3
+ * Authors:     Simon Colman, Nathan Hall, Kris Martin - Group 16
+ * Version:     1.0
+ * Date:        TODO: Update when ready to submit
+ *
+ * Usage: 
+ * TODO: Fill in usage
+ * 
+ * Requirements: 
+ * This program needs Processing and the Processing Sound library installed to 
+ * function.
+ *
+ * Installation:
+ * 1) If you have not already installed Processing on your computer please 
+ * follow the instructions on https://processing.org/download/ to install it.
+ * 2) Then install the sound library following the instructions from 
+ * https://processing.org/reference/libraries/.
+ * 3) Once Processing is installed simply download the a3 zip folder, unzip it, 
+ * double click the file a3.pde which will open in processing, then click play.
+ */
 
 
+/**
+ * Notes...
+ * setLevel() takes level to generate starting values for things
+ *
+ * Should cities be reset as of current, or persist? functionally
+ *
+ * Missiles grow larger, faster, more numerous and ultimately more varied as  
+ * levels increase.
+ *
+ * Level end should 'freeze' and calculate remaining munnitions before moving to
+ *
+ * TODOs...
+ * TODO: Add in score modifier for distance from width/2 or diff calculation 
+ * for diffulculty to hit.
+ *
+ * TODO: Multiple city pic varients, mainly to display health, more health 
+ * steps, the * better, from full city to pure rubble.
+ *
+ * TODO: GameMenu - class and methods
+ *
+ * TODO: Please fix fonts for other game text
+ */
 
-/*
-Notes / TODO:
-setLevel() takes level to generate starting values for things
-add in score modifier for distance from width/2 or diff calculation for diffulculty to hit
-multiple city pic varients, mainly to display health, more health steps, the better, from full city to pure rubble
-should cities be reset as of current, or persist? functionally
-Missiles grow larger, faster, more numerous and ultimately more varied as levels increase.
-Level end should 'freeze' and calculate remaining munnitions before moving to GameMenu
-Please fix fonts for other game text
-*/
 
-
-
-//which game state/screen
-//0 = Main menu, 1 = inGame, 10 = upgrade menu, -1 = game over.
+/**
+ * Which game state (screen)
+ * 0 = Main menu, 1 = inGame, 10 = upgrade menu, -1 = game over.
+ */ 
 int gameState;
 
-//points is just total score minus spent on upgrades. kinda like money
-int score, points;  //score array to track each level?
+// Points is just total score minus spent on upgrades. Like money
+int score, points;  // Score array to track each level?
 
-//level number and time in level. Used for difficulty/spawn rates
+// Level number and time in level. Used for difficulty/spawn rates
 int level, time;
 
-//number of, starting shells and total missiles, per wave
+// Number of starting shells and total missiles, per wave
 int shellCount, missileCount, missileMax, spawnRate;
-int waveCount, waveMax, waveTime, waveDuration;  //reconfigure level/waves?
+int waveCount, waveMax, waveTime, waveDuration;  // Reconfigure level/waves?
 
-//Mouse/Cursor as vector
+// Mouse/Cursor as vector
 PVector mousePos = new PVector();
 
-//cursor size
+// Cursor size
 final int Cursor_Size = 12;
 
-//ArrayLists for various numerous objects
+// ArrayLists for various numerous objects
 ArrayList<City> cities;
 ArrayList<Shell> shells;
 ArrayList<Missile> missiles;
 ArrayList<Explosion> explosions;
 ArrayList<Trail> trails;
 
-//player as cannon object. no need for array
+// Player as cannon object. No need for array
 Cannon player;
 
-//resources
+// Resources
 Image image;
 Sound sound;
 
-/*
-Purpose: Initialtes all starting parameters
-Arguments: Null
-Returns: Null
-*/
+
+/**
+ * Purpose: Initialtes all starting parameters
+ * Arguments: Null
+ * Returns: Null
+ */ 
 void setup(){
   size(1024,768);
   frameRate(60);
@@ -74,33 +104,36 @@ void setup(){
 }
 
 
-/*
-Purpose: Simply seperates/branches code for ease of use
-Arguments: Null
-Returns: Null
-*/
+/**
+ * Purpose: Simply seperates/branches code for ease of use
+ * Arguments: Null
+ * Returns: Null
+ */
 void draw(){  
-  //draw just redirects to the main states process and display. functions branch from there
+  /**
+   * Directs to the main functions process and display. Functions further 
+   * branch from there
+   */
   switch (gameState){
-    case 0:  //new game
+    case 0:  // New game
       processMainMenu();
       displayMainMenu();
       //menuGeneralDisplay();
       break;
-    case 2:  //options,exit
+    case 2:  // Options, exit
       processPauseMenu();
       displayPauseMenu();
       //menuGeneralDisplay();
       break;
-    case 1:  //playing
+    case 1:  // Playing
       processGame();
       displayGame();
       break;
-    case 10:  //upgrades between levels
+    case 10:  // Upgrades between levels
       processGameMenu();
       displayGameMenu();
       break;
-    case -1:  //game over screen
+    case -1:  // Game over screen
       processGameOver();
       displayGameOver();
       break;
