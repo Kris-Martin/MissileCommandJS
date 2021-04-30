@@ -48,7 +48,7 @@
 /**
  * Which game state (screen)
  * 0 = Main menu, 1 = inGame, 10 = upgrade menu, -1 = game over.
- */ 
+ */
 int gameState;
 
 // Points is just total score minus spent on upgrades. Like money
@@ -86,21 +86,21 @@ Sound sound;
  * Purpose: Initialtes all starting parameters
  * Arguments: Null
  * Returns: Null
- */ 
-void setup(){
-  size(1024,768);
-  frameRate(60);
-  
-  gameState = 0;
-  
-  image = new Image();
-  sound = new Sound(this);
-  
-  // Play menu music on loop
-  sound.intro.loop();
+ */
+void setup() {
+    size(1024, 768);
+    frameRate(60);
 
-  level = 1;
-  setLevel(); //clears and reinitiallisers ArrayLists etc
+    gameState = 0;
+
+    image = new Image();
+    sound = new Sound(this);
+
+    // Play menu music on loop
+    sound.intro.loop();
+
+    level = 1;
+    setLevel(); //clears and reinitiallisers ArrayLists etc
 }
 
 
@@ -109,33 +109,33 @@ void setup(){
  * Arguments: Null
  * Returns: Null
  */
-void draw(){  
-  /**
-   * Directs to the main functions process and display. Functions further 
-   * branch from there
-   */
-  switch (gameState){
+void draw() {  
+    /**
+     * Directs to the main functions process and display. Functions further 
+     * branch from there
+     */
+    switch (gameState) {
     case 0:  // New game
-      processMainMenu();
-      displayMainMenu();
-      //menuGeneralDisplay();
-      break;
+        processMainMenu();
+        displayMainMenu();
+        //menuGeneralDisplay();
+        break;
     case 2:  // Options, exit
-      processPauseMenu();
-      displayPauseMenu();
-      //menuGeneralDisplay();
-      break;
+        processPauseMenu();
+        displayPauseMenu();
+        //menuGeneralDisplay();
+        break;
     case 1:  // Playing
-      processGame();
-      displayGame();
-      break;
+        processGame();
+        displayGame();
+        break;
     case 10:  // Upgrades between levels
-      processGameMenu();
-      displayGameMenu();
-      break;
+        processGameMenu();
+        displayGameMenu();
+        break;
     case -1:  // Game over screen
-      processGameOver();
-      displayGameOver();
-      break;
-  }
+        processGameOver();
+        displayGameOver();
+        break;
+    }
 }
