@@ -1,5 +1,6 @@
-/*
-Purpose: The trails that follow missiles and shells
+/**
+ * Purpose: The trails that follow missiles and shells
+ * Properties: TODO: fill in
  */
 class Trail {
     boolean exist;
@@ -9,6 +10,12 @@ class Trail {
     PVector pre = new PVector();
     color col;
 
+
+    /**
+     * Purpose:  TODO: fill in
+     * Args:
+     * Returns:
+     */
     Trail(PVector position, PVector previous, int lifeTime, int trailWidth, color colour) {
         exist = true;
         pos.set(position);
@@ -19,11 +26,10 @@ class Trail {
     }
 
 
-
-    /*
-Purpose: Initialtes all starting parameters
-     Arguments: Null
-     Returns: Null
+    /**
+     * Purpose: Initialtes all starting parameters
+     * Arguments: Null
+     * Returns: Null
      */
     void process() {
         time++;
@@ -33,11 +39,10 @@ Purpose: Initialtes all starting parameters
     }
 
 
-
-    /*
-Purpose: Initialtes all starting parameters
-     Arguments: Null
-     Returns: Null
+    /**
+     * Purpose: Initialtes all starting parameters
+     * Arguments: Null
+     * Returns: Null
      */
     void display() {
         strokeWeight(size);

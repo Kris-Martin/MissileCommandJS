@@ -1,7 +1,7 @@
-/*
-Purpose: ?
- Arguments: Null
- Returns: Null
+/**
+ * Purpose: TODO: fill in
+ * Arguments: Null
+ * Returns: Null
  */
 void processGameMenu() {
     time-=16;

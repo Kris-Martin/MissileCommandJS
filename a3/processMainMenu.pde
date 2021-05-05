@@ -1,7 +1,7 @@
-/*
-Purpose: ?
- Arguments: Null
- Returns: Null
+/**
+ * Purpose: TODO: fill in or remove
+ * Arguments: Null
+ * Returns: Null
  */
 void processMainMenu() {
 }

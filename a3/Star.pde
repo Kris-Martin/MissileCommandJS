@@ -1,14 +1,22 @@
-//https://www.youtube.com/watch?v=17WoOqgXsRM&t=323s
-//reference but converted the variables into PVector methods
-
+/**
+ * Purpose: Creates a star object, use to create moving star fiel.
+ * Used tutorial https://www.youtube.com/watch?v=17WoOqgXsRM&t=323s
+ * as a reference but converted the variables into PVector methods.
+ * Properties: TODO: fill in
+ */
 class Star {
     PVector position = new PVector(random(-width, width), random(-height, height), random(width));
     PVector speed = new PVector();
-    PVector velocity = new PVector();  //why speed and velocity?
-    //pVector
+    PVector velocity = new PVector();  // TODO: why speed and velocity?
+    // pVector
     Star() {
     }
 
+    /**
+     * Purpose:  TODO: fill in
+     * Args:
+     * Returns:
+     */
     void update() {
         velocity.z = -10;  
         position.add(velocity);
@@ -17,6 +25,11 @@ class Star {
         }
     }
 
+    /**
+     * Purpose:  TODO: fill in
+     * Args:
+     * Returns:
+     */
     void show() {
         speed.x = map(position.x / position.z, 0, 1, 0, width);
         speed.y =  map(position.y / position.z, 0, 1, 0, height);

@@ -1,5 +1,6 @@
-/*
-Purpose: The hostile ammunition attacking the cities. Potentially add subclasses or just field specific methods for varient missiles 
+/**
+ * Purpose: The hostile ammunition attacking the cities. Potentially add  
+ * subclasses or just field specific methods for varient missiles 
  */
 class Missile {
     boolean exist;
@@ -8,8 +9,13 @@ class Missile {
     PVector vel = new PVector();
     PVector dim = new PVector();
     float velocity;
-    //constructors
 
+
+    /**
+     * Purpose:  TODO: fill in.
+     * Properties:
+     * Return: 
+     */
     Missile() {
         exist = true;
         dim.x = 12;
@@ -17,30 +23,38 @@ class Missile {
         pos.x = random(0, width);
         pos.y = 0;
         velocity = 1;
-        //randomise direction based on initial pos, so they are more likely to stay in window
+        // Randomise direction based on initial pos, so they are more likely to stay in window
         vel.set(new PVector(random(-pos.x/width, (width-pos.x)/width), 1).normalize().mult(velocity));
     }
 
-    //methods
+
+    /**
+     * Purpose:  TODO: fill in.
+     * Properties:
+     * Return: 
+     */
     void process() {
-        //add velocity
+        // Add velocity
         pos.add(vel);
 
-        //create trail
+        // Create trail
         trails.add(new Trail(pos, vel, 128, (int)dim.x, #f0c000));
 
-        //change this once collision to cities and ground is implemented
+        // Change this once collision to cities and ground is implemented
         if (pos.y>height) {
             exist = false;
-            //numbers should be replaces with upgradable values
+            // Numbers should be replaces with upgradable values
             explosions.add(new Explosion(pos, 128, 64, false));
         }
     }
 
-
-
+    /**
+     * Purpose:  TODO: fill in.
+     * Properties:
+     * Return: 
+     */
     void display() {    
-        //basic missile
+        // Basic missile
         strokeWeight(2);
         stroke(0);
         fill(#F70505);

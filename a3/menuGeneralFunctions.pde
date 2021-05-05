@@ -1,4 +1,4 @@
-// these 2 functions displayHeading and drawStars need to be in all the menus
+// These 2 functions displayHeading and drawStars need to be in all the menus
 Star[] stars = new Star[400];
 
 void displayHeading() {
@@ -15,7 +15,7 @@ void displayHeading() {
     text(headingString.toUpperCase(), heading.x, heading.y);
 }
 
-//this function needs to be called last in the draw loop because of the translate function it will translate all elements called after
+// This function needs to be called last in the draw loop because of the translate function it will translate all elements called after
 void drawStars() {
     translate(0.5*width, 0.5*height);
     // Update and draw all stars

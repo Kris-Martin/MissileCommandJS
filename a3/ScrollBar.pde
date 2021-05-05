@@ -1,3 +1,7 @@
+/**
+ * Purpose: TODO: fill in
+ * Properties: TODO: fill in
+ */
 class HScrollbar {
     int swidth, sheight;    // width and height of bar
     float xpos, ypos;       // x and y position of bar
@@ -8,7 +12,8 @@ class HScrollbar {
     boolean locked;
     float ratio;
 
-    //improve variable names, especially in function calls, so we now what its doing. add function headers pls also
+
+    // Improve variable names, especially in function calls, so we now what its doing. add function headers pls also
     HScrollbar (float xp, float yp, int sw, int sh, int l) {
         swidth = sw;
         sheight = sh;
@@ -23,6 +28,12 @@ class HScrollbar {
         loose = l;
     }
 
+
+    /**
+     * Purpose:  TODO: fill in
+     * Args:
+     * Returns:
+     */
     void update() {
         if (overEvent()) {
             over = true;
@@ -43,10 +54,22 @@ class HScrollbar {
         }
     }
 
+
+    /**
+     * Purpose:  TODO: fill in
+     * Args:
+     * Returns:
+     */
     float constrain(float val, float minv, float maxv) {
         return min(max(val, minv), maxv);
     }
 
+
+    /**
+     * Purpose:  TODO: fill in
+     * Args:
+     * Returns:
+     */
     boolean overEvent() {
         if (mouseX > xpos && mouseX < xpos+swidth &&
             mouseY > ypos && mouseY < ypos+sheight) {
@@ -56,6 +79,12 @@ class HScrollbar {
         }
     }
 
+
+    /**
+     * Purpose:  TODO: fill in
+     * Args:
+     * Returns:
+     */
     void display() {
         noStroke();
         fill(204);
@@ -68,6 +97,12 @@ class HScrollbar {
         rect(spos, ypos, sheight, sheight);
     }
 
+
+    /**
+     * Purpose:  TODO: fill in
+     * Args:
+     * Returns:
+     */
     float getPos() {
         return spos * ratio;
     }

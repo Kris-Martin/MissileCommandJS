@@ -42,6 +42,10 @@
  * TODO: GameMenu - class and methods
  *
  * TODO: Please fix fonts for other game text
+ *
+ * TODO: Complete comments and make sure all lines are >= 80 char
+ *
+ * TODO: Video reflection
  */
 
 

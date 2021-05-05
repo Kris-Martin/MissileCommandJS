@@ -1,15 +1,15 @@
-/*
-Purpose: ?
- Arguments: Null
- Returns: Null
+/**
+ * Purpose: TODO: fill in
+ * Arguments: Null
+ * Returns: Null
  */
 void processGame() {
     time++;  //make better XD
 
-    //temp
+    // Temp
     int Health = 0;
 
-    //trail loop
+    // Trail loop
     for (int i=0; i<trails.size(); i++) {
         Trail t = trails.get(i);
         t.process();
@@ -18,14 +18,14 @@ void processGame() {
         }
     }
 
-    //city loop
+    // City loop
     for (int i=0; i<cities.size(); i++) {
         City c = cities.get(i);
         c.display();
         Health+= c.health;
     }
 
-    //missile loop
+    // Missile loop
     for (int i=0; i<missiles.size(); i++) {
         Missile m = missiles.get(i);
         m.process();
@@ -34,7 +34,7 @@ void processGame() {
         }
     }
 
-    //shell loop
+    // Shell loop
     for (int i=0; i<shells.size(); i++) {
         Shell s = shells.get(i);
         s.process();
@@ -43,7 +43,7 @@ void processGame() {
         }
     }
 
-    //missile loop
+    // Missile loop
     for (int i=0; i<explosions.size(); i++) {
         Explosion e = explosions.get(i);
         e.process();
@@ -56,18 +56,17 @@ void processGame() {
         gameState = -1;
     }
 
-    //other
+    // Other
     processCursor();
     player.reloadAndShoot();
     spawnMissiles();
 }
 
 
-
-/*
-Purpose: To add the missiles to the array 
- Arguments: Null
- Returns: Null
+/**
+ * Purpose: To add the missiles to the array 
+ * Arguments: Null
+ * Returns: Null
  */
 void spawnMissiles() {
     if (time % spawnRate == 0 && missileCount<missileMax) {
@@ -80,11 +79,10 @@ void spawnMissiles() {
 }
 
 
-
-/*
-Purpose: ?
- Arguments: Null
- Returns: Null
+/**
+ * Purpose: TODO: fill in
+ * Arguments: Null
+ * Returns: Null
  */
 void processCursor() {
     mousePos.x = mouseX;
@@ -92,11 +90,10 @@ void processCursor() {
 }
 
 
-
-/*
-Purpose:  Calculates a vector between two vectors
- Args:  Vectors a & b
- Returns:  difference vector
+/**
+ * Purpose:  Calculates a vector between two vectors
+ * Args:  Vectors a & b
+ * Returns:  difference vector
  */
 PVector vectorDiff(PVector a, PVector b) {
     return new PVector(a.x-b.x, a.y-b.y);

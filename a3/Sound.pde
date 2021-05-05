@@ -1,6 +1,8 @@
-// A class to manage sound effects and theme music
 import processing.sound.*;
-
+/**
+ * Purpose:  A class to manage sound effects and theme music
+ * Properties: TODO: fill in
+ */
 class Sound {
 
     SoundFile 
@@ -16,11 +18,21 @@ class Sound {
         fastRocketWhoosh, 
         intro;
 
+    /**
+     * Purpose:  TODO: fill in
+     * Args:
+     * Returns:
+     */
     Sound(PApplet p) {
 
         loadFiles(p);
     }
 
+    /**
+     * Purpose:  TODO: fill in
+     * Args:
+     * Returns:
+     */
     void loadFiles(PApplet p) {
 
         shortLaser = new SoundFile(
