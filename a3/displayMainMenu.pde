@@ -1,6 +1,3 @@
-PVector startGame = new PVector();
-PVector options = new PVector();
-PVector highScores = new PVector();
 
 
 void displayMainMenu() {
