@@ -1,3 +1,6 @@
+<<<<<<< HEAD
+
+=======
 // These 2 functions displayHeading and drawStars need to be in all the menus
 Star[] stars = new Star[400];
 
@@ -24,3 +27,4 @@ void drawStars() {
         stars[i].show();
     }
 }
+>>>>>>> 1ceb62420a9d858a922a7faefecf7a7640f106d5
