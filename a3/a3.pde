@@ -100,8 +100,8 @@ void setup() {
     image = new Image();
     sound = new Sound(this);
 
-    // Play menu music on loop
-    sound.intro.loop();
+    // Play theme music on loop
+    sound.playTheme();
 
     level = 1;
     setLevel(); //clears and reinitiallisers ArrayLists etc
@@ -114,10 +114,8 @@ void setup() {
  * Returns: Null
  */
 void draw() {
-      /**
-     * Higher order component for the background music
-     */
-  backgroundMusic();
+    
+    // TODO: Investigate switching music 
     /**
      * Directs to the main functions process and display. Functions further 
      * branch from there

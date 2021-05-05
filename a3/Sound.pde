@@ -5,7 +5,7 @@ import processing.sound.*;
  */
 class Sound {
 
-    SoundFile shatterShotExplosion, laserWeapon, intro, drumHit;
+    SoundFile shatterShotExplosion, laserWeapon, intro, drumHit, theme, music;
 
     /**
      * Purpose:  TODO: fill in
@@ -32,8 +32,22 @@ class Sound {
 
         intro = new SoundFile(
             p, "sound/intro_trim.wav");
-            
+
         drumHit = new SoundFile(
             p, "sound/mixkit-cinematic-mystery-trailer-drum-hit-546.mp3");
+
+        theme = new SoundFile(
+            p, "sound/theme.wav");
+    }
+
+    void playTheme() {
+        // TODO: Fix swtiching of music/theme
+        if (gameState == 1) {
+            music = intro;
+        } else {
+            music = theme;
+        }
+        
+        music.loop();
     }
 }
