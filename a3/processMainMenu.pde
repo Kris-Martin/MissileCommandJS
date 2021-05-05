@@ -1,8 +1,7 @@
-/*
-Purpose: ?
-Arguments: Null
-Returns: Null
-*/
-void processMainMenu(){
-  
+/**
+ * Purpose: TODO: fill in or remove
+ * Arguments: Null
+ * Returns: Null
+ */
+void processMainMenu() {
 }

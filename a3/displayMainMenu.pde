@@ -9,6 +9,7 @@ Arguments: Null
 Returns: Null
 */
 void displayMainMenu() {
+<<<<<<< HEAD
   background(0, 0, 16);
   MainMenu startGame = new MainMenu("start game", width * 3.2/12, height/2);
   MainMenu options = new MainMenu("options", width * 4/12, height * 3.5/5);
@@ -18,6 +19,14 @@ void displayMainMenu() {
   if (options.pressed()) gameState = 2;
   displayHeading();
   drawStars();
+=======
+    background(0, 0, 16);
+    displayHeading();
+    displayOptionsButton();
+    displayStartGameButton();
+    displayHighScoresButton();
+    drawStars();
+>>>>>>> 1ceb62420a9d858a922a7faefecf7a7640f106d5
 }
 /*
 Purpose: class for the main menu
@@ -28,6 +37,7 @@ class MainMenu {
   String buttonText;
   float locationX, locationY;
 
+<<<<<<< HEAD
   MainMenu(String buttonText, float locationX, float locationY) {
     this.buttonText = buttonText;
     this.locationX = locationX;
@@ -107,4 +117,67 @@ void loadAssets(){
   intro = new SoundFile(this, "intro_trim.wav");
   intro.loop();
     loadFont("heading48.vlw");
+=======
+void displayStartGameButton() {
+    float R = random(0, 255);
+    float G = random(0, 255);
+    float B = random(0, 255);
+    if ((mouseX > width * 3/12) & (mouseX < width * 10/12) & (mouseY > height * 2/5) & mouseY < height * 3/5) {
+        R = 255;
+        G = 255;
+        B = 255;
+        if (mousePressed) {
+            sound.intro.stop();
+            gameState = 1;
+        }
+    }
+    textAlign(LEFT);
+    fill(R, G, B);
+    startGame.x = width * 3.2/12;
+    startGame.y =  height * 2.5/5;
+    textFont(image.menuFont);
+    String startGameTxt = "Start Game";
+    text(startGameTxt.toUpperCase(), startGame.x, startGame.y);
+}
+
+void displayOptionsButton() {
+    float R = random(0, 255);
+    float G = random(0, 255);
+    float B = random(0, 255);
+    if ((mouseX > width * 4/12) & (mouseX < width * 8/12) & (mouseY > height * 3/5) & mouseY < height * 4/5) {
+        R = 255;
+        G = 255;
+        B = 255;
+        if (mousePressed) {
+            if (gameState == 0) {
+                gameState = 2;
+            }
+        }
+    }
+    textAlign(LEFT);
+    fill(R, G, B);
+    options.x = width * 4/12;
+    options.y =  height * 3.5/5;
+    textFont(image.menuFont);
+    String startGameTxt = "Options";
+    text(startGameTxt.toUpperCase(), options.x, options.y);
+}
+
+void displayHighScoresButton() {
+    float R = random(0, 255);
+    float G = random(0, 255);
+    float B = random(0, 255);
+    if ((mouseX > width * 3/12) & (mouseX < width * 10/12) & (mouseY > height * 4/5) & mouseY < height * 5/5) {
+        R = 255;
+        G = 255;
+        B = 255;
+    }
+    textAlign(LEFT);
+    fill(R, G, B);
+    highScores.x = width * 3.1/12;
+    highScores.y =  height * 4.5/5;
+    textFont(image.menuFont);
+    String startGameTxt = "High Scores";
+    text(startGameTxt.toUpperCase(), highScores.x, highScores.y);
+>>>>>>> 1ceb62420a9d858a922a7faefecf7a7640f106d5
 }

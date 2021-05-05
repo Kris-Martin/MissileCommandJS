@@ -19,7 +19,7 @@ Enemy ammunition. Includes position, velocity and dimensions.
 
 ### Images
 
-A class to mange images and graphics
+A class to manage images and graphics
 
 ### Shell:
 
