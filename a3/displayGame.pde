@@ -1,7 +1,7 @@
-/*
-Purpose: ?
- Arguments: Null
- Returns: Null
+/**
+ * Purpose: ?
+ * Arguments: Null
+ * Returns: Null
  */
 void displayGame() {
     levelBackground(level);
@@ -20,7 +20,7 @@ void displayGame() {
     for (Explosion e : explosions) {
         e.display();
     }
-    //display mouse crossHair, seperated so shells can have crosshairs too
+    // Display mouse crossHair, seperated so shells can have crosshairs too
     player.display();
     displayCrossHair(mousePos, Cursor_Size, 60, 180, 180);
     displayScore();
@@ -28,14 +28,13 @@ void displayGame() {
 }
 
 
-
-/*
-Purpose: Displays level background
- Arguments: Current level
- Returns: Null
+/**
+ * Purpose: Displays level background
+ * Arguments: Current level
+ * Returns: Null
  */
 void levelBackground(int level) {
-    //change this
+    // TODO: Change this
     switch(level) {
     case 1:
         image(image.background1, 0, 0);
@@ -47,11 +46,10 @@ void levelBackground(int level) {
 }
 
 
-
-/*
-Purpose: Displays CrossHair
- Arguments: Current level
- Returns: Null
+/**
+ * Purpose: Displays CrossHair
+ * Arguments: Current level
+ * Returns: Null
  */
 void displayCrossHair(PVector pos, int size, int r, int g, int b) {
     strokeWeight(2);
@@ -64,14 +62,13 @@ void displayCrossHair(PVector pos, int size, int r, int g, int b) {
 }
 
 
-
-/*
-Purpose: Displays score
- Arguments: Null
- Returns: Null
+/**
+ * Purpose: Displays score
+ * Arguments: Null
+ * Returns: Null
  */
 void displayScore() {
-    //change this
+    // TODO: Change this
     String text = "Score: "+score;
     stroke(0);
     strokeWeight(2);
@@ -85,21 +82,20 @@ void displayScore() {
 }
 
 
-
-/*
-Purpose: Displays the missile count
-Arguments: Null
-Returns: Null
-*/
+/**
+ * Purpose: Displays the missile count
+ * Arguments: Null
+ * Returns: Null
+ */
 void displayProgress() {
-  stroke(240, 120, 80);
-  strokeWeight(2);
-  int padding = 6;
-  float roundRatio = (float)(width-padding*2)/missileMax;
-  for (int i=0; i<missileMax-missileCount; i++){
-    stroke(0);
+    stroke(240, 120, 80);
     strokeWeight(2);
-    fill(180, 60, 60);
-    rect(padding+i*(roundRatio), 40, roundRatio, 20, 4);
-  }
+    int padding = 6;
+    float roundRatio = (float)(width-padding*2)/missileMax;
+    for (int i=0; i<missileMax-missileCount; i++) {
+        stroke(0);
+        strokeWeight(2);
+        fill(180, 60, 60);
+        rect(padding+i*(roundRatio), 40, roundRatio, 20, 4);
+    }
 }

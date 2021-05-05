@@ -1,8 +1,7 @@
 /*
 Purpose: ?
-Arguments: Null
-Returns: Null
-*/
-void processPauseMenu(){
-  
+ Arguments: Null
+ Returns: Null
+ */
+void processPauseMenu() {
 }
