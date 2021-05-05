@@ -21,7 +21,7 @@ void processGame() {
     //city loop
     for (int i=0; i<cities.size(); i++) {
         City c = cities.get(i);
-        c.process();
+        c.display();
         Health+= c.health;
     }
 
