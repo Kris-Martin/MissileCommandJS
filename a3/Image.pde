@@ -7,7 +7,6 @@ class Image {
 
     PImage city1, cannonBase, cannonWheel, cannonBarrel, background1;
     PFont menuFont, zigBlack;
-    //String[] fontList = PFont.list();
 
     /**
      * Purpose:  TODO: fill in.
