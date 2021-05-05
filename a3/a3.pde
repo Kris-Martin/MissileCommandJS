@@ -102,6 +102,7 @@ void setup() {
 
     // Play menu music on loop
     sound.intro.loop();
+
     level = 1;
     setLevel(); //clears and reinitiallisers ArrayLists etc
 }
@@ -112,7 +113,10 @@ void setup() {
  * Arguments: Null
  * Returns: Null
  */
-void draw() {  
+void draw() {
+      /**
+     * Higher order component for the background music
+     */
   backgroundMusic();
     /**
      * Directs to the main functions process and display. Functions further 

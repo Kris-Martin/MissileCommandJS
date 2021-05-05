@@ -1,8 +1,3 @@
-
-SoundFile inGame;
-
-
-// To sort
 HScrollbar hs1;
 
 
