@@ -5,6 +5,7 @@ import processing.sound.*;
  */
 class Sound {
 
+<<<<<<< HEAD
     SoundFile 
         shortLaser, 
         laserCannon, 
@@ -18,6 +19,9 @@ class Sound {
         fastRocketWhoosh, 
         intro,
         inGame;
+=======
+    SoundFile shatterShotExplosion, laserWeapon, intro;
+>>>>>>> e32402305016eec3cd57c616ec3ec77e14e20a27
 
     /**
      * Purpose:  TODO: fill in
@@ -36,35 +40,11 @@ class Sound {
      */
     void loadFiles(PApplet p) {
 
-        shortLaser = new SoundFile(
-            p, "sound/mixkit-short-laser-gun-shot-1670.wav" );
-
-        laserCannon = new SoundFile(
-            p, "sound/mixkit-laser-cannon-shot-1678.wav");
-
-        plasmaGunPowerUp = new SoundFile(
-            p, "sound/mixkit-sci-fi-plasma-gun-power-up-1679.wav");
-
-        plasmaGunPower = new SoundFile(
-            p, "sound/mixkit-sci-fi-plasma-gun-power-1680.wav");
-
-        battleLaserShots = new SoundFile(
-            p, "sound/mixkit-sci-fi-battle-laser-shots-2783.wav");
-
         shatterShotExplosion = new SoundFile(
             p, "sound/mixkit-shatter-shot-explosion-1693.wav");
 
-        massiveExplosion = new SoundFile(
-            p, "sound/mixkit-masive-explosion-in-battle-2777.wav");
-
         laserWeapon = new SoundFile(
             p, "sound/mixkit-laser-weapon-shot-1681.wav");
-
-        bombDropImpact = new SoundFile(
-            p, "sound/mixkit-bomb-drop-impact-2804.wav");
-
-        fastRocketWhoosh = new SoundFile(
-            p, "sound/mixkit-fast-rocket-whoosh-1714.wav");
 
         intro = new SoundFile(
             p, "sound/intro_trim.wav");
