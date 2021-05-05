@@ -2,8 +2,8 @@
 
 void displayMainMenu() {
   background(0, 0, 16);
-  MainMenu startGame = new MainMenu("start game", width * 3/12, height/2);
-  MainMenu options = new MainMenu("options", width * 4/12, height * 3.5/5);
+  MenuButton startGame = new MenuButton("start game", width * 3/12, height/2);
+  MenuButton options = new MenuButton("options", width * 4/12, height * 3.5/5);
   startGame.display();
   options.display();
   if (startGame.pressed()) gameState = 1; 
@@ -16,11 +16,11 @@ Purpose: class for the main menu
  Arguments: Null
  Returns: Null
  */
-class MainMenu {
+class MenuButton {
   String buttonText;
   float locationX, locationY;
 
-  MainMenu(String buttonText, float locationX, float locationY) {
+  MenuButton (String buttonText, float locationX, float locationY) {
     this.buttonText = buttonText;
     this.locationX = locationX;
     this.locationY = locationY;

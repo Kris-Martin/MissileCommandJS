@@ -68,13 +68,15 @@ void displayCrossHair(PVector pos, int size, int r, int g, int b) {
  * Returns: Null
  */
 void displayScore() {
+    PFont Impact;
+    Impact = createFont("Impact", 42);
     // TODO: Change this
+    textFont(Impact);
     String text = "Score: "+score;
     stroke(0);
     strokeWeight(2);
     fill(50);
     rect(5, 5, width-10, 28, 6);
-
     fill(60, 180, 120);
     textAlign(LEFT);
     textSize(20);

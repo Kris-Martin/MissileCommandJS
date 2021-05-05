@@ -16,7 +16,8 @@ class Sound {
         laserWeapon, 
         bombDropImpact, 
         fastRocketWhoosh, 
-        intro;
+        intro,
+        inGame;
 
     /**
      * Purpose:  TODO: fill in
@@ -67,5 +68,9 @@ class Sound {
 
         intro = new SoundFile(
             p, "sound/intro_trim.wav");
+        
+         inGame = new SoundFile(
+            p, "sound/beethoven_trim.mp3");
+            
     }
 }
