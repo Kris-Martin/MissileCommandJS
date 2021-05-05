@@ -1,8 +1,7 @@
-/*
-Purpose: basically upgrades menu
-Arguments: Null
-Returns: Null
-*/
-void displayGameMenu(){
-  
+/**
+ * Purpose: basically upgrades menu
+ * Arguments: Null
+ * Returns: Null
+ */
+void displayGameMenu() {
 }
