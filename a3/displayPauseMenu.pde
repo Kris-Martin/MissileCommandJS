@@ -12,8 +12,9 @@ void displayPauseMenu() {
     gameState = 1;
   }  
   if (backToMain.pressed()) {
+    sound.music.stop();
     setup();
-    level = 0;
+    level = 1;
     gameState = 0;
   } 
   textSize(100);

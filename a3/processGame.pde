@@ -98,7 +98,6 @@ void processCursor() {
 void keyPressed() {
   if (key == ' ') {
     if (gameState == 1) {
-      println("key pressed");
       gameState = 3;
     }
   }
