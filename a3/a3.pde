@@ -140,7 +140,7 @@ void draw() {
         displayGameMenu();
         break;
     case -1:  // Game over screen
-        processGameOver();
+        //processGameOver();
         displayGameOver();
         break;
     }

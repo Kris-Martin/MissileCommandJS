@@ -6,8 +6,9 @@
 void setLevel() {
   // Should reset all arrays iirc
   player = new Cannon();
-
-  cities = new ArrayList<City>();
+  if (level ==1) {
+    cities = new ArrayList<City>();
+  }
   // refresh cities? or persist?
   shells = new ArrayList<Shell>();
   missiles = new ArrayList<Missile>();
