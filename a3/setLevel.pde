@@ -6,16 +6,16 @@
 void setLevel() {
   // Should reset all arrays iirc
   player = new Cannon();
-  if(level == 1){
-    cities = new ArrayList<City>(); 
-  }
-   // refresh cities? or persist?
+
+  cities = new ArrayList<City>();
+  // refresh cities? or persist?
   shells = new ArrayList<Shell>();
   missiles = new ArrayList<Missile>();
   explosions = new ArrayList<Explosion>();
   trails = new ArrayList<Trail>();
 
   // Create 6 cities
+  if (level == 1) {
     cities.add(new City((int)(width*1./8)));
     cities.add(new City((int)(width*2./8)));
     cities.add(new City((int)(width*3./8)));
@@ -23,12 +23,14 @@ void setLevel() {
     cities.add(new City((int)(width*5./8)));
     cities.add(new City((int)(width*6./8)));
     cities.add(new City((int)(width*7./8)));
-  
+  }
 
   //
   time = 0;
-  score = 0;
-  points = 0;
+  if (level ==1) {
+    score = 0;
+    points = 0;
+  }
   //
   shellCount = 16*level;
   missileCount = 0;
