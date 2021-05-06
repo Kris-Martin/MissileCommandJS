@@ -30,7 +30,7 @@ class Explosion {
         size = power;    
         destroyCount = 0;
         scoreAdd = 0;
-        
+
         sound.drumHit.play();
     }
 

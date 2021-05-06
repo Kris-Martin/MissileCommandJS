@@ -114,7 +114,7 @@ void setup() {
  * Returns: Null
  */
 void draw() {
-    
+
     // TODO: Investigate switching music 
     /**
      * Directs to the main functions process and display. Functions further 
