@@ -1,7 +1,7 @@
 HScrollbar hs1;
 
 
-void displayPauseMenu() {
+void displayOptionsMenu() {
   background(0, 0, 16);
   MenuButton volumeHeading = new MenuButton("Music Volume", width * 2.8/12, height * 2/5);
   MenuButton backButton = new MenuButton("Back to main", width * 3/12, height * 4.5/5);

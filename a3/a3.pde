@@ -124,16 +124,16 @@ void draw() {
     case 0:  // New game
         processMainMenu();
         displayMainMenu();
-        //menuGeneralDisplay();
         break;
     case 2:  // Options, exit
-        processPauseMenu();
-        displayPauseMenu();
-        //menuGeneralDisplay();
-        break;
+        displayOptionsMenu();
+        break;    
     case 1:  // Playing
         processGame();
         displayGame();
+        break;
+    case 3:
+        displayPauseMenu();
         break;
     case 10:  // Upgrades between levels
         //processGameMenu();
