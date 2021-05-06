@@ -136,7 +136,7 @@ void draw() {
         displayGame();
         break;
     case 10:  // Upgrades between levels
-        processGameMenu();
+        //processGameMenu();
         displayGameMenu();
         break;
     case -1:  // Game over screen

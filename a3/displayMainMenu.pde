@@ -44,6 +44,18 @@ Purpose: display the menu buttons
     fill(R, G, B);
     text(buttonText.toUpperCase(), locationX, locationY);
   }
+
+  void secondaryDisplay() {
+    textAlign(CENTER);
+    PFont Impact;
+    Impact = createFont("DialogInput", 56);
+    textFont(Impact);
+    float R = 3;
+    float G = 96;
+    float B = 165;
+    fill(R, G, B);
+    text(buttonText.toUpperCase(), locationX, locationY);
+  }
   /*
 Purpose: mouse click function for the buttons
    Arguments: Null
