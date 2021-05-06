@@ -12,6 +12,8 @@ void displayPauseMenu() {
     gameState = 1;
   }  
   if (backToMain.pressed()) {
+    setup();
+    level = 0;
     gameState = 0;
   } 
   textSize(100);

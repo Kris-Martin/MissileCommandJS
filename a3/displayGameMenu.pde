@@ -4,8 +4,8 @@
  * Returns: Null
  */
 void displayGameMenu() {
-  MenuButton nextLevel = new MenuButton("click here start next level", width/2, height/3);
-  nextLevel.secondaryDisplay();
+  MenuButton nextLevel = new MenuButton("click to start next level", width/2, height/3);
+  nextLevel.thirdDisplay();
   if (nextLevel.pressed()){
     level ++; setLevel(); gameState = 1;
   }  
