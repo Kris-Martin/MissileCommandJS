@@ -1,5 +1,5 @@
 /**
- * Purpose: Creates a star object, use to create moving star fiel.
+ * Purpose: Creates a star object, use to create moving star field.
  * Used tutorial https://www.youtube.com/watch?v=17WoOqgXsRM&t=323s
  * as a reference but converted the variables into PVector methods.
  * Properties: TODO: fill in

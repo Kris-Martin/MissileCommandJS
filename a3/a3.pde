@@ -114,7 +114,7 @@ void setup() {
  * Returns: Null
  */
 void draw() {
-    
+
     // TODO: Investigate switching music 
     /**
      * Directs to the main functions process and display. Functions further 
@@ -122,7 +122,6 @@ void draw() {
      */
     switch (gameState) {
     case 0:  // New game
-        processMainMenu();
         displayMainMenu();
         break;
     case 2:  // Options, exit
@@ -137,7 +136,7 @@ void draw() {
         break;
     case 10:  // Upgrades between levels
         //processGameMenu();
-        displayGameMenu();
+        displayLevelMenu();
         break;
     case -1:  // Game over screen
         //processGameOver();

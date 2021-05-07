@@ -1,5 +1,6 @@
 /**
- * Purpose: The ammunition fired by players cannon. Potentially add subclasses * or just field specific methods for varient shells 
+ * Purpose: The ammunition fired by players cannon. 
+ * TODO: Add subclasses or just field specific methods for varient shells? 
  * Properties: TODO: fill in
  */
 class Shell {
@@ -12,7 +13,7 @@ class Shell {
     PVector aim = new PVector();
 
     int velocity;
-    
+
 
     /**
      * Purpose:  Spawns new shell firing from cannon, towards target set by 

@@ -41,13 +41,13 @@ class Sound {
     }
 
     void playTheme() {
-        // TODO: Fix swtiching of music/theme
+        // TODO: Fix switching of music/theme
         if (gameState == 1) {
             music = intro;
         } else {
             music = theme;
         }
-        
+
         music.loop();
     }
 }
