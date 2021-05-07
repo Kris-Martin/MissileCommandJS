@@ -1,7 +1,4 @@
-/**
- * Purpose: The trails that follow missiles and shells
- * Properties: TODO: fill in
- */
+// Purpose: The trails that follow missiles and shells.
 class Trail {
     boolean exist;
     int time, duration;

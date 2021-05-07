@@ -1,6 +1,11 @@
 Star[] stars = new Star[400];
 
 
+/**
+ * Purpose:  TODO: fill in.
+ * Properties:
+ * Return: 
+ */
 void displayMainMenu() {
     background(0, 0, 16);
     MenuButton startGame = new MenuButton("start game", width * 3/12, height/2);

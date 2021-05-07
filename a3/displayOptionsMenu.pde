@@ -1,6 +1,11 @@
 HScrollbar hs1;
 
 
+/**
+ * Purpose:  TODO: fill in.
+ * Properties:
+ * Return: 
+ */
 void displayOptionsMenu() {
     background(0, 0, 16);
     MenuButton volumeHeading = new MenuButton("Music Volume", width * 2.8/12, height * 2/5);
@@ -18,12 +23,23 @@ void displayOptionsMenu() {
     drawStars();
 }
 
+
+/**
+ * Purpose:  TODO: fill in.
+ * Properties:
+ * Return: 
+ */
 void displayScrollBar() {
     hs1.update();
     hs1.display();
 }
 
 
+/**
+ * Purpose:  TODO: fill in.
+ * Properties:
+ * Return: 
+ */
 void volumeControl() {
     float scrollBarPosition = hs1.getPos();
     float volume = 1.0;

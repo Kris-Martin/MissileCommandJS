@@ -89,12 +89,12 @@ void processCursor() {
     mousePos.y = mouseY;
 }
 
+
 /**
  * Purpose: Call pause menu
  * Arguments: Null
  * Returns: Null
  */
-
 void keyPressed() {
     if (key == ' ') {
         if (gameState == 1) {

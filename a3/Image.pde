@@ -1,12 +1,9 @@
-// 
-/**
- * Purpose:  A class to manage images and graphics.
- * Properties: TODO: fill in.
- */
+// Purpose:  A class to manage images and graphics.
 class Image {
 
     PImage city1, cannonBase, cannonWheel, cannonBarrel, background1;
     PFont menuFont, zigBlack;
+
 
     /**
      * Purpose:  TODO: fill in.
@@ -22,6 +19,7 @@ class Image {
         background1.resize(width, height);
     }
 
+
     /**
      * Purpose:  TODO: fill in.
      * Properties:
@@ -35,6 +33,7 @@ class Image {
         background1 = loadImage("images/NebulaBackground2.png");
     }
 
+
     /**
      * Purpose:  TODO: fill in.
      * Properties:
@@ -45,6 +44,7 @@ class Image {
         menuFont = loadFont("data/menu76.vlw");
     }
 
+
     /**
      * Purpose:  TODO: fill in.
      * Properties:
@@ -54,6 +54,7 @@ class Image {
         for (int i = 0; i < stars.length; i++) 
             stars[i] = new Star();
     }
+
 
     /**
      * Purpose:  TODO: fill in.

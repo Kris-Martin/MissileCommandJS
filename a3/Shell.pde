@@ -1,8 +1,5 @@
-/**
- * Purpose: The ammunition fired by players cannon. 
- * TODO: Add subclasses or just field specific methods for varient shells? 
- * Properties: TODO: fill in
- */
+// Purpose: The ammunition fired by players cannon. 
+// TODO: Add subclasses or just field specific methods for varient shells? 
 class Shell {
     boolean exist;
 

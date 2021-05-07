@@ -1,8 +1,4 @@
-/**
- * Purpose: A class to create and manage the missile defence system (cannon) 
- * used by the player.
- * Propeties: TODO: fill in.
- */
+// A class to create and manage the missile defence system (cannon) 
 class Cannon {
     PVector baseDim = new PVector();
     PVector basePos = new PVector();
