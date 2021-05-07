@@ -37,7 +37,7 @@ class Sound {
             p, "sound/mixkit-cinematic-mystery-trailer-drum-hit-546.mp3");
 
         theme = new SoundFile(
-            p, "sound/theme.wav");
+            p, "sound/theme.mp3");
     }
 
     void playTheme() {
