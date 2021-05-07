@@ -1,5 +1,5 @@
 /**
- * Purpose: set/reset all arrays/variables/parameters
+ * Purpose: Set/reset all arrays/variables/parameters
  * Arguments: Null
  * Returns: Null
  */

@@ -1,8 +1,7 @@
 import processing.sound.*;
-/**
- * Purpose:  A class to manage sound effects and theme music
- * Properties: TODO: fill in
- */
+
+
+// Purpose:  A class to manage sound effects and theme music.
 class Sound {
 
     SoundFile shatterShotExplosion, laserWeapon, intro, drumHit, theme, music;
@@ -16,6 +15,7 @@ class Sound {
 
         loadFiles(p);
     }
+
 
     /**
      * Purpose:  TODO: fill in
@@ -34,11 +34,12 @@ class Sound {
             p, "sound/intro_trim.wav");
 
         drumHit = new SoundFile(
-            p, "sound/mixkit-cinematic-mystery-trailer-drum-hit-546.mp3");
+            p, "sound/mixkit-cinematic-mystery-trailer-drum-hit-546.wav");
 
         theme = new SoundFile(
-            p, "sound/theme.mp3");
+            p, "sound/theme.wav");
     }
+
 
     void playTheme() {
         // TODO: Fix switching of music/theme

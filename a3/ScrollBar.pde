@@ -1,7 +1,4 @@
-/**
- * Purpose: TODO: fill in
- * Properties: TODO: fill in
- */
+// Purpose: TODO: fill in
 class HScrollbar {
     int swidth, sheight;    // width and height of bar
     float xpos, ypos;       // x and y position of bar

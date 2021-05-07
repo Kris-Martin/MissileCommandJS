@@ -1,8 +1,4 @@
-/**
- * Purpose:  Explosions triggerd by shell, they grow and shrink, destroying all 
- * they hit.
- * Properties: TODO: fill in.
- */
+// Explosions triggerd by shell, they grow and shrink, destroying all 
 class Explosion {
     boolean exist;
     boolean parentIsPlayer;

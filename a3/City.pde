@@ -1,13 +1,10 @@
-/**
- * Purpose: A class to create and manage the cities that the player has to 
- * proctect. 
- * Properties: TODO: fill in
- */
+// A class to create and manage the cities that the player has to defend.
 class City {
     // The health of the city, when it reaches 0 city is destroyed.
     int health, healthMax;
     PVector pos = new PVector();  //not needed, but consistant
     PVector dim = new PVector();
+
 
     /**
      * Purpose: City constructor
