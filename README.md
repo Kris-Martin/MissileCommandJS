@@ -2,7 +2,7 @@
 ### Authors: Simon Colman, Nathan Hall and Kristy Martin
 
 ## Description
-COSC101 Group Project - Assignment 3 is based on Missile Command an arcade classic originally developed in 1980 by Atari. It conatins the following elements:
+COSC101 Group Project - Assignment 3 is based on Missile Command an arcade classic originally developed in 1980 by Atari. It contains the following elements:
 
 ![Imgur](https://i.imgur.com/SQj0pxJ.png)
 [Missile Command Game Play](https://www.youtube.com/embed/uJijGLGHRTE "Original 1980 Missile Command.")
