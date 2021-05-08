@@ -1,6 +1,3 @@
-Star[] stars = new Star[400];
-
-
 /**
  * Purpose:  TODO: fill in.
  * Properties:
@@ -18,7 +15,7 @@ void displayMainMenu() {
     if (options.pressed()) gameState = 2;
     heading.headingDisplay();
     //displayHeading();
-    drawStars();
+    stars.draw();
 }
 
 
@@ -134,21 +131,6 @@ class MenuButton {
             }
         }
         return buttonPressed;
-    }
-}
-
-
-/**
- * Purpose: TODO: Fill in
- * Arguments: 
- * Returns: 
- */
-void drawStars() {
-    translate(0.5*width, 0.5*height);
-    // Update and draw all stars
-    for (int i=0; i<stars.length; i++) {
-        stars[i].update();
-        stars[i].show();
     }
 }
 

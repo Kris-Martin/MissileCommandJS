@@ -13,7 +13,6 @@ class Image {
     Image() {
 
         loadImages();
-        loadStarsArray();
         loadFonts();
         background1.resize(width, height);
     }
@@ -41,16 +40,5 @@ class Image {
     void loadFonts() {
         zigBlack = loadFont("data/heading48.vlw");
         menuFont = loadFont("data/menu76.vlw");
-    }
-
-
-    /**
-     * Purpose:  TODO: fill in.
-     * Properties:
-     * Return: 
-     */
-    void loadStarsArray() {
-        for (int i = 0; i < stars.length; i++) 
-            stars[i] = new Star();
     }
 }
