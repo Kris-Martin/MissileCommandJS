@@ -1,6 +1,3 @@
-HScrollbar hs1;
-
-
 /**
  * Purpose:  TODO: fill in.
  * Properties:
@@ -16,24 +13,13 @@ void displayOptionsMenu() {
         if (gameState == 2) {
             gameState = 0;
         }
-    } 
-    displayScrollBar();
+    }
+    
+    volumeBarMusic.draw();
     volumeControl();
     displayHeading();
     drawStars();
 }
-
-
-/**
- * Purpose:  TODO: fill in.
- * Properties:
- * Return: 
- */
-void displayScrollBar() {
-    hs1.update();
-    hs1.display();
-}
-
 
 /**
  * Purpose:  TODO: fill in.
@@ -41,7 +27,7 @@ void displayScrollBar() {
  * Return: 
  */
 void volumeControl() {
-    float scrollBarPosition = hs1.getPos();
+    float scrollBarPosition = volumeBarMusic.getPos();
     float volume = 1.0;
     volume = map(scrollBarPosition, 0, width, 0.0, 1.0);
     sound.music.amp(volume);

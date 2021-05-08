@@ -14,7 +14,6 @@ class Image {
 
         loadImages();
         loadStarsArray();
-        loadScrollBar();
         loadFonts();
         background1.resize(width, height);
     }
@@ -53,15 +52,5 @@ class Image {
     void loadStarsArray() {
         for (int i = 0; i < stars.length; i++) 
             stars[i] = new Star();
-    }
-
-
-    /**
-     * Purpose:  TODO: fill in.
-     * Properties:
-     * Return: 
-     */
-    void loadScrollBar() {
-        hs1 = new HScrollbar(0, height / 2 - 8, width, 16, 16);
     }
 }
