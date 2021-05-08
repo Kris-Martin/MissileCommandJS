@@ -32,8 +32,8 @@ class HScrollbar {
      * Return: 
      */
     void draw() {
-        hs1.update();
-        hs1.display();
+        update();
+        display();
     }
     
     

@@ -84,7 +84,7 @@ Cannon player;
 // Resources
 Image image;
 Sound sound;
-HScrollbar hs1;
+HScrollbar volumeBarMusic;
 
 
 /**
@@ -100,7 +100,7 @@ void setup() {
 
     image = new Image();
     sound = new Sound(this);
-    hs1 = new HScrollbar(0, height / 2 - 8, width, 16, 16);
+    volumeBarMusic = new HScrollbar(0, height / 2 - 8, width, 16, 16);
 
     // Play theme music on loop
     sound.playTheme();

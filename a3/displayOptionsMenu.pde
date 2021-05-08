@@ -15,7 +15,7 @@ void displayOptionsMenu() {
         }
     }
     
-    hs1.draw();
+    volumeBarMusic.draw();
     volumeControl();
     displayHeading();
     drawStars();
@@ -27,7 +27,7 @@ void displayOptionsMenu() {
  * Return: 
  */
 void volumeControl() {
-    float scrollBarPosition = hs1.getPos();
+    float scrollBarPosition = volumeBarMusic.getPos();
     float volume = 1.0;
     volume = map(scrollBarPosition, 0, width, 0.0, 1.0);
     sound.music.amp(volume);
