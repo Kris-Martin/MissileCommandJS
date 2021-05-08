@@ -27,26 +27,30 @@ class City {
      * Returns: Null
      */
     void display() {
+        PImage city = image.city1;
+        float x = pos.x - dim.x / 2;
+        float y = height - dim.y;
 
-        int frame = 0;
-        final float DAMAGE = 0.7;
-
-        if (health > 0 && health > healthMax*DAMAGE) {
+        if (health > 0) {
             //tint(255, health * (255 / healthMax));
-            image(image.city1, pos.x - dim.x / 2, height - dim.y, dim.x, dim.y);
-            //tint(255, 255);
-        }
-
-        if (health < healthMax*DAMAGE) {
-            if (frameCount % 5 == 0 && frame == 0) {
-                frame = 1;
-            }
-
-            if (frameCount % 10 == 0 && frame == 1) { 
-                frame = 0;
-            }
-            image(image.cityOnFire[frame], pos.x - dim.x / 2, height - dim.y, dim.x, dim.y);
-        }
+            city = image.city1;
+            //tint(255, 255);   
+        } 
+        
+        if (health < healthMax) {
+                int frame = 0;
+                
+                if (frameCount % 5 == 0 && frame == 1) {
+                    frame = 0;
+                }
+                if (frameCount % 10 == 0 && frame == 0) { 
+                    frame = 1;
+                }
+                city = image.cityOnFire[frame];
+            }//else {
+        //    city = image.cityRubble;
+        //}
+        image(city, x, y, dim.x, dim.y);
     }
 
     // TODO: Have variant textures to display city health?

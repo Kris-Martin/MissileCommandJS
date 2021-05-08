@@ -1,7 +1,8 @@
 // Purpose:  A class to manage images and graphics.
 class Image {
 
-    PImage city1, 
+    PImage city1,
+        cityRubble,
         cannonBase, 
         cannonWheel, 
         cannonBarrel, 
@@ -37,6 +38,8 @@ class Image {
         
         city1 = loadImage("images/city1.png");
         loadCityOnFire();
+        cityRubble = loadImage("images/cityRubble.png");
+        
         
         cannonBase = loadImage("images/cannonBase.png");
         cannonWheel = loadImage("images/cannonWheel.png");
