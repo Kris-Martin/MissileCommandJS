@@ -18,7 +18,7 @@ void displayOptionsMenu() {
     volumeBarMusic.draw();
     volumeControl();
     displayHeading();
-    drawStars();
+    stars.draw();
 }
 
 /**
