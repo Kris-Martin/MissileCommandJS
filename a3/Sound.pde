@@ -4,7 +4,7 @@ import processing.sound.*;
 // Purpose:  A class to manage sound effects and theme music.
 class Sound {
 
-    SoundFile shatterShotExplosion, laserWeapon, intro, drumHit, theme, music;
+    SoundFile shatterShotExplosion, laserWeapon, menuMusic, drumHit, theme, music;
 
     /**
      * Purpose:  TODO: fill in
@@ -30,8 +30,8 @@ class Sound {
         laserWeapon = new SoundFile(
             p, "sound/mixkit-laser-weapon-shot-1681.wav");
 
-        intro = new SoundFile(
-            p, "sound/intro_trim.wav");
+        menuMusic = new SoundFile(
+            p, "sound/mixkit-tribal-ritual-drums-567.wav");
 
         drumHit = new SoundFile(
             p, "sound/mixkit-cinematic-mystery-trailer-drum-hit-546.wav");
@@ -40,11 +40,16 @@ class Sound {
             p, "sound/theme.wav");
     }
 
-
+    
+    /**
+     * Purpose:  TODO: fill in
+     * Args:
+     * Returns:
+     */
     void playTheme() {
         // TODO: Fix switching of music/theme
         if (gameState == 1) {
-            music = intro;
+            music = menuMusic;
         } else {
             music = theme;
         }
