@@ -1,7 +1,7 @@
 /**
  * Purpose:  TODO: fill in.
  * Properties:
- * Return: 
+ * Return:
  */
 void displayOptionsMenu() {
     background(0, 0, 16);
@@ -14,7 +14,7 @@ void displayOptionsMenu() {
             gameState = 0;
         }
     }
-    
+
     volumeBarMusic.draw();
     volumeControl();
     displayHeading();
@@ -24,7 +24,7 @@ void displayOptionsMenu() {
 /**
  * Purpose:  TODO: fill in.
  * Properties:
- * Return: 
+ * Return:
  */
 void volumeControl() {
     float scrollBarPosition = volumeBarMusic.getPos();
