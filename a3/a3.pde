@@ -94,11 +94,11 @@ HScrollbar volumeBarMusic;
  * Returns: Null
  */
 void setup() {
-    size(1024, 768);
+    size(1280, 720);
     frameRate(60);
 
     gameState = 0;
-
+    
     image = new Image();
     sound = new Sound(this);
     stars = new StarField();
@@ -125,26 +125,28 @@ void draw() {
      * branch from there
      */
     switch (gameState) {
-    case 0:  // New game
-        displayMainMenu();
-        break;
-    case 2:  // Options, exit
-        displayOptionsMenu();
-        break;
-    case 1:  // Playing
-        processGame();
-        displayGame();
-        break;
-    case 3:
-        displayPauseMenu();
-        break;
-    case 10:  // Upgrades between levels
-        //processGameMenu();
-        displayLevelMenu();
-        break;
-    case -1:  // Game over screen
-        //processGameOver();
-        displayGameOver();
-        break;
+        case 0:  // New game
+            displayMainMenu();
+            break;
+        case 2:  // Options, exit
+            displayOptionsMenu();
+            break;
+        case 1:  // Playing
+            processGame();
+            displayGame();
+            break;
+        case 3:
+            displayPauseMenu();
+            break;
+        case 10:  // Upgrades between levels
+            //processGameMenu();
+            displayLevelMenu();
+            break;
+        case -1:  // Game over screen
+            //processGameOver();
+            displayGameOver();
+            break;
     }
+
+    
 }
