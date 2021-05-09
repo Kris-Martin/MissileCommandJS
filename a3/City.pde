@@ -4,6 +4,8 @@ class City {
     int health, healthMax;
     PVector pos = new PVector();  //not needed, but consistant
     PVector dim = new PVector();
+    
+    PImage city = image.city;
 
 
     /**
@@ -20,7 +22,14 @@ class City {
         dim.y = 40;
     }
     
-
+    
+    void draw(PImage city) {
+        float x = pos.x - dim.x / 2;
+        float y = height - dim.y;
+        
+        image(city, x, y, dim.x, dim.y);
+    }
+    
     // TODO: Animate explosion with mushroom cloud?
     /**
      * Purpose: Displays the city
@@ -28,19 +37,8 @@ class City {
      * Returns: Null
      */
     void display() {
-        PImage city = image.city;
-        float x = pos.x - dim.x / 2;
-        float y = height - dim.y;
-
-        if (health > 0) {
-            //tint(255, health * (255 / healthMax));
-            city = image.city;
-            //tint(255, 255);
-        }
-
         // If health is less than health max shows city flashing on fire.
         if (health < healthMax && health > 0) {
-
             // Increment frame every 10 frames.
             if (frameCount % 10 == 0) {
                 image.cityFrame++;
@@ -51,13 +49,15 @@ class City {
             }
             city = image.cityOnFire[image.cityFrame];
         }
-
         // Show a picture of rublle when city health reaches 0.
         if (health < 1) {
+            for (PImage frame : image.cityOnFire) {
+                city = frame;
+                draw(city);
+            }
             city = image.cityRubble;
         }
-
         // Display the city
-        image(city, x, y, dim.x, dim.y);
+        draw(city);
     }
 }
