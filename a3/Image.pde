@@ -15,7 +15,7 @@ class Image {
     final int BACKGROUND_IMAGES = 24;
     final int GROUND_HEIGHT = 15;
 
-    PFont menuFont, zigBlack;
+    PFont menuFont, zigBlack, impact, dialogInput;
 
 
     /**
@@ -121,8 +121,10 @@ class Image {
      * Return: None
      */
     void loadFonts() {
-        zigBlack = loadFont("data/heading48.vlw");
-        menuFont = loadFont("data/menu76.vlw");
+        zigBlack = loadFont("fonts/heading48.vlw");
+        menuFont = loadFont("fonts/menu76.vlw");
+        impact = loadFont("fonts/impact42.vlw");
+        dialogInput = loadFont("fonts/dialogInput56.vlw");
     }
     
     

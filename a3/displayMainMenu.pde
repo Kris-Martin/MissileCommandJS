@@ -4,23 +4,26 @@
  * Return:
  */
 void displayMainMenu() {
+    
     background(0, 0, 16);
+    
     MenuButton startGame = new MenuButton("start game", width * 3/12, height/2);
     MenuButton options = new MenuButton("options", width * 4/12, height * 3.5/5);
     MenuButton heading = new MenuButton("Missile Command", width/2, height/4);
+    
+    heading.headingDisplay();
     startGame.display();
-
     options.display();
+    
     if (startGame.pressed()) gameState = 1;
     if (options.pressed()) gameState = 2;
-    heading.headingDisplay();
-    //displayHeading();
+    
     stars.draw();
+    //displayHeading();
 }
 
 
-
-// Purpose: Class for the main menu.
+// A class to manage the Menu.
 class MenuButton {
     String buttonText;
     float locationX, locationY;
@@ -68,8 +71,7 @@ class MenuButton {
         textAlign(CENTER, BOTTOM);
         color headingColor = color(3, 96, 165);
         fill(headingColor);
-        PFont headingFont = image.zigBlack;
-        textFont(headingFont);
+        textFont(image.zigBlack);
         textSize(96);
         text(buttonText.toUpperCase(), locationX, locationY);
     }
@@ -82,9 +84,7 @@ class MenuButton {
      */
     void secondaryDisplay() {
         textAlign(CENTER);
-        PFont Impact;
-        Impact = createFont("DialogInput", 56);
-        textFont(Impact);
+        textFont(image.dialogInput);
         float R = 3;
         float G = 96;
         float B = 165;
@@ -100,9 +100,7 @@ class MenuButton {
      */
     void thirdDisplay() {
         textAlign(CENTER);
-        PFont Impact;
-        Impact = createFont("DialogInput", 56);
-        textFont(Impact);
+        textFont(image.dialogInput);
         float R = 3;
         float G = 96;
         float B = 165;
