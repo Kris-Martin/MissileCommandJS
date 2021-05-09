@@ -19,6 +19,7 @@ class City {
         dim.x = 80;
         dim.y = 40;
     }
+    
 
     // TODO: Animate explosion with mushroom cloud?
     /**
