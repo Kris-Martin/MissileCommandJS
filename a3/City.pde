@@ -36,20 +36,29 @@ class City {
             city = image.city;
             //tint(255, 255);
         }
-
+        
+        // If health is less than health max shows city flashing on fire.
         if (health < healthMax) {
-                int frame = 0;
-
-                if (frameCount % 5 == 0 && frame == 1) {
-                    frame = 0;
-                }
-                if (frameCount % 10 == 0 && frame == 0) {
-                    frame = 1;
-                }
-                city = image.cityOnFire[frame];
-            }//else {
+            
+            // Increment frame every 10 frames.
+            if (frameCount % 10 == 0) {
+                image.cityFrame++;
+            }
+            // Reset to frame to 1 when end of Array reached.
+            if (image.cityFrame >= image.cityOnFire.length) {
+                image.cityFrame = 1;
+            }
+            city = image.cityOnFire[image.cityFrame];
+        }
+        
+        // TODO: Show a picture of rublle when city health reaches 0.
+        // Currently if I switch this on the city changes to rubble after one hit.
+        
+        //if (health < 1) {
         //    city = image.cityRubble;
         //}
+        
+        // Display the city
         image(city, x, y, dim.x, dim.y);
     }
 
