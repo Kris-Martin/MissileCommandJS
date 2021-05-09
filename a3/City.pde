@@ -27,23 +27,23 @@ class City {
      * Returns: Null
      */
     void display() {
-        PImage city = image.city1;
+        PImage city = image.city;
         float x = pos.x - dim.x / 2;
         float y = height - dim.y;
 
         if (health > 0) {
             //tint(255, health * (255 / healthMax));
-            city = image.city1;
-            //tint(255, 255);   
-        } 
-        
+            city = image.city;
+            //tint(255, 255);
+        }
+
         if (health < healthMax) {
                 int frame = 0;
-                
+
                 if (frameCount % 5 == 0 && frame == 1) {
                     frame = 0;
                 }
-                if (frameCount % 10 == 0 && frame == 0) { 
+                if (frameCount % 10 == 0 && frame == 0) {
                     frame = 1;
                 }
                 city = image.cityOnFire[frame];

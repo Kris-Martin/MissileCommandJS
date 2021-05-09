@@ -1,10 +1,10 @@
 // Purpose:  A class to manage images and graphics.
 class Image {
 
-    PImage city1, 
-        cityRubble, 
-        cannonBase, 
-        cannonWheel, 
+    PImage city,
+        cityRubble,
+        cannonBase,
+        cannonWheel,
         cannonBarrel;
 
     PImage[] cityOnFire, background;
@@ -21,24 +21,24 @@ class Image {
      * Return: None
      */
     Image() {
-       
+
         loadImages();
         loadFonts();
-        
+
         backgroundFrame = 1;
         loadBackground();
     }
 
 
     /**
-     * Purpose:  Loads image files ready to be used, called in constructor. 
+     * Purpose:  Loads image files ready to be used, called in constructor.
      * Images created by Kristy Marin using InkScape.
      * Arguments: None
      * Return: None
      */
     void loadImages() {
 
-        city1 = loadImage("images/city1.png");
+        city = loadImage("images/city.png");
         loadCityOnFire();
         cityRubble = loadImage("images/cityRubble.png");
 
@@ -65,7 +65,7 @@ class Image {
     }
 
     /**
-     * Purpose:  Creates and loads an array of background images. 
+     * Purpose:  Creates and loads an array of background images.
      * Images created by domil123456. From: https://dynamicwallpaper.club/wallpaper/72omz5ynq4
      * Arguments: None
      * Return: None
@@ -87,7 +87,7 @@ class Image {
      * Return: None
      */
     void updateBackground() {
-        
+
         if (backgroundFrame < image.background.length && frameCount % 60 == 0) {
             backgroundFrame++;
         }
@@ -96,10 +96,10 @@ class Image {
             backgroundFrame = 1;
         }
     }
-    
-    
+
+
     /**
-     * Purpose:  Displays background image. 
+     * Purpose:  Displays background image.
      * Changes as backgroundFrame is updated by updateBackground.
      * Arguments: None
      * Return: None
