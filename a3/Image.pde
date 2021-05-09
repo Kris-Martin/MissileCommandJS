@@ -78,7 +78,7 @@ class Image {
         for (int i = 1; i < background.length; i++) {
             String str = "images/background/affinitywallpaper-" + i + ".png";
             background[i] = loadImage(str);
-            background[i].resize(width, height);
+            //background[i].resize(width, height); // If this enabled startup is slower.
         }
     }
 
@@ -118,5 +118,15 @@ class Image {
     void loadFonts() {
         zigBlack = loadFont("data/heading48.vlw");
         menuFont = loadFont("data/menu76.vlw");
+    }
+    
+    void displayGround() {
+        int x = 0;
+        int h = 15;
+        
+        noStroke();
+        fill(#834444);
+        
+        rect(x, height-h, width, h);
     }
 }

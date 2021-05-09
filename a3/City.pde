@@ -20,7 +20,7 @@ class City {
         dim.y = 40;
     }
 
-
+    // TODO: Animate explosion with mushroom cloud?
     /**
      * Purpose: Displays the city
      * Arguments: Null
@@ -36,10 +36,10 @@ class City {
             city = image.city;
             //tint(255, 255);
         }
-        
+
         // If health is less than health max shows city flashing on fire.
-        if (health < healthMax) {
-            
+        if (health < healthMax && health > 0) {
+
             // Increment frame every 10 frames.
             if (frameCount % 10 == 0) {
                 image.cityFrame++;
@@ -50,18 +50,13 @@ class City {
             }
             city = image.cityOnFire[image.cityFrame];
         }
-        
-        // TODO: Show a picture of rublle when city health reaches 0.
-        // Currently if I switch this on the city changes to rubble after one hit.
-        
-        //if (health < 1) {
-        //    city = image.cityRubble;
-        //}
-        
+
+        // Show a picture of rublle when city health reaches 0.
+        if (health < 1) {
+            city = image.cityRubble;
+        }
+
         // Display the city
         image(city, x, y, dim.x, dim.y);
     }
-
-    // TODO: Have variant textures to display city health?
-    // TODO: Animate explosion with mushroom cloud?
 }

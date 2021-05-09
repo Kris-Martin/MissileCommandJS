@@ -8,6 +8,7 @@ void displayGame() {
     
     //image(image.background[1], 0, 0);
     image.displayBackground();
+    image.displayGround();
     
     for (Trail t : trails) {
         t.display();
