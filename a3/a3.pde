@@ -4,19 +4,19 @@
  * Version:     1.0
  * Date:        TODO: Update when ready to submit
  *
- * Usage: 
+ * Usage:
  * TODO: Fill in usage
- * 
- * Requirements: 
- * This program needs Processing and the Processing Sound library installed to 
+ *
+ * Requirements:
+ * This program needs Processing and the Processing Sound library installed to
  * function.
  *
  * Installation:
- * 1) If you have not already installed Processing on your computer please 
+ * 1) If you have not already installed Processing on your computer please
  * follow the instructions on https://processing.org/download/ to install it.
- * 2) Then install the sound library following the instructions from 
+ * 2) Then install the sound library following the instructions from
  * https://processing.org/reference/libraries/.
- * 3) Once Processing is installed simply download the a3 zip folder, unzip it, 
+ * 3) Once Processing is installed simply download the a3 zip folder, unzip it,
  * double click the file a3.pde which will open in processing, then click play.
  */
 
@@ -27,16 +27,16 @@
  *
  * Should cities be reset as of current, or persist? functionally
  *
- * Missiles grow larger, faster, more numerous and ultimately more varied as  
+ * Missiles grow larger, faster, more numerous and ultimately more varied as
  * levels increase.
  *
  * Level end should 'freeze' and calculate remaining munnitions before moving to
  *
  * TODOs...
- * TODO: Add in score modifier for distance from width/2 or diff calculation 
+ * TODO: Add in score modifier for distance from width/2 or diff calculation
  * for diffulculty to hit.
  *
- * TODO: Multiple city pic varients, mainly to display health, more health 
+ * TODO: Multiple city pic varients, mainly to display health, more health
  * steps, the better, from full city to pure rubble.
  *
  * TODO: GameMenu - class and methods
@@ -94,11 +94,11 @@ HScrollbar volumeBarMusic;
  * Returns: Null
  */
 void setup() {
-    size(1024, 768);
+    size(1280, 720);
     frameRate(60);
 
     gameState = 0;
-
+    
     image = new Image();
     sound = new Sound(this);
     stars = new StarField();
@@ -119,32 +119,34 @@ void setup() {
  */
 void draw() {
 
-    // TODO: Investigate switching music 
+    // TODO: Investigate switching music
     /**
-     * Directs to the main functions process and display. Functions further 
+     * Directs to the main functions process and display. Functions further
      * branch from there
      */
     switch (gameState) {
-    case 0:  // New game
-        displayMainMenu();
-        break;
-    case 2:  // Options, exit
-        displayOptionsMenu();
-        break;    
-    case 1:  // Playing
-        processGame();
-        displayGame();
-        break;
-    case 3:
-        displayPauseMenu();
-        break;
-    case 10:  // Upgrades between levels
-        //processGameMenu();
-        displayLevelMenu();
-        break;
-    case -1:  // Game over screen
-        //processGameOver();
-        displayGameOver();
-        break;
+        case 0:  // New game
+            displayMainMenu();
+            break;
+        case 2:  // Options, exit
+            displayOptionsMenu();
+            break;
+        case 1:  // Playing
+            processGame();
+            displayGame();
+            break;
+        case 3:
+            displayPauseMenu();
+            break;
+        case 10:  // Upgrades between levels
+            //processGameMenu();
+            displayLevelMenu();
+            break;
+        case -1:  // Game over screen
+            //processGameOver();
+            displayGameOver();
+            break;
     }
+
+    
 }

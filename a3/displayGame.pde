@@ -4,7 +4,11 @@
  * Returns: Null
  */
 void displayGame() {
-    levelBackground(level);
+    //levelBackground(level);
+    
+    //image(image.background[1], 0, 0);
+    image.displayBackground();
+    
     for (Trail t : trails) {
         t.display();
     }
@@ -20,11 +24,14 @@ void displayGame() {
     for (Explosion e : explosions) {
         e.display();
     }
+    
     // Display mouse crossHair, seperated so shells can have crosshairs too
     player.display();
     displayCrossHair(mousePos, Cursor_Size, 60, 180, 180);
     displayScore();
     displayProgress();
+    
+    image.updateBackground();
 }
 
 
@@ -33,17 +40,17 @@ void displayGame() {
  * Arguments: Current level
  * Returns: Null
  */
-void levelBackground(int level) {
-    // TODO: Change this
-    switch(level) {
-    case 1:
-        image(image.background1, 0, 0);
-        break;
-    default:
-        image(image.background1, 0, 0);
-        break;
-    }
-}
+//void levelBackground(int level) {
+//    // TODO: Change this
+//    switch(level) {
+//    case 1:
+//        image(image.background[1], 0, 0);
+//        break;
+//    default:
+//        image(image.background[1], 0, 0);
+//        break;
+//    }
+//}
 
 
 /**

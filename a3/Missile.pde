@@ -1,6 +1,6 @@
 /**
- * Purpose: The hostile ammunition attacking the cities. Potentially add  
- * subclasses or just field specific methods for varient missiles 
+ * Purpose: The hostile ammunition attacking the cities. Potentially add
+ * subclasses or just field specific methods for varient missiles
  */
 class Missile {
     boolean exist;
@@ -13,8 +13,8 @@ class Missile {
 
     /**
      * Purpose:  TODO: fill in.
-     * Properties:
-     * Return: 
+     * Arguments:
+     * Return:
      */
     Missile() {
         exist = true;
@@ -30,8 +30,8 @@ class Missile {
 
     /**
      * Purpose:  TODO: fill in.
-     * Properties:
-     * Return: 
+     * Arguments:
+     * Return:
      */
     void process() {
         // Add velocity
@@ -51,10 +51,10 @@ class Missile {
 
     /**
      * Purpose:  TODO: fill in.
-     * Properties:
-     * Return: 
+     * Arguments:
+     * Return:
      */
-    void display() {    
+    void display() {
         // Basic missile
         strokeWeight(2);
         stroke(0);
