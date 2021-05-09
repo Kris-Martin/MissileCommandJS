@@ -25,8 +25,8 @@ class Image {
         loadImages();
         loadFonts();
 
-        backgroundFrame = 1;
-        cityFrame = 1;
+        backgroundFrame = 0;
+        cityFrame = 0;
 
         loadBackground();
     }
@@ -96,7 +96,7 @@ class Image {
         }
 
         if (backgroundFrame >= image.background.length) {
-            backgroundFrame = 1;
+            backgroundFrame = 0;
         }
     }
 

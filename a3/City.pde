@@ -6,6 +6,7 @@ class City {
     PVector dim = new PVector();
     
     PImage city = image.city;
+    boolean isAlive = true;
 
 
     /**
@@ -37,6 +38,7 @@ class City {
      * Returns: Null
      */
     void display() {
+        
         // If health is less than health max shows city flashing on fire.
         if (health < healthMax && health > 0) {
             // Increment frame every 10 frames.
@@ -45,17 +47,31 @@ class City {
             }
             // Reset to frame to 1 when end of Array reached.
             if (image.cityFrame >= image.cityOnFire.length) {
-                image.cityFrame = 1;
+                image.cityFrame = 0;
             }
             city = image.cityOnFire[image.cityFrame];
         }
-        // Show a picture of rublle when city health reaches 0.
-        if (health < 1) {
-            for (PImage frame : image.cityOnFire) {
-                city = frame;
-                draw(city);
+        
+        // City burns before turning to rubble when health reaches 0.
+        if (health < 1 && isAlive == true) {
+            
+            // Set cityFrame to start of Array
+            if (image.cityFrame >= image.cityOnFire.length) {
+                image.cityFrame = 0;
             }
-            city = image.cityRubble;
+            
+            
+            // Increment frame every 10 frames.
+            if (frameCount % 10 == 0) {
+                city = image.cityOnFire[image.cityFrame];
+                image.cityFrame++;
+            }
+            
+            // Set frame to rubble when end of Array is reached.
+            if (image.cityFrame >= image.cityOnFire.length) {
+                city = image.cityRubble;
+                isAlive = false;
+            }
         }
         // Display the city
         draw(city);
