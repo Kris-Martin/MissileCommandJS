@@ -8,8 +8,8 @@ class Image {
         cannonBarrel;
 
     PImage[] cityOnFire, background;
-    int backgroundFrame;
-    final int CITY_ON_FIRE_IMAGES = 2;
+    int backgroundFrame, cityFrame;
+    final int CITY_ON_FIRE_IMAGES = 12;
     final int BACKGROUND_IMAGES = 24;
 
     PFont menuFont, zigBlack;
@@ -26,6 +26,8 @@ class Image {
         loadFonts();
 
         backgroundFrame = 1;
+        cityFrame = 1;
+        
         loadBackground();
     }
 
@@ -38,7 +40,7 @@ class Image {
      */
     void loadImages() {
 
-        city = loadImage("images/city.png");
+        city = loadImage("images/city/city1.png");
         loadCityOnFire();
         cityRubble = loadImage("images/cityRubble.png");
 
@@ -58,8 +60,8 @@ class Image {
     void loadCityOnFire() {
         cityOnFire = new PImage[CITY_ON_FIRE_IMAGES];
 
-        for (int i = 0; i < cityOnFire.length; i++) {
-            String str = "images/cityOnFire/" + i + ".png";
+        for (int i = 1; i < cityOnFire.length; i++) {
+            String str = "images/city/city" + i + ".png";
             cityOnFire[i] = loadImage(str);
         }
     }
