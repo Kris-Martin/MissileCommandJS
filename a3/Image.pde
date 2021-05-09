@@ -8,9 +8,12 @@ class Image {
         cannonBarrel;
 
     PImage[] cityOnFire, background;
+    
     int backgroundFrame, cityFrame;
+    
     final int CITY_ON_FIRE_IMAGES = 12;
     final int BACKGROUND_IMAGES = 24;
+    final int GROUND_HEIGHT = 15;
 
     PFont menuFont, zigBlack;
 
@@ -130,11 +133,10 @@ class Image {
      */
     void displayGround() {
         int x = 0;
-        int h = 15;
 
         noStroke();
         fill(#834444);
 
-        rect(x, height-h, width, h);
+        rect(x, height-GROUND_HEIGHT, width, GROUND_HEIGHT);
     }
 }

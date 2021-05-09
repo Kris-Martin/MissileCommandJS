@@ -26,7 +26,7 @@ class City {
     
     void draw(PImage city) {
         float x = pos.x - dim.x / 2;
-        float y = height - dim.y;
+        float y = height - dim.y - image.GROUND_HEIGHT/3;
         
         image(city, x, y, dim.x, dim.y);
     }
