@@ -14,7 +14,7 @@ void displayGame() {
         t.display();
     }
     for (City c : cities) {
-        c.display();
+        c.draw(c.city);
     }
     for (Missile m : missiles) {
         m.display();
