@@ -2,6 +2,7 @@ import processing.sound.*;
 
 
 // Purpose:  A class to manage sound effects and theme music.
+// All sounds sourced from https://mixkit.co/free-sound-effects/
 class Sound {
 
     SoundFile shatterShotExplosion, laserWeapon, menuMusic, drumHit, theme, music;
