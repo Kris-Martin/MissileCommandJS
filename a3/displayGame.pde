@@ -1,15 +1,15 @@
 /**
  * Purpose: TODO: fill in
- * Arguments: Null
+ * Args: Null
  * Returns: Null
  */
 void displayGame() {
     //levelBackground(level);
-    
+
     //image(image.background[1], 0, 0);
     image.displayBackground();
     image.displayGround();
-    
+
     for (Trail t : trails) {
         t.display();
     }
@@ -25,20 +25,20 @@ void displayGame() {
     for (Explosion e : explosions) {
         e.display();
     }
-    
+
     // Display mouse crossHair, seperated so shells can have crosshairs too
     player.display();
     displayCrossHair(mousePos, Cursor_Size, 60, 180, 180);
     displayScore();
     displayProgress();
-    
+
     image.updateBackground();
 }
 
 
 /**
  * Purpose: Displays level background
- * Arguments: Current level
+ * Args: Current level
  * Returns: Null
  */
 //void levelBackground(int level) {
@@ -56,7 +56,7 @@ void displayGame() {
 
 /**
  * Purpose: Displays CrossHair
- * Arguments: Current level
+ * Args: Current level
  * Returns: Null
  */
 void displayCrossHair(PVector pos, int size, int r, int g, int b) {
@@ -72,7 +72,7 @@ void displayCrossHair(PVector pos, int size, int r, int g, int b) {
 
 /**
  * Purpose: Displays score
- * Arguments: Null
+ * Args: Null
  * Returns: Null
  */
 void displayScore() {
@@ -94,7 +94,7 @@ void displayScore() {
 
 /**
  * Purpose: Displays the missile count
- * Arguments: Null
+ * Args: Null
  * Returns: Null
  */
 void displayProgress() {

@@ -17,7 +17,7 @@ class Image {
 
     /**
      * Purpose:  Constructor for Image class, loads image and font files.
-     * Arguments: None
+     * Args: None
      * Return: None
      */
     Image() {
@@ -27,7 +27,7 @@ class Image {
 
         backgroundFrame = 1;
         cityFrame = 1;
-        
+
         loadBackground();
     }
 
@@ -35,7 +35,7 @@ class Image {
     /**
      * Purpose:  Loads image files ready to be used, called in constructor.
      * Images created by Kristy Marin using InkScape.
-     * Arguments: None
+     * Args: None
      * Return: None
      */
     void loadImages() {
@@ -54,7 +54,7 @@ class Image {
     /**
      * Purpose:  Creates and loads an array of city on fire images.
      * Images created by Kristy Marin using InkScape.
-     * Arguments: None
+     * Args: None
      * Return: None
      */
     void loadCityOnFire() {
@@ -69,7 +69,7 @@ class Image {
     /**
      * Purpose:  Creates and loads an array of background images.
      * Images created by domil123456. From: https://dynamicwallpaper.club/wallpaper/72omz5ynq4
-     * Arguments: None
+     * Args: None
      * Return: None
      */
     void loadBackground() {
@@ -85,7 +85,7 @@ class Image {
 
     /**
      * Purpose:  Increments the frame number used to access the background array.
-     * Arguments: None
+     * Args: None
      * Return: None
      */
     void updateBackground() {
@@ -103,7 +103,7 @@ class Image {
     /**
      * Purpose:  Displays background image.
      * Changes as backgroundFrame is updated by updateBackground.
-     * Arguments: None
+     * Args: None
      * Return: None
      */
     void displayBackground() {
@@ -112,21 +112,21 @@ class Image {
 
     /**
      * Purpose:  Loads font files. Called in constructor.
-     * Arguments: None
+     * Args: None
      * Return: None
      */
     void loadFonts() {
         zigBlack = loadFont("data/heading48.vlw");
         menuFont = loadFont("data/menu76.vlw");
     }
-    
+
     void displayGround() {
         int x = 0;
         int h = 15;
-        
+
         noStroke();
         fill(#834444);
-        
+
         rect(x, height-h, width, h);
     }
 }

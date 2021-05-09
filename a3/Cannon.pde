@@ -1,4 +1,4 @@
-// A class to create and manage the missile defence system (cannon) 
+// A class to create and manage the missile defence system (cannon)
 class Cannon {
     PVector baseDim = new PVector();
     PVector basePos = new PVector();
@@ -15,7 +15,7 @@ class Cannon {
 
     /**
      * Purpose: Cannon constructor
-     * Arguments: Null
+     * Args: Null
      * Returns: Null
      */
     Cannon() {
@@ -33,7 +33,7 @@ class Cannon {
         barrelPos.y = height - baseDim.y;
 
         reloadDim.x = 40;
-        reloadDim.y = 6;   
+        reloadDim.y = 6;
         reloadPeriod = 128;  //128
         reloadTime = 0;
     }
@@ -41,7 +41,7 @@ class Cannon {
 
     /**
      * Purpose: Displays the object
-     * Arguments: Null
+     * Args: Null
      * Returns: Null
      */
     void display() {
@@ -62,7 +62,7 @@ class Cannon {
 
     /**
      * Purpose: Reloads Cannon, on click: Creates and fires a new shell
-     * Arguments: Null
+     * Args: Null
      * Returns: Null
      */
     void reloadAndShoot() {
@@ -80,7 +80,7 @@ class Cannon {
 
     /**
      * Purpose: Displays the reload
-     * Arguments: Null
+     * Args: Null
      * Returns: Null
      */
     void reloadBar() {
@@ -102,7 +102,7 @@ class Cannon {
 
     /**
      * Purpose: Displays the shell/ammo count
-     * Arguments: Null
+     * Args: Null
      * Returns: Null
      */
     void ammoCount() {
@@ -110,7 +110,7 @@ class Cannon {
         int magazineSize = 8;
         stroke(80, 240, 240);
         strokeWeight(2);
-        for (int i = magazineSize; i < shellCount; i +=magazineSize) {       
+        for (int i = magazineSize; i < shellCount; i +=magazineSize) {
             line(mousePos.x - reloadDim.x / 2, mousePos.y + Cursor_Size * 3 + i * 4 / magazineSize, mousePos.x + reloadDim.x / 2, mousePos.y + Cursor_Size * 3 + i * 4 / magazineSize);
         }
         int loadedCount = shellCount % magazineSize == 0 && shellCount!= 0 ? magazineSize : shellCount % magazineSize;

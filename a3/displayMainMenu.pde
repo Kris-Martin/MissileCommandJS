@@ -1,6 +1,6 @@
 /**
  * Purpose:  TODO: fill in.
- * Arguments:
+ * Args:
  * Return:
  */
 void displayMainMenu() {
@@ -28,7 +28,7 @@ class MenuButton {
 
     /**
      * Purpose: TODO: Fill in
-     * Arguments:
+     * Args:
      * Returns:
      */
     MenuButton (String buttonText, float locationX, float locationY) {
@@ -40,7 +40,7 @@ class MenuButton {
 
     /**
      * Purpose: Display the menu buttons.
-     * Arguments: Null
+     * Args: Null
      * Returns: Null
      */
     void display() {
@@ -61,7 +61,7 @@ class MenuButton {
 
     /**
      * Purpose: TODO: Fill in
-     * Arguments:
+     * Args:
      * Returns:
      */
     void headingDisplay() {
@@ -77,7 +77,7 @@ class MenuButton {
 
     /**
      * Purpose: TODO: Fill in
-     * Arguments:
+     * Args:
      * Returns:
      */
     void secondaryDisplay() {
@@ -95,7 +95,7 @@ class MenuButton {
 
     /**
      * Purpose: TODO: Fill in
-     * Arguments:
+     * Args:
      * Returns:
      */
     void thirdDisplay() {
@@ -118,7 +118,7 @@ class MenuButton {
 
     /**
      * Purpose: Mouse click function for the buttons.
-     * Arguments: Null
+     * Args: Null
      * Returns: boolean
      */
     boolean pressed() {
@@ -135,7 +135,7 @@ class MenuButton {
 
 /**
  * Purpose: TODO: Fill in
- * Arguments:
+ * Args:
  * Returns:
  */
 void displayHeading() {

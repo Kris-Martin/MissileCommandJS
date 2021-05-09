@@ -1,6 +1,6 @@
 /**
  * Purpose: TODO: fill in
- * Arguments: Null
+ * Args: Null
  * Returns: Null
  */
 void displayGameOver() {

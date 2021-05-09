@@ -1,6 +1,6 @@
 /**
  * Purpose: TODO: fill in
- * Arguments: Null
+ * Args: Null
  * Returns: Null
  */
 void processGame() {
@@ -64,8 +64,8 @@ void processGame() {
 
 
 /**
- * Purpose: To add the missiles to the array 
- * Arguments: Null
+ * Purpose: To add the missiles to the array
+ * Args: Null
  * Returns: Null
  */
 void spawnMissiles() {
@@ -81,7 +81,7 @@ void spawnMissiles() {
 
 /**
  * Purpose: TODO: fill in
- * Arguments: Null
+ * Args: Null
  * Returns: Null
  */
 void processCursor() {
@@ -92,7 +92,7 @@ void processCursor() {
 
 /**
  * Purpose: Call pause menu
- * Arguments: Null
+ * Args: Null
  * Returns: Null
  */
 void keyPressed() {

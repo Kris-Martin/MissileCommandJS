@@ -3,7 +3,7 @@ class StarField {
 
     /**
      * Purpose:  TODO: fill in.
-     * Arguments:
+     * Args:
      * Return:
      */
     StarField() {
@@ -13,7 +13,7 @@ class StarField {
 
     /**
      * Purpose:  TODO: fill in.
-     * Arguments:
+     * Args:
      * Return:
      */
     void load() {
@@ -24,7 +24,7 @@ class StarField {
 
     /**
      * Purpose: TODO: Fill in
-     * Arguments:
+     * Args:
      * Returns:
      */
     void draw() {

@@ -1,6 +1,6 @@
 /**
  * Purpose: TODO: fill in or remove
- * Arguments: Null
+ * Args: Null
  * Returns: Null
  */
 void displayPauseMenu() {
@@ -10,13 +10,13 @@ void displayPauseMenu() {
     returnToGame.thirdDisplay();
     if (returnToGame.pressed()) {
         gameState = 1;
-    }  
+    }
     if (backToMain.pressed()) {
       sound.music.stop();
         setup();
         level = 0;
         gameState = 0;
-    } 
+    }
     textSize(100);
     textAlign(CENTER);
     fill(196, 63, 30);

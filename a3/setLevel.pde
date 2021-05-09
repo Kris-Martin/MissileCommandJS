@@ -1,6 +1,6 @@
 /**
  * Purpose: Set/reset all arrays/variables/parameters
- * Arguments: Null
+ * Args: Null
  * Returns: Null
  */
 void setLevel() {

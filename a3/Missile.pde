@@ -13,7 +13,7 @@ class Missile {
 
     /**
      * Purpose:  TODO: fill in.
-     * Arguments:
+     * Args:
      * Return:
      */
     Missile() {
@@ -30,7 +30,7 @@ class Missile {
 
     /**
      * Purpose:  TODO: fill in.
-     * Arguments:
+     * Args:
      * Return:
      */
     void process() {
@@ -51,7 +51,7 @@ class Missile {
 
     /**
      * Purpose:  TODO: fill in.
-     * Arguments:
+     * Args:
      * Return:
      */
     void display() {

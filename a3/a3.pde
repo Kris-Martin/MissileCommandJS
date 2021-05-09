@@ -90,7 +90,7 @@ HScrollbar volumeBarMusic;
 
 /**
  * Purpose: Initialtes all starting parameters
- * Arguments: Null
+ * Args: Null
  * Returns: Null
  */
 void setup() {
@@ -98,7 +98,7 @@ void setup() {
     frameRate(60);
 
     gameState = 0;
-    
+
     image = new Image();
     sound = new Sound(this);
     stars = new StarField();
@@ -114,7 +114,7 @@ void setup() {
 
 /**
  * Purpose: Simply seperates/branches code for ease of use
- * Arguments: Null
+ * Args: Null
  * Returns: Null
  */
 void draw() {
@@ -148,5 +148,5 @@ void draw() {
             break;
     }
 
-    
+
 }

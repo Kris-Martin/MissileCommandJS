@@ -25,7 +25,7 @@ class Trail {
 
     /**
      * Purpose: Initialtes all starting parameters
-     * Arguments: Null
+     * Args: Null
      * Returns: Null
      */
     void process() {
@@ -38,7 +38,7 @@ class Trail {
 
     /**
      * Purpose: Initialtes all starting parameters
-     * Arguments: Null
+     * Args: Null
      * Returns: Null
      */
     void display() {

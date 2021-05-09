@@ -8,7 +8,7 @@ class City {
 
     /**
      * Purpose: City constructor
-     * Arguments: int PostionX
+     * Args: int PostionX
      * Returns: Null
      */
     City(int PositionX) {
@@ -23,7 +23,7 @@ class City {
     // TODO: Animate explosion with mushroom cloud?
     /**
      * Purpose: Displays the city
-     * Arguments: Null
+     * Args: Null
      * Returns: Null
      */
     void display() {
