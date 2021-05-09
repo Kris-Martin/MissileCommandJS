@@ -1,6 +1,6 @@
 /**
  * Purpose:  TODO: fill in.
- * Properties:
+ * Arguments:
  * Return:
  */
 void displayOptionsMenu() {
@@ -23,7 +23,7 @@ void displayOptionsMenu() {
 
 /**
  * Purpose:  TODO: fill in.
- * Properties:
+ * Arguments:
  * Return:
  */
 void volumeControl() {

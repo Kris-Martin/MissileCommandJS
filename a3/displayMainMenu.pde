@@ -1,7 +1,7 @@
 /**
  * Purpose:  TODO: fill in.
- * Properties:
- * Return: 
+ * Arguments:
+ * Return:
  */
 void displayMainMenu() {
     background(0, 0, 16);
@@ -11,7 +11,7 @@ void displayMainMenu() {
     startGame.display();
 
     options.display();
-    if (startGame.pressed()) gameState = 1; 
+    if (startGame.pressed()) gameState = 1;
     if (options.pressed()) gameState = 2;
     heading.headingDisplay();
     //displayHeading();
@@ -19,10 +19,8 @@ void displayMainMenu() {
 }
 
 
-/**
- * Purpose: Class for the main menu.
- * Properties: TODO: Fill in
- */
+
+// Purpose: Class for the main menu.
 class MenuButton {
     String buttonText;
     float locationX, locationY;
@@ -30,8 +28,8 @@ class MenuButton {
 
     /**
      * Purpose: TODO: Fill in
-     * Arguments: 
-     * Returns: 
+     * Arguments:
+     * Returns:
      */
     MenuButton (String buttonText, float locationX, float locationY) {
         this.buttonText = buttonText;
@@ -63,8 +61,8 @@ class MenuButton {
 
     /**
      * Purpose: TODO: Fill in
-     * Arguments: 
-     * Returns: 
+     * Arguments:
+     * Returns:
      */
     void headingDisplay() {
         textAlign(CENTER, BOTTOM);
@@ -79,8 +77,8 @@ class MenuButton {
 
     /**
      * Purpose: TODO: Fill in
-     * Arguments: 
-     * Returns: 
+     * Arguments:
+     * Returns:
      */
     void secondaryDisplay() {
         textAlign(CENTER);
@@ -97,8 +95,8 @@ class MenuButton {
 
     /**
      * Purpose: TODO: Fill in
-     * Arguments: 
-     * Returns: 
+     * Arguments:
+     * Returns:
      */
     void thirdDisplay() {
         textAlign(CENTER);
@@ -137,8 +135,8 @@ class MenuButton {
 
 /**
  * Purpose: TODO: Fill in
- * Arguments: 
- * Returns: 
+ * Arguments:
+ * Returns:
  */
 void displayHeading() {
     textAlign(CENTER, BOTTOM);

@@ -28,7 +28,7 @@ class HScrollbar {
 
     /**
      * Purpose:  TODO: fill in.
-     * Properties:
+     * Arguments:
      * Return:
      */
     void draw() {

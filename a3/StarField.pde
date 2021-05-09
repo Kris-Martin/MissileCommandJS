@@ -1,10 +1,10 @@
 class StarField {
     Star[] stars = new Star[400];
-    
+
     /**
      * Purpose:  TODO: fill in.
-     * Properties:
-     * Return: 
+     * Arguments:
+     * Return:
      */
     StarField() {
         load();
@@ -13,19 +13,19 @@ class StarField {
 
     /**
      * Purpose:  TODO: fill in.
-     * Properties:
-     * Return: 
+     * Arguments:
+     * Return:
      */
     void load() {
-        for (int i = 0; i < stars.length; i++) 
+        for (int i = 0; i < stars.length; i++)
             stars[i] = new Star();
     }
 
 
     /**
      * Purpose: TODO: Fill in
-     * Arguments: 
-     * Returns: 
+     * Arguments:
+     * Returns:
      */
     void draw() {
         translate(0.5*width, 0.5*height);
