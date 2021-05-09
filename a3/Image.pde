@@ -60,9 +60,9 @@ class Image {
     void loadCityOnFire() {
         cityOnFire = new PImage[CITY_ON_FIRE_IMAGES];
 
-        for (int i = 1; i < cityOnFire.length; i++) {
+        for (int i = 1; i <= cityOnFire.length; i++) {
             String str = "images/city/city" + i + ".png";
-            cityOnFire[i] = loadImage(str);
+            cityOnFire[i-1] = loadImage(str);
         }
     }
 
@@ -76,9 +76,9 @@ class Image {
     void loadBackground() {
         background = new PImage[BACKGROUND_IMAGES];
 
-        for (int i = 1; i < background.length; i++) {
+        for (int i = 1; i <= background.length; i++) {
             String str = "images/background/affinitywallpaper-" + i + ".png";
-            background[i] = loadImage(str);
+            background[i-1] = loadImage(str);
             //background[i].resize(width, height); // If this enabled startup is slower.
         }
     }
