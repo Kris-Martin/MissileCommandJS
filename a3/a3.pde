@@ -119,7 +119,7 @@ void setup() {
  */
 void draw() {
 
-    // Used to swtich music playing based on gameState.
+    // Used to switch music playing based on gameState.
     sound.playTheme();
     
     /**
