@@ -41,20 +41,45 @@ class Sound {
             p, "sound/theme.wav");
     }
 
-    
+
     /**
-     * Purpose:  TODO: fill in
+     * Purpose: Checks what is currently playing and assigns to music.
+     * Used in menu fucntions for volume control.
+     * Args:
+     * Returns: SoundFile music.
+     */
+    SoundFile currentlyPlaying() {
+
+        if (sound.menuMusic.isPlaying()) {
+            sound.music = sound.menuMusic;
+        }
+
+        if (sound.theme.isPlaying()) {
+            sound.music = sound.theme;
+        }
+
+        return sound.music;
+    }
+
+
+    /**
+     * Purpose: Switches between menuMusic and theme based on gameState.
      * Args:
      * Returns:
      */
     void playTheme() {
+        if (gameState == 0) {
+            sound.theme.stop();
+            if (!sound.menuMusic.isPlaying()) {
+                sound.menuMusic.loop();
+            }
+        }
         // TODO: Fix switching of music/theme
         if (gameState == 1) {
-            music = menuMusic;
-        } else {
-            music = theme;
+            sound.menuMusic.stop();
+            if (!sound.theme.isPlaying()) {
+                sound.theme.loop();
+            }
         }
-
-        music.loop();
     }
 }

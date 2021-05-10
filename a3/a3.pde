@@ -119,7 +119,9 @@ void setup() {
  */
 void draw() {
 
-    // TODO: Investigate switching music
+    // Used to swtich music playing based on gameState.
+    sound.playTheme();
+    
     /**
      * Directs to the main functions process and display. Functions further
      * branch from there

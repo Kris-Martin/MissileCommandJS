@@ -27,8 +27,25 @@ void displayOptionsMenu() {
  * Return:
  */
 void volumeControl() {
+    
     float scrollBarPosition = volumeBarMusic.getPos();
     float volume = 1.0;
+    
     volume = map(scrollBarPosition, 0, width, 0.0, 1.0);
+    
+    sound.music = sound.currentlyPlaying();
     sound.music.amp(volume);
 }
+
+//SoundFile currentlyPlaying() {
+    
+//    if (sound.menuMusic.isPlaying()) {
+//        sound.music = sound.menuMusic;
+//    }
+    
+//    if (sound.theme.isPlaying()) {
+//        sound.music = sound.theme;
+//    }
+    
+//    return sound.music;
+//}
