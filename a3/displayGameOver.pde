@@ -21,6 +21,7 @@ void displayGameOver() {
         if (returnToMain.pressed()) {
             gameState = 0;
             level = 0;
+            sound.music = sound.currentlyPlaying();
             sound.music.stop();
             setup();
         }
