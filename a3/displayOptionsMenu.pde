@@ -35,17 +35,5 @@ void volumeControl() {
     
     sound.music = sound.currentlyPlaying();
     sound.music.amp(volume);
+    sound.theme.amp(volume);
 }
-
-//SoundFile currentlyPlaying() {
-    
-//    if (sound.menuMusic.isPlaying()) {
-//        sound.music = sound.menuMusic;
-//    }
-    
-//    if (sound.theme.isPlaying()) {
-//        sound.music = sound.theme;
-//    }
-    
-//    return sound.music;
-//}
