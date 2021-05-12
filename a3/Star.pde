@@ -7,18 +7,17 @@ class Star {
     PVector position = new PVector(random(-width, width), random(-height, height), random(width));
     PVector speed = new PVector();
     PVector velocity = new PVector();  // TODO: why speed and velocity?
-    // pVector
     
     
     Star() {
-        
+                                                        //pls put a comment explaining why constructor is empty. and shouldnt the PVectors be initialised here rather than in fields
     }
 
 
     /**
      * Purpose:  TODO: fill in
-     * Args:
-     * Returns:
+     * Args:  Null
+     * Returns:  Null
      */
     void update() {
         velocity.z = -10;  
@@ -31,8 +30,8 @@ class Star {
 
     /**
      * Purpose:  TODO: fill in
-     * Args:
-     * Returns:
+     * Args:  Null
+     * Returns:  Null
      */
     void show() {
         speed.x = map(position.x / position.z, 0, 1, 0, width);

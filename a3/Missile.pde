@@ -1,7 +1,4 @@
-/**
- * Purpose: The hostile ammunition attacking the cities. Potentially add
- * subclasses or just field specific methods for varient missiles
- */
+// Purpose: The hostile ammunition attacking the cities.
 class Missile {
     boolean exist;
 
@@ -12,9 +9,9 @@ class Missile {
 
 
     /**
-     * Purpose:  TODO: fill in.
-     * Args:
-     * Return:
+     * Purpose:  Missile constructor
+     * Args:  Null
+     * Return:  Null
      */
     Missile() {
         exist = true;
@@ -29,9 +26,9 @@ class Missile {
 
 
     /**
-     * Purpose:  TODO: fill in.
-     * Args:
-     * Return:
+     * Purpose:  processes Missile
+     * Args:  Null
+     * Return:  Null
      */
     void process() {
         // Add velocity
@@ -40,19 +37,18 @@ class Missile {
         // Create trail
         trails.add(new Trail(pos, vel, 128, (int)dim.x, #f0c000));
 
-        // Change this once collision to cities and ground is implemented
         if (pos.y>height) {
             exist = false;
-            // Numbers should be replaces with upgradable values
+            // Numbers should be replaced with upgradable values / final vars
             explosions.add(new Explosion(pos, 128, 64, false));
         }
     }
 
 
     /**
-     * Purpose:  TODO: fill in.
-     * Args:
-     * Return:
+     * Purpose:  displays Missile
+     * Args:  Null
+     * Return:  Null
      */
     void display() {
         // Basic missile

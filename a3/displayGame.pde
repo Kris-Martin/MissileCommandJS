@@ -1,5 +1,5 @@
 /**
- * Purpose: TODO: fill in
+ * Purpose: displays the main game
  * Args: Null
  * Returns: Null
  */
@@ -14,7 +14,7 @@ void displayGame() {
         t.display();
     }
     for (City c : cities) {
-        c.draw(c.city);
+        c.display(c.city);
     }
     for (Missile m : missiles) {
         m.display();
@@ -56,7 +56,7 @@ void displayGame() {
 
 /**
  * Purpose: Displays CrossHair
- * Args: Current level
+ * Args: PVector pos, int size, int r, int g, int b
  * Returns: Null
  */
 void displayCrossHair(PVector pos, int size, int r, int g, int b) {
@@ -76,8 +76,7 @@ void displayCrossHair(PVector pos, int size, int r, int g, int b) {
  * Returns: Null
  */
 void displayScore() {
-    // TODO: Change this
-    textFont(image.impact);
+    textFont(image.inGameScore);
     String text = "Score: "+score;
     stroke(0);
     strokeWeight(2);
@@ -91,19 +90,25 @@ void displayScore() {
 
 
 /**
- * Purpose: Displays the missile count
+ * Purpose: Displays the missile count / progress of level
  * Args: Null
  * Returns: Null
  */
 void displayProgress() {
-    stroke(240, 120, 80);
-    strokeWeight(2);
     int padding = 6;
     float roundRatio = (float)(width-padding*2)/missileMax;
-    for (int i=0; i<missileMax-missileCount; i++) {
-        stroke(0);
-        strokeWeight(2);
-        fill(180, 60, 60);
-        rect(padding+i*(roundRatio), 40, roundRatio, 20, 4);
+    stroke(0);
+    strokeWeight(2);
+    fill(180, 60, 60);
+    
+    //display segmented bar for levels 1-5, then one continuous bar
+    if (level<6){
+        for (int i=0; i<missileMax-missileCount; i++) {
+            rect(padding+i*(roundRatio), 40, roundRatio, 20, 4);
+        }
+    }
+    else{
+        fill(120,30,30);
+        rect(padding, 40, roundRatio*(missileMax-missileCount), 20, 4);
     }
 }

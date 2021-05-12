@@ -4,24 +4,23 @@ import processing.sound.*;
 // Purpose:  A class to manage sound effects and theme music.
 // All sounds sourced from https://mixkit.co/free-sound-effects/
 class Sound {
-
     SoundFile shatterShotExplosion, laserWeapon, menuMusic, drumHit, theme, music;
+
 
     /**
      * Purpose:  TODO: fill in
-     * Args:
-     * Returns:
+     * Args:  PApplet p : explenation?
+     * Returns:  Null
      */
     Sound(PApplet p) {
-
         loadFiles(p);
     }
 
 
     /**
      * Purpose:  TODO: fill in
-     * Args:
-     * Returns:
+     * Args:  PApplet p : explenation?
+     * Returns:  Null
      */
     void loadFiles(PApplet p) {
 
@@ -45,7 +44,7 @@ class Sound {
     /**
      * Purpose: Checks what is currently playing and assigns to music.
      * Used in menu fucntions for volume control.
-     * Args:
+     * Args:  Null
      * Returns: SoundFile music.
      */
     SoundFile currentlyPlaying() {
@@ -64,8 +63,8 @@ class Sound {
 
     /**
      * Purpose: Switches between menuMusic and theme based on gameState.
-     * Args:
-     * Returns:
+     * Args:  Null
+     * Returns:  Null
      */
     void playTheme() {
         if (gameState == 0) {

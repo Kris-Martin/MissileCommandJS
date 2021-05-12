@@ -1,12 +1,13 @@
 /**
- * Purpose: TODO: fill in
+ * Purpose: Main processing loop of game
  * Args: Null
  * Returns: Null
  */
 void processGame() {
-    time++;  //make better XD
+    //time in the level
+    time++;
 
-    // Temp
+    // total health of all cities, used to caclulate fail state
     int Health = 0;
 
     // Trail loop
@@ -21,7 +22,7 @@ void processGame() {
     // City loop
     for (int i=0; i<cities.size(); i++) {
         City c = cities.get(i);
-        c.display();
+        c.process();
         Health+= c.health;
     }
 
@@ -80,7 +81,7 @@ void spawnMissiles() {
 
 
 /**
- * Purpose: TODO: fill in
+ * Purpose: transfers inbuilt mouse variables to a single PVector for ease of use
  * Args: Null
  * Returns: Null
  */
@@ -91,15 +92,17 @@ void processCursor() {
 
 
 /**
- * Purpose: Call pause menu
+ * Purpose: Toggle pause menu
  * Args: Null
  * Returns: Null
  */
 void keyPressed() {
     if (key == ' ') {
         if (gameState == 1) {
-            println("key pressed");
             gameState = 3;
+        }
+        else if (gameState == 3) {
+            gameState = 1;
         }
     }
 }

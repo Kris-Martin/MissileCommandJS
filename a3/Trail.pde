@@ -9,9 +9,9 @@ class Trail {
 
 
     /**
-     * Purpose:  TODO: fill in
-     * Args:
-     * Returns:
+     * Purpose:  Trail constructor
+     * Args:  PVector position, PVector previous, int lifeTime, int trailWidth, color colour
+     * Returns:  Null
      */
     Trail(PVector position, PVector previous, int lifeTime, int trailWidth, color colour) {
         exist = true;
@@ -24,7 +24,7 @@ class Trail {
 
 
     /**
-     * Purpose: Initialtes all starting parameters
+     * Purpose:  processes Trail
      * Args: Null
      * Returns: Null
      */
@@ -37,7 +37,7 @@ class Trail {
 
 
     /**
-     * Purpose: Initialtes all starting parameters
+     * Purpose: displays Trail
      * Args: Null
      * Returns: Null
      */

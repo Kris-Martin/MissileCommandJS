@@ -1,4 +1,4 @@
-// Explosions triggerd by shell, they grow and shrink, destroying all 
+// Purpose: Explosions triggerd by shell, they grow and shrink, destroying all 
 class Explosion {
     boolean exist;
     boolean parentIsPlayer;
@@ -10,9 +10,9 @@ class Explosion {
 
 
     /**
-     * Purpose:  Constructor
-     * Args:
-     * Returns:
+     * Purpose:  Explosion constructor
+     * Args:  PVector position, int power, int lifeTime, boolean parent
+     * Returns:  Null
      */
     Explosion(PVector position, int power, int lifeTime, boolean parent) {
         exist = true;
@@ -27,19 +27,19 @@ class Explosion {
         destroyCount = 0;
         scoreAdd = 0;
 
+        //explosion sound
         sound.drumHit.play();
     }
 
 
     /**
      * Purpose:  Processes object
-     * Args:
-     * Returns:
+     * Args:  Null
+     * Returns:  Null
      */
     void process() {
         time++;
         // Radius grows and shrinks over duration.
-        // TODO: Need to fix. so that duration doesnt need to match size
         radius = (int) (size -abs(duration-time)*((float)size/duration));  
 
         if (parentIsPlayer) {
@@ -56,10 +56,10 @@ class Explosion {
 
 
     /**
-     * Purpose:  Detect missile collision, destroy and tally destroyCount based 
-     * on number destroyed
-     * Args:
-     * Returns:
+     * Purpose:  Detect missile collision, destroy missiles
+     * and tally destroyCount based on number destroyed
+     * Args: Null
+     * Returns: Null
      */
     void missileCollide() {
         for (Missile m : missiles) {
@@ -69,7 +69,7 @@ class Explosion {
                 destroyCount++;
             }
         }
-        // Score to add = count^2 + closeness to ground all time by 100
+        // Score to add = count^2 + closeness to ground all multiplied by 250
         if (destroyCount>0) {
             scoreAdd = (int)((pow(destroyCount+(float)pos.y/height, 2))*250);
         }
@@ -77,10 +77,9 @@ class Explosion {
 
 
     /**
-     * Purpose:  Displays explosion. Detect city collision, deal damage based 
-     * on proximity (general% or closest discrete?).
-     * Args:
-     * Returns:
+     * Purpose:  Detect city collision, deal damage on hit.
+     * Args:  Null
+     * Returns:  Null
      */
     void cityCollide() {
         for (City c : cities) {
@@ -96,9 +95,9 @@ class Explosion {
 
 
     /**
-     * Purpose:  Displays object
-     * Args:
-     * Returns:
+     * Purpose:  Displays explosion
+     * Args:  Null
+     * Returns:  Null
      */
     void display() {
         stroke(0);
@@ -106,9 +105,11 @@ class Explosion {
         fill(240, 80, 80);
         ellipse(pos.x, pos.y, radius, radius);
         fill(80, 240, 80);
+        
         // Display score addition
         if (destroyCount>0) {
             // Alter based on level, as you expect increasing points
+            //InGameScoreFont HERE
             textSize(scoreAdd/(25+level));  
             text("+"+scoreAdd, pos.x+size/2, pos.y);
         }

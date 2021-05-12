@@ -1,4 +1,4 @@
-// A class to create and manage the cities that the player has to defend.
+// Purpose: Create and manage the cities that the player has to defend.
 class City {
     // The health of the city, when it reaches 0 city is destroyed.
     int health, healthMax;
@@ -15,7 +15,7 @@ class City {
      * Returns: Null
      */
     City(int PositionX) {
-        healthMax = 128 * level;
+        healthMax = 256;
         health = healthMax;
         pos.x = PositionX;
         pos.y = height;
@@ -24,21 +24,20 @@ class City {
     }
     
     
-    void draw(PImage city) {
+    void display(PImage city) {
         float x = pos.x - dim.x / 2;
         float y = height - dim.y - image.GROUND_HEIGHT/3;
         
         image(city, x, y, dim.x, dim.y);
     }
     
-    // TODO: Animate explosion with mushroom cloud?
+    
     /**
      * Purpose: Displays the city
      * Args: Null
      * Returns: Null
      */
-    void display() {
-        
+    void process() {       
         // If health is less than health max shows city flashing on fire.
         if (health < healthMax && health > 0) {
             // Increment frame every 10 frames.
@@ -73,7 +72,5 @@ class City {
                 isAlive = false;
             }
         }
-        // Display the city
-        draw(city);
     }
 }

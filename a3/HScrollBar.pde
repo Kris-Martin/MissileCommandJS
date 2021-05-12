@@ -10,7 +10,12 @@ class HScrollbar {
     float ratio;
 
 
-    // Improve variable names, especially in function calls, so we now what its doing. add function headers pls also
+    /**
+     * Purpose:  TODO: fill in.
+     * Args:
+     * Return:
+     */
+     // Improve variable names, especially in function calls, so we now what its doing. add function headers pls also
     HScrollbar (float xp, float yp, int sw, int sh, int l) {
         swidth = sw;
         sheight = sh;
@@ -79,12 +84,8 @@ class HScrollbar {
      * Returns:
      */
     boolean overEvent() {
-        if (mouseX > xpos && mouseX < xpos+swidth &&
-            mouseY > ypos && mouseY < ypos+sheight) {
-            return true;
-        } else {
-            return false;
-        }
+        return (mouseX > xpos && mouseX < xpos+swidth &&
+            mouseY > ypos && mouseY < ypos+sheight);
     }
 
 

@@ -23,27 +23,13 @@
 
 /**
  * Notes...
- * setLevel() takes level to generate starting values for things
- *
- * Should cities be reset as of current, or persist? functionally
  *
  * Missiles grow larger, faster, more numerous and ultimately more varied as
  * levels increase.
  *
- * Level end should 'freeze' and calculate remaining munnitions before moving to
- *
- * TODOs...
- * TODO: Add in score modifier for distance from width/2 or diff calculation
- * for diffulculty to hit.
- *
- * TODO: Multiple city pic varients, mainly to display health, more health
- * steps, the better, from full city to pure rubble.
- *
- * TODO: GameMenu - class and methods
- *
  * TODO: Please fix fonts for other game text
  *
- * TODO: Complete comments and make sure all lines are >= 80 char
+ * TODO: Complete comments and make sure all lines are < 80 char
  *
  * TODO: Video reflection
  */
@@ -55,8 +41,8 @@
  */
 int gameState;
 
-// Points is just total score minus spent on upgrades. Like money
-int score, points;  // Score array to track each level?
+//Game score
+int score;
 
 // Level number and time in level. Used for difficulty/spawn rates
 int level, time;
@@ -95,6 +81,8 @@ HScrollbar volumeBarMusic;
  */
 void setup() {
     size(1280, 720);
+    //less noticable load
+    background(0);
     frameRate(60);
 
     gameState = 0;
@@ -107,6 +95,7 @@ void setup() {
     // Play theme music on loop
     sound.playTheme();
 
+    newGame();
     level = 1;
     setLevel(); //clears and reinitiallisers ArrayLists etc
 }
@@ -127,28 +116,24 @@ void draw() {
      * branch from there
      */
     switch (gameState) {
-        case 0:  // New game
+        case 0:  // Main menu
             displayMainMenu();
-            break;
-        case 2:  // Options, exit
-            displayOptionsMenu();
             break;
         case 1:  // Playing
             processGame();
             displayGame();
             break;
-        case 3:
+        case 2:  // Options/Exit from main menu
+            displayOptionsMenu();
+            break;
+        case 3:  // Pause/Exit from in game
             displayPauseMenu();
             break;
-        case 10:  // Upgrades between levels
-            //processGameMenu();
+        case 10:  // A recess between levels, button to continue
             displayLevelMenu();
             break;
         case -1:  // Game over screen
-            //processGameOver();
             displayGameOver();
             break;
     }
-
-
 }

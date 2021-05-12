@@ -1,5 +1,4 @@
 // Purpose: The ammunition fired by players cannon. 
-// TODO: Add subclasses or just field specific methods for varient shells? 
 class Shell {
     boolean exist;
 
@@ -15,8 +14,8 @@ class Shell {
     /**
      * Purpose:  Spawns new shell firing from cannon, towards target set by 
      * mouse press.
-     * Args:
-     * Returns:
+     * Args:  PVector target
+     * Returns:  Null
      */
     Shell(PVector target) {
         exist = true;
@@ -26,24 +25,24 @@ class Shell {
         pos.y = player.barrelPos.y;
 
         aim.set(target);
-
         velocity=4;
+        
         // Create vel as heading of diff vector between 2 points, pos and target
         vel.set(vectorDiff(target, pos).normalize().mult(velocity));
     }
 
 
     /**
-     * Purpose:  TODO: fill in
-     * Args:
-     * Returns:
+     * Purpose:  processes Shell
+     * Args:  Null
+     * Returns:  Null
      */
     void process() {
         // Add velocity
         pos.add(vel);
 
         // Create trail
-        trails.add(new Trail(pos, vel, 64, (int)dim.x, #00a0f0));
+        trails.add(new Trail(pos, vel, 64, (int)dim.x, #00a0f0));                                  //make 64 var trail lenght, do also for missiles
 
         // Detect missile collision
         boolean hit = false;
@@ -64,17 +63,18 @@ class Shell {
 
 
     /**
-     * Purpose:  TODO: fill in
-     * Args:
-     * Returns:
+     * Purpose:  displays Shell
+     * Args:  Null
+     * Returns:  Null
      */
     void display() {
+        //display shell
         strokeWeight(2);
         stroke(0);
         fill(80, 180, 80);
-        // TODO: Why does rectangle draw from side, but ellipse from centre, it keeps screwing with me
         ellipse(pos.x, pos.y, dim.x, dim.y);
-
-        displayCrossHair(aim, Cursor_Size/2, 180, 60, 60);
+        
+        //display target
+        displayCrossHair(aim, Cursor_Size/2, 180, 60, 60);                                              //final vars?
     }
 }
