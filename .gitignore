@@ -10,3 +10,4 @@ application.macosx
 out
 a3.zip
 *.autosave
+a3/.vscode/tasks.json
