@@ -80,7 +80,6 @@ class Image {
         for (int i = 1; i <= background.length; i++) {
             String str = "images/background/affinitywallpaper-" + i + ".png";
             background[i-1] = loadImage(str);
-            //background[i].resize(width, height); // If this enabled startup is slower.              //delete this comment?
         }
     }
 
