@@ -1,41 +1,49 @@
 // Purpose: TODO: fill in
 class HScrollbar {
-    int swidth, sheight;    // width and height of bar
-    float xpos, ypos;       // x and y position of bar
-    float spos, newspos;    // x position of slider
-    float sposMin, sposMax; // max and min values of slider
+    int w, h;    // width and height of bar
+    float xPos, yPos;       // x and y position of bar
+    float sliderXPos, newSliderXPos;    // x position of slider
+    float sliderXPosMin, sliderXPosMax; // max and min values of slider
     int loose;              // how loose/heavy
-    boolean over;           // is the mouse over the slider?
+    boolean mouseOver;           // is the mouse mouseOver the slider?
     boolean locked;
     float ratio;
 
 
     /**
-     * Purpose:  TODO: fill in.
-     * Args:
-     * Return:
-     */
-     // Improve variable names, especially in function calls, so we now what its doing. add function headers pls also
-    HScrollbar (float xp, float yp, int sw, int sh, int l) {
-        swidth = sw;
-        sheight = sh;
-        int widthtoheight = sw - sh;
-        ratio = (float)sw / (float)widthtoheight;
-        xpos = xp;
-        ypos = yp-sheight/2;
-        spos = xpos + swidth/2 - sheight/2;
-        newspos = spos;
-        sposMin = xpos;
-        sposMax = xpos + swidth - sheight;
-        loose = l;
+    * Purpose:  TODO: fill in.
+    * Args:
+    * Return:
+    */
+    // Improve variable names, especially in function calls, so we now what its doing. add function headers pls also
+    // volumeBarMusic = new HScrollbar(0, height / 2 - 8, width, 16, 16);
+    HScrollbar() {
+
+        w = width;
+        h = 16;
+
+        int widthtoheight = width - h;
+
+        ratio = (float)width / (float)widthtoheight;
+
+        xPos = 0;
+        yPos = (height / 2 - 8) - h / 2;
+
+        sliderXPos = xPos + w / 2 - h / 2;
+        S = sliderXPos;
+
+        sliderXPosMin = xPos;
+        sliderXPosMax = xPos + w - h;
+
+        loose = 16;
     }
 
 
     /**
-     * Purpose:  TODO: fill in.
-     * Args:
-     * Return:
-     */
+    * Purpose:  TODO: fill in.
+    * Args:
+    * Return:
+    */
     void draw() {
         update();
         display();
@@ -43,76 +51,76 @@ class HScrollbar {
 
 
     /**
-     * Purpose:  TODO: fill in
-     * Args:
-     * Returns:
-     */
+    * Purpose:  TODO: fill in
+    * Args:
+    * Returns:
+    */
     void update() {
-        if (overEvent()) {
-            over = true;
+        if (mouseOverEvent()) {
+            mouseOver = true;
         } else {
-            over = false;
+            mouseOver = false;
         }
-        if (mousePressed && over) {
+        if (mousePressed && mouseOver) {
             locked = true;
         }
         if (!mousePressed) {
             locked = false;
         }
         if (locked) {
-            newspos = constrain(mouseX-sheight/2, sposMin, sposMax);
+            S = constrain(mouseX - h / 2, sliderXPosMin, sliderXPosMax);
         }
-        if (abs(newspos - spos) > 1) {
-            spos = spos + (newspos-spos)/loose;
+        if (abs(S - sliderXPos) > 1) {
+            sliderXPos = sliderXPos + (S - sliderXPos) / loose;
         }
     }
 
 
     /**
-     * Purpose:  TODO: fill in
-     * Args:
-     * Returns:
-     */
+    * Purpose:  TODO: fill in
+    * Args:
+    * Returns:
+    */
     float constrain(float val, float minv, float maxv) {
         return min(max(val, minv), maxv);
     }
 
 
     /**
-     * Purpose:  TODO: fill in
-     * Args:
-     * Returns:
-     */
-    boolean overEvent() {
-        return (mouseX > xpos && mouseX < xpos+swidth &&
-            mouseY > ypos && mouseY < ypos+sheight);
+    * Purpose:  TODO: fill in
+    * Args:
+    * Returns:
+    */
+    boolean mouseOverEvent() {
+        return(mouseX > xPos && mouseX < xPos + w &&
+            mouseY > yPos && mouseY < yPos + h);
     }
 
 
     /**
-     * Purpose:  TODO: fill in
-     * Args:
-     * Returns:
-     */
+    * Purpose:  TODO: fill in
+    * Args:
+    * Returns:
+    */
     void display() {
         noStroke();
         fill(204);
-        rect(xpos, ypos, swidth, sheight);
-        if (over || locked) {
+        rect(xPos, yPos, w, h);
+        if (mouseOver || locked) {
             fill(0, 0, 0);
         } else {
             fill(102, 102, 102);
         }
-        rect(spos, ypos, sheight, sheight);
+        rect(sliderXPos, yPos, h, h);
     }
 
 
     /**
-     * Purpose:  TODO: fill in
-     * Args:
-     * Returns:
-     */
+    * Purpose:  TODO: fill in
+    * Args:
+    * Returns:
+    */
     float getPos() {
-        return spos * ratio;
+        return sliderXPos * ratio;
     }
 }
