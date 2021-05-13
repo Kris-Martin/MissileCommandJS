@@ -47,7 +47,7 @@ class Menu {
 
         // Level Menu Button
         nextLevel = new MenuButton(
-            "click to start next level", width/2, height /3);
+            "click to start next level", width/2, height/3);
 
     }
 
@@ -137,7 +137,7 @@ class Menu {
         textSize(100);
         textAlign(CENTER);
         fill(120, 180, 60);
-        text("Level " + level + "\nScore: " + score, width / 2, height / 2);
+        text("Level " + level + "\nScore: " + score, width/2, height/2);
     }
 
     /**
@@ -161,6 +161,6 @@ class Menu {
         textSize(100);
         textAlign(CENTER);
         fill(120, 180, 60);
-        text("Level " + level + "\nScore: " + score, width / 2, height / 2);
+        text("Level " + level + "\nScore: " + score, width/2, height/2);
     }
 }
