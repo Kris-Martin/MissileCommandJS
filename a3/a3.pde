@@ -72,6 +72,7 @@ Image image;
 Sound sound;
 StarField stars;
 HScrollbar volumeBarMusic;
+Menu menu;
 
 
 /**
@@ -91,9 +92,10 @@ void setup() {
     sound = new Sound(this);
     stars = new StarField();
     volumeBarMusic = new HScrollbar(0, height / 2 - 8, width, 16, 16);
-    
+    menu = new Menu();
+
     //this instance of the class is used in multiple places so needs to be called in heading
-    
+
 
     // Play theme music on loop
     sound.playTheme();
@@ -113,27 +115,27 @@ void draw() {
 
     // Used to switch music playing based on gameState.
     sound.playTheme();
-    
+
     /**
      * Directs to the main functions process and display. Functions further
      * branch from there
      */
     switch (gameState) {
         case 0:  // Main menu
-            displayMainMenu();
+            menu.displayMainMenu();
             break;
         case 1:  // Playing
             processGame();
             displayGame();
             break;
         case 2:  // Options/Exit from main menu
-            displayOptionsMenu();
+            menu.displayOptionsMenu();
             break;
         case 3:  // Pause/Exit from in game
-            displayPauseMenu();
+            menu.displayPauseMenu();
             break;
         case 10:  // A recess between levels, button to continue
-            displayLevelMenu();
+            menu.displayLevelMenu();
             break;
         case -1:  // Game over screen
             displayGameOver();
