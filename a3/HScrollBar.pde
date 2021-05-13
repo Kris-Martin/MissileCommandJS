@@ -30,7 +30,7 @@ class HScrollbar {
         yPos = (height / 2 - 8) - h / 2;
 
         sliderXPos = xPos + w / 2 - h / 2;
-        S = sliderXPos;
+        newSliderXPos = sliderXPos;
 
         sliderXPosMin = xPos;
         sliderXPosMax = xPos + w - h;
@@ -68,10 +68,10 @@ class HScrollbar {
             locked = false;
         }
         if (locked) {
-            S = constrain(mouseX - h / 2, sliderXPosMin, sliderXPosMax);
+            newSliderXPos = constrain(mouseX - h / 2, sliderXPosMin, sliderXPosMax);
         }
-        if (abs(S - sliderXPos) > 1) {
-            sliderXPos = sliderXPos + (S - sliderXPos) / loose;
+        if (abs(newSliderXPos - sliderXPos) > 1) {
+            sliderXPos = sliderXPos + (newSliderXPos - sliderXPos) / loose;
         }
     }
 
