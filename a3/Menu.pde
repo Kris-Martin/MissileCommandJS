@@ -1,6 +1,6 @@
 // Purpose: Creates and manages menus
 class Menu {
-    
+
     MenuButton
         startGame,
         options,
@@ -11,41 +11,51 @@ class Menu {
         backToMain,
         nextLevel;
 
+
+    /**
+     * Purpose:  Contructor for Menu.
+     * Args:  Null
+     * Return:  Null
+     */
     Menu() {
         createButtons();
 
     }
-    
+
+
     /**
-    * Purpose:  Create buttons.
-    * Args:  Null
-    * Return:  Null
-    */
+     * Purpose:  Create buttons.
+     * Args:  Null
+     * Return:  Null
+     */
     void createButtons() {
 
         // Main Menu Buttons
-        startGame = new MenuButton("start game", width * 3 / 12, height / 2);
-        options = new MenuButton("options", width * 4 / 12, height * 3.5 / 5);
-        heading = new MenuButton("Missile Command", width / 2, height / 4);
+        startGame = new MenuButton("start game", width * 3/12, height/2);
+        options = new MenuButton("options", width * 4/12, height * 3.5/5);
+        heading = new MenuButton("Missile Command", width/2, height/4);
 
         //  Options Menu Buttons
-        volumeHeading = new MenuButton("Music Volume", width * 2.8 / 12, height * 2 / 5);
-        backButton = new MenuButton("Back to main", width * 3 / 12, height * 4.5 / 5);
+        volumeHeading = new MenuButton(
+            "Music Volume", width * 2.8/12, height * 2/5);
+        backButton = new MenuButton(
+            "Back to main", width * 3/12, height * 4.5/5);
 
         // Pause Menu Buttons
-        returnToGame = new MenuButton("Return To Game", width / 2, height / 3);      //same question third time, should buttons be set up from setup()/createButtons() etc?
-        backToMain = new MenuButton("Back to main", width / 2, height * 4.5 / 5);    //otherwise, good code :)
+        returnToGame = new MenuButton("Return To Game", width/2, height/3);
+        backToMain = new MenuButton("Back to main", width/2, height * 4.5/5);
 
         // Level Menu Button
-        nextLevel = new MenuButton("click to start next level", width / 2, height / 3);
+        nextLevel = new MenuButton(
+            "click to start next level", width/2, height /3);
 
     }
 
     /**
-    * Purpose:  To keep all the logic for displaying the main menu in the one area
-    * Args:  Null
-    * Return:  Null
-    */
+     * Purpose: Display the main menu.
+     * Args:  Null
+     * Return:  Null
+     */
     void displayMainMenu() {
 
         background(0, 0, 16);
@@ -61,10 +71,10 @@ class Menu {
     }
 
     /**
-    * Purpose:  To keep all the logic for the options menu in the one area
-    * Args: Null
-    * Return: Null
-    */
+     * Purpose:  Dispay Options Menu.
+     * Args: Null
+     * Return: Null
+     */
     void displayOptionsMenu() {
 
         background(0, 0, 16);
@@ -86,9 +96,10 @@ class Menu {
 
 
     /**
-    * Purpose:  To map the position the amplitude of the background music with * the scroll bar
-    * Args: none
-    * Return: none
+     * Purpose: To map the position the amplitude of the background music
+     * with the scroll bar.
+     * Args: none
+     * Return: none
     */
     void volumeControl() {
         float scrollBarPosition = volumeBarMusic.getPos();
@@ -102,10 +113,10 @@ class Menu {
     }
 
     /**
-    * Purpose:Keeps the logic of the pause menu logic together
-    * Args: Null
-    * Returns: Null
-    */
+     * Purpose: Display the Pause Menu.
+     * Args: Null
+     * Returns: Null
+     */
     void displayPauseMenu() {
 
         backToMain.thirdDisplay();
@@ -130,22 +141,22 @@ class Menu {
     }
 
     /**
-    * Purpose: All the logic for the inbetween level menu display in the one area
-    * Args: Null
-    * Returns: Null
-    */
+     * Purpose: Display level transition menu.
+     * Args: Null
+     * Returns: Null
+     */
     void displayLevelMenu() {
 
         nextLevel.thirdDisplay();
 
-        //ifclick on next level button, set next level and start game
+        // If click on next level button, set next level and start game.
         if (nextLevel.pressed()) {
             level ++;
             setLevel();
             gameState = 1;
         }
 
-        //display score
+        // Display score.
         textFont(image.zigBlack);
         textSize(100);
         textAlign(CENTER);
