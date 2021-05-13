@@ -1,9 +1,13 @@
-// Purpose: TODO: fill in
+// Purpose: A class for displaying scroll bar
+//A scroll bar class provided by the processing reference 
+//https://processing.org/examples/scrollbar.html
+
 class HScrollbar {
-    int swidth, sheight;    // width and height of bar
+    int scrollBarWidth, scrollBarHeight;    // width and height of bar
     float xpos, ypos;       // x and y position of bar
-    float spos, newspos;    // x position of slider
-    float sposMin, sposMax; // max and min values of slider
+    float scrollBarPos, newPos;    // x position of slider and new pos is 
+    //newPos is the updated position from user
+    float scrollBarMin, scrollbarMax; // max and min values of slider
     int loose;              // how loose/heavy
     boolean over;           // is the mouse over the slider?
     boolean locked;
@@ -11,30 +15,30 @@ class HScrollbar {
 
 
     /**
-     * Purpose:  TODO: fill in.
-     * Args:
-     * Return:
+     * Purpose: Scrollbar constructor function
+     * Args:2 floats and 3 integers
+     * Return: Null
      */
      // Improve variable names, especially in function calls, so we now what its doing. add function headers pls also
     HScrollbar (float xp, float yp, int sw, int sh, int l) {
-        swidth = sw;
-        sheight = sh;
+        scrollBarWidth = sw;
+        scrollBarHeight = sh;
         int widthtoheight = sw - sh;
         ratio = (float)sw / (float)widthtoheight;
         xpos = xp;
-        ypos = yp-sheight/2;
-        spos = xpos + swidth/2 - sheight/2;
-        newspos = spos;
-        sposMin = xpos;
-        sposMax = xpos + swidth - sheight;
+        ypos = yp-scrollBarHeight/2;
+        scrollBarPos = xpos + scrollBarWidth/2 - scrollBarHeight/2;
+        newPos = scrollBarPos;
+        scrollBarMin = xpos/2;
+        scrollbarMax = xpos + scrollBarWidth - scrollBarHeight;
         loose = l;
     }
 
 
     /**
-     * Purpose:  TODO: fill in.
-     * Args:
-     * Return:
+     * Purpose:  Draws the scroll bar
+     * Args: Null
+     * Return: Null
      */
     void draw() {
         update();
@@ -43,9 +47,9 @@ class HScrollbar {
 
 
     /**
-     * Purpose:  TODO: fill in
-     * Args:
-     * Returns:
+     * Purpose:  Updates the scroll bar position based on user 
+     * Args: Null
+     * Returns: Null
      */
     void update() {
         if (overEvent()) {
@@ -60,18 +64,19 @@ class HScrollbar {
             locked = false;
         }
         if (locked) {
-            newspos = constrain(mouseX-sheight/2, sposMin, sposMax);
+            newPos = constrain(mouseX-scrollBarHeight/2, scrollBarMin, scrollbarMax);
         }
-        if (abs(newspos - spos) > 1) {
-            spos = spos + (newspos-spos)/loose;
+        if (abs(newPos - scrollBarPos) > 1) {
+            scrollBarPos = scrollBarPos + (newPos-scrollBarPos)/loose;
         }
     }
 
 
     /**
-     * Purpose:  TODO: fill in
-     * Args:
-     * Returns:
+     * Purpose:  limits the value represented by the x positions
+     assists in mapping the value of the scroll bar to the volume
+     * Args: 3 floats
+     * Returns: function
      */
     float constrain(float val, float minv, float maxv) {
         return min(max(val, minv), maxv);
@@ -79,40 +84,40 @@ class HScrollbar {
 
 
     /**
-     * Purpose:  TODO: fill in
-     * Args:
-     * Returns:
+     * Purpose: Activates the scroll feature so the scroll bar moves
+     * Args: Null
+     * Returns: boolean
      */
     boolean overEvent() {
-        return (mouseX > xpos && mouseX < xpos+swidth &&
-            mouseY > ypos && mouseY < ypos+sheight);
+        return (mouseX > xpos && mouseX < xpos+scrollBarWidth &&
+            mouseY > ypos && mouseY < ypos+scrollBarHeight);
     }
 
 
     /**
-     * Purpose:  TODO: fill in
-     * Args:
-     * Returns:
+     * Purpose: Displays the scroll bar
+     * Args: Null 
+     * Returns: Null
      */
     void display() {
         noStroke();
         fill(204);
-        rect(xpos, ypos, swidth, sheight);
+        rect(xpos, ypos, scrollBarWidth, scrollBarHeight);
         if (over || locked) {
             fill(0, 0, 0);
         } else {
             fill(102, 102, 102);
         }
-        rect(spos, ypos, sheight, sheight);
+        rect(scrollBarPos, ypos, scrollBarHeight, scrollBarHeight);
     }
 
 
     /**
-     * Purpose:  TODO: fill in
-     * Args:
-     * Returns:
+     * Purpose: A function which returns the position of the scroll bar
+     * Args: Null
+     * Returns: float
      */
     float getPos() {
-        return spos * ratio;
+        return scrollBarPos * ratio;
     }
 }

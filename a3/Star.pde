@@ -2,20 +2,16 @@
  * Purpose: Creates a star object, use to create moving star field.
  * Used tutorial https://www.youtube.com/watch?v=17WoOqgXsRM&t=323s
  * as a reference but converted the variables into PVector methods.
+   constructor was not needed as it was empty constructor was removed 
+   as one is provided by default don't need to write in
  */
 class Star {
     PVector position = new PVector(random(-width, width), random(-height, height), random(width));
     PVector speed = new PVector();
     PVector velocity = new PVector();  // TODO: why speed and velocity?
-    
-    
-    Star() {
-                                                        //pls put a comment explaining why constructor is empty. and shouldnt the PVectors be initialised here rather than in fields
-    }
-
 
     /**
-     * Purpose:  TODO: fill in
+     * Purpose:  Updates the z index of the stars to give the appearance of spiral
      * Args:  Null
      * Returns:  Null
      */
@@ -29,7 +25,7 @@ class Star {
 
 
     /**
-     * Purpose:  TODO: fill in
+     * Purpose:  Draws the stars position 
      * Args:  Null
      * Returns:  Null
      */

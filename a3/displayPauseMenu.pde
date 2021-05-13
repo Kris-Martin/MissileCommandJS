@@ -1,5 +1,5 @@
 /**
- * Purpose: TODO: fill in
+ * Purpose:Keeps the logic of the pause menu logic together
  * Args: Null
  * Returns: Null
  */

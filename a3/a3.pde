@@ -91,6 +91,9 @@ void setup() {
     sound = new Sound(this);
     stars = new StarField();
     volumeBarMusic = new HScrollbar(0, height / 2 - 8, width, 16, 16);
+    
+    //this instance of the class is used in multiple places so needs to be called in heading
+    
 
     // Play theme music on loop
     sound.playTheme();
