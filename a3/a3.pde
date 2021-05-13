@@ -70,8 +70,6 @@ Cannon player;
 // Resources
 Image image;
 Sound sound;
-StarField stars;
-HScrollbar volumeBarMusic;
 Menu menu;
 
 
@@ -90,8 +88,6 @@ void setup() {
 
     image = new Image();
     sound = new Sound(this);
-    stars = new StarField();
-    volumeBarMusic = new HScrollbar(0, height / 2 - 8, width, 16, 16);
     menu = new Menu();
 
     //this instance of the class is used in multiple places so needs to be called in heading
