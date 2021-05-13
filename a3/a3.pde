@@ -74,13 +74,13 @@ Menu menu;
 
 
 /**
- * Purpose: Initialtes all starting parameters
+ * Purpose: Initialtes all starting parameters.
  * Args: Null
  * Returns: Null
  */
 void setup() {
     size(1280, 720);
-    //less noticable load
+    // Set background to black for less noticable load.
     background(0);
     frameRate(60);
 
@@ -89,9 +89,6 @@ void setup() {
     image = new Image();
     sound = new Sound(this);
     menu = new Menu();
-
-    //this instance of the class is used in multiple places so needs to be called in heading
-
 
     // Play theme music on loop
     sound.playTheme();
