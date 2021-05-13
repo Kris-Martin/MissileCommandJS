@@ -124,7 +124,6 @@ class Menu {
      * Returns: Null
      */
     void displayPauseMenu() {
-
         backToMain.thirdDisplay();
         returnToGame.thirdDisplay();
 
