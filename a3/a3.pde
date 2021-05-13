@@ -90,7 +90,10 @@ void setup() {
     image = new Image();
     sound = new Sound(this);
     stars = new StarField();
-    volumeBarMusic = new HScrollbar();
+    volumeBarMusic = new HScrollbar(0, height / 2 - 8, width, 16, 16);
+    
+    //this instance of the class is used in multiple places so needs to be called in heading
+    
 
     // Play theme music on loop
     sound.playTheme();
@@ -110,7 +113,7 @@ void draw() {
 
     // Used to switch music playing based on gameState.
     sound.playTheme();
-
+    
     /**
      * Directs to the main functions process and display. Functions further
      * branch from there

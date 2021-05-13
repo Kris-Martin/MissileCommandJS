@@ -5,16 +5,19 @@ class MenuButton {
 
 
     /**
-     * Purpose: TODO: Fill in
-     * Args:  Null
+     * Purpose: Constructor function for creating star fields
+     * Args:  String for display text and 2 floats for location
      * Returns:  Null
      */
+
+//Global menu button offset variable to assist with hitting the menu buttons
+int buttonOffset = 50;
+
     MenuButton (String buttonText, float locationX, float locationY) {
         this.buttonText = buttonText;
         this.locationX = locationX;
         this.locationY = locationY;
     }
-
 
     /**
      * Purpose: Display the menu buttons.
@@ -29,7 +32,7 @@ class MenuButton {
         float B = random(0, 255);
         //change from hard values to PVector buttonDim
         //that way hover/click will be based on button and not some imaginary shape
-        if ((mouseX < width * 2/3) & (mouseX > width * 1/3) & (mouseY < locationY + 100) & (mouseY > locationY - 100)) {
+        if ((mouseY < locationY + buttonOffset) & (mouseY > locationY - buttonOffset)) {
             R = 255;
             G = 255;
             B = 255;
@@ -40,7 +43,7 @@ class MenuButton {
 
 
     /**
-     * Purpose: TODO: Fill in
+     * Purpose: Displays the heading
      * Args:
      * Returns:
      */
@@ -55,9 +58,9 @@ class MenuButton {
 
 
     /**
-     * Purpose: TODO: Fill in
-     * Args:
-     * Returns:
+     * Purpose: A secondary button type without hover effect
+     * Args: Null
+     * Returns: Null
      */
     void secondaryDisplay() {
         textAlign(CENTER);
@@ -71,9 +74,9 @@ class MenuButton {
 
 
     /**
-     * Purpose: TODO: Fill in
-     * Args:
-     * Returns:
+     * Purpose: Another button type with different style but still has hover effect
+     * Args: Null
+     * Returns: Null
      */
     void thirdDisplay() {
         textAlign(CENTER);
@@ -83,7 +86,7 @@ class MenuButton {
         float B = 165;
         //change from hard values to PVector buttonDim
         //that way hover/click will be based on button and not some imaginary shape
-        if ((mouseX < width * 2/3) & (mouseX > width * 1/3) & (mouseY < locationY + 100) & (mouseY > locationY - 100)) {
+        if ((mouseY < locationY) & (mouseY > locationY)) {
             R = 255;
             G = 255;
             B = 255;
@@ -102,7 +105,7 @@ class MenuButton {
         boolean buttonPressed = false;
         //change from hard values to PVector buttonDim
         //that way hover/click will be based on button and not some imaginary shape
-        if ((mouseX <  width * 2/3) & (mouseX > width * 1/3) & (mouseY < locationY + 100) & (mouseY > locationY - 100)) {
+        if ((mouseY < locationY + buttonOffset) & (mouseY > locationY - buttonOffset)) {
             if (mousePressed) {
                 buttonPressed = true;
             }

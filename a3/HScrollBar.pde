@@ -1,49 +1,45 @@
-// Purpose: TODO: fill in
+// Purpose: A class for displaying scroll bar
+//A scroll bar class provided by the processing reference 
+//https://processing.org/examples/scrollbar.html
+
 class HScrollbar {
-    int w, h;    // width and height of bar
-    float xPos, yPos;       // x and y position of bar
-    float sliderXPos, newSliderXPos;    // x position of slider
-    float sliderXPosMin, sliderXPosMax; // max and min values of slider
+    int scrollBarWidth, scrollBarHeight;    // width and height of bar
+    float xpos, ypos;       // x and y position of bar
+    float scrollBarPos, newPos;    // x position of slider and new pos is 
+    //newPos is the updated position from user
+    float scrollBarMin, scrollbarMax; // max and min values of slider
     int loose;              // how loose/heavy
-    boolean mouseOver;           // is the mouse mouseOver the slider?
+    boolean over;           // is the mouse over the slider?
     boolean locked;
     float ratio;
 
 
     /**
-    * Purpose:  TODO: fill in.
-    * Args:
-    * Return:
-    */
-    // Improve variable names, especially in function calls, so we now what its doing. add function headers pls also
-    // volumeBarMusic = new HScrollbar(0, height / 2 - 8, width, 16, 16);
-    HScrollbar() {
-
-        w = width;
-        h = 16;
-
-        int widthtoheight = width - h;
-
-        ratio = (float)width / (float)widthtoheight;
-
-        xPos = 0;
-        yPos = (height / 2 - 8) - h / 2;
-
-        sliderXPos = xPos + w / 2 - h / 2;
-        newSliderXPos = sliderXPos;
-
-        sliderXPosMin = xPos;
-        sliderXPosMax = xPos + w - h;
-
-        loose = 16;
+     * Purpose: Scrollbar constructor function
+     * Args:2 floats and 3 integers
+     * Return: Null
+     */
+     // Improve variable names, especially in function calls, so we now what its doing. add function headers pls also
+    HScrollbar (float xp, float yp, int sw, int sh, int l) {
+        scrollBarWidth = sw;
+        scrollBarHeight = sh;
+        int widthtoheight = sw - sh;
+        ratio = (float)sw / (float)widthtoheight;
+        xpos = xp;
+        ypos = yp-scrollBarHeight/2;
+        scrollBarPos = xpos + scrollBarWidth/2 - scrollBarHeight/2;
+        newPos = scrollBarPos;
+        scrollBarMin = xpos/2;
+        scrollbarMax = xpos + scrollBarWidth - scrollBarHeight;
+        loose = l;
     }
 
 
     /**
-    * Purpose:  TODO: fill in.
-    * Args:
-    * Return:
-    */
+     * Purpose:  Draws the scroll bar
+     * Args: Null
+     * Return: Null
+     */
     void draw() {
         update();
         display();
@@ -51,76 +47,77 @@ class HScrollbar {
 
 
     /**
-    * Purpose:  TODO: fill in
-    * Args:
-    * Returns:
-    */
+     * Purpose:  Updates the scroll bar position based on user 
+     * Args: Null
+     * Returns: Null
+     */
     void update() {
-        if (mouseOverEvent()) {
-            mouseOver = true;
+        if (overEvent()) {
+            over = true;
         } else {
-            mouseOver = false;
+            over = false;
         }
-        if (mousePressed && mouseOver) {
+        if (mousePressed && over) {
             locked = true;
         }
         if (!mousePressed) {
             locked = false;
         }
         if (locked) {
-            newSliderXPos = constrain(mouseX - h / 2, sliderXPosMin, sliderXPosMax);
+            newPos = constrain(mouseX-scrollBarHeight/2, scrollBarMin, scrollbarMax);
         }
-        if (abs(newSliderXPos - sliderXPos) > 1) {
-            sliderXPos = sliderXPos + (newSliderXPos - sliderXPos) / loose;
+        if (abs(newPos - scrollBarPos) > 1) {
+            scrollBarPos = scrollBarPos + (newPos-scrollBarPos)/loose;
         }
     }
 
 
     /**
-    * Purpose:  TODO: fill in
-    * Args:
-    * Returns:
-    */
+     * Purpose:  limits the value represented by the x positions
+     assists in mapping the value of the scroll bar to the volume
+     * Args: 3 floats
+     * Returns: function
+     */
     float constrain(float val, float minv, float maxv) {
         return min(max(val, minv), maxv);
     }
 
 
     /**
-    * Purpose:  TODO: fill in
-    * Args:
-    * Returns:
-    */
-    boolean mouseOverEvent() {
-        return(mouseX > xPos && mouseX < xPos + w &&
-            mouseY > yPos && mouseY < yPos + h);
+     * Purpose: Activates the scroll feature so the scroll bar moves
+     * Args: Null
+     * Returns: boolean
+     */
+    boolean overEvent() {
+        return (mouseX > xpos && mouseX < xpos+scrollBarWidth &&
+            mouseY > ypos && mouseY < ypos+scrollBarHeight);
     }
 
 
     /**
-    * Purpose:  TODO: fill in
-    * Args:
-    * Returns:
-    */
+     * Purpose: Displays the scroll bar
+     * Args: Null 
+     * Returns: Null
+     */
     void display() {
         noStroke();
         fill(204);
-        rect(xPos, yPos, w, h);
-        if (mouseOver || locked) {
+        rect(xpos, ypos, scrollBarWidth, scrollBarHeight);
+        if (over || locked) {
             fill(0, 0, 0);
         } else {
             fill(102, 102, 102);
         }
-        rect(sliderXPos, yPos, h, h);
+        rect(scrollBarPos, ypos, scrollBarHeight, scrollBarHeight);
     }
 
 
     /**
-    * Purpose:  TODO: fill in
-    * Args:
-    * Returns:
-    */
+     * Purpose: A function which returns the position of the scroll bar
+     * Args: Null
+     * Returns: float
+     */
     float getPos() {
-        return sliderXPos * ratio;
+        return scrollBarPos * ratio;
     }
 }
