@@ -35,7 +35,7 @@ class Menu {
         options = new MenuButton("options", width * 4/12, height * 3.5/5);
         heading = new MenuButton("Missile Command", width/2, height/4);
 
-        //  Options Menu Buttons
+        // Options Menu Buttons
         volumeHeading = new MenuButton(
             "Music Volume", width * 2.8/12, height * 2/5);
         backButton = new MenuButton(

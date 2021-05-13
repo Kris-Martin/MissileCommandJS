@@ -1,18 +1,18 @@
-// A class to manage the Menu.
+// A class to create buttons for the menus
 class MenuButton {
+    
     String buttonText;
     float locationX, locationY;
-
-
+    
+    // Global menu button offset variable to assist with hitting the menu buttons
+    int buttonOffset = 50;
+    
+    
     /**
-     * Purpose: Constructor function for creating star fields
+     * Purpose: Constructor, creates buttons.
      * Args:  String for display text and 2 floats for location
      * Returns:  Null
      */
-
-//Global menu button offset variable to assist with hitting the menu buttons
-int buttonOffset = 50;
-
     MenuButton (String buttonText, float locationX, float locationY) {
         this.buttonText = buttonText;
         this.locationX = locationX;
