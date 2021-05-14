@@ -53,7 +53,7 @@ class Menu {
 
         // Level Menu Button
         nextLevel = new MenuButton(
-            "click to start next level", width/2, height/3);
+            "next level", width/2, height/3);
 
     }
 
@@ -130,7 +130,7 @@ class Menu {
         if (returnToGame.pressed()) {
             gameState = 1;
         }
-
+       // If click on back to main, go back to main
         if (backToMain.pressed()) {
             sound.music = sound.currentlyPlaying();
             sound.music.stop();
@@ -151,14 +151,23 @@ class Menu {
      * Returns: Null
      */
     void displayLevelMenu() {
-
+        drawMenuBackground();
         nextLevel.thirdDisplay();
+        backToMain.thirdDisplay();
 
         // If click on next level button, set next level and start game.
         if (nextLevel.pressed()) {
             level ++;
             setLevel();
             gameState = 1;
+        }
+        
+          if (backToMain.pressed()) {
+            sound.music = sound.currentlyPlaying();
+            sound.music.stop();
+            setup();
+            level = 0;
+            gameState = 0;
         }
 
         // Display score.
@@ -171,7 +180,7 @@ class Menu {
 }
 
     /**
-     * Purpose: Draw background rectangle for menu
+     * Purpose: Draw background rectangle for game over
      * Args: Null
      * Returns: Null
      */
@@ -179,4 +188,15 @@ class Menu {
       fill(#0A0A0A, 3);
       noStroke();
       rect(width/4, height/5, width *1/2, height *7/9);
+      }
+      
+     /**
+     * Purpose: Draw background rectangle for menu
+     * Args: Null
+     * Returns: Null
+     */
+      void drawGameOverBackground(){
+      fill(#0A0A0A, 3);
+      noStroke();
+      rect(width/4, height/9, width *1/2, height * 11/12);
       }
