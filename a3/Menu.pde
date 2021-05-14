@@ -95,28 +95,11 @@ class Menu {
         }
 
         volumeBarMusic.draw();
-        volumeControl();
+        volumeBarMusic.changeVolume();
         heading.headingDisplay();
         stars.draw();
     }
 
-
-    /**
-     * Purpose: To map the position the amplitude of the background music
-     * with the scroll bar.
-     * Args: none
-     * Return: none
-    */
-    void volumeControl() {
-        float scrollBarPosition = volumeBarMusic.getPos();
-        float volume = 1.0;
-
-        volume = map(scrollBarPosition, volumeBarMusic.xpos, volumeBarMusic.scrollBarWidth, 0.0, 1.0);
-
-        sound.music = sound.currentlyPlaying();
-        sound.music.amp(volume);
-        sound.theme.amp(volume);
-    }
 
     /**
      * Purpose: Display the Pause Menu.

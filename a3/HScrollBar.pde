@@ -1,27 +1,27 @@
-// Purpose: A class for displaying scroll bar
-//A scroll bar class provided by the processing reference 
-//https://processing.org/examples/scrollbar.html
+// Purpose: A class for displaying scroll bar.
+// A scroll bar class provided by the processing reference. 
+// https://processing.org/examples/scrollbar.html
 
 class HScrollbar {
     
-    // Width and height of bar
+    // Width and height of bar.
     int scrollBarWidth = width/2;
     int scrollBarHeight = 16;    
     
-    // x and y position of bar
+    // X and Y position of bar.
     float xpos = width/4;
     float ypos = (height/2 - 8) - scrollBarHeight/2;
     
-    // x position of slider and new pos is
-    //newPos is the updated position from user
-    float scrollBarPos = xpos + scrollBarWidth/2;
-    float newPos = scrollBarPos;
-    
-    // Max and min values of slider
+    // Max and min values of slider.
     float scrollBarMin = xpos;
     float scrollBarMax = xpos + scrollBarWidth - scrollBarHeight;
     
-    // How loose/heavy
+    // X position of slider.
+    float scrollBarPos = xpos + scrollBarWidth/2;
+    // newPos is used to store the updated position from user.
+    float newPos = scrollBarPos;
+
+    // How loose/heavy.
     int loose = 16;
     
     // Is the mouse over the slider?
@@ -31,12 +31,10 @@ class HScrollbar {
 
 
     /**
-     * Purpose: Scrollbar constructor function
+     * Purpose: Scrollbar constructor function.
      * Args:2 floats and 3 integers
      * Return: Null
      */
-    // Improve variable names, especially in function calls, so we now what its doing. add function headers pls also
-    //HScrollbar(0, height / 2 - 8, width, 16, 16);
     HScrollbar () {
 
         int widthtoheight = scrollBarWidth - scrollBarHeight;
@@ -45,7 +43,7 @@ class HScrollbar {
 
 
     /**
-     * Purpose:  Draws the scroll bar
+     * Purpose:  Draws the scroll bar.
      * Args: Null
      * Return: Null
      */
@@ -56,7 +54,7 @@ class HScrollbar {
 
 
     /**
-     * Purpose:  Updates the scroll bar position based on user 
+     * Purpose:  Updates the scroll bar position based on user. 
      * Args: Null
      * Returns: Null
      */
@@ -83,7 +81,7 @@ class HScrollbar {
 
     /**
      * Purpose:  limits the value represented by the x positions
-     assists in mapping the value of the scroll bar to the volume
+     * and assists in mapping the value of the scroll bar to the volume.
      * Args: 3 floats
      * Returns: function
      */
@@ -93,7 +91,7 @@ class HScrollbar {
 
 
     /**
-     * Purpose: Activates the scroll feature so the scroll bar moves
+     * Purpose: Activates the scroll feature so the scroll bar moves.
      * Args: Null
      * Returns: boolean
      */
@@ -104,7 +102,7 @@ class HScrollbar {
 
 
     /**
-     * Purpose: Displays the scroll bar
+     * Purpose: Displays the scroll bar.
      * Args: Null 
      * Returns: Null
      */
@@ -122,7 +120,7 @@ class HScrollbar {
 
 
     /**
-     * Purpose: A function which returns the position of the scroll bar
+     * Purpose: A function which returns the position of the scroll bar.
      * Args: Null
      * Returns: float
      */
@@ -130,4 +128,37 @@ class HScrollbar {
         
         return scrollBarPos * ratio;
     }
+    
+    
+    /**
+     * Purpose: To map the position the amplitude of the background music
+     * with the scroll bar.
+     * Args: none
+     * Return: none
+    */
+    void changeVolume() {
+        float scrollBarPosition = getPos();
+        
+        float minVolume = 0.001;
+        float maxVolume = 1.0;
+        
+        float volume = map(scrollBarPosition, xpos, scrollBarWidth, minVolume, maxVolume);
+        
+        // Slider starts at scrollBar midpoint, volume value adjusted to match.
+        volume /= 2;
+        
+        // Rounds value to 1
+        if (volume > maxVolume) {
+            volume = maxVolume;
+        // Any value under 0.02 becomes inaudible without triggering sound library warning.
+        // A value of 0 woud trigger a repeating warning message.
+        } else if (volume < 0.02) {
+            volume = minVolume;
+        }
+
+        sound.music = sound.currentlyPlaying();
+        sound.music.amp(volume);
+        sound.theme.amp(volume);
+    }
+
 }
