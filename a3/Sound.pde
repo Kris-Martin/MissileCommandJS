@@ -47,8 +47,7 @@ class Sound {
             p, "sound/theme.wav");
 
         annihilation = new SoundFile(
-            p, "mixkit-trailer-screaming-people-annihilation-351.wav";
-        )
+            p, "sound/mixkit-trailer-screaming-people-annihilation-351.wav");
     }
 
 
