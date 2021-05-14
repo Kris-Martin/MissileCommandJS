@@ -81,15 +81,17 @@ class MenuButton {
     void thirdDisplay() {
         textAlign(CENTER);
         textFont(image.dialogInput);
-        float R = 3;
-        float G = 96;
-        float B = 165;
+        float R = 200;
+        float G = 0;
+        float B = 0;
 
         if ((mouseY < locationY + buttonOffset) & (mouseY > locationY - buttonOffset)) {
             R = 255;
             G = 255;
             B = 255;
         }
+        strokeWeight(5);
+        stroke(#FAF2F2);
         fill(R, G, B);
         text(buttonText.toUpperCase(), locationX, locationY);
     }
