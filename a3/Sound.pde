@@ -1,10 +1,17 @@
+// Purpose:  A class to manage sound effects and theme music.
 import processing.sound.*;
 
 
-// Purpose:  A class to manage sound effects and theme music.
-// All sounds sourced from https://mixkit.co/free-sound-effects/
 class Sound {
-    SoundFile shatterShotExplosion, laserWeapon, menuMusic, drumHit, theme, music;
+
+    SoundFile
+        shatterShotExplosion,
+        laserWeapon,
+        menuMusic,
+        drumHit,
+        theme,
+        music,
+        annihilation;
 
 
     /**
@@ -23,7 +30,7 @@ class Sound {
      * Returns:  Null
      */
     void loadFiles(PApplet p) {
-
+        // All sounds sourced from https://mixkit.co/free-sound-effects/
         shatterShotExplosion = new SoundFile(
             p, "sound/mixkit-shatter-shot-explosion-1693.wav");
 
@@ -38,6 +45,10 @@ class Sound {
 
         theme = new SoundFile(
             p, "sound/theme.wav");
+
+        annihilation = new SoundFile(
+            p, "mixkit-trailer-screaming-people-annihilation-351.wav";
+        )
     }
 
 
