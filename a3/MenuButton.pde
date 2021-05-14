@@ -1,13 +1,13 @@
 // A class to create buttons for the menus
 class MenuButton {
-    
+
     String buttonText;
     float locationX, locationY;
-    
+
     // Global menu button offset variable to assist with hitting the menu buttons
     int buttonOffset = 50;
-    
-    
+
+
     /**
      * Purpose: Constructor, creates buttons.
      * Args:  String for display text and 2 floats for location
@@ -84,9 +84,8 @@ class MenuButton {
         float R = 3;
         float G = 96;
         float B = 165;
-        //change from hard values to PVector buttonDim
-        //that way hover/click will be based on button and not some imaginary shape
-        if ((mouseY < locationY) & (mouseY > locationY)) {
+
+        if ((mouseY < locationY + buttonOffset) & (mouseY > locationY - buttonOffset)) {
             R = 255;
             G = 255;
             B = 255;

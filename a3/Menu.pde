@@ -1,8 +1,8 @@
 // Purpose: Creates and manages menus
 class Menu {
-    
+
     StarField stars;
-    
+
     MenuButton
         startGame,
         options,
@@ -12,7 +12,7 @@ class Menu {
         returnToGame,
         backToMain,
         nextLevel;
-    
+
     HScrollbar volumeBarMusic;
 
     /**
@@ -21,7 +21,7 @@ class Menu {
      * Return:  Null
      */
     Menu() {
-        
+
         stars = new StarField();
         createButtons();
         volumeBarMusic = new HScrollbar(0, height / 2 - 8, width, 16, 16);
