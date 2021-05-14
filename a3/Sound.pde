@@ -15,8 +15,8 @@ class Sound {
 
 
     /**
-     * Purpose:  TODO: fill in
-     * Args:  PApplet p : explenation?
+     * Purpose:  Constructor for Sound class. Loads sound files.
+     * Args:  PApplet p : must pass in main Applet for sound to work.
      * Returns:  Null
      */
     Sound(PApplet p) {
@@ -25,7 +25,8 @@ class Sound {
 
 
     /**
-     * Purpose:  TODO: fill in
+     * Purpose:  Loads sound files, called in construtor. 
+     * Used to keep things neat and readable.
      * Args:  PApplet p : explenation?
      * Returns:  Null
      */
@@ -59,15 +60,15 @@ class Sound {
      */
     SoundFile currentlyPlaying() {
 
-        if (sound.menuMusic.isPlaying()) {
-            sound.music = sound.menuMusic;
+        if (menuMusic.isPlaying()) {
+            music = menuMusic;
         }
 
-        if (sound.theme.isPlaying()) {
-            sound.music = sound.theme;
+        if (theme.isPlaying()) {
+            music = theme;
         }
 
-        return sound.music;
+        return music;
     }
 
 
@@ -77,17 +78,18 @@ class Sound {
      * Returns:  Null
      */
     void playTheme() {
+        // If in main menu play menu music.
         if (gameState == 0) {
-            sound.theme.stop();
-            if (!sound.menuMusic.isPlaying()) {
-                sound.menuMusic.loop();
+            theme.stop();
+            if (!menuMusic.isPlaying()) {
+                menuMusic.loop();
             }
         }
-        // TODO: Fix switching of music/theme
+        // If in-game, play main theme.
         if (gameState == 1) {
-            sound.menuMusic.stop();
-            if (!sound.theme.isPlaying()) {
-                sound.theme.loop();
+            menuMusic.stop();
+            if (!theme.isPlaying()) {
+                theme.loop();
             }
         }
     }
