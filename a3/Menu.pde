@@ -65,7 +65,7 @@ class Menu {
     void displayMainMenu() {
 
         background(0, 0, 16);
-
+        
         heading.headingDisplay();
         startGame.display();
         options.display();
@@ -82,7 +82,7 @@ class Menu {
      * Return: Null
      */
     void displayOptionsMenu() {
-
+        
         background(0, 0, 16);
 
         backButton.display();
@@ -124,9 +124,9 @@ class Menu {
      * Returns: Null
      */
     void displayPauseMenu() {
+        drawMenuBackground();
         backToMain.thirdDisplay();
         returnToGame.thirdDisplay();
-
         if (returnToGame.pressed()) {
             gameState = 1;
         }
@@ -169,3 +169,14 @@ class Menu {
         text("Level " + level + "\nScore: " + score, width/2, height/2);
     }
 }
+
+    /**
+     * Purpose: Draw background rectangle for menu
+     * Args: Null
+     * Returns: Null
+     */
+      void drawMenuBackground(){
+      fill(#0A0A0A, 3);
+      noStroke();
+      rect(width/4, height/5, width *1/2, height *7/9);
+      }
