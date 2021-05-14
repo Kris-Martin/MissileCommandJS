@@ -25,7 +25,7 @@ class MenuButton {
      * Returns: Null
      */
     void display() {
-        textAlign(LEFT);
+        textAlign(CENTER);
         textFont(image.menuFont);
         float R = random(0, 255);
         float G = random(0, 255);

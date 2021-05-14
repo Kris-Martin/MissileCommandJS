@@ -37,15 +37,15 @@ class Menu {
     void createButtons() {
 
         // Main Menu Buttons
-        startGame = new MenuButton("start game", width * 3/12, height/2);
-        options = new MenuButton("options", width * 4/12, height * 3.5/5);
+        startGame = new MenuButton("start game", width/2, height/2);
+        options = new MenuButton("options", width/2, height * 3.5/5);
         heading = new MenuButton("Missile Command", width/2, height/4);
 
         // Options Menu Buttons
         volumeHeading = new MenuButton(
-            "Music Volume", width * 2.8/12, height * 2/5);
+            "Music Volume", width/2, height * 2/5);
         backButton = new MenuButton(
-            "Back to main", width * 3/12, height * 4.5/5);
+            "Back to main", width/2, height * 4.5/5);
 
         // Pause Menu Buttons
         returnToGame = new MenuButton("Return To Game", width/2, height/3);
@@ -69,7 +69,7 @@ class Menu {
         heading.headingDisplay();
         startGame.display();
         options.display();
-
+        
         if (startGame.pressed()) gameState = 1;
         if (options.pressed()) gameState = 2;
 
