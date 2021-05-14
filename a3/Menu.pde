@@ -24,7 +24,7 @@ class Menu {
 
         stars = new StarField();
         createButtons();
-        volumeBarMusic = new HScrollbar(0, height / 2 - 8, width, 16, 16);
+        volumeBarMusic = new HScrollbar();
 
     }
 
@@ -111,7 +111,7 @@ class Menu {
         float scrollBarPosition = volumeBarMusic.getPos();
         float volume = 1.0;
 
-        volume = map(scrollBarPosition, 0, width, 0.0, 1.0);
+        volume = map(scrollBarPosition, volumeBarMusic.xpos, volumeBarMusic.scrollBarWidth, 0.0, 1.0);
 
         sound.music = sound.currentlyPlaying();
         sound.music.amp(volume);

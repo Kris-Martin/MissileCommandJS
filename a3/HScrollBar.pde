@@ -3,13 +3,29 @@
 //https://processing.org/examples/scrollbar.html
 
 class HScrollbar {
-    int scrollBarWidth, scrollBarHeight;    // width and height of bar
-    float xpos, ypos;       // x and y position of bar
-    float scrollBarPos, newPos;    // x position of slider and new pos is 
+    
+    // Width and height of bar
+    int scrollBarWidth = width/2;
+    int scrollBarHeight = 16;    
+    
+    // x and y position of bar
+    float xpos = width/4;
+    float ypos = (height/2 - 8) - scrollBarHeight/2;
+    
+    // x position of slider and new pos is
     //newPos is the updated position from user
-    float scrollBarMin, scrollbarMax; // max and min values of slider
-    int loose;              // how loose/heavy
-    boolean over;           // is the mouse over the slider?
+    float scrollBarPos = xpos + scrollBarWidth/2;
+    float newPos = scrollBarPos;
+    
+    // Max and min values of slider
+    float scrollBarMin = xpos;
+    float scrollBarMax = xpos + scrollBarWidth - scrollBarHeight;
+    
+    // How loose/heavy
+    int loose = 16;
+    
+    // Is the mouse over the slider?
+    boolean over;           
     boolean locked;
     float ratio;
 
@@ -19,19 +35,12 @@ class HScrollbar {
      * Args:2 floats and 3 integers
      * Return: Null
      */
-     // Improve variable names, especially in function calls, so we now what its doing. add function headers pls also
-    HScrollbar (float xp, float yp, int sw, int sh, int l) {
-        scrollBarWidth = sw;
-        scrollBarHeight = sh;
-        int widthtoheight = sw - sh;
-        ratio = (float)sw / (float)widthtoheight;
-        xpos = xp;
-        ypos = yp-scrollBarHeight/2;
-        scrollBarPos = xpos + scrollBarWidth/2 - scrollBarHeight/2;
-        newPos = scrollBarPos;
-        scrollBarMin = xpos/2;
-        scrollbarMax = xpos + scrollBarWidth - scrollBarHeight;
-        loose = l;
+    // Improve variable names, especially in function calls, so we now what its doing. add function headers pls also
+    //HScrollbar(0, height / 2 - 8, width, 16, 16);
+    HScrollbar () {
+
+        int widthtoheight = scrollBarWidth - scrollBarHeight;
+        ratio = (float)scrollBarWidth/(float)widthtoheight;
     }
 
 
@@ -64,9 +73,9 @@ class HScrollbar {
             locked = false;
         }
         if (locked) {
-            newPos = constrain(mouseX-scrollBarHeight/2, scrollBarMin, scrollbarMax);
+            newPos = constrain(mouseX, scrollBarMin, scrollBarMax);
         }
-        if (abs(newPos - scrollBarPos) > 1) {
+        if (newPos != scrollBarPos) {
             scrollBarPos = scrollBarPos + (newPos-scrollBarPos)/loose;
         }
     }
@@ -118,6 +127,7 @@ class HScrollbar {
      * Returns: float
      */
     float getPos() {
+        
         return scrollBarPos * ratio;
     }
 }
