@@ -4,6 +4,8 @@
  * Returns: Null
  */
 void setLevel() {
+    // Set background frame daytime
+    image.backgroundFrame = 4;
     // Should reset all arrays iirc
     player = new Cannon();
     // refresh cities? or persist?

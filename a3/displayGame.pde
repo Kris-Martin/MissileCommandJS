@@ -32,7 +32,7 @@ void displayGame() {
     displayScore();
     displayProgress();
     
-    image.updateBackground2();
+    image.updateBackground3();
 }
 
 
