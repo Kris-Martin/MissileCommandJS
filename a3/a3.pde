@@ -49,7 +49,6 @@ int level, time;
 
 // Number of starting shells and total missiles, per wave
 int shellCount, missileCount, missileMax, spawnRate;
-int waveCount, waveMax, waveTime, waveDuration;  // Reconfigure level/waves?
 
 // Mouse/Cursor as vector
 PVector mousePos = new PVector();

@@ -32,26 +32,8 @@ void displayGame() {
     displayScore();
     displayProgress();
     
-    image.updateBackground2();
+    image.updateBackground3();
 }
-
-
-/**
- * Purpose: Displays level background
- * Args: Current level
- * Returns: Null
- */
-//void levelBackground(int level) {
-//    // TODO: Change this
-//    switch(level) {
-//    case 1:
-//        image(image.background[1], 0, 0);
-//        break;
-//    default:
-//        image(image.background[1], 0, 0);
-//        break;
-//    }
-//}
 
 
 /**
