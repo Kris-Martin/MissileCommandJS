@@ -126,7 +126,7 @@ class Image {
      */
     void updateBackground3() {
         
-        if (backgroundFrame < image.background.length && time % 1000 == 0) {
+        if (backgroundFrame < image.background.length && time % 1200 == 0) {
             backgroundFrame++;
         }
 

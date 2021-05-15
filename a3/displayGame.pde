@@ -37,24 +37,6 @@ void displayGame() {
 
 
 /**
- * Purpose: Displays level background
- * Args: Current level
- * Returns: Null
- */
-//void levelBackground(int level) {
-//    // TODO: Change this
-//    switch(level) {
-//    case 1:
-//        image(image.background[1], 0, 0);
-//        break;
-//    default:
-//        image(image.background[1], 0, 0);
-//        break;
-//    }
-//}
-
-
-/**
  * Purpose: Displays CrossHair
  * Args: PVector pos, int size, int r, int g, int b
  * Returns: Null
