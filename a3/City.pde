@@ -63,9 +63,8 @@ class City {
 
         // City burns before turning to rubble when health reaches 0.
         if (health < 1 && isAlive == true) {
-            
-            sound.annihilation.play();
             city = image.cityRubble;
+            sound.annihilation.play();
             isAlive = false;
         }
     }
