@@ -31,8 +31,8 @@ void displayGame() {
     displayCrossHair(mousePos, Cursor_Size, 60, 180, 180);
     displayScore();
     displayProgress();
-
-    image.updateBackground();
+    
+    image.updateBackground2();
 }
 
 

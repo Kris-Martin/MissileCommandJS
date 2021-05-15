@@ -1,16 +1,16 @@
 // Purpose: A class to manage images and graphics.
 class Image {
 
-    PImage city,
-        cityRubble,
-        cannonBase,
-        cannonWheel,
+    PImage city, 
+        cityRubble, 
+        cannonBase, 
+        cannonWheel, 
         cannonBarrel;
 
     PImage[] cityOnFire, background;
-    
+
     int backgroundFrame, cityFrame;
-    
+
     final int CITY_ON_FIRE_IMAGES = 12;
     final int BACKGROUND_IMAGES = 24;
     final int GROUND_HEIGHT = 15;
@@ -85,7 +85,7 @@ class Image {
 
 
     /**
-     * Purpose: Increments the frame number used to access the background array.
+     * Purpose: Changes background image every 60 frames.
      * Args: Null
      * Return: Null
      */
@@ -99,6 +99,42 @@ class Image {
         }
     }
 
+    
+    /**
+     * Purpose: Changes background image each time level changes.
+     * Args: Null
+     * Return: Null
+     */
+    void updateBackground2() {
+        
+        int frame = level;
+        
+        if (frame < image.background.length) {
+            backgroundFrame = frame;
+        }
+
+        if (frame >= image.background.length) {
+            backgroundFrame = 0;
+        }
+    }
+
+
+    /**
+     * Purpose: Changes background image using global time variable. Every 1000 ticks.
+     * Args: Null
+     * Return: Null
+     */
+    void updateBackground3() {
+        
+        if (backgroundFrame < image.background.length && time % 1000 == 0) {
+            backgroundFrame++;
+        }
+
+        if (backgroundFrame >= image.background.length) {
+            backgroundFrame = 0;
+        }
+    }
+    
 
     /**
      * Purpose: Displays background image.
@@ -123,8 +159,8 @@ class Image {
         dialogInput = loadFont("fonts/dialogInput56.vlw");
         inGameScore = loadFont("fonts/dialogInput56.vlw");  //temp, to figure out
     }
-    
-    
+
+
     /**
      * Purpose: Creates ground for the cities to sit on.
      * Args: Null

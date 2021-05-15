@@ -43,7 +43,7 @@ class City {
 
 
     /**
-     * Purpose: Displays the city
+     * Purpose: Displays the city.
      * Args: Null
      * Returns: Null
      */
