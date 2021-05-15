@@ -63,24 +63,28 @@ class City {
 
         // City burns before turning to rubble when health reaches 0.
         if (health < 1 && isAlive == true) {
+            
+            sound.annihilation.play();
+            city = image.cityRubble;
+            isAlive = false;
+            
+            //// Set cityFrame to start of Array
+            //if (image.cityFrame >= image.cityOnFire.length) {
+            //    image.cityFrame = 0;
+            //}
 
-            // Set cityFrame to start of Array
-            if (image.cityFrame >= image.cityOnFire.length) {
-                image.cityFrame = 0;
-            }
+            //// Increment frame every 10 frames.
+            //if (frameCount % 10 == 0) {
+            //    city = image.cityOnFire[image.cityFrame];
+            //    image.cityFrame++;
+            //}
 
-            // Increment frame every 10 frames.
-            if (frameCount % 10 == 0) {
-                city = image.cityOnFire[image.cityFrame];
-                image.cityFrame++;
-            }
-
-            // Set frame to rubble when end of Array is reached.
-            if (image.cityFrame >= image.cityOnFire.length) {
-                sound.annihilation.play();
-                city = image.cityRubble;
-                isAlive = false;
-            }
+            //// Set frame to rubble when end of Array is reached.
+            //if (image.cityFrame >= image.cityOnFire.length) {
+            //    sound.annihilation.play();
+            //    city = image.cityRubble;
+            //    isAlive = false;
+            //}
         }
     }
 }
