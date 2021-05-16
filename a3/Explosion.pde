@@ -1,4 +1,4 @@
-// Purpose: Explosions triggerd by shell, they grow and shrink, destroying all 
+// Purpose: Explosions triggerd by shell, they grow and shrink, destroying all
 class Explosion {
     boolean exist;
     boolean parentIsPlayer;
@@ -10,9 +10,9 @@ class Explosion {
 
 
     /**
-     * Purpose:  Explosion constructor
-     * Args:  PVector position, int power, int lifeTime, boolean parent
-     * Returns:  Null
+     * Purpose: Explosion constructor
+     * Args: PVector position, int power, int lifeTime, boolean parent
+     * Returns: Null
      */
     Explosion(PVector position, int power, int lifeTime, boolean parent) {
         exist = true;
@@ -23,7 +23,7 @@ class Explosion {
         time=0;
         duration = lifeTime;
         radius = 0;
-        size = power;    
+        size = power;
         destroyCount = 0;
         scoreAdd = 0;
 
@@ -40,7 +40,7 @@ class Explosion {
     void process() {
         time++;
         // Radius grows and shrinks over duration.
-        radius = (int) (size -abs(duration-time)*((float)size/duration));  
+        radius = (int) (size -abs(duration-time)*((float)size/duration));
 
         if (parentIsPlayer) {
             missileCollide();
@@ -73,7 +73,7 @@ class Explosion {
         if (destroyCount>0) {
             scoreAdd = (int)((pow(destroyCount+(float)pos.y/height, 2))*250);
         }
-    }  
+    }
 
 
     /**
@@ -91,7 +91,7 @@ class Explosion {
                 }
             }
         }
-    }  
+    }
 
 
     /**
@@ -105,12 +105,12 @@ class Explosion {
         fill(240, 80, 80);
         ellipse(pos.x, pos.y, radius, radius);
         fill(80, 240, 80);
-        
+
         // Display score addition
         if (destroyCount>0) {
             // Alter based on level, as you expect increasing points
             //InGameScoreFont HERE
-            textSize(scoreAdd/(25+level));  
+            textSize(scoreAdd/(25+level));
             text("+"+scoreAdd, pos.x+size/2, pos.y);
         }
     }

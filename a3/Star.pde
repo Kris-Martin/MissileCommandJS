@@ -2,8 +2,7 @@
  * Purpose: Creates a star object, use to create moving star field.
  * Used tutorial https://www.youtube.com/watch?v=17WoOqgXsRM&t=323s
  * as a reference but converted the variables into PVector methods.
-   constructor was not needed as it was empty constructor was removed 
-   as one is provided by default don't need to write in
+ * Empty constructor removed as one is provided by default.
  */
 class Star {
     PVector position = new PVector(random(-width, width), random(-height, height), random(width));
@@ -11,12 +10,13 @@ class Star {
     PVector velocity = new PVector();  // TODO: why speed and velocity?
 
     /**
-     * Purpose:  Updates the z index of the stars to give the appearance of spiral
-     * Args:  Null
-     * Returns:  Null
+     * Purpose: Updates the z index of the stars to give the appearance of
+     * spiral.
+     * Args: Null
+     * Returns: Null
      */
     void update() {
-        velocity.z = -10;  
+        velocity.z = -10;
         position.add(velocity);
         if (position.z<1) {
             position.set(random(-width, width), random(-height, height), width);
@@ -25,7 +25,7 @@ class Star {
 
 
     /**
-     * Purpose:  Draws the stars position 
+     * Purpose:  Draws the stars position.
      * Args:  Null
      * Returns:  Null
      */

@@ -1,5 +1,5 @@
 /**
- * Purpose: Set/reset all arrays/variables/parameters
+ * Purpose: Set/reset all arrays/variables/parameters.
  * Args: Null
  * Returns: Null
  */
@@ -26,7 +26,7 @@ void setLevel() {
 
 
 /**
- * Purpose: Set the starting conditions and create cities
+ * Purpose: Set the starting conditions and create cities.
  * Args: Null
  * Returns: Null
  */

@@ -10,7 +10,8 @@ class Trail {
 
     /**
      * Purpose:  Trail constructor
-     * Args:  PVector position, PVector previous, int lifeTime, int trailWidth, color colour
+     * Args:  PVector position, PVector previous, int lifeTime, int trailWidth,
+     * color colour.
      * Returns:  Null
      */
     Trail(PVector position, PVector previous, int lifeTime, int trailWidth, color colour) {
@@ -24,7 +25,7 @@ class Trail {
 
 
     /**
-     * Purpose:  processes Trail
+     * Purpose:  Processes Trail.
      * Args: Null
      * Returns: Null
      */
@@ -37,7 +38,7 @@ class Trail {
 
 
     /**
-     * Purpose: displays Trail
+     * Purpose: Displays Trail.
      * Args: Null
      * Returns: Null
      */

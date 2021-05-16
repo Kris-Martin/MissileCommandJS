@@ -25,9 +25,9 @@ class Sound {
 
 
     /**
-     * Purpose:  Loads sound files, called in construtor. 
+     * Purpose:  Loads sound files, called in construtor.
      * Used to keep things neat and readable.
-     * Args:  PApplet p : explenation?
+     * Args:  PApplet p : must pass in main Applet for sound to work.
      * Returns:  Null
      */
     void loadFiles(PApplet p) {

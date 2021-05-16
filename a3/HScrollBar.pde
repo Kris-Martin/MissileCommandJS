@@ -1,21 +1,21 @@
 // Purpose: A class for displaying scroll bar.
-// A scroll bar class provided by the processing reference. 
+// A scroll bar class provided by the processing reference.
 // https://processing.org/examples/scrollbar.html
 
 class HScrollbar {
-    
+
     // Width and height of bar.
     int scrollBarWidth = width/2;
-    int scrollBarHeight = 16;    
-    
+    int scrollBarHeight = 16;
+
     // X and Y position of bar.
     float xpos = width/4;
     float ypos = (height/2 - 8) - scrollBarHeight/2;
-    
+
     // Max and min values of slider.
     float scrollBarMin = xpos;
     float scrollBarMax = xpos + scrollBarWidth - scrollBarHeight;
-    
+
     // X position of slider.
     float scrollBarPos = xpos + scrollBarWidth/2;
     // newPos is used to store the updated position from user.
@@ -23,9 +23,9 @@ class HScrollbar {
 
     // How loose/heavy.
     int loose = 16;
-    
+
     // Is the mouse over the slider?
-    boolean over;           
+    boolean over;
     boolean locked;
     float ratio;
 
@@ -54,7 +54,7 @@ class HScrollbar {
 
 
     /**
-     * Purpose:  Updates the scroll bar position based on user. 
+     * Purpose:  Updates the scroll bar position based on user.
      * Args: Null
      * Returns: Null
      */
@@ -97,13 +97,13 @@ class HScrollbar {
      */
     boolean overEvent() {
         return (mouseX > xpos && mouseX < xpos+scrollBarWidth &&
-            mouseY > ypos && mouseY < ypos+scrollBarHeight);
+                mouseY > ypos && mouseY < ypos+scrollBarHeight);
     }
 
 
     /**
      * Purpose: Displays the scroll bar.
-     * Args: Null 
+     * Args: Null
      * Returns: Null
      */
     void display() {
@@ -125,11 +125,11 @@ class HScrollbar {
      * Returns: float
      */
     float getPos() {
-        
+
         return scrollBarPos * ratio;
     }
-    
-    
+
+
     /**
      * Purpose: To map the position the amplitude of the background music
      * with the scroll bar.
@@ -138,15 +138,16 @@ class HScrollbar {
     */
     void changeVolume() {
         float scrollBarPosition = getPos();
-        
+
         float minVolume = 0.001;
         float maxVolume = 1.0;
-        
-        float volume = map(scrollBarPosition, xpos, scrollBarWidth, minVolume, maxVolume);
-        
+
+        float volume = map(
+            scrollBarPosition, xpos, scrollBarWidth, minVolume, maxVolume);
+
         // Slider starts at scrollBar midpoint, volume value adjusted to match.
         volume /= 2;
-        
+
         // Rounds value to 1
         if (volume > maxVolume) {
             volume = maxVolume;
