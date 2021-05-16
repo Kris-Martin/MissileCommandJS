@@ -21,7 +21,7 @@ class Cannon {
     Cannon() {
         baseDim.x = 80;
         baseDim.y = 24;
-        basePos.x = width / 2;
+        basePos.x = width/2;
         basePos.y = 0;
 
         wheelDim.x = 40;
@@ -45,20 +45,38 @@ class Cannon {
      * Returns: Null
      */
     void display() {
-        //display cannon base
-        image(image.cannonBase, basePos.x - baseDim.x / 2, height - baseDim.y, baseDim.x, baseDim.y);
-  
+        // Display cannon base
+        image(
+            image.cannonBase,
+            basePos.x - baseDim.x/2,
+            height - baseDim.y,
+            baseDim.x, baseDim.y);
+
         // Translate, Rotate barrel, display, then unrotate and untranslate
         translate(basePos.x, height - baseDim.y);
-        rotate(vectorDiff(new PVector(basePos.x, height - baseDim.y), mousePos).heading() - PI / 2);
-        image(image.cannonBarrel, - barrelDim.x / 2, - barrelDim.y * (5. / 8.), barrelDim.x, barrelDim.y);
-        rotate( - vectorDiff(new PVector(basePos.x, height - baseDim.y), mousePos).heading() + PI / 2);
-        translate( - (basePos.x), - (height - baseDim.y));
-  
-        //display cannon wheel
-        image(image.cannonWheel, basePos.x - wheelDim.x / 2, height - baseDim.y - wheelDim.y / 2, wheelDim.x, wheelDim.y);
-        
-        //display the reload bar and remaining ammo
+
+        rotate(vectorDiff(new PVector(
+            basePos.x, height - baseDim.y), mousePos).heading() - PI/2);
+
+        image(
+            image.cannonBarrel,
+            -barrelDim.x/2,
+            -barrelDim.y * (5./8.),
+            barrelDim.x, barrelDim.y);
+
+        rotate( - vectorDiff(new PVector(
+            basePos.x, height -baseDim.y), mousePos).heading() + PI/2);
+
+        translate(-(basePos.x), - (height - baseDim.y));
+
+        // Display cannon wheel
+        image(
+            image.cannonWheel,
+            basePos.x - wheelDim.x/2,
+            height - baseDim.y - wheelDim.y/2,
+            wheelDim.x, wheelDim.y);
+
+        // Display the reload bar and remaining ammo
         reloadBar();
         ammoCount();
     }
@@ -89,12 +107,21 @@ class Cannon {
      * Returns: Null
      */
     void reloadBar() {
+
         stroke(0);
         strokeWeight(1.5);
+
         float reloadRatio = (float)reloadTime / reloadPeriod;
+
         fill(40, 40, 80);
-        rect(mousePos.x - reloadDim.x / 2, mousePos.y + Cursor_Size * 2, reloadDim.x, reloadDim.y, 8);
+
+        rect(
+            mousePos.x - reloadDim.x/2,
+            mousePos.y + Cursor_Size * 2,
+            reloadDim.x, reloadDim.y, 8);
+
         fill(80, 180, 240);
+
         if (reloadRatio == 1) {
             fill(80, 240, 80);
         }
@@ -102,7 +129,11 @@ class Cannon {
             fill(240, 80, 80);
             reloadRatio = 1;
         }
-        rect(mousePos.x - reloadDim.x / 2, mousePos.y + Cursor_Size * 2, reloadRatio * reloadDim.x, reloadDim.y, 8);
+
+        rect(
+            mousePos.x - reloadDim.x / 2,
+            mousePos.y + Cursor_Size * 2,
+            reloadRatio * reloadDim.x, reloadDim.y, 8);
     }
 
 
@@ -117,17 +148,28 @@ class Cannon {
         stroke(80, 240, 240);
         strokeWeight(2);
         for (int i = magazineSize; i < shellCount; i +=magazineSize) {
-            line(mousePos.x - reloadDim.x / 2, mousePos.y + Cursor_Size * 3 + i * 4 / magazineSize, mousePos.x + reloadDim.x / 2, mousePos.y + Cursor_Size * 3 + i * 4 / magazineSize);
+            line(
+                mousePos.x - reloadDim.x/2,
+                mousePos.y + Cursor_Size * 3 + i * 4/magazineSize,
+                mousePos.x + reloadDim.x/2,
+                mousePos.y + Cursor_Size * 3 + i * 4/magazineSize);
         }
-        
+
         // Draw current row of ammo
-        int loadedCount = shellCount % magazineSize == 0 && shellCount!= 0 ? magazineSize : shellCount % magazineSize;
+        int loadedCount = shellCount % magazineSize == 0 &&
+                          shellCount!= 0 ?
+                          magazineSize : shellCount % magazineSize;
+
         float roundRatio = reloadDim.x / magazineSize;
+
         for (int i = 0; i < loadedCount; i++) {
             stroke(0);
             strokeWeight(1);
             fill(80, 240, 240);
-            rect(mousePos.x - reloadDim.x / 2 + i * (roundRatio), mousePos.y + Cursor_Size * 2.8, roundRatio, 4, 1);
+            rect(
+                mousePos.x - reloadDim.x/2 + i * (roundRatio),
+                mousePos.y + Cursor_Size * 2.8,
+                roundRatio, 4, 1);
         }
     }
 }

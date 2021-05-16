@@ -1,12 +1,9 @@
 /**
- * Purpose: displays the main game
+ * Purpose: Displays the main game.
  * Args: Null
  * Returns: Null
  */
 void displayGame() {
-    //levelBackground(level);
-
-    //image(image.background[1], 0, 0);
     image.displayBackground();
     image.displayGround();
 
@@ -26,18 +23,18 @@ void displayGame() {
         e.display();
     }
 
-    // Display mouse crossHair, seperated so shells can have crosshairs too
+    // Display mouse crossHair, seperated so shells can have crosshairs too.
     player.display();
     displayCrossHair(mousePos, Cursor_Size, 60, 180, 180);
     displayScore();
     displayProgress();
-    
-    image.updateBackground3();
+
+    image.updateBackground();
 }
 
 
 /**
- * Purpose: Displays CrossHair
+ * Purpose: Displays CrossHair,
  * Args: PVector pos, int size, int r, int g, int b
  * Returns: Null
  */
@@ -53,7 +50,7 @@ void displayCrossHair(PVector pos, int size, int r, int g, int b) {
 
 
 /**
- * Purpose: Displays score
+ * Purpose: Displays score.
  * Args: Null
  * Returns: Null
  */
@@ -72,7 +69,7 @@ void displayScore() {
 
 
 /**
- * Purpose: Displays the missile count / progress of level
+ * Purpose: Displays the missile count / progress of level.
  * Args: Null
  * Returns: Null
  */
@@ -82,8 +79,8 @@ void displayProgress() {
     stroke(0);
     strokeWeight(2);
     fill(180, 60, 60);
-    
-    //display segmented bar for levels 1-5, then one continuous bar
+
+    // Display segmented bar for levels 1-5, then one continuous bar,
     if (level<6){
         for (int i=0; i<missileMax-missileCount; i++) {
             rect(padding+i*(roundRatio), 40, roundRatio, 20, 4);

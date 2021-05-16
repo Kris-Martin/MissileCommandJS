@@ -4,7 +4,7 @@ class MenuButton {
     String buttonText;
     float locationX, locationY;
 
-    // Global menu button offset variable to assist with hitting the menu buttons
+    // Global button offset variable to assist with hitting the menu buttons
     int buttonOffset = 50;
 
 
@@ -30,8 +30,8 @@ class MenuButton {
         float R = random(0, 255);
         float G = random(0, 255);
         float B = random(0, 255);
-        //change from hard values to PVector buttonDim
-        //that way hover/click will be based on button and not some imaginary shape
+        // TODO: change from hard values to PVector buttonDim
+        // hover/click will be based on button and not some imaginary shape
         if ((mouseY < locationY) & (mouseY > locationY - buttonOffset)) {
             R = 255;
             G = 255;
@@ -74,7 +74,7 @@ class MenuButton {
 
 
     /**
-     * Purpose: Another button type with different style but still has hover effect
+     * Purpose: Another button type with different style, with hover effect
      * Args: Null
      * Returns: Null
      */
@@ -104,9 +104,10 @@ class MenuButton {
      */
     boolean pressed() {
         boolean buttonPressed = false;
-        //change from hard values to PVector buttonDim
-        //that way hover/click will be based on button and not some imaginary shape
-        if ((mouseY < locationY + buttonOffset) & (mouseY > locationY - buttonOffset)) {
+        // TODO: change from hard values to PVector buttonDim
+        // That way hover/click will be based on button and not imaginary shape
+        if ((mouseY < locationY + buttonOffset) &
+            (mouseY > locationY - buttonOffset)) {
             if (mousePressed) {
                 buttonPressed = true;
             }

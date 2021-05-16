@@ -1,4 +1,4 @@
-// Purpose: The ammunition fired by players cannon. 
+// Purpose: The ammunition fired by players cannon.
 class Shell {
     boolean exist;
 
@@ -12,10 +12,10 @@ class Shell {
 
 
     /**
-     * Purpose:  Spawns new shell firing from cannon, towards target set by 
+     * Purpose: Spawns new shell firing from cannon, towards target set by
      * mouse press.
-     * Args:  PVector target
-     * Returns:  Null
+     * Args: PVector target
+     * Returns: Null
      */
     Shell(PVector target) {
         exist = true;
@@ -26,23 +26,24 @@ class Shell {
 
         aim.set(target);
         velocity=4;
-        
-        // Create vel as heading of diff vector between 2 points, pos and target
+
+        // Create vel as heading of diff vector between 2 points, pos & target
         vel.set(vectorDiff(target, pos).normalize().mult(velocity));
     }
 
 
     /**
-     * Purpose:  processes Shell
-     * Args:  Null
-     * Returns:  Null
+     * Purpose: Processes Shell.
+     * Args: Null
+     * Returns: Null
      */
     void process() {
         // Add velocity
         pos.add(vel);
 
         // Create trail
-        trails.add(new Trail(pos, vel, 64, (int)dim.x, #00a0f0));                                  //make 64 var trail lenght, do also for missiles
+        // Make 64 var trail lenght, do also for missiles
+        trails.add(new Trail(pos, vel, 64, (int)dim.x, #00a0f0));
 
         // Detect missile collision
         boolean hit = false;
@@ -63,18 +64,18 @@ class Shell {
 
 
     /**
-     * Purpose:  displays Shell
-     * Args:  Null
-     * Returns:  Null
+     * Purpose: Displays Shell
+     * Args: Null
+     * Returns: Null
      */
     void display() {
-        //display shell
+        // Display shell
         strokeWeight(2);
         stroke(0);
         fill(80, 180, 80);
         ellipse(pos.x, pos.y, dim.x, dim.y);
-        
-        //display target
-        displayCrossHair(aim, Cursor_Size/2, 180, 60, 60);                                              //final vars?
+
+        // Display target
+        displayCrossHair(aim, Cursor_Size/2, 180, 60, 60); //final vars?
     }
 }

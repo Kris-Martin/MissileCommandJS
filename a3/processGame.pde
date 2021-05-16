@@ -4,10 +4,10 @@
  * Returns: Null
  */
 void processGame() {
-    //time in the level
+    // Time in the level
     time++;
 
-    // total health of all cities, used to caclulate fail state
+    // Total health of all cities, used to caclulate fail state
     int Health = 0;
 
     // Trail loop
@@ -81,7 +81,7 @@ void spawnMissiles() {
 
 
 /**
- * Purpose: transfers inbuilt mouse variables to a single PVector for ease of use
+ * Purpose: Transfers inbuilt mouse variables to single PVector for ease of use.
  * Args: Null
  * Returns: Null
  */
@@ -92,7 +92,7 @@ void processCursor() {
 
 
 /**
- * Purpose: Toggle pause menu
+ * Purpose: Toggle pause menu.
  * Args: Null
  * Returns: Null
  */
@@ -109,7 +109,7 @@ void keyPressed() {
 
 
 /**
- * Purpose:  Calculates a vector between two vectors
+ * Purpose:  Calculates a vector between two vectors.
  * Args:  Vectors a & b
  * Returns:  difference vector
  */

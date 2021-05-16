@@ -20,13 +20,16 @@ class Missile {
         pos.x = random(0, width);
         pos.y = 0;
         velocity = 1;
-        // Randomise direction based on initial pos, so they are more likely to stay in window
-        vel.set(new PVector(random(-pos.x/width, (width-pos.x)/width), 1).normalize().mult(velocity));
+        /**
+         * Randomise direction based on initial pos, so they are more likely to * stay in window.
+         */
+        vel.set(new PVector(random(
+            -pos.x/width, (width-pos.x)/width), 1).normalize().mult(velocity));
     }
 
 
     /**
-     * Purpose:  processes Missile
+     * Purpose:  Processes Missile
      * Args:  Null
      * Return:  Null
      */

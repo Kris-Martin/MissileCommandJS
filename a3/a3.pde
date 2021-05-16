@@ -2,7 +2,7 @@
  * Program:     Missile Command - COSC101 Assignment 3
  * Authors:     Simon Colman, Nathan Hall, Kris Martin - Group 16
  * Version:     1.0
- * Date:        TODO: Update when ready to submit
+ * Date:        17/05/2021
  *
  * Usage:
  * TODO: Fill in usage
