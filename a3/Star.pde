@@ -7,7 +7,7 @@
 class Star {
     PVector position = new PVector(random(-width, width), random(-height, height), random(width));
     PVector speed = new PVector();
-    PVector velocity = new PVector();  // TODO: why speed and velocity?
+    PVector velocity = new PVector();
 
     /**
      * Purpose: Updates the z index of the stars to give the appearance of
