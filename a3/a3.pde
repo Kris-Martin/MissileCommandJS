@@ -18,21 +18,20 @@
  * double click the file a3.pde which will open in processing, then click play.
  *
  * Usage:
- * Open a3.pde and click the processing play button to start program.
- * You will be presented with the main menu screen.
- * Click options to adjust music volume for both game and menu music, or click start game to play.
+ * Open a3.pde and click the processing play button to start program. You will
+ * be presented with the main menu screen. Click options to adjust music volume
+ * for both game and menu music, or click start game to play. After starting the
+ * game you can pause by hitting space, and a pause menu will appear - you can * then choose to return to the game or quit the game by returning to the main * menu.
+
+ * When the game starts you have 6 cities to defend and one missile defence
+ * system/cannon to defend them with. Move the mouse to aim the cannon and
+ * click to shoot. Enemy missiles will rain down in waves from the top of the
+ * screen. It is your job to block as many missiles as you can with your
+ * cannon. Aim your shot to intersect with the missile’s trajectory and the
+ * missile will be destroyed. Miss and if the missile hits a city, the city
+ * will take damage. Once a city has taken too much damage it will be
+ * destroyed.
  *
- * After starting the game you can pause by hitting space, and a pause menu will appear,
- * you can then choose to return to the game or quit the game by returning to the main menu.
- *
- * When the game starts you have 6 cities to defend and one missile defence system/cannon to defend them with.
- * Move the mouse to aim the cannon and click to shoot. Enemy missiles will rain down in waves from the top of the screen.
- *
- * It is your job to block as many missiles as you can with your cannon.
- * Aim your shot to intersect with the missile’s trajectory and the missile will be destroyed.
- *
- * If you miss your shots at the missile and the missile hits a city, the city will take damage.
- * Once a city has taken too much damage it will be destroyed.
  * The game is over when all six cities have been destroyed. Good luck!
  */
 
