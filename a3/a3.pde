@@ -93,7 +93,7 @@ void setup() {
     // Play theme music on loop
     sound.playTheme();
 
-    //sets and initiallisers ArrayLists, objects, etc
+    // Sets and initiallisers ArrayLists, objects, etc
     newGame();
     level = 1;
     setLevel();
