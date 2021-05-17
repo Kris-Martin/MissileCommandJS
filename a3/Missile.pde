@@ -6,6 +6,7 @@ class Missile {
     PVector vel = new PVector();
     PVector dim = new PVector();
     float velocity;
+    int trailLength;
 
 
     /**
@@ -20,11 +21,11 @@ class Missile {
         pos.x = random(0, width);
         pos.y = 0;
         velocity = 1;
-        /**
-         * Randomise direction based on initial pos, so they are more likely to * stay in window.
-         */
-        vel.set(new PVector(random(
-            -pos.x/width, (width-pos.x)/width), 1).normalize().mult(velocity));
+        trailLength = 128;
+        
+        //Randomise direction based on initial pos, so they are more likely to * stay in window.
+        vel.set(new PVector(random(-pos.x/width, (width-pos.x)/width), 1)
+            .normalize().mult(velocity));
     }
 
 
@@ -38,7 +39,7 @@ class Missile {
         pos.add(vel);
 
         // Create trail
-        trails.add(new Trail(pos, vel, 128, (int)dim.x, #f0c000));
+        trails.add(new Trail(pos, vel, trailLength, (int)dim.x, #f0c000));
 
         if (pos.y>height) {
             exist = false;

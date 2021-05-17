@@ -53,6 +53,7 @@ void processGame() {
         }
     }
 
+    // total city health and game over check
     if (Health<=0) {
         gameState = -1;
     }

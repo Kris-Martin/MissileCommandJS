@@ -54,19 +54,15 @@ class Cannon {
 
         // Translate, Rotate barrel, display, then unrotate and untranslate
         translate(basePos.x, height - baseDim.y);
-
         rotate(vectorDiff(new PVector(
             basePos.x, height - baseDim.y), mousePos).heading() - PI/2);
-
         image(
             image.cannonBarrel,
             -barrelDim.x/2,
             -barrelDim.y * (5./8.),
             barrelDim.x, barrelDim.y);
-
         rotate( - vectorDiff(new PVector(
             basePos.x, height -baseDim.y), mousePos).heading() + PI/2);
-
         translate(-(basePos.x), - (height - baseDim.y));
 
         // Display cannon wheel
@@ -107,13 +103,11 @@ class Cannon {
      * Returns: Null
      */
     void reloadBar() {
-
         stroke(0);
         strokeWeight(1.5);
+        fill(40, 40, 80);
 
         float reloadRatio = (float)reloadTime / reloadPeriod;
-
-        fill(40, 40, 80);
 
         rect(
             mousePos.x - reloadDim.x/2,

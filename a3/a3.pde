@@ -4,8 +4,6 @@
  * Version:     1.0
  * Date:        17/05/2021
  *
- * Usage:
- * TODO: Fill in usage
  *
  * Requirements:
  * This program needs Processing and the Processing Sound library installed to
@@ -18,27 +16,29 @@
  * https://processing.org/reference/libraries/.
  * 3) Once Processing is installed simply download the a3 zip folder, unzip it,
  * double click the file a3.pde which will open in processing, then click play.
+ *
+ * Usage:
+ * Open a3.pde and click the processing play button to start program.
+ * You will be presented with the main menu screen.
+ * Click options to adjust music volume for both game and menu music, or click start game to play.
+ *
+ * After starting the game you can pause by hitting space, and a pause menu will appear,
+ * you can then choose to return to the game or quit the game by returning to the main menu.
+ *
+ * When the game starts you have 6 cities to defend and one missile defence system/cannon to defend them with.
+ * Move the mouse to aim the cannon and click to shoot. Enemy missiles will rain down in waves from the top of the screen.
+ *
+ * It is your job to block as many missiles as you can with your cannon.
+ * Aim your shot to intersect with the missile’s trajectory and the missile will be destroyed.
+ *
+ * If you miss your shots at the missile and the missile hits a city, the city will take damage.
+ * Once a city has taken too much damage it will be destroyed.
+ * The game is over when all six cities have been destroyed. Good luck!
  */
 
 
-/**
- * Notes...
- *
- * Missiles grow larger, faster, more numerous and ultimately more varied as
- * levels increase.
- *
- * TODO: Please fix fonts for other game text
- *
- * TODO: Complete comments and make sure all lines are < 80 char
- *
- * TODO: Video reflection
- */
 
-
-/**
- * Which game state (screen)
- * 0 = Main menu, 1 = inGame, 10 = upgrade menu, -1 = game over.
- */
+// Which game state (screen)
 int gameState;
 
 //Game score
@@ -73,7 +73,7 @@ Menu menu;
 
 
 /**
- * Purpose: Initialtes all starting parameters.
+ * Purpose: Initialises all starting parameters.
  * Args: Null
  * Returns: Null
  */
@@ -92,9 +92,10 @@ void setup() {
     // Play theme music on loop
     sound.playTheme();
 
+    //sets and initiallisers ArrayLists, objects, etc
     newGame();
     level = 1;
-    setLevel(); //clears and reinitiallisers ArrayLists etc
+    setLevel();
 }
 
 

@@ -109,7 +109,6 @@ class Explosion {
         // Display score addition
         if (destroyCount>0) {
             // Alter based on level, as you expect increasing points
-            //InGameScoreFont HERE
             textSize(scoreAdd/(25+level));
             text("+"+scoreAdd, pos.x+size/2, pos.y);
         }

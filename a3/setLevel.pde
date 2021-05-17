@@ -6,20 +6,24 @@
 void setLevel() {
     // Set background frame daytime
     image.backgroundFrame = 4;
+    
     // Should reset all arrays iirc
     player = new Cannon();
+    
     // refresh cities? or persist?
     shells = new ArrayList<Shell>();
     missiles = new ArrayList<Missile>();
     explosions = new ArrayList<Explosion>();
     trails = new ArrayList<Trail>();
-    //
+    
+    // Reset level timer
     time = 0;
-    //
+    
+    //Missile and Shell management
     missileCount = 0;
     missileMax = (int)pow(2, level+2);  //starts at 8, doubles per level
     shellCount += missileMax;
-    //
+    
     spawnRate = 256-level*32>32 ? 256-level*32 : 32;  //scale better
     player.reloadPeriod = 128-level*16>16 ? 128-level*16 : 16;  //scale better
 }

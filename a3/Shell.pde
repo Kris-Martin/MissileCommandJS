@@ -8,7 +8,7 @@ class Shell {
 
     PVector aim = new PVector();
 
-    int velocity;
+    int velocity, trailLength;
 
 
     /**
@@ -26,6 +26,7 @@ class Shell {
 
         aim.set(target);
         velocity=4;
+        trailLength = 64;
 
         // Create vel as heading of diff vector between 2 points, pos & target
         vel.set(vectorDiff(target, pos).normalize().mult(velocity));
@@ -42,8 +43,7 @@ class Shell {
         pos.add(vel);
 
         // Create trail
-        // Make 64 var trail lenght, do also for missiles
-        trails.add(new Trail(pos, vel, 64, (int)dim.x, #00a0f0));
+        trails.add(new Trail(pos, vel, trailLength, (int)dim.x, #00a0f0));
 
         // Detect missile collision
         boolean hit = false;
