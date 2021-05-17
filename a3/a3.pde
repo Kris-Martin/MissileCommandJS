@@ -21,7 +21,9 @@
  * Open a3.pde and click the processing play button to start program. You will
  * be presented with the main menu screen. Click options to adjust music volume
  * for both game and menu music, or click start game to play. After starting the
- * game you can pause by hitting space, and a pause menu will appear - you can * then choose to return to the game or quit the game by returning to the main * menu.
+ * game you can pause by hitting space, and a pause menu will appear - you can 
+ * then choose to return to the game or quit the game by returning to the main 
+ * menu.
 
  * When the game starts you have 6 cities to defend and one missile defence
  * system/cannon to defend them with. Move the mouse to aim the cannon and
