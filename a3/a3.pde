@@ -3,7 +3,7 @@
  * Authors:     Simon Colman, Nathan Hall, Kris Martin - Group 16
  * Version:     1.0
  * Date:        17/05/2021
- * Video:       //Video Summary: https://www.youtube.com/watch?v=Vv0a_A2lXO4 
+ * Video:       Video Summary: https://www.youtube.com/watch?v=Vv0a_A2lXO4 
  *
  *
  * Requirements:
