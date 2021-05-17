@@ -19,13 +19,14 @@ void setLevel() {
     // Reset level timer
     time = 0;
     
-    //Missile and Shell management
+    //Missile and Shell count management
     missileCount = 0;
-    missileMax = (int)pow(2, level+2);  //starts at 8, doubles per level
+    //starts at 8, doubles per level
+    missileMax = (int)pow(2, level+2);
     shellCount += missileMax;
-    
-    spawnRate = 256-level*32>32 ? 256-level*32 : 32;  //scale better
-    player.reloadPeriod = 128-level*16>16 ? 128-level*16 : 16;  //scale better
+    //Missile and Shell rate management
+    spawnRate = 256-level*32>32 ? 256-level*32 : 32;
+    player.reloadPeriod = 128-level*16>16 ? 128-level*16 : 16;
 }
 
 

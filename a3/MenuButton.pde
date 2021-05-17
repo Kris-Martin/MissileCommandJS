@@ -30,7 +30,6 @@ class MenuButton {
         float R = random(0, 255);
         float G = random(0, 255);
         float B = random(0, 255);
-        // TODO: change from hard values to PVector buttonDim
         // hover/click will be based on button and not some imaginary shape
         if ((mouseY < locationY) & (mouseY > locationY - buttonOffset)) {
             R = 255;
