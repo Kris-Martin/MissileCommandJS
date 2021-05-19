@@ -1,4 +1,4 @@
-// Purpose: Explosions triggerd by shell, they grow and shrink, destroying all
+// Purpose: Explosions triggered by shell, they grow and shrink, destroying all
 class Explosion {
     boolean exist;
     boolean parentIsPlayer;

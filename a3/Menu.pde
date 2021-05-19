@@ -16,9 +16,9 @@ class Menu {
     HScrollbar volumeBarMusic;
 
     /**
-     * Purpose:  Contructor for Menu.
-     * Args:  Null
-     * Return:  Null
+     * Purpose: Constructor for Menu.
+     * Args: Null
+     * Return: Null
      */
     Menu() {
 
@@ -65,11 +65,11 @@ class Menu {
     void displayMainMenu() {
 
         background(0, 0, 16);
-        
+
         heading.headingDisplay();
         startGame.display();
         options.display();
-        
+
         if (startGame.pressed()) gameState = 1;
         if (options.pressed()) gameState = 2;
 
@@ -77,12 +77,12 @@ class Menu {
     }
 
     /**
-     * Purpose:  Dispay Options Menu.
+     * Purpose: Display Options Menu.
      * Args: Null
      * Return: Null
      */
     void displayOptionsMenu() {
-        
+
         background(0, 0, 16);
 
         backButton.display();
@@ -144,7 +144,7 @@ class Menu {
             setLevel();
             gameState = 1;
         }
-        
+
           if (backToMain.pressed()) {
             sound.music = sound.currentlyPlaying();
             sound.music.stop();
@@ -172,7 +172,7 @@ class Menu {
       noStroke();
       rect(width/4, height/5, width *1/2, height *7/9);
       }
-      
+
      /**
      * Purpose: Draw background rectangle for menu
      * Args: Null

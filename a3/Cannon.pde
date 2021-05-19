@@ -52,7 +52,7 @@ class Cannon {
             height - baseDim.y,
             baseDim.x, baseDim.y);
 
-        // Translate, Rotate barrel, display, then unrotate and untranslate
+        // Translate, Rotate barrel, display, then reverse
         translate(basePos.x, height - baseDim.y);
         rotate(vectorDiff(new PVector(
             basePos.x, height - baseDim.y), mousePos).heading() - PI/2);

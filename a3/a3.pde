@@ -3,7 +3,7 @@
  * Authors:     Simon Colman, Nathan Hall, Kris Martin - Group 16
  * Version:     1.0
  * Date:        17/05/2021
- * Video:       Video Summary: https://www.youtube.com/watch?v=Vv0a_A2lXO4 
+ * Video:       Video Summary: https://www.youtube.com/watch?v=Vv0a_A2lXO4
  *
  *
  * Requirements:
@@ -22,8 +22,8 @@
  * Open a3.pde and click the processing play button to start program. You will
  * be presented with the main menu screen. Click options to adjust music volume
  * for both game and menu music, or click start game to play. After starting the
- * game you can pause by hitting space, and a pause menu will appear - you can 
- * then choose to return to the game or quit the game by returning to the main 
+ * game you can pause by hitting space, and a pause menu will appear - you can
+ * then choose to return to the game or quit the game by returning to the main
  * menu.
 
  * When the game starts you have 6 cities to defend and one missile defence
@@ -74,13 +74,13 @@ Menu menu;
 
 
 /**
- * Purpose: Initialises all starting parameters.
+ * Purpose: Initializes all starting parameters.
  * Args: Null
  * Returns: Null
  */
 void setup() {
     size(1280, 720);
-    // Set background to black for less noticable load.
+    // Set background to black for less noticeable load.
     background(0);
     frameRate(60);
 
@@ -93,7 +93,7 @@ void setup() {
     // Play theme music on loop
     sound.playTheme();
 
-    // Sets and initiallisers ArrayLists, objects, etc
+    // Sets and initializers ArrayLists, objects, etc
     newGame();
     level = 1;
     setLevel();
@@ -101,7 +101,7 @@ void setup() {
 
 
 /**
- * Purpose: Simply seperates/branches code for ease of use
+ * Purpose: Simply separates/branches code for ease of use
  * Args: Null
  * Returns: Null
  */

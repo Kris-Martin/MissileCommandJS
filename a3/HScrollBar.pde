@@ -9,15 +9,15 @@ class HScrollbar {
     int scrollBarHeight = 16;
 
     // X and Y position of bar.
-    float xpos = width/4;
-    float ypos = (height/2 - 8) - scrollBarHeight/2;
+    float xPos = width/4;
+    float yPos = (height/2 - 8) - scrollBarHeight/2;
 
     // Max and min values of slider.
-    float scrollBarMin = xpos;
-    float scrollBarMax = xpos + scrollBarWidth - scrollBarHeight;
+    float scrollBarMin = xPos;
+    float scrollBarMax = xPos + scrollBarWidth - scrollBarHeight;
 
     // X position of slider.
-    float scrollBarPos = xpos + scrollBarWidth/2;
+    float scrollBarPos = xPos + scrollBarWidth/2;
     // newPos is used to store the updated position from user.
     float newPos = scrollBarPos;
 
@@ -37,8 +37,8 @@ class HScrollbar {
      */
     HScrollbar () {
 
-        int widthtoheight = scrollBarWidth - scrollBarHeight;
-        ratio = (float)scrollBarWidth/(float)widthtoheight;
+        int widthToHeight = scrollBarWidth - scrollBarHeight;
+        ratio = (float)scrollBarWidth/(float)widthToHeight;
     }
 
 
@@ -85,8 +85,8 @@ class HScrollbar {
      * Args: 3 floats
      * Returns: function
      */
-    float constrain(float val, float minv, float maxv) {
-        return min(max(val, minv), maxv);
+    float constrain(float val, float minVal, float maxVal) {
+        return min(max(val, minVal), maxVal);
     }
 
 
@@ -96,8 +96,8 @@ class HScrollbar {
      * Returns: boolean
      */
     boolean overEvent() {
-        return (mouseX > xpos && mouseX < xpos+scrollBarWidth &&
-                mouseY > ypos && mouseY < ypos+scrollBarHeight);
+        return (mouseX > xPos && mouseX < xPos+scrollBarWidth &&
+                mouseY > yPos && mouseY < yPos+scrollBarHeight);
     }
 
 
@@ -109,13 +109,13 @@ class HScrollbar {
     void display() {
         noStroke();
         fill(204);
-        rect(xpos, ypos, scrollBarWidth, scrollBarHeight);
+        rect(xPos, yPos, scrollBarWidth, scrollBarHeight);
         if (over || locked) {
             fill(0, 0, 0);
         } else {
             fill(102, 102, 102);
         }
-        rect(scrollBarPos, ypos, scrollBarHeight, scrollBarHeight);
+        rect(scrollBarPos, yPos, scrollBarHeight, scrollBarHeight);
     }
 
 
@@ -143,7 +143,7 @@ class HScrollbar {
         float maxVolume = 1.0;
 
         float volume = map(
-            scrollBarPosition, xpos, scrollBarWidth, minVolume, maxVolume);
+            scrollBarPosition, xPos, scrollBarWidth, minVolume, maxVolume);
 
         // Slider starts at scrollBar midpoint, volume value adjusted to match.
         volume /= 2;
@@ -152,7 +152,7 @@ class HScrollbar {
         if (volume > maxVolume) {
             volume = maxVolume;
         // Any value under 0.02 becomes inaudible without triggering sound library warning.
-        // A value of 0 woud trigger a repeating warning message.
+        // A value of 0 would trigger a repeating warning message.
         } else if (volume < 0.02) {
             volume = minVolume;
         }

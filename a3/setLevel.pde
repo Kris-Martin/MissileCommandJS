@@ -6,19 +6,19 @@
 void setLevel() {
     // Set background frame daytime
     image.backgroundFrame = 4;
-    
-    // Should reset all arrays iirc
+
+    // Create cannon
     player = new Cannon();
-    
-    // refresh cities? or persist?
+
+    // Create game objects
     shells = new ArrayList<Shell>();
     missiles = new ArrayList<Missile>();
     explosions = new ArrayList<Explosion>();
     trails = new ArrayList<Trail>();
-    
+
     // Reset level timer
     time = 0;
-    
+
     //Missile and Shell count management
     missileCount = 0;
     //starts at 8, doubles per level
