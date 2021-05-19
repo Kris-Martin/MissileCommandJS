@@ -25,7 +25,7 @@ class Sound {
 
 
     /**
-     * Purpose:  Loads sound files, called in construtor.
+     * Purpose:  Loads sound files, called in constructor.
      * Used to keep things neat and readable.
      * Args:  PApplet p : must pass in main Applet for sound to work.
      * Returns:  Null
@@ -54,7 +54,7 @@ class Sound {
 
     /**
      * Purpose: Checks what is currently playing and assigns to music.
-     * Used in menu fucntions for volume control.
+     * Used in menu functions for volume control.
      * Args:  Null
      * Returns: SoundFile music.
      */

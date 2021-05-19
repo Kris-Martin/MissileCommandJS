@@ -7,7 +7,7 @@ void processGame() {
     // Time in the level
     time++;
 
-    // Total health of all cities, used to caclulate fail state
+    // Total health of all cities, used to calculate fail state
     int Health = 0;
 
     // Trail loop

@@ -23,7 +23,7 @@ void displayGame() {
         e.display();
     }
 
-    // Display mouse crossHair, seperated so shells can have crosshairs too.
+    // Display mouse crossHair, separated so shells can have crosshair too.
     player.display();
     displayCrossHair(mousePos, Cursor_Size, 60, 180, 180);
     displayScore();

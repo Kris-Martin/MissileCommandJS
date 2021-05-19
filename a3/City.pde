@@ -2,7 +2,7 @@
 class City {
     // The health of the city, when it reaches 0 city is destroyed.
     int health, healthMax, rubblePosY;
-    PVector pos = new PVector();  //not needed, but consistant
+    PVector pos = new PVector();  //not needed, but consistent
     PVector dim = new PVector();
 
     PImage city = image.city;
@@ -11,20 +11,20 @@ class City {
 
     /**
      * Purpose: City constructor
-     * Args: int PostionX
+     * Args: int PositionX
      * Returns: Null
      */
     City(int PositionX) {
-        
+
         healthMax = 256;
         health = healthMax;
-        
+
         pos.x = PositionX;
         pos.y = height;
-        
+
         dim.x = 80;
         dim.y = 40;
-        
+
         // Value needed to adjust position of rubble inline with city.
         rubblePosY = 5;
     }
@@ -33,12 +33,12 @@ class City {
     void display(PImage city) {
         float x = pos.x - dim.x/2;
         float y = height - dim.y - image.GROUND_HEIGHT/3;
-        
-        // Used to align postion of rubble inline with city.
+
+        // Used to align position of rubble inline with city.
         if (!isAlive) {
             y += rubblePosY;
         }
-        image(city, x, y, dim.x, dim.y); 
+        image(city, x, y, dim.x, dim.y);
     }
 
 
