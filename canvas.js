@@ -1,4 +1,4 @@
-export class Canvas {
+export default class Canvas {
   width = 1280;
   height = 720;
   canvas;

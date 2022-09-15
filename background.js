@@ -1,6 +1,6 @@
-export class Background {
+export default class Background {
   frames = new Array(24);
-  num = 0;
+  frame = 0;
 
   constructor() {
     this.load();
@@ -26,17 +26,17 @@ export class Background {
 
   // Changes background image using global time variable every 1200 ticks.
   update(tick) {
-    if (this.num < this.frames.length && tick % 1200 == 0 && tick !== 0) {
-      this.num++;
+    if (this.frame < this.frames.length && tick % 1200 == 0 && tick !== 0) {
+      this.frame++;
     }
 
-    if (this.num >= this.frames.length) {
-      this.num = 0;
+    if (this.frame >= this.frames.length) {
+      this.frame = 0;
     }
   }
 
   draw(canvas, ctx, tick) {
-    ctx.drawImage(this.frames[this.num], 0, 0, canvas.width, canvas.height);
+    ctx.drawImage(this.frames[this.frame], 0, 0, canvas.width, canvas.height);
     this.displayGround(canvas, ctx);
     this.update(tick);
   }
