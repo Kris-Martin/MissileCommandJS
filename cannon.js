@@ -1,4 +1,4 @@
-import { images, mouseX, mouseY } from './missile-command.js';
+import { images } from './missile-command.js';
 
 export default class Cannon {
   cannonBase = images.cannonBase;
@@ -25,7 +25,7 @@ export default class Cannon {
   reloadPeriod = 128;
   reloadTime = 0;
 
-  constructor(canvasWidth, canvasHeight) {
+  constructor(canvasWidth, canvasHeight, canvas) {
     this.baseXPos = canvasWidth / 2 - this.baseWidth / 2;
     this.baseYPos = canvasHeight - this.baseHeight;
     this.barrelXPos = canvasWidth / 2 - this.barrelWidth / 2;
@@ -34,7 +34,8 @@ export default class Cannon {
     this.wheelYPos = canvasHeight - this.wheelHeight;
   }
 
-  draw(ctx) {
+  draw(ctx, mouseX, mouseY) {
+    // Draw base
     ctx.drawImage(
       this.cannonBase,
       this.baseXPos,
@@ -43,10 +44,7 @@ export default class Cannon {
       this.baseHeight,
     );
 
-    // ctx.translate(this.baseXPos, this.barrelYPos);
-    // let vecDiff = this.vectorDiff(this.baseXPos, this.baseYPos, mouseX, mouseY);
-    // let angle = this.heading(vecDiff.x, vecDiff.y) - Math.PI / 2;
-    // ctx.rotate(angle);
+    // Draw barrel
     ctx.drawImage(
       this.cannonBarrel,
       this.barrelXPos,
@@ -54,11 +52,8 @@ export default class Cannon {
       this.barrelWidth,
       this.barrelHeight,
     );
-    // vecDiff = this.vectorDiff(this.baseXPos, this.baseYPos, mouseX, mouseY);
-    // angle = -this.heading(vecDiff.x, vecDiff.y) + Math.PI / 2;
-    // ctx.rotate(angle);
-    // ctx.translate(-this.baseXPos, this.baseYPos);
 
+    // Draw wheel
     ctx.drawImage(
       this.cannonWheel,
       this.wheelXPos,

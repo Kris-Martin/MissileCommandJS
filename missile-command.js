@@ -9,21 +9,22 @@ const canvas = new Canvas();
 const ctx = canvas.context;
 export const images = new LoadImages();
 const background = new Background();
-const cannon = new Cannon(canvas.width, canvas.height);
+const cannon = new Cannon(canvas.width, canvas.height, canvas);
 
 let cities = new Cities(canvas.width, canvas.height);
 let tick = 0;
 
-document.addEventListener('mousemove', getMousePos, false);
-
-export let mouseX;
-export let mouseY;
+let mouseX;
+let mouseY;
 
 function getMousePos(e) {
   const bounds = canvas.canvas.getBoundingClientRect();
   mouseX = e.clientX - bounds.left;
   mouseY = e.clientY - bounds.top;
+  console.log(mouseX, mouseY);
 }
+
+document.addEventListener('mousemove', getMousePos, false);
 
 function game() {
   background.draw(canvas, ctx, tick);
