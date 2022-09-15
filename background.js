@@ -6,6 +6,11 @@ export class Background {
     this.load();
   }
 
+  /**
+   * Purpose: Creates and loads an array of background images.
+   * Images created by domil123456.
+   * From: https://dynamicwallpaper.club/wallpaper/72omz5ynq4
+   */
   load() {
     for (let i = 0; i < this.frames.length; i++) {
       const img = new Image();
