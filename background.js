@@ -14,6 +14,11 @@ export class Background {
     }
   }
 
+  displayGround(canvas, ctx) {
+    ctx.fillStyle = '#834444';
+    ctx.fillRect(0, canvas.height - 15, canvas.width, 15);
+  }
+
   // Changes background image using global time variable every 1200 ticks.
   update(tick) {
     if (this.num < this.frames.length && tick % 1200 == 0 && tick !== 0) {
@@ -27,6 +32,7 @@ export class Background {
 
   draw(canvas, ctx, tick) {
     ctx.drawImage(this.frames[this.num], 0, 0, canvas.width, canvas.height);
+    this.displayGround(canvas, ctx);
     this.update(tick);
   }
 }
