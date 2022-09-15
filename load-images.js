@@ -3,6 +3,9 @@ export default class LoadImages {
   cityRubble = new Image();
   cityOnFire = new Array(12);
   backgroundFrames = new Array(24);
+  cannonBase = new Image();
+  cannonWheel = new Image();
+  cannonBarrel = new Image();
 
   constructor() {
     this.load();
@@ -20,6 +23,9 @@ export default class LoadImages {
       'assets/images/background/affinitywallpaper-',
       '.png',
     );
+    this.cannonBase.src = 'assets/images/cannonBase.png';
+    this.cannonWheel.src = 'assets/images/cannonWheel.png';
+    this.cannonBarrel.src = 'assets/images/cannonBarrel.png';
   }
 
   // Creates and loads an array of background images
@@ -45,5 +51,17 @@ export default class LoadImages {
 
   get backgroundFrames() {
     return this.backgroundFrames;
+  }
+
+  get cannonBase() {
+    return this.cannonBase;
+  }
+
+  get cannonBarrel() {
+    return this.cannonBarrel;
+  }
+
+  get cannonWheel() {
+    return this.cannonWheel;
   }
 }

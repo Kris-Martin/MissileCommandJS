@@ -11,7 +11,7 @@ export default class Background {
     ctx.fillRect(0, canvas.height - 15, canvas.width, 15);
   }
 
-  // Changes background image using global time variable every 1200 ticks.
+  // Changes background image every 1200 ticks.
   update(tick) {
     if (this.frame < this.frames.length && tick % 1200 == 0 && tick !== 0) {
       this.frame++;
