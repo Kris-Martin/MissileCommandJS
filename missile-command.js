@@ -1,9 +1,11 @@
 import Canvas from './canvas.js';
 import Background from './background.js';
 import Cities from './cities.js';
+import LoadImages from './load-images.js';
 
 const canvas = new Canvas();
 const ctx = canvas.context;
+export const images = new LoadImages();
 const background = new Background();
 
 let cities = new Cities(canvas.width, canvas.height);

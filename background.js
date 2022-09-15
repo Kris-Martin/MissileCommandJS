@@ -1,23 +1,10 @@
+import { images } from './missile-command.js';
+
 export default class Background {
-  frames = new Array(24);
+  frames = images.backgroundFrames;
   frame = 0;
 
-  constructor() {
-    this.load();
-  }
-
-  /**
-   * Purpose: Creates and loads an array of background images.
-   * Images created by domil123456.
-   * From: https://dynamicwallpaper.club/wallpaper/72omz5ynq4
-   */
-  load() {
-    for (let i = 0; i < this.frames.length; i++) {
-      const img = new Image();
-      img.src = `assets/images/background/affinitywallpaper-${i + 1}.png`;
-      this.frames[i] = img;
-    }
-  }
+  constructor() {}
 
   displayGround(canvas, ctx) {
     ctx.fillStyle = '#834444';
