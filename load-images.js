@@ -14,6 +14,7 @@ export default class LoadImages {
     this.loadImageArray(this.cityOnFire, 'assets/images/city/city', '.png');
 
     // Background images created by domil123456.
+    // From: https://dynamicwallpaper.club/wallpaper/72omz5ynq4
     this.loadImageArray(
       this.backgroundFrames,
       'assets/images/background/affinitywallpaper-',
