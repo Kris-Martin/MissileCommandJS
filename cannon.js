@@ -4,6 +4,7 @@ export default class Cannon {
   cannonBase = images.cannonBase;
   cannonWheel = images.cannonWheel;
   cannonBarrel = images.cannonBarrel;
+  angle = 0;
 
   baseWidth = 80;
   baseHeight = 24;
@@ -45,13 +46,30 @@ export default class Cannon {
     );
 
     // Draw barrel
+    // https://gamedev.stackexchange.com/questions/67274/is-it-possible-to-rotate-an-image-on-an-html5-canvas-without-rotating-the-whole
+    // Save the current coordinate system before changing it
+    ctx.save();
+
+    // Move to the middle of where we want to draw our image
+    ctx.translate(
+      this.barrelXPos + this.barrelWidth / 2,
+      this.barrelYPos + this.barrelHeight / 2,
+    );
+
+    // Rotate around that point
+    ctx.rotate(this.angle);
+
+    // Draw image relative to new origin using width/2 and height/2 as x and y
     ctx.drawImage(
       this.cannonBarrel,
-      this.barrelXPos,
-      this.barrelYPos,
+      -this.barrelWidth / 2,
+      -this.barrelHeight / 2,
       this.barrelWidth,
       this.barrelHeight,
     );
+
+    // Restore coordinate system to prev saved state
+    ctx.restore();
 
     // Draw wheel
     ctx.drawImage(
@@ -63,14 +81,11 @@ export default class Cannon {
     );
   }
 
-  vectorDiff(x1, y1, x2, y2) {
-    const newX = x1 - x2;
-    const newY = y1 - y2;
-    return { x: newX, y: newY };
-  }
-
-  heading(x, y) {
-    const angle = Math.atan2(y, x);
-    return angle;
+  getAngle(mouseX, mouseY) {
+    const vx = mouseX - this.barrelXPos + this.barrelWidth / 2;
+    const vy = mouseY - this.barrelYPos + this.barrelHeight / 2;
+    // + Math.PI/2 to align top of cannon with mouse pointer
+    this.angle = Math.atan2(vy, vx) + Math.PI / 2;
+    return this.angle;
   }
 }

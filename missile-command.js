@@ -21,10 +21,11 @@ function getMousePos(e) {
   const bounds = canvas.canvas.getBoundingClientRect();
   mouseX = e.clientX - bounds.left;
   mouseY = e.clientY - bounds.top;
-  console.log(mouseX, mouseY);
+  const angle = cannon.getAngle(mouseX, mouseY);
+  console.log(angle);
 }
 
-document.addEventListener('mousemove', getMousePos, false);
+canvas.canvas.addEventListener('mousemove', getMousePos, false);
 
 function game() {
   background.draw(canvas, ctx, tick);
