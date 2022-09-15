@@ -1,14 +1,14 @@
 export default class Canvas {
   width = 1280;
   height = 720;
-  canvas;
+  element;
   context;
 
   constructor() {
-    this.canvas = document.createElement('canvas');
-    this.canvas.width = this.width;
-    this.canvas.height = this.height;
-    this.context = this.canvas.getContext('2d');
-    document.getElementById('game').appendChild(this.canvas);
+    this.element = document.createElement('canvas');
+    this.element.width = this.width;
+    this.element.height = this.height;
+    this.context = this.element.getContext('2d');
+    document.getElementById('game').appendChild(this.element);
   }
 }

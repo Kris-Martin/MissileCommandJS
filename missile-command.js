@@ -5,27 +5,29 @@ import Cities from './cities.js';
 import Cannon from './cannon.js';
 
 const canvas = new Canvas();
-
 const ctx = canvas.context;
-export const images = new LoadImages();
-const background = new Background();
-const cannon = new Cannon(canvas.width, canvas.height, canvas);
 
-let cities = new Cities(canvas.width, canvas.height);
 let tick = 0;
 
-let mouseX;
-let mouseY;
+export const images = new LoadImages();
+const background = new Background();
+const cannon = new Cannon(canvas.width, canvas.height);
+let cities = new Cities(canvas.width, canvas.height);
 
 function getMousePos(e) {
-  const bounds = canvas.canvas.getBoundingClientRect();
-  mouseX = e.clientX - bounds.left;
-  mouseY = e.clientY - bounds.top;
-  const angle = cannon.getAngle(mouseX, mouseY);
-  console.log(angle);
+  const bounds = canvas.element.getBoundingClientRect();
+  const mouseX = e.clientX - bounds.left;
+  const mouseY = e.clientY - bounds.top;
+  let clicked = false;
+  if (e.type === 'click') {
+    console.log('fire!');
+    clicked = true;
+  }
+  cannon.getMousePos(mouseX, mouseY, clicked);
 }
 
-canvas.canvas.addEventListener('mousemove', getMousePos, false);
+canvas.element.addEventListener('mousemove', getMousePos, false);
+canvas.element.addEventListener('click', getMousePos, false);
 
 function game() {
   background.draw(canvas, ctx, tick);

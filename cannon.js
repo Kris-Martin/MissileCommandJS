@@ -5,6 +5,8 @@ export default class Cannon {
   cannonWheel = images.cannonWheel;
   cannonBarrel = images.cannonBarrel;
   angle = 0;
+  mouseX;
+  mouseY;
 
   baseWidth = 80;
   baseHeight = 24;
@@ -21,16 +23,16 @@ export default class Cannon {
   barrelXPos;
   barrelYPos;
 
-  reloadWidth = 40;
-  reloadHeight = 6;
-  reloadPeriod = 128;
-  reloadTime = 0;
+  constructor(canvasWidth, canvasHeight) {
+    this.canvasWidth = canvasWidth;
+    this.canvasHeight = canvasHeight;
 
-  constructor(canvasWidth, canvasHeight, canvas) {
     this.baseXPos = canvasWidth / 2 - this.baseWidth / 2;
     this.baseYPos = canvasHeight - this.baseHeight;
+
     this.barrelXPos = canvasWidth / 2 - this.barrelWidth / 2;
     this.barrelYPos = canvasHeight - this.barrelHeight;
+
     this.wheelXPos = canvasWidth / 2 - this.wheelWidth / 2;
     this.wheelYPos = canvasHeight - this.wheelHeight;
   }
@@ -59,7 +61,7 @@ export default class Cannon {
     // Rotate around that point
     ctx.rotate(this.angle);
 
-    // Draw image relative to new origin using width/2 and height/2 as x and y
+    // Draw image relative to new origin using -width/2 and -height/2 as x and y
     ctx.drawImage(
       this.cannonBarrel,
       -this.barrelWidth / 2,
@@ -81,9 +83,15 @@ export default class Cannon {
     );
   }
 
-  getAngle(mouseX, mouseY) {
-    const vx = mouseX - this.barrelXPos + this.barrelWidth / 2;
-    const vy = mouseY - this.barrelYPos + this.barrelHeight / 2;
+  // Calculate and store current pos and angle of mouse
+  getMousePos(mouseX, mouseY, clicked) {
+    this.mouseX = mouseX;
+    this.mouseY = mouseY;
+    this.clicked = clicked;
+
+    const vx = this.mouseX - this.barrelXPos + this.barrelWidth / 2;
+    const vy = this.mouseY - this.barrelYPos + this.barrelHeight / 2;
+
     // + Math.PI/2 to align top of cannon with mouse pointer
     this.angle = Math.atan2(vy, vx) + Math.PI / 2;
     return this.angle;
