@@ -1,20 +1,15 @@
-import { images } from '../missile-command.js';
+import Barrel from './barrel.js';
 import Base from './base.js';
 import Wheel from './wheel.js';
 
 export default class Cannon {
   base;
   wheel;
-  cannonBarrel = images.cannonBarrel;
+  barrel;
 
   angle = 0;
   mouseX;
   mouseY;
-
-  barrelWidth = 50;
-  barrelHeight = 80;
-  barrelXPos;
-  barrelYPos;
 
   constructor(canvasWidth, canvasHeight) {
     this.canvasWidth = canvasWidth;
@@ -22,9 +17,7 @@ export default class Cannon {
 
     this.base = new Base(canvasWidth, canvasHeight);
     this.wheel = new Wheel(canvasWidth, canvasHeight);
-
-    this.barrelXPos = canvasWidth / 2 - this.barrelWidth / 2;
-    this.barrelYPos = canvasHeight - this.barrelHeight;
+    this.barrel = new Barrel(canvasWidth, canvasHeight);
   }
 
   draw(ctx, mouseX, mouseY) {
@@ -32,31 +25,7 @@ export default class Cannon {
     this.base.draw(ctx);
 
     // Draw barrel
-    // https://gamedev.stackexchange.com/questions/67274/is-it-possible-to-rotate-an-image-on-an-html5-canvas-without-rotating-the-whole
-    // Save the current coordinate system before changing it
-    ctx.save();
-
-    // Move to the middle of where we want to draw our image
-    ctx.translate(
-      this.barrelXPos + this.barrelWidth / 2,
-      this.barrelYPos + this.barrelHeight / 2,
-    );
-
-    // Rotate around that point
-    ctx.rotate(this.angle);
-
-    // Draw image relative to new origin using -width/2 and -height/2 as x and y
-    ctx.drawImage(
-      this.cannonBarrel,
-      -this.barrelWidth / 2,
-      -this.barrelHeight / 2,
-      this.barrelWidth,
-      this.barrelHeight,
-    );
-
-    // Restore coordinate system to prev saved state
-    ctx.restore();
-
+    this.barrel.draw(ctx, this.angle);
     // Draw wheel
     this.wheel.draw(ctx);
   }
@@ -67,11 +36,10 @@ export default class Cannon {
     this.mouseY = mouseY;
     this.clicked = clicked;
 
-    const vx = this.mouseX - this.barrelXPos + this.barrelWidth / 2;
-    const vy = this.mouseY - this.barrelYPos + this.barrelHeight / 2;
+    const vx = this.mouseX - this.barrel.position.x + this.barrel.width / 2;
+    const vy = this.mouseY - this.barrel.position.y + this.barrel.height / 2;
 
     // + Math.PI/2 to align top of cannon with mouse pointer
     this.angle = Math.atan2(vy, vx) + Math.PI / 2;
-    return this.angle;
   }
 }
