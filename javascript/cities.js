@@ -1,4 +1,5 @@
 import City from './city.js';
+import Vector from './vector.js';
 
 export default class Cities {
   cities = new Array(6);
@@ -11,7 +12,7 @@ export default class Cities {
     for (let i = 0; i < this.cities.length; i++) {
       // Leave space in the middle for the cannon
       let pos = i < 3 ? i + 1 : i + 2;
-      const city = new City((canvasWidth * pos) / 8, canvasHeight);
+      const city = new City(new Vector((canvasWidth * pos) / 8, canvasHeight));
       this.cities[i] = city;
     }
   }

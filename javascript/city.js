@@ -1,4 +1,5 @@
 import { images } from './missile-command.js';
+import Vector from './vector.js';
 export default class City {
   city = images.city;
   cityRubble = images.cityRubble;
@@ -14,19 +15,29 @@ export default class City {
 
   // Value needed to adjust position of rubble inline with city.
   rubblePosY = 5;
+  groundHeight = 5;
 
-  xPos;
-  yPos;
+  position = new Vector();
 
-  constructor(xPos, yPos) {
-    this.xPos = xPos - this.width / 2;
-    this.yPos = yPos - this.height - 5; // height - ground height/3
+  /**
+   * Creates a city.
+   * @param {Vector} position
+   * */
+  constructor(position) {
+    this.position.x = position.x - this.width / 2;
+    this.position.y = position.y - this.height - this.groundHeight;
   }
 
   draw(ctx) {
     if (!this.isAlive) {
-      this.yPos += this.rubblePosY;
+      this.position.y += this.rubblePosY;
     }
-    ctx.drawImage(this.city, this.xPos, this.yPos, this.width, this.height);
+    ctx.drawImage(
+      this.city,
+      this.position.x,
+      this.position.y,
+      this.width,
+      this.height,
+    );
   }
 }
