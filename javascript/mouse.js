@@ -1,9 +1,9 @@
 import { canvas, cannon } from './missile-command.js';
+import Vector from './vector.js';
 
 export default class Mouse {
   clicked = false;
-  posX;
-  posY;
+  position = new Vector(0, 0);
 
   constructor() {
     canvas.element.addEventListener('mousemove', this.setPosition, false);
@@ -12,9 +12,8 @@ export default class Mouse {
 
   setPosition(e) {
     const bounds = canvas.element.getBoundingClientRect();
-    this.posX = e.clientX - bounds.left;
-    this.posY = e.clientY - bounds.top;
-    cannon.setAngle(this.posX, this.posY);
+    this.position = new Vector(e.clientX - bounds.left, e.clientY - bounds.top);
+    cannon.setAngle(this.position);
   }
 
   setClicked(e) {

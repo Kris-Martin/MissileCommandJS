@@ -24,9 +24,9 @@ export default class Cannon {
   }
 
   // Set angle to mouse
-  setAngle(mouseX, mouseY) {
-    const vx = mouseX - this.barrel.position.x + this.barrel.width / 2;
-    const vy = mouseY - this.barrel.position.y + this.barrel.height / 2;
+  setAngle(mouse) {
+    const vx = mouse.x - this.barrel.position.x + this.barrel.width / 2;
+    const vy = mouse.y - this.barrel.position.y + this.barrel.height / 2;
 
     // + Math.PI/2 to align top of cannon with mouse pointer
     this.angle = Math.atan2(vy, vx) + Math.PI / 2;
