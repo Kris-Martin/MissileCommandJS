@@ -1,14 +1,34 @@
 import { images } from './missile-command.js';
+import Vector from './vector.js';
 
 export default class Background {
   frames = images.backgroundFrames;
   frame = 0;
 
-  constructor() {}
+  position = new Vector(0, 0);
 
-  displayGround(canvas, ctx) {
+  width;
+  height;
+
+  groundPosition = new Vector();
+  groundWidth;
+  groundHeight = 15;
+
+  constructor(canvasWidth, canvasHeight) {
+    this.width = canvasWidth;
+    this.height = canvasHeight;
+    this.groundPosition.y = this.height - this.groundHeight;
+    this.groundWidth = this.width;
+  }
+
+  displayGround(ctx) {
     ctx.fillStyle = '#834444';
-    ctx.fillRect(0, canvas.height - 15, canvas.width, 15);
+    ctx.fillRect(
+      this.groundPosition.x,
+      this.groundPosition.y,
+      this.groundWidth,
+      this.groundHeight,
+    );
   }
 
   // Changes background image every 1200 ticks.
@@ -22,9 +42,15 @@ export default class Background {
     }
   }
 
-  draw(canvas, ctx, tick) {
-    ctx.drawImage(this.frames[this.frame], 0, 0, canvas.width, canvas.height);
-    this.displayGround(canvas, ctx);
+  draw(ctx, tick) {
+    ctx.drawImage(
+      this.frames[this.frame],
+      this.position.x,
+      this.position.y,
+      this.width,
+      this.height,
+    );
+    this.displayGround(ctx);
     this.update(tick);
   }
 }
