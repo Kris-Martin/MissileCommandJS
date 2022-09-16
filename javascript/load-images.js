@@ -23,9 +23,9 @@ export default class LoadImages {
       'assets/images/background/affinitywallpaper-',
       '.png',
     );
-    this.cannonBase.src = 'assets/images/cannonBase.png';
-    this.cannonWheel.src = 'assets/images/cannonWheel.png';
-    this.cannonBarrel.src = 'assets/images/cannonBarrel.png';
+    this.cannonBase.src = 'assets/images/cannon/cannonBase.png';
+    this.cannonWheel.src = 'assets/images/cannon/cannonWheel.png';
+    this.cannonBarrel.src = 'assets/images/cannon/cannonBarrel.png';
   }
 
   // Creates and loads an array of background images
