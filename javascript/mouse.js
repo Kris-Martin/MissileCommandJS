@@ -1,4 +1,4 @@
-import { canvas, cannon } from '../missile-command.js';
+import { canvas, cannon } from './missile-command.js';
 
 export default class Mouse {
   clicked = false;

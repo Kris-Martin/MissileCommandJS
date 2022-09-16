@@ -3,7 +3,7 @@ import LoadImages from './load-images.js';
 import Background from './background.js';
 import Cities from './cities.js';
 import Cannon from './cannon/cannon.js';
-import Mouse from './cannon/mouse.js';
+import Mouse from './mouse.js';
 
 export const canvas = new Canvas();
 const ctx = canvas.context;
