@@ -1,19 +1,15 @@
 import { images } from '../missile-command.js';
 import Base from './base.js';
+import Wheel from './wheel.js';
 
 export default class Cannon {
   base;
-  cannonWheel = images.cannonWheel;
+  wheel;
   cannonBarrel = images.cannonBarrel;
 
   angle = 0;
   mouseX;
   mouseY;
-
-  wheelWidth = 50;
-  wheelHeight = 50;
-  wheelXPos;
-  wheelYPos;
 
   barrelWidth = 50;
   barrelHeight = 80;
@@ -25,12 +21,10 @@ export default class Cannon {
     this.canvasHeight = canvasHeight;
 
     this.base = new Base(canvasWidth, canvasHeight);
+    this.wheel = new Wheel(canvasWidth, canvasHeight);
 
     this.barrelXPos = canvasWidth / 2 - this.barrelWidth / 2;
     this.barrelYPos = canvasHeight - this.barrelHeight;
-
-    this.wheelXPos = canvasWidth / 2 - this.wheelWidth / 2;
-    this.wheelYPos = canvasHeight - this.wheelHeight;
   }
 
   draw(ctx, mouseX, mouseY) {
@@ -64,13 +58,7 @@ export default class Cannon {
     ctx.restore();
 
     // Draw wheel
-    ctx.drawImage(
-      this.cannonWheel,
-      this.wheelXPos,
-      this.wheelYPos,
-      this.wheelWidth,
-      this.wheelHeight,
-    );
+    this.wheel.draw(ctx);
   }
 
   // Calculate and store current pos and angle of mouse
