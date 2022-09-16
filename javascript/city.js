@@ -15,7 +15,7 @@ export default class City {
 
   // Value needed to adjust position of rubble inline with city.
   rubblePosY = 5;
-  groundHeight = 5;
+  groundPlacement = 5;
 
   position = new Vector();
 
@@ -25,7 +25,7 @@ export default class City {
    * */
   constructor(position) {
     this.position.x = position.x - this.width / 2;
-    this.position.y = position.y - this.height - this.groundHeight;
+    this.position.y = position.y - this.height - this.groundPlacement;
   }
 
   draw(ctx) {
