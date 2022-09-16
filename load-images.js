@@ -36,32 +36,4 @@ export default class LoadImages {
       array[i] = img;
     }
   }
-
-  get city() {
-    return this.city;
-  }
-
-  get cityRubble() {
-    return this.cityRubble;
-  }
-
-  get cityOnFire() {
-    return this.cityOnFire;
-  }
-
-  get backgroundFrames() {
-    return this.backgroundFrames;
-  }
-
-  get cannonBase() {
-    return this.cannonBase;
-  }
-
-  get cannonBarrel() {
-    return this.cannonBarrel;
-  }
-
-  get cannonWheel() {
-    return this.cannonWheel;
-  }
 }
