@@ -4,6 +4,10 @@
  * created by Will Billingsley https://github.com/wbillingsley,
  * ported from Scala to JavaScript by Kris Martin.
  */
+
+/**
+ * A vector with an x and y value.
+ */
 export default class Vector {
   x;
   y;
@@ -22,7 +26,7 @@ export default class Vector {
 
   /**
    * Add this vector to another.
-   * @param {{x: number, y: number }} vector
+   * @param {Vector} vector
    */
   add(vector) {
     this.x += vector.x;
@@ -31,7 +35,7 @@ export default class Vector {
 
   /**
    * Subtract the other vector from this one.
-   * @param {{x: number, y: number }} vector
+   * @param {Vector} vector
    */
   subtract(vector) {
     this.x -= vector.x;
@@ -87,7 +91,7 @@ export default class Vector {
   /**
    * Returns a vector that has the same angle (theta)
    * but a magnitude (arrow length) of 1
-   * @return {vector}
+   * @return {Vector}
    */
   get normalised() {
     return this.calcNormalised();
@@ -104,7 +108,7 @@ export default class Vector {
    *
    * Otherwise, if this vector is shorter than mag, just returns this vector.
    * @param {number} mag - upper limit of the magnitude this vector should have.
-   * @return {vector} a vector of magnitude equal to param mag or less.
+   * @return {Vector} a vector of magnitude equal to param mag or less.
    */
   limit(mag) {
     if (this.magnitude > mag) {
@@ -121,16 +125,16 @@ export default class Vector {
    *
    * @param {number} theta - angle in radians
    * @param {number} r - length
-   * @return {vector} Vector representing the arrow to theta at a dist of r.
+   * @return {Vector} Vector representing the arrow to theta at a dist of r.
    */
   static fromRTheta(theta, r) {
-    return Vector(r * Math.cos(theta), r * Math.sin(theta));
+    return new Vector(r * Math.cos(theta), r * Math.sin(theta));
   }
 
   /**
    * Returns a vector of magnitude n in a random direction
    * @param {number} n - magnitude
-   * @return {vector} Vector
+   * @return {Vector} Vector
    */
   static randomDir(n) {
     const theta = Math.random() * Math.PI * 2;
