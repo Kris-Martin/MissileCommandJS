@@ -1,17 +1,14 @@
-import { images } from './missile-command.js';
+import { images } from '../missile-command.js';
+import Base from './base.js';
 
 export default class Cannon {
-  cannonBase = images.cannonBase;
+  base;
   cannonWheel = images.cannonWheel;
   cannonBarrel = images.cannonBarrel;
+
   angle = 0;
   mouseX;
   mouseY;
-
-  baseWidth = 80;
-  baseHeight = 24;
-  baseXPos;
-  baseYPos;
 
   wheelWidth = 50;
   wheelHeight = 50;
@@ -27,8 +24,7 @@ export default class Cannon {
     this.canvasWidth = canvasWidth;
     this.canvasHeight = canvasHeight;
 
-    this.baseXPos = canvasWidth / 2 - this.baseWidth / 2;
-    this.baseYPos = canvasHeight - this.baseHeight;
+    this.base = new Base(canvasWidth, canvasHeight);
 
     this.barrelXPos = canvasWidth / 2 - this.barrelWidth / 2;
     this.barrelYPos = canvasHeight - this.barrelHeight;
@@ -39,13 +35,7 @@ export default class Cannon {
 
   draw(ctx, mouseX, mouseY) {
     // Draw base
-    ctx.drawImage(
-      this.cannonBase,
-      this.baseXPos,
-      this.baseYPos,
-      this.baseWidth,
-      this.baseHeight,
-    );
+    this.base.draw(ctx);
 
     // Draw barrel
     // https://gamedev.stackexchange.com/questions/67274/is-it-possible-to-rotate-an-image-on-an-html5-canvas-without-rotating-the-whole
