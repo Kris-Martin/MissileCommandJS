@@ -84,7 +84,7 @@ export default class Cannon {
   }
 
   // Calculate and store current pos and angle of mouse
-  getMousePos(mouseX, mouseY, clicked) {
+  setMousePos(mouseX, mouseY, clicked) {
     this.mouseX = mouseX;
     this.mouseY = mouseY;
     this.clicked = clicked;

@@ -23,7 +23,7 @@ function getMousePos(e) {
     console.log('fire!');
     clicked = true;
   }
-  cannon.getMousePos(mouseX, mouseY, clicked);
+  cannon.setMousePos(mouseX, mouseY, clicked);
 }
 
 canvas.element.addEventListener('mousemove', getMousePos, false);
