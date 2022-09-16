@@ -6,6 +6,7 @@ export default class Cannon {
   base;
   wheel;
   barrel;
+  angle = 0;
 
   constructor(canvasWidth, canvasHeight) {
     this.base = new Base(canvasWidth, canvasHeight);
