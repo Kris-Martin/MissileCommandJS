@@ -30,7 +30,6 @@ export default class Missile {
    */
   draw(ctx, canvasWidth) {
     if (this.live) {
-      console.log('Drawing missile');
       ctx.lineWidth = 2;
       ctx.beginPath();
       ctx.arc(this.position.x, this.position.y, this.width, 0, 2 * Math.PI);
