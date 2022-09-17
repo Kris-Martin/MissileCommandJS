@@ -38,8 +38,7 @@ export default class Vector {
    * @param {Vector} vector
    */
   add(vector) {
-    this.x += vector.x;
-    this.y += vector.y;
+    return new Vector(this.x + vector.x, this.y + vector.y);
   }
 
   /**
@@ -47,8 +46,7 @@ export default class Vector {
    * @param {Vector} vector
    */
   subtract(vector) {
-    this.x -= vector.x;
-    this.y -= vector.y;
+    return new Vector(this.x - vector.x, this.y - vector.y);
   }
 
   /**
@@ -57,8 +55,7 @@ export default class Vector {
    * @param {number} n
    */
   multiply(n) {
-    this.x *= n;
-    this.y *= n;
+    return new Vector(this.x * n, this.y * n);
   }
 
   /**
@@ -67,8 +64,7 @@ export default class Vector {
    * @param {number} n
    */
   divide(n) {
-    this.x /= n;
-    this.y /= n;
+    return new Vector(this.x / n, this.y / n);
   }
 
   /**
@@ -77,10 +73,10 @@ export default class Vector {
    * theta is the angle from the x axis.
    */
   get theta() {
-    return this.calcTheta();
+    return this.#calcTheta();
   }
 
-  calcTheta() {
+  #calcTheta() {
     return Math.atan2(this.y, this.x);
   }
 
@@ -90,10 +86,10 @@ export default class Vector {
    * magnitude is the length of the arrow.
    */
   get magnitude() {
-    return this.calcMagnitude();
+    return this.#calcMagnitude();
   }
 
-  calcMagnitude() {
+  #calcMagnitude() {
     return Math.sqrt(Math.pow(this.x, 2) + Math.pow(this.y, 2));
   }
 
@@ -103,10 +99,10 @@ export default class Vector {
    * @return {Vector}
    */
   get normalised() {
-    return this.calcNormalised();
+    return this.#calcNormalised();
   }
 
-  calcNormalised() {
+  #calcNormalised() {
     return Vector.fromRTheta(this.theta, 1);
   }
 
