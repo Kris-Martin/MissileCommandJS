@@ -4,6 +4,7 @@ import Background from './background.js';
 import Cities from './cities.js';
 import Cannon from './cannon/cannon.js';
 import Mouse from './mouse.js';
+import EnemyController from '../enemyController.js';
 
 export const canvas = new Canvas();
 const ctx = canvas.context;
@@ -15,6 +16,7 @@ const background = new Background(canvas.width, canvas.height);
 const mouse = new Mouse();
 export const cannon = new Cannon(canvas.width, canvas.height);
 let cities = new Cities(canvas.width, canvas.height);
+const enemy = new EnemyController(canvas.width, canvas.height);
 
 function checkCollision(missile, city) {
   if (
@@ -38,6 +40,7 @@ function game() {
   cannon.missiles.forEach((missile) =>
     cities.cities.forEach((city) => checkCollision(missile, city)),
   );
+  enemy.draw(ctx, tick, canvas.width, canvas.height);
   tick++;
   window.requestAnimationFrame(game);
 }
