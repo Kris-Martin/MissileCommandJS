@@ -28,6 +28,8 @@ export default class Cannon {
     this.missiles.forEach((missile) =>
       missile.draw(ctx, canvasWidth, canvasHeight),
     );
+    // Clean up dead missiles
+    this.missiles = this.missiles.filter((missile) => missile.live);
     // Draw base
     this.base.draw(ctx);
     // Draw barrel
