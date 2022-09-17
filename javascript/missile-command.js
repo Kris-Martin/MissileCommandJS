@@ -5,6 +5,7 @@ import Cities from './cities.js';
 import Cannon from './cannon/cannon.js';
 import Mouse from './mouse.js';
 import EnemyController from './enemyController.js';
+import Missile from './missile.js';
 
 export const canvas = new Canvas();
 const ctx = canvas.context;
@@ -20,16 +21,29 @@ const enemy = new EnemyController(canvas.width, canvas.height);
 
 function checkCollision(missile, city) {
   if (
-    missile.position.x > city.position.x &&
+    missile.position.x + missile.width > city.position.x &&
     missile.position.x < city.position.x + city.width &&
-    missile.position.y > city.position.y &&
+    missile.position.y + missile.height > city.position.y &&
     missile.position.y < city.position.y + city.height &&
     city.live
   ) {
-    console.log('Missile has hit target!');
+    console.log('Missile has hit city!');
     missile.live = false;
     if (city.live) city.health -= 20;
     console.log(city.health);
+  }
+}
+
+function checkMissileCollision(playerMissile, enemyMissile) {
+  if (
+    playerMissile.position.x + playerMissile.width > enemyMissile.position.x &&
+    playerMissile.position.x < enemyMissile.position.x + enemyMissile.width &&
+    playerMissile.position.y + playerMissile.height > enemyMissile.position.y &&
+    playerMissile.position.y < enemyMissile.position.y + enemyMissile.height
+  ) {
+    console.log('Enemy missile destroyed!');
+    playerMissile.live = false;
+    enemyMissile.live = false;
   }
 }
 
@@ -43,6 +57,11 @@ function game() {
   );
   enemy.missiles.forEach((missile) =>
     cities.cities.forEach((city) => checkCollision(missile, city)),
+  );
+  cannon.missiles.forEach((playerMissile) =>
+    enemy.missiles.forEach((enemyMissile) =>
+      checkMissileCollision(playerMissile, enemyMissile),
+    ),
   );
   tick++;
   window.requestAnimationFrame(game);
