@@ -1,5 +1,5 @@
-import Missile from './javascript/missile.js';
-import Vector from './javascript/vector.js';
+import Missile from './missile.js';
+import Vector from './vector.js';
 
 export default class EnemyController {
   startingPos = new Vector();
