@@ -10,6 +10,7 @@ export default class Cannon {
   barrel;
   angle = 0;
   missiles = new Array();
+  missileSpeed = 4;
 
   constructor(canvasWidth, canvasHeight) {
     this.base = new Base(canvasWidth, canvasHeight);
@@ -52,6 +53,8 @@ export default class Cannon {
    * @param {Vector} target - position to target
    */
   fire(target) {
-    this.missiles.push(new Missile(this.barrel.midPoint, target));
+    this.missiles.push(
+      new Missile(this.barrel.midPoint, target, this.missileSpeed),
+    );
   }
 }

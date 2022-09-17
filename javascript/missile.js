@@ -13,10 +13,12 @@ export default class Missile {
    * Create a missile.
    * @param {Vector} position - starting position
    * @param {Vector} target - the position to target
+   * @param {number} speed - speed of missile
    */
-  constructor(position, target) {
+  constructor(position, target, speed) {
     this.position.set(position);
     this.target.set(target);
+    this.speed = speed;
     this.velocity.set(
       target.subtract(this.position).normalised.multiply(this.speed),
     );

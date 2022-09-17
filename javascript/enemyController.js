@@ -5,6 +5,7 @@ export default class EnemyController {
   startingPos = new Vector();
   target = new Vector();
   missiles = new Array();
+  missileSpeed = 1;
   maxX;
   startY = 0;
   targetY;
@@ -21,7 +22,9 @@ export default class EnemyController {
   generateMissiles() {
     this.startingPos.set(new Vector(this.getRandomX(), 0));
     this.target.set(new Vector(this.getRandomX(), this.targetY));
-    this.missiles.push(new Missile(this.startingPos, this.target));
+    this.missiles.push(
+      new Missile(this.startingPos, this.target, this.missileSpeed),
+    );
   }
 
   getRandomX() {
