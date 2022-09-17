@@ -37,10 +37,13 @@ function game() {
   background.draw(ctx, tick);
   cities.draw(ctx, tick);
   cannon.draw(ctx, canvas.width, canvas.height);
+  enemy.draw(ctx, tick, canvas.width, canvas.height);
   cannon.missiles.forEach((missile) =>
     cities.cities.forEach((city) => checkCollision(missile, city)),
   );
-  enemy.draw(ctx, tick, canvas.width, canvas.height);
+  enemy.missiles.forEach((missile) =>
+    cities.cities.forEach((city) => checkCollision(missile, city)),
+  );
   tick++;
   window.requestAnimationFrame(game);
 }
