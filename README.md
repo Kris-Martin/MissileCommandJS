@@ -2,7 +2,7 @@
 
 ## Description
 
-A JavaScript/HTML5 Canvas port of a Processing(Java) project I originally made with Simon Colman and Nathan Hall for a university group project. Based on Missile Command an arcade classic originally developed in 1980 by Atari.
+A JavaScript/HTML5 Canvas port of a Processing(Java) project I originally made with [Simon Colman](https://github.com/SiJBC "Simon's GitHub") and [Nathan Hall](https://github.com/Zero4793 "Nathan's GitHub") for a university group project. Based on Missile Command an arcade classic originally developed in 1980 by Atari.
 
 The first 209 commits of this project show the processing project, after which I deleted everything to start with JavaScript and HTM5 Canvas using the old processing project as a reference.
 
