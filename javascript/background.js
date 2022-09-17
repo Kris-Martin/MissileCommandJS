@@ -37,7 +37,7 @@ export default class Background {
 
   // Changes background image every 1200 ticks.
   update(tick) {
-    if (this.frame < this.frames.length && tick % 1200 == 0 && tick !== 0) {
+    if (this.frame < this.frames.length && tick % 1200 === 0 && tick !== 0) {
       this.frame++;
     }
 
