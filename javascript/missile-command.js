@@ -4,8 +4,6 @@ import Background from './background.js';
 import Cities from './cities.js';
 import Cannon from './cannon/cannon.js';
 import Mouse from './mouse.js';
-import Missile from './missile.js';
-import Vector from './vector.js';
 
 export const canvas = new Canvas();
 const ctx = canvas.context;
