@@ -21,7 +21,8 @@ function checkCollision(missile, city) {
     missile.position.x > city.position.x &&
     missile.position.x < city.position.x + city.width &&
     missile.position.y > city.position.y &&
-    missile.position.y < city.position.y + city.height
+    missile.position.y < city.position.y + city.height &&
+    city.live
   ) {
     console.log('Missile has hit target!');
     missile.live = false;
