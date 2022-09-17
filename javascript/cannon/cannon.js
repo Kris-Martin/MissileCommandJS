@@ -24,16 +24,16 @@ export default class Cannon {
    * @param {number} canvasHeight
    */
   draw(ctx, canvasWidth, canvasHeight) {
+    // Draw missiles
+    this.missiles.forEach((missile) =>
+      missile.draw(ctx, canvasWidth, canvasHeight),
+    );
     // Draw base
     this.base.draw(ctx);
     // Draw barrel
     this.barrel.draw(ctx, this.angle);
     // Draw wheel
     this.wheel.draw(ctx);
-    // Draw missiles
-    this.missiles.forEach((missile) =>
-      missile.draw(ctx, canvasWidth, canvasHeight),
-    );
   }
 
   // Set angle to mouse

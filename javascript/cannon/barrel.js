@@ -12,7 +12,9 @@ export default class Barrel {
   constructor(canvasWidth, canvasHeight) {
     this.position.x = canvasWidth / 2 - this.width / 2;
     this.position.y = canvasHeight - this.height;
-    this.midPoint.set(this.position.add(new Vector(this.width / 2, 0)));
+    this.midPoint.set(
+      this.position.add(new Vector(this.width / 2, this.height / 2)),
+    );
   }
 
   /**
