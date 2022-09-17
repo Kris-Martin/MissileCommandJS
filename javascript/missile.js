@@ -25,15 +25,40 @@ export default class Missile {
   /**
    * Draw missile.
    * @param {CanvasRenderingContext2D} ctx - canvas context
+   * @param {number} canvasWidth
+   * @param {number} canvasHeight
    */
-  draw(ctx) {
-    ctx.beginPath();
-    ctx.arc(this.position.x, this.position.y, this.width, 0, 2 * Math.PI);
-    ctx.stroke();
-    this.update();
+  draw(ctx, canvasWidth) {
+    if (this.live) {
+      console.log('Drawing missile');
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.arc(this.position.x, this.position.y, this.width, 0, 2 * Math.PI);
+      ctx.fillStyle = `red`;
+      ctx.fill();
+      ctx.strokeStyle = 'yellow';
+      ctx.stroke();
+      this.update(canvasWidth);
+    }
   }
 
-  update() {
-    this.position.set(this.position.add(this.velocity));
+  /**
+   * Update missile position.
+   * @param {number} canvasWidth
+   * @param {number} canvasHeight
+   */
+  update(canvasWidth, canvasHeight) {
+    if (
+      !(
+        this.position.y < 0 ||
+        this.position.y > canvasHeight ||
+        this.position.x < 0 ||
+        this.position.x > canvasWidth
+      )
+    ) {
+      this.position.set(this.position.add(this.velocity));
+    } else {
+      this.live = false;
+    }
   }
 }
