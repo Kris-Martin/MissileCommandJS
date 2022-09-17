@@ -10,12 +10,20 @@ export default class Mouse {
     canvas.element.addEventListener('click', this.setClicked, false);
   }
 
+  /**
+   * Store current position of mouse on canvas.
+   * @param {Event} e - event
+   */
   setPosition(e) {
     const bounds = canvas.element.getBoundingClientRect();
     this.position = new Vector(e.clientX - bounds.left, e.clientY - bounds.top);
     cannon.setAngle(this.position);
   }
 
+  /**
+   * Store result of clicked event.
+   * @param {Event} e - event
+   */
   setClicked(e) {
     if (e.type === 'click') {
       console.log('fire!');

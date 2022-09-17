@@ -13,7 +13,10 @@ export default class Wheel {
     this.position.y = canvasHeight - this.height;
   }
 
-  // Draw wheel
+  /**
+   * Draw wheel.
+   * @param {CanvasRenderingContext2D} ctx - canvas context
+   */
   draw(ctx) {
     ctx.drawImage(
       this.image,

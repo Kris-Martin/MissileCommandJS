@@ -13,7 +13,10 @@ export default class Base {
     this.position.y = canvasHeight - this.height;
   }
 
-  // Draw base
+  /**
+   * Draw base.
+   * @param {CanvasRenderingContext2D} ctx - canvas context
+   */
   draw(ctx) {
     ctx.drawImage(
       this.image,

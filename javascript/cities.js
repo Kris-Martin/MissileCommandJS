@@ -17,6 +17,10 @@ export default class Cities {
     }
   }
 
+  /**
+   * Draw cities.
+   * @param {CanvasRenderingContext2D} ctx - canvas context
+   */
   draw(ctx) {
     for (let i = 0; i < this.cities.length; i++) {
       this.cities[i].draw(ctx);

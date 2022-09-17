@@ -21,7 +21,11 @@ export default class Background {
     this.groundWidth = this.width;
   }
 
-  displayGround(ctx) {
+  /**
+   * Draw ground.
+   * @param {CanvasRenderingContext2D} ctx - canvas context
+   */
+  drawGround(ctx) {
     ctx.fillStyle = '#834444';
     ctx.fillRect(
       this.groundPosition.x,
@@ -42,6 +46,10 @@ export default class Background {
     }
   }
 
+  /**
+   * Draw background.
+   * @param {CanvasRenderingContext2D} ctx - canvas context
+   */
   draw(ctx, tick) {
     ctx.drawImage(
       this.frames[this.frame],
@@ -50,7 +58,7 @@ export default class Background {
       this.width,
       this.height,
     );
-    this.displayGround(ctx);
+    this.drawGround(ctx);
     this.update(tick);
   }
 }

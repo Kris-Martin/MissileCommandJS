@@ -14,6 +14,10 @@ export default class Cannon {
     this.barrel = new Barrel(canvasWidth, canvasHeight);
   }
 
+  /**
+   * Draw cannon.
+   * @param {CanvasRenderingContext2D} ctx - canvas context
+   */
   draw(ctx) {
     // Draw base
     this.base.draw(ctx);

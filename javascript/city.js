@@ -28,6 +28,10 @@ export default class City {
     this.position.y = position.y - this.height - this.groundPlacement;
   }
 
+  /**
+   * Draw city.
+   * @param {CanvasRenderingContext2D} ctx - canvas context
+   */
   draw(ctx) {
     if (!this.isAlive) {
       this.position.y += this.rubblePosY;

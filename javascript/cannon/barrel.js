@@ -13,6 +13,11 @@ export default class Barrel {
     this.position.y = canvasHeight - this.height;
   }
 
+  /**
+   * Draw barrel.
+   * @param {CanvasRenderingContext2D} ctx - canvas context
+   * @param {number} angle - angle to rotate barrel, in radians
+   */
   draw(ctx, angle) {
     // Draw barrel
     // https://gamedev.stackexchange.com/questions/67274/is-it-possible-to-rotate-an-image-on-an-html5-canvas-without-rotating-the-whole
