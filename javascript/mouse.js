@@ -2,7 +2,6 @@ import { canvas, cannon } from './missile-command.js';
 import Vector from './vector.js';
 
 export default class Mouse {
-  clicked = false;
   position = new Vector(0, 0);
 
   constructor() {
@@ -25,11 +24,6 @@ export default class Mouse {
    * @param {Event} e - event
    */
   setClicked(e) {
-    if (e.type === 'click') {
-      console.log('fire!');
-      this.clicked = true;
-    } else {
-      this.clicked = false;
-    }
+    if (e.type === 'click') cannon.fire(this.position);
   }
 }

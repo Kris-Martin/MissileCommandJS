@@ -17,16 +17,11 @@ const background = new Background(canvas.width, canvas.height);
 const mouse = new Mouse();
 export const cannon = new Cannon(canvas.width, canvas.height);
 let cities = new Cities(canvas.width, canvas.height);
-let missile = new Missile(
-  cannon.barrel.midPoint,
-  new Vector(canvas.width / 2, 0),
-);
 
 function game() {
   background.draw(ctx, tick);
   cities.draw(ctx);
-  cannon.draw(ctx);
-  missile.draw(ctx);
+  cannon.draw(ctx, canvas.width, canvas.height);
   tick++;
   window.requestAnimationFrame(game);
 }

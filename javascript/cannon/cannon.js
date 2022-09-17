@@ -1,12 +1,15 @@
+import Missile from '../missile.js';
 import Barrel from './barrel.js';
 import Base from './base.js';
 import Wheel from './wheel.js';
+import Vector from '../vector.js';
 
 export default class Cannon {
   base;
   wheel;
   barrel;
   angle = 0;
+  missiles = new Array();
 
   constructor(canvasWidth, canvasHeight) {
     this.base = new Base(canvasWidth, canvasHeight);
@@ -17,14 +20,20 @@ export default class Cannon {
   /**
    * Draw cannon.
    * @param {CanvasRenderingContext2D} ctx - canvas context
+   * @param {number} canvasWidth
+   * @param {number} canvasHeight
    */
-  draw(ctx) {
+  draw(ctx, canvasWidth, canvasHeight) {
     // Draw base
     this.base.draw(ctx);
     // Draw barrel
     this.barrel.draw(ctx, this.angle);
     // Draw wheel
     this.wheel.draw(ctx);
+    // Draw missiles
+    this.missiles.forEach((missile) =>
+      missile.draw(ctx, canvasWidth, canvasHeight),
+    );
   }
 
   // Set angle to mouse
@@ -34,5 +43,13 @@ export default class Cannon {
 
     // + Math.PI/2 to align top of cannon with mouse pointer
     this.angle = Math.atan2(vy, vx) + Math.PI / 2;
+  }
+
+  /**
+   * Fire cannon.
+   * @param {Vector} target - position to target
+   */
+  fire(target) {
+    this.missiles.push(new Missile(this.barrel.midPoint, target));
   }
 }
