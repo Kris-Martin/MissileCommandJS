@@ -16,10 +16,27 @@ const mouse = new Mouse();
 export const cannon = new Cannon(canvas.width, canvas.height);
 let cities = new Cities(canvas.width, canvas.height);
 
+function checkCollision(missile, city) {
+  if (
+    missile.position.x > city.position.x &&
+    missile.position.x < city.position.x + city.width &&
+    missile.position.y > city.position.y &&
+    missile.position.y < city.position.y + city.height
+  ) {
+    console.log('Missile has hit target!');
+    missile.live = false;
+    if (city.live) city.health -= 20;
+    console.log(city.health);
+  }
+}
+
 function game() {
   background.draw(ctx, tick);
-  cities.draw(ctx);
+  cities.draw(ctx, tick);
   cannon.draw(ctx, canvas.width, canvas.height);
+  cannon.missiles.forEach((missile) =>
+    cities.cities.forEach((city) => checkCollision(missile, city)),
+  );
   tick++;
   window.requestAnimationFrame(game);
 }
