@@ -25,6 +25,15 @@ export default class Vector {
   }
 
   /**
+   * Set position of this vector.
+   * @param {Vector} position
+   */
+  set(position) {
+    this.x = position.x;
+    this.y = position.y;
+  }
+
+  /**
    * Add this vector to another.
    * @param {Vector} vector
    */
