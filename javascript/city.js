@@ -8,7 +8,7 @@ export default class City {
 
   healthMax = 256;
   health = this.healthMax;
-  isAlive = true;
+  live = true;
 
   width = 80;
   height = 40;
@@ -32,10 +32,7 @@ export default class City {
    * Draw city.
    * @param {CanvasRenderingContext2D} ctx - canvas context
    */
-  draw(ctx) {
-    if (!this.isAlive) {
-      this.position.y += this.rubblePosY;
-    }
+  draw(ctx, tick) {
     ctx.drawImage(
       this.city,
       this.position.x,
@@ -43,5 +40,27 @@ export default class City {
       this.width,
       this.height,
     );
+    this.update(tick);
+  }
+
+  update(tick) {
+    // City burns before turning to rubble when health reaches 0.
+    if (this.health < 1 && this.live) {
+      this.city = this.cityRubble;
+      // Used to align position of rubble inline with city.
+      this.position.y += this.rubblePosY;
+      this.live = false;
+      // If health is less than healthMax shows city flashing on fire.
+    } else if (this.health < this.healthMax && this.health > 0) {
+      // Increment frame every 10 ticks.
+      if (tick % 10 === 0) {
+        this.frame++;
+      }
+      // Reset to frame to 0 when end of Array reached.
+      if (this.frame >= this.cityOnFire.length) {
+        this.frame = 0;
+      }
+      this.city = this.cityOnFire[this.frame];
+    }
   }
 }
