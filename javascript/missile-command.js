@@ -5,6 +5,8 @@ import Cities from './cities.js';
 import Cannon from './cannon/cannon.js';
 import Mouse from './mouse.js';
 import EnemyController from './enemyController.js';
+import Missile from './missile.js';
+import City from './city.js';
 
 export const canvas = new Canvas();
 const ctx = canvas.context;
@@ -18,6 +20,12 @@ export const cannon = new Cannon(canvas.width, canvas.height);
 let cities = new Cities(canvas.width, canvas.height);
 const enemy = new EnemyController(canvas.width, canvas.height);
 
+/**
+ * Returns true if gameObjectA hits gameObjectB, otherwise false.
+ * @param {object} gameObjectA
+ * @param {object} gameObjectB
+ * @return boolean - return true if hit, false if not
+ */
 function checkCollision(gameObjectA, gameObjectB) {
   if (
     gameObjectA.position.x + gameObjectA.width > gameObjectB.position.x &&
@@ -29,6 +37,11 @@ function checkCollision(gameObjectA, gameObjectB) {
   return false;
 }
 
+/**
+ * Check if missile has hit city.
+ * @param {Missile} missile
+ * @param {City} city
+ */
 function checkCityCollision(missile, city) {
   if (checkCollision(missile, city) && city.live) {
     console.log('Missile has hit city!');
@@ -38,6 +51,11 @@ function checkCityCollision(missile, city) {
   }
 }
 
+/**
+ * Check if player missile has hit enemy missile.
+ * @param {Missile} playerMissile
+ * @param {Missile} enemyMissile
+ */
 function checkMissileCollision(playerMissile, enemyMissile) {
   if (checkCollision(playerMissile, enemyMissile)) {
     console.log('Enemy missile destroyed!');
