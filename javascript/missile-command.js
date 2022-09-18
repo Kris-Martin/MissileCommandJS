@@ -63,6 +63,8 @@ function game() {
       checkMissileCollision(playerMissile, enemyMissile),
     ),
   );
+  if (cities.cities.filter((city) => city.live).length === 0)
+    return window.alert('Game Over!');
   tick++;
   window.requestAnimationFrame(game);
 }

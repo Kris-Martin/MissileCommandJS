@@ -6,15 +6,14 @@ export default class Barrel {
 
   width = 50;
   height = 80;
+  dimension = new Vector(this.width, this.height);
   position = new Vector();
   midPoint = new Vector();
 
   constructor(canvasWidth, canvasHeight) {
     this.position.x = canvasWidth / 2 - this.width / 2;
     this.position.y = canvasHeight - this.height;
-    this.midPoint.set(
-      this.position.add(new Vector(this.width / 2, this.height / 2)),
-    );
+    this.midPoint.set(this.position.add(this.dimension.divide(2)));
   }
 
   /**
@@ -29,10 +28,7 @@ export default class Barrel {
     ctx.save();
 
     // Move to the middle of where we want to draw our image
-    ctx.translate(
-      this.position.x + this.width / 2,
-      this.position.y + this.height / 2,
-    );
+    ctx.translate(this.midPoint.x, this.midPoint.y);
 
     // Rotate around that point
     ctx.rotate(angle);
