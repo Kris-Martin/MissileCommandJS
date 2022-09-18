@@ -30,7 +30,7 @@ export default class Missile {
    * @param {number} canvasWidth
    * @param {number} canvasHeight
    */
-  draw(ctx, canvasWidth) {
+  draw(ctx, canvasWidth, canvasHeight) {
     if (this.live) {
       ctx.lineWidth = 2;
       ctx.beginPath();
@@ -39,7 +39,7 @@ export default class Missile {
       ctx.fill();
       ctx.strokeStyle = 'yellow';
       ctx.stroke();
-      this.update(canvasWidth);
+      this.update(canvasWidth, canvasHeight);
     }
   }
 
