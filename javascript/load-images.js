@@ -7,10 +7,16 @@ export default class LoadImages {
   cannonWheel = new Image();
   cannonBarrel = new Image();
 
+  /**
+   * Load image assets.
+   */
   constructor() {
     this.load();
   }
 
+  /**
+   * Loads images needed for game.
+   * */
   load() {
     this.city.src = 'assets/images/city/city1.png';
     this.cityRubble.src = 'assets/images/cityRubble.png';
@@ -28,7 +34,12 @@ export default class LoadImages {
     this.cannonBarrel.src = 'assets/images/cannon/cannonBarrel.png';
   }
 
-  // Creates and loads an array of background images
+  /**
+   * Creates and loads an array of background images.
+   * @param {[]} array - array on n images length
+   * @param {string} src - file path
+   * @param {string} extension - file extension
+   * */
   loadImageArray(array, src, extension) {
     for (let i = 0; i < array.length; i++) {
       const img = new Image();
