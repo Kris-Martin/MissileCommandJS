@@ -15,6 +15,7 @@ export default class City {
 
   // Value needed to adjust position of rubble inline with city.
   rubblePosY = 5;
+  // Position of city on ground
   groundPlacement = 5;
 
   position = new Vector();
@@ -31,6 +32,7 @@ export default class City {
   /**
    * Draw city.
    * @param {CanvasRenderingContext2D} ctx - canvas context
+   * @param {number} tick
    */
   draw(ctx, tick) {
     ctx.drawImage(
@@ -43,6 +45,10 @@ export default class City {
     this.update(tick);
   }
 
+  /**
+   * Update city image frame and live status.
+   * @param {number} tick
+   */
   update(tick) {
     // City burns before turning to rubble when health reaches 0.
     if (this.health < 1 && this.live) {
