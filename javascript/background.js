@@ -6,7 +6,6 @@ export default class Background {
   frame = 0;
 
   position = new Vector(0, 0);
-
   width;
   height;
 
@@ -42,7 +41,10 @@ export default class Background {
     this.ground.width = this.width;
   }
 
-  // Changes background image every 1200 ticks.
+  /**
+   * Update background frame every 1200 ticks.
+   * @param {number} tick
+   */
   update(tick) {
     if (this.frame < this.frames.length && tick % 1200 === 0 && tick !== 0) {
       this.frame++;
