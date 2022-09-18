@@ -10,29 +10,36 @@ export default class Background {
   width;
   height;
 
-  groundPosition = new Vector();
-  groundWidth;
-  groundHeight = 15;
+  ground = {
+    color: '#834444',
+    position: new Vector(),
+    width: 0,
+    height: 15,
+    /**
+     * Draw ground.
+     * @param {CanvasRenderingContext2D} ctx - canvas context
+     */
+    draw: (ctx) => {
+      ctx.fillStyle = this.ground.color;
+      ctx.fillRect(
+        this.ground.position.x,
+        this.ground.position.y,
+        this.ground.width,
+        this.ground.height,
+      );
+    },
+  };
 
+  /**
+   * Create background.
+   * @param {number} canvasWidth
+   * @param {number} canvasHeight
+   */
   constructor(canvasWidth, canvasHeight) {
     this.width = canvasWidth;
     this.height = canvasHeight;
-    this.groundPosition.y = this.height - this.groundHeight;
-    this.groundWidth = this.width;
-  }
-
-  /**
-   * Draw ground.
-   * @param {CanvasRenderingContext2D} ctx - canvas context
-   */
-  drawGround(ctx) {
-    ctx.fillStyle = '#834444';
-    ctx.fillRect(
-      this.groundPosition.x,
-      this.groundPosition.y,
-      this.groundWidth,
-      this.groundHeight,
-    );
+    this.ground.position.y = this.height - this.ground.height;
+    this.ground.width = this.width;
   }
 
   // Changes background image every 1200 ticks.
@@ -58,7 +65,7 @@ export default class Background {
       this.width,
       this.height,
     );
-    this.drawGround(ctx);
+    this.ground.draw(ctx);
     this.update(tick);
   }
 }
