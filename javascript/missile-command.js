@@ -5,7 +5,6 @@ import Cities from './cities.js';
 import Cannon from './cannon/cannon.js';
 import Mouse from './mouse.js';
 import EnemyController from './enemyController.js';
-import Missile from './missile.js';
 
 export const canvas = new Canvas();
 const ctx = canvas.context;
@@ -19,14 +18,19 @@ export const cannon = new Cannon(canvas.width, canvas.height);
 let cities = new Cities(canvas.width, canvas.height);
 const enemy = new EnemyController(canvas.width, canvas.height);
 
-function checkCollision(missile, city) {
+function checkCollision(gameObjectA, gameObjectB) {
   if (
-    missile.position.x + missile.width > city.position.x &&
-    missile.position.x < city.position.x + city.width &&
-    missile.position.y + missile.height > city.position.y &&
-    missile.position.y < city.position.y + city.height &&
-    city.live
-  ) {
+    gameObjectA.position.x + gameObjectA.width > gameObjectB.position.x &&
+    gameObjectA.position.x < gameObjectB.position.x + gameObjectB.width &&
+    gameObjectA.position.y + gameObjectA.height > gameObjectB.position.y &&
+    gameObjectA.position.y < gameObjectB.position.y + gameObjectB.height
+  )
+    return true;
+  return false;
+}
+
+function checkCityCollision(missile, city) {
+  if (checkCollision(missile, city) && city.live) {
     console.log('Missile has hit city!');
     missile.live = false;
     if (city.live) city.health -= 20;
@@ -35,12 +39,7 @@ function checkCollision(missile, city) {
 }
 
 function checkMissileCollision(playerMissile, enemyMissile) {
-  if (
-    playerMissile.position.x + playerMissile.width > enemyMissile.position.x &&
-    playerMissile.position.x < enemyMissile.position.x + enemyMissile.width &&
-    playerMissile.position.y + playerMissile.height > enemyMissile.position.y &&
-    playerMissile.position.y < enemyMissile.position.y + enemyMissile.height
-  ) {
+  if (checkCollision(playerMissile, enemyMissile)) {
     console.log('Enemy missile destroyed!');
     playerMissile.live = false;
     enemyMissile.live = false;
@@ -48,24 +47,31 @@ function checkMissileCollision(playerMissile, enemyMissile) {
 }
 
 function game() {
+  // Draw game objects
   background.draw(ctx, tick);
   cities.draw(ctx, tick);
   cannon.draw(ctx, canvas.width, canvas.height);
   enemy.draw(ctx, tick, canvas.width, canvas.height);
-  cannon.missiles.forEach((missile) =>
-    cities.cities.forEach((city) => checkCollision(missile, city)),
-  );
-  enemy.missiles.forEach((missile) =>
-    cities.cities.forEach((city) => checkCollision(missile, city)),
-  );
-  cannon.missiles.forEach((playerMissile) =>
+
+  // Check collisions
+  cannon.missiles.forEach((playerMissile) => {
+    cities.cities.forEach((city) => checkCityCollision(playerMissile, city));
     enemy.missiles.forEach((enemyMissile) =>
       checkMissileCollision(playerMissile, enemyMissile),
-    ),
+    );
+  });
+  enemy.missiles.forEach((missile) =>
+    cities.cities.forEach((city) => checkCityCollision(missile, city)),
   );
+
+  // Check if game is over
   if (cities.cities.filter((city) => city.live).length === 0)
     return window.alert('Game Over!');
+
+  // Update game tick
   tick++;
+
+  // Loop
   window.requestAnimationFrame(game);
 }
 
