@@ -1,6 +1,7 @@
 import { images } from './missile-command.js';
 import Vector from './vector.js';
 export default class City {
+  index;
   city = images.city;
   cityRubble = images.cityRubble;
   cityOnFire = images.cityOnFire;
@@ -22,9 +23,11 @@ export default class City {
 
   /**
    * Creates a city.
+   * @param {number} index
    * @param {Vector} position
    * */
-  constructor(position) {
+  constructor(index, position) {
+    this.index = index;
     this.position.x = position.x - this.width / 2;
     this.position.y = position.y - this.height - this.groundPlacement;
   }

@@ -12,7 +12,10 @@ export default class Cities {
     for (let i = 0; i < this.cities.length; i++) {
       // Leave space in the middle for the cannon
       let pos = i < 3 ? i + 1 : i + 2;
-      const city = new City(new Vector((canvasWidth * pos) / 8, canvasHeight));
+      const city = new City(
+        i + 1,
+        new Vector((canvasWidth * pos) / 8, canvasHeight),
+      );
       this.cities[i] = city;
     }
   }

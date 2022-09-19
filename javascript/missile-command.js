@@ -46,8 +46,12 @@ function checkCityCollision(missile, city) {
   if (checkCollision(missile, city) && city.live) {
     console.log('Missile has hit city!');
     missile.live = false;
+    // Reduce city health
     if (city.live) city.health -= 20;
-    console.log(city.health);
+    // Update city health display
+    document.getElementById(
+      city.index.toString(),
+    ).innerText = `City ${city.index}: ${city.health}`;
   }
 }
 
