@@ -111,16 +111,13 @@ function game() {
     cities.cities.filter((city) => city.live).length === 0 &&
     tick % 20 === 0
   ) {
-    if (
-      window.alert(
-        `Game over. You survived ${day} day${
-          day === 1 ? '' : 's'
-        } and ${hour} hour${
-          hour === 1 ? '' : 's'
-        }. Your final score was: ${score}.`,
-      )
-    )
-      return;
+    return window.alert(
+      `Game over. You survived ${day} day${
+        day === 1 ? '' : 's'
+      } and ${hour} hour${
+        hour === 1 ? '' : 's'
+      }. Your final score was: ${score}.`,
+    );
   }
 
   // Update game tick
