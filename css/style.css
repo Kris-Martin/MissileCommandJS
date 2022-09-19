@@ -9,6 +9,10 @@ div {
   display: flex;
 }
 
+canvas {
+  width: 100%;
+}
+
 #cityScores {
   justify-content: space-around;
 }
