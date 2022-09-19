@@ -26,6 +26,10 @@ canvas {
   user-select: none;
 }
 
+#mainScore {
+  justify-content: space-between;
+}
+
 #cityScores {
   justify-content: space-around;
 }

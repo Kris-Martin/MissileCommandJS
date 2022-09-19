@@ -3,7 +3,7 @@ import Vector from './vector.js';
 
 export default class Background {
   frames = images.backgroundFrames;
-  frame = 0;
+  frame = 17;
 
   position = new Vector(0, 0);
   width;

@@ -19,7 +19,8 @@ const enemy = new EnemyController(canvas.width, canvas.height);
 
 let tick = 0;
 let score = 0;
-
+let day = 0;
+let hour = 0;
 /**
  * Returns true if gameObjectA hits gameObjectB, otherwise false.
  * @param {object} gameObjectA
@@ -74,7 +75,20 @@ function checkMissileCollision(playerMissile, enemyMissile) {
   }
 }
 
+function updateGameClock() {
+  if (tick % 1200 === 0 && tick !== 0 && hour !== 25)
+    document.getElementById('hour').innerText = ` :: Hour: ${++hour}`;
+  if (hour === 24) {
+    hour = 0;
+    document.getElementById('hour').innerText = ` :: Hour: ${hour}`;
+    document.getElementById('day').innerText = `Day: ${++day}`;
+  }
+}
+
 function game() {
+  // Track survival time
+  updateGameClock();
+
   // Draw game objects
   background.draw(ctx, tick);
   cities.draw(ctx, tick);
@@ -97,7 +111,16 @@ function game() {
     cities.cities.filter((city) => city.live).length === 0 &&
     tick % 20 === 0
   ) {
-    if (window.alert('Game over.')) return;
+    if (
+      window.alert(
+        `Game over. You survived ${day} day${
+          day === 1 ? '' : 's'
+        } and ${hour} hour${
+          hour === 1 ? '' : 's'
+        }. Your final score was: ${score}.`,
+      )
+    )
+      return;
   }
 
   // Update game tick
