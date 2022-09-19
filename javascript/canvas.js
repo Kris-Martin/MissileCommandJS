@@ -8,20 +8,17 @@ export default class Canvas {
 
   constructor() {
     this.element = document.getElementsByTagName('canvas')[0];
-    console.log(this.element.clientWidth, this.element.clientHeight);
-    console.log(
-      (this.element.clientWidth / this.defaultWidth) * this.defaultHeight,
-    );
+    this.width = this.element.clientWidth;
     this.height =
       (this.element.clientWidth / this.defaultWidth) * this.defaultHeight;
-    this.width = this.element.clientWidth;
     this.element.width = this.width;
     this.element.height = this.height;
     this.context = this.element.getContext('2d');
   }
 
-  update(canvasWidth, canvasHeight) {
+  update(ctx, canvasWidth, canvasHeight) {
     this.width = canvasWidth;
     this.height = canvasHeight;
+    ctx.scale(this.width, this.height);
   }
 }
