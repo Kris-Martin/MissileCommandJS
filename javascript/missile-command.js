@@ -9,16 +9,16 @@ import Missile from './missile.js';
 import City from './city.js';
 
 export const canvas = new Canvas();
+export const images = new LoadImages();
+export const cannon = new Cannon(canvas.width, canvas.height);
 const ctx = canvas.context;
+const background = new Background(canvas.width, canvas.height);
+const cities = new Cities(canvas.width, canvas.height);
+const mouse = new Mouse();
+const enemy = new EnemyController(canvas.width, canvas.height);
 
 let tick = 0;
-
-export const images = new LoadImages();
-const background = new Background(canvas.width, canvas.height);
-const mouse = new Mouse();
-export const cannon = new Cannon(canvas.width, canvas.height);
-const cities = new Cities(canvas.width, canvas.height);
-const enemy = new EnemyController(canvas.width, canvas.height);
+let score = 0;
 
 /**
  * Returns true if gameObjectA hits gameObjectB, otherwise false.
@@ -47,7 +47,7 @@ function checkCityCollision(missile, city) {
     console.log('Missile has hit city!');
     missile.live = false;
     // Reduce city health
-    if (city.live) city.health -= 20;
+    if (city.live) city.health = city.health >= 20 ? city.health - 20 : 0;
     // Update city health display
     document.getElementById(
       city.index.toString(),
@@ -63,6 +63,12 @@ function checkCityCollision(missile, city) {
 function checkMissileCollision(playerMissile, enemyMissile) {
   if (checkCollision(playerMissile, enemyMissile)) {
     console.log('Enemy missile destroyed!');
+    // Score based on height of enemy missile - higher score closer to ground
+    score += Math.floor(
+      Math.pow(enemyMissile.position.y / canvas.height, 2) * 250,
+    );
+    // Update score display
+    document.getElementById('score').innerText = `Score: ${score}`;
     playerMissile.live = false;
     enemyMissile.live = false;
   }
@@ -86,9 +92,13 @@ function game() {
     cities.cities.forEach((city) => checkCityCollision(missile, city)),
   );
 
-  // Check if game is over
-  if (cities.cities.filter((city) => city.live).length === 0)
-    return window.alert('Game Over!');
+  // Check if game is over and leave time for city rubble to appear
+  if (
+    cities.cities.filter((city) => city.live).length === 0 &&
+    tick % 20 === 0
+  ) {
+    if (window.alert('Game over.')) return;
+  }
 
   // Update game tick
   tick++;
@@ -97,4 +107,9 @@ function game() {
   window.requestAnimationFrame(game);
 }
 
+// function startGame() {
+//   if (window.confirm('Start game?')) window.requestAnimationFrame(game);
+// }
+
+// startGame();
 window.requestAnimationFrame(game);

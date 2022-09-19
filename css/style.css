@@ -3,6 +3,10 @@ body {
   padding: 0;
   background-color: black;
   font-family: monospace;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 div {
@@ -28,7 +32,7 @@ canvas {
 
 div p {
   color: white;
-  padding: 1em;
+  padding: 0.5em;
   margin: 0;
   border: 1px solid white;
   font-size: 1.2rem;
