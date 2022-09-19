@@ -2,6 +2,23 @@ body {
   margin: 0;
   padding: 0;
   background-color: black;
+  font-family: monospace;
+}
+
+div {
+  display: flex;
+}
+
+#cityScores {
+  justify-content: space-around;
+}
+
+div p {
+  color: white;
+  padding: 1em;
+  margin: 0;
+  border: 1px solid white;
+  font-size: 1.5rem;
 }
 
 canvas {
