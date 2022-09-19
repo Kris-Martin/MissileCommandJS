@@ -17,7 +17,7 @@ export const images = new LoadImages();
 const background = new Background(canvas.width, canvas.height);
 const mouse = new Mouse();
 export const cannon = new Cannon(canvas.width, canvas.height);
-let cities = new Cities(canvas.width, canvas.height);
+const cities = new Cities(canvas.width, canvas.height);
 const enemy = new EnemyController(canvas.width, canvas.height);
 
 /**
