@@ -4,12 +4,17 @@ export default class Explosion {
   live = true;
   position = new Vector();
   radius = 0;
-  size = 64;
+  size;
   time = 0;
-  duration = 32;
+  duration;
 
-  // Position to explode
-  constructor(position) {
+  /**
+   * Create explosion.
+   * @param {Vector} position - explode here
+   */
+  constructor(position, size = 64, duration = 32) {
+    this.size = size;
+    this.duration = duration;
     this.position.set(position);
   }
 
@@ -29,7 +34,10 @@ export default class Explosion {
       this.update();
     }
   }
-
+  /**
+   * Update radius and status of explosion.
+   * Radius grows and shrinks over duration.
+   */
   update() {
     this.time++;
     this.radius =

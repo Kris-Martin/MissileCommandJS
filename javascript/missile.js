@@ -1,3 +1,4 @@
+import Explosion from './explosion.js';
 import Vector from './vector.js';
 
 export default class Missile {
@@ -8,6 +9,7 @@ export default class Missile {
   velocity = new Vector();
   speed = 4;
   target = new Vector();
+  explosions = new Array();
 
   /**
    * Create a missile.
@@ -41,6 +43,7 @@ export default class Missile {
       ctx.stroke();
       this.update(canvasWidth, canvasHeight);
     }
+    this.explosions.forEach((explosion) => explosion.draw(ctx));
   }
 
   /**
@@ -49,6 +52,14 @@ export default class Missile {
    * @param {number} canvasHeight
    */
   update(canvasWidth, canvasHeight) {
+    // Add explosion if hits ground
+    if (this.position.y >= canvasHeight - 15 && this.explosions.length < 1)
+      this.explosions.push(new Explosion(this.position, 128, 64));
+
+    // Clean up dead explosions
+    this.explosions = this.explosions.filter((explosion) => explosion.live);
+
+    // If out of bounds set live to false
     if (
       !(
         this.position.y < 0 ||
