@@ -7,6 +7,7 @@ import Mouse from './mouse.js';
 import EnemyController from './enemyController.js';
 import Missile from './missile.js';
 import City from './city.js';
+import Explosion from './explosion.js';
 
 export const canvas = new Canvas();
 export const images = new LoadImages();
@@ -19,6 +20,7 @@ const mouse = new Mouse();
 const enemy = new EnemyController(canvas.width, canvas.height);
 
 let gameRunning = false;
+let explosions = new Array();
 let tick = 0;
 let score = 0;
 let day = 0;
@@ -76,6 +78,9 @@ function checkCityCollision(missile, city) {
  */
 function checkMissileCollision(playerMissile, enemyMissile) {
   if (checkCollision(playerMissile, enemyMissile)) {
+    // Add explosion at location of hit
+    explosions.push(new Explosion(playerMissile.position));
+    // Log hit to console
     console.log('Enemy missile destroyed!');
     // Score based on height of enemy missile - higher score closer to ground
     score += Math.floor(
@@ -83,6 +88,7 @@ function checkMissileCollision(playerMissile, enemyMissile) {
     );
     // Update score display
     document.getElementById('score').innerText = `Score: ${score}`;
+    // Update missile status
     playerMissile.live = false;
     enemyMissile.live = false;
   }
@@ -135,6 +141,9 @@ function game() {
   cities.draw(ctx, tick);
   cannon.draw(ctx, canvas.width, canvas.height);
   enemy.draw(ctx, tick, canvas.width, canvas.height);
+  explosions.forEach((explosion) => explosion.draw(ctx));
+  // Clean up dead explosions
+  explosions = explosions.filter((explosion) => explosion.live);
 
   // Check collisions
   cannon.missiles.forEach((playerMissile) => {
