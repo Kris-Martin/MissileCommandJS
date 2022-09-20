@@ -92,7 +92,10 @@ button:active {
 }
 
 button:disabled > svg {
+  height: 2rem;
+  width: 2rem;
   fill: lightgray;
+  cursor: default;
 }
 
 svg {
