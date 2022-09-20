@@ -14,6 +14,8 @@ body {
 }
 
 canvas {
+  background-image: url('../assets/images/startingScreen.png');
+  background-size: contain;
   width: 100%;
   cursor: crosshair;
 }
