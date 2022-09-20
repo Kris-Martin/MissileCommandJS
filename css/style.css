@@ -42,7 +42,7 @@ div {
 #buttons {
   position: absolute;
   /* Midpoint - 1/2 view width - (width of buttons + gap/2) */
-  margin-left: calc(100vw / 2 - 8rem / 2);
+  margin-left: calc(100vw / 2 - 11rem / 2);
 }
 
 #clock {
@@ -78,13 +78,22 @@ button {
   cursor: pointer;
 }
 
+#reload {
+  border: 3px solid white;
+  border-radius: 100%;
+  padding: 0.3em;
+}
+
+#reload:hover {
+  border-color: red;
+}
+
 button:active {
   height: 2.2rem;
   width: 2.2rem;
 }
 
 svg {
-  background-color: #020204;
   fill: white;
   height: 100%;
 }
@@ -93,6 +102,7 @@ svg:hover {
   fill: lightgreen;
 }
 
-#stop:hover > svg {
+#stop:hover > svg,
+#reload:hover > svg {
   fill: red;
 }

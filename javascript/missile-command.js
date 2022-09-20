@@ -27,10 +27,12 @@ let hour = 0;
 const playBtn = document.getElementById('play');
 const pauseBtn = document.getElementById('pause');
 const stopBtn = document.getElementById('stop');
+const reloadBtn = document.getElementById('reload');
 
 playBtn.addEventListener('click', startGame);
 pauseBtn.addEventListener('click', pauseGame);
 stopBtn.addEventListener('click', stopGame);
+reloadBtn.addEventListener('click', reloadGame);
 
 /**
  * Returns true if gameObjectA hits gameObjectB, otherwise false.
@@ -111,11 +113,15 @@ function startGame() {
 }
 
 function pauseGame() {
-  window.alert('Game paused. Click ok to return to game');
+  window.alert('Game paused. Click ok to return to game.');
 }
 
 function stopGame() {
   gameRunning = false;
+}
+
+function reloadGame() {
+  location.reload();
 }
 
 function game() {
