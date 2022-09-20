@@ -60,6 +60,8 @@ function checkCollision(gameObjectA, gameObjectB) {
  */
 function checkCityCollision(missile, city) {
   if (checkCollision(missile, city) && city.live) {
+    // Add explosion at location of hit
+    explosions.push(new Explosion(missile.position));
     console.log('Missile has hit city!');
     missile.live = false;
     // Reduce city health
@@ -138,10 +140,12 @@ function game() {
 
   // Draw game objects
   background.draw(ctx, tick);
-  cities.draw(ctx, tick);
-  cannon.draw(ctx, canvas.width, canvas.height);
   enemy.draw(ctx, tick, canvas.width, canvas.height);
   explosions.forEach((explosion) => explosion.draw(ctx));
+  background.ground.draw(ctx);
+  cannon.draw(ctx, canvas.width, canvas.height);
+  cities.draw(ctx, tick);
+
   // Clean up dead explosions
   explosions = explosions.filter((explosion) => explosion.live);
 

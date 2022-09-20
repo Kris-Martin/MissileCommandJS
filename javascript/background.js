@@ -67,7 +67,6 @@ export default class Background {
       this.width,
       this.height,
     );
-    this.ground.draw(ctx);
     this.update(tick);
   }
 }
