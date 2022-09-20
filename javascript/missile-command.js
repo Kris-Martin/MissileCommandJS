@@ -98,6 +98,7 @@ function updateGameClock() {
   }
 }
 
+// Check if game is over and leave time for city rubble to appear
 function checkGameOver() {
   if (
     (cities.cities.filter((city) => city.live).length === 0 || !gameRunning) &&
@@ -109,6 +110,7 @@ function checkGameOver() {
 
 function startGame() {
   gameRunning = true;
+  playBtn.disabled = true;
   window.requestAnimationFrame(game);
 }
 
@@ -145,7 +147,7 @@ function game() {
     cities.cities.forEach((city) => checkCityCollision(missile, city)),
   );
 
-  // Check if game is over and leave time for city rubble to appear
+  // Check if game is over and display end game message
   if (checkGameOver()) {
     return window.alert(
       `Game over. You survived ${day} day${

@@ -31,10 +31,6 @@ div {
   user-select: none;
 }
 
-/* #mainScore {
-  margin: 0 auto;
-} */
-
 #score {
   margin: 0;
 }
@@ -91,6 +87,10 @@ button {
 button:active {
   height: 2.2rem;
   width: 2.2rem;
+}
+
+button:disabled > svg {
+  fill: lightgray;
 }
 
 svg {
