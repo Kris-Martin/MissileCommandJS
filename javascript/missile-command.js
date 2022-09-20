@@ -11,16 +11,27 @@ import City from './city.js';
 export const canvas = new Canvas();
 export const images = new LoadImages();
 export const cannon = new Cannon(canvas.width, canvas.height);
+
 const ctx = canvas.context;
 const background = new Background(canvas.width, canvas.height);
 const cities = new Cities(canvas.width, canvas.height);
 const mouse = new Mouse();
 const enemy = new EnemyController(canvas.width, canvas.height);
 
+let gameRunning = false;
 let tick = 0;
 let score = 0;
 let day = 0;
 let hour = 0;
+
+const playBtn = document.getElementById('play');
+const pauseBtn = document.getElementById('pause');
+const stopBtn = document.getElementById('stop');
+
+playBtn.addEventListener('click', startGame);
+pauseBtn.addEventListener('click', pauseGame);
+stopBtn.addEventListener('click', stopGame);
+
 /**
  * Returns true if gameObjectA hits gameObjectB, otherwise false.
  * @param {object} gameObjectA
@@ -85,6 +96,28 @@ function updateGameClock() {
   }
 }
 
+function checkGameOver() {
+  if (
+    (cities.cities.filter((city) => city.live).length === 0 || !gameRunning) &&
+    tick % 20 === 0
+  ) {
+    return true;
+  }
+}
+
+function startGame() {
+  gameRunning = true;
+  window.requestAnimationFrame(game);
+}
+
+function pauseGame() {
+  window.alert('Game paused. Click ok to return to game');
+}
+
+function stopGame() {
+  gameRunning = false;
+}
+
 function game() {
   // Track survival time
   updateGameClock();
@@ -107,10 +140,7 @@ function game() {
   );
 
   // Check if game is over and leave time for city rubble to appear
-  if (
-    cities.cities.filter((city) => city.live).length === 0 &&
-    tick % 20 === 0
-  ) {
+  if (checkGameOver()) {
     return window.alert(
       `Game over. You survived ${day} day${
         day === 1 ? '' : 's'
@@ -126,10 +156,3 @@ function game() {
   // Loop
   window.requestAnimationFrame(game);
 }
-
-// function startGame() {
-//   if (window.confirm('Start game?')) window.requestAnimationFrame(game);
-// }
-
-// startGame();
-window.requestAnimationFrame(game);

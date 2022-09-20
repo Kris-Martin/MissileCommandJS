@@ -1,6 +1,10 @@
-body {
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+
+body {
   background-color: black;
   font-family: monospace;
   height: 100vh;
@@ -9,12 +13,13 @@ body {
   justify-content: center;
 }
 
-div {
-  display: flex;
-}
-
 canvas {
   width: 100%;
+  cursor: crosshair;
+}
+
+div {
+  display: flex;
 }
 
 .no-select {
@@ -26,12 +31,27 @@ canvas {
   user-select: none;
 }
 
-#mainScore {
-  justify-content: space-between;
+/* #mainScore {
+  margin: 0 auto;
+} */
+
+#score {
+  margin: 0;
+}
+
+#buttons {
+  position: absolute;
+  /* Midpoint - 1/2 view width - (width of buttons + gap/2) */
+  margin-left: calc(100vw / 2 - 8rem / 2);
+}
+
+#clock {
+  margin-left: auto;
 }
 
 #cityScores {
   justify-content: space-around;
+  margin: 0 5em;
 }
 
 div p {
@@ -39,9 +59,40 @@ div p {
   padding: 0.5em;
   margin: 0;
   border: 1px solid white;
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 
-canvas {
-  cursor: crosshair;
+#buttons {
+  display: flex;
+  gap: 1em;
+}
+
+button {
+  height: 2rem;
+  width: 2rem;
+  padding: 0;
+  margin: 0;
+  background-color: black;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+button:active {
+  height: 2.2rem;
+  width: 2.2rem;
+}
+
+svg {
+  background-color: #020204;
+  fill: white;
+  height: 100%;
+}
+
+svg:hover {
+  fill: lightgreen;
+}
+
+#stop:hover > svg {
+  fill: red;
 }
