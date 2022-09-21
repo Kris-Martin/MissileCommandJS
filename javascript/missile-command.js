@@ -14,10 +14,10 @@ export const images = new LoadImages();
 export const cannon = new Cannon(canvas);
 
 const ctx = canvas.context;
-const background = new Background(canvas.width, canvas.height);
+const background = new Background(canvas);
 const cities = new Cities(canvas);
 const mouse = new Mouse();
-const enemy = new EnemyController(canvas.width, canvas.height);
+const enemy = new EnemyController(canvas);
 
 let gameRunning = false;
 let explosions = new Array();
@@ -140,10 +140,10 @@ function game() {
 
   // Draw game objects
   background.draw(ctx, tick);
-  enemy.draw(ctx, tick, canvas.width, canvas.height);
+  enemy.draw(ctx, tick, canvas);
   explosions.forEach((explosion) => explosion.draw(ctx));
   background.ground.draw(ctx);
-  cannon.draw(ctx, canvas.width, canvas.height);
+  cannon.draw(ctx, canvas);
   cities.draw(ctx, tick);
 
   // Clean up dead explosions

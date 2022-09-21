@@ -1,3 +1,4 @@
+import Canvas from './canvas.js';
 import Missile from './missile.js';
 import Vector from './vector.js';
 
@@ -12,12 +13,11 @@ export default class EnemyController {
 
   /**
    * Creates an enemy with missiles.
-   * @param {number} canvasWidth
-   * @param {number} canvasHeight
+   * @param {Canvas} canvas
    * */
-  constructor(canvasWidth, canvasHeight) {
-    this.#maxX = canvasWidth;
-    this.#targetY = canvasHeight;
+  constructor(canvas) {
+    this.#maxX = canvas.width;
+    this.#targetY = canvas.height;
   }
 
   #generateMissiles() {
@@ -36,16 +36,13 @@ export default class EnemyController {
    * Draw enemy missiles to screen.
    * @param {CanvasRenderingContext2D} ctx
    * @param {number} tick
-   * @param {number} canvasWidth
-   * @param {number} canvasHeight
+   * @param {number} canvas
    * */
-  draw(ctx, tick, canvasWidth, canvasHeight) {
+  draw(ctx, tick, canvas) {
     this.update(tick);
     // Draw the missiles
     if (this.missiles.length > 0)
-      this.missiles.forEach((missile) =>
-        missile.draw(ctx, canvasWidth, canvasHeight),
-      );
+      this.missiles.forEach((missile) => missile.draw(ctx, canvas));
     // Clean up dead missiles
     this.missiles = this.missiles.filter((missile) => missile.live);
   }

@@ -26,14 +26,11 @@ export default class Cannon {
   /**
    * Draw cannon.
    * @param {CanvasRenderingContext2D} ctx - canvas context
-   * @param {number} canvasWidth
-   * @param {number} canvasHeight
+   * @param {Canvas} canvas
    */
-  draw(ctx, canvasWidth, canvasHeight) {
+  draw(ctx, canvas) {
     // Draw missiles
-    this.missiles.forEach((missile) =>
-      missile.draw(ctx, canvasWidth, canvasHeight),
-    );
+    this.missiles.forEach((missile) => missile.draw(ctx, canvas));
     // Clean up dead missiles
     this.missiles = this.missiles.filter((missile) => missile.live);
     // Draw base

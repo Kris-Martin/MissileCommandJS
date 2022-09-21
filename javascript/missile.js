@@ -29,10 +29,9 @@ export default class Missile {
   /**
    * Draw missile.
    * @param {CanvasRenderingContext2D} ctx - canvas context
-   * @param {number} canvasWidth
-   * @param {number} canvasHeight
+   * @param {Canvas} canvas
    */
-  draw(ctx, canvasWidth, canvasHeight) {
+  draw(ctx, canvas) {
     if (this.live) {
       ctx.lineWidth = 2;
       ctx.beginPath();
@@ -41,19 +40,18 @@ export default class Missile {
       ctx.fill();
       ctx.strokeStyle = 'yellow';
       ctx.stroke();
-      this.update(canvasWidth, canvasHeight);
+      this.update(canvas);
     }
     this.explosions.forEach((explosion) => explosion.draw(ctx));
   }
 
   /**
    * Update missile position.
-   * @param {number} canvasWidth
-   * @param {number} canvasHeight
+   * @param {Canvas} canvas
    */
-  update(canvasWidth, canvasHeight) {
+  update(canvas) {
     // Add explosion if hits ground
-    if (this.position.y >= canvasHeight - 15 && this.explosions.length < 1)
+    if (this.position.y >= canvas.height - 15 && this.explosions.length < 1)
       this.explosions.push(new Explosion(this.position));
 
     // If out of bounds set live to false
@@ -61,9 +59,9 @@ export default class Missile {
     if (
       !(
         this.position.y < 0 ||
-        this.position.y > canvasHeight + 128 ||
+        this.position.y > canvas.height + 128 ||
         this.position.x < 0 ||
-        this.position.x > canvasWidth + 128
+        this.position.x > canvas.width + 128
       )
     ) {
       this.position.set(this.position.add(this.velocity));

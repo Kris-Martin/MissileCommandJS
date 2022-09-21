@@ -1,3 +1,4 @@
+import Canvas from './canvas.js';
 import { images } from './missile-command.js';
 import Vector from './vector.js';
 
@@ -31,12 +32,11 @@ export default class Background {
 
   /**
    * Create background.
-   * @param {number} canvasWidth
-   * @param {number} canvasHeight
+   * @param {Canvas} canvas
    */
-  constructor(canvasWidth, canvasHeight) {
-    this.width = canvasWidth;
-    this.height = canvasHeight;
+  constructor(canvas) {
+    this.width = canvas.width;
+    this.height = canvas.height;
     this.ground.position.y = this.height - this.ground.height;
     this.ground.width = this.width;
   }
