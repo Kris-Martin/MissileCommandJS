@@ -1,5 +1,6 @@
 import { images } from './missile-command.js';
 import Vector from './vector.js';
+import Canvas from './canvas.js';
 export default class City {
   index;
   city = images.city;
@@ -11,8 +12,10 @@ export default class City {
   health = this.healthMax;
   live = true;
 
-  width = 80;
-  height = 40;
+  defaultWidth = 80;
+  defaultHeight = 40;
+  width = this.defaultWidth;
+  height = this.defaultHeight;
 
   // Value needed to adjust position of rubble inline with city.
   rubblePosY = 5;
@@ -25,9 +28,12 @@ export default class City {
    * Creates a city.
    * @param {number} index
    * @param {Vector} position
+   * @param {Canvas} canvas
    * */
-  constructor(index, position) {
+  constructor(index, position, canvas) {
     this.index = index;
+    this.width = (this.defaultWidth / canvas.defaultWidth) * canvas.width;
+    this.height = (this.defaultHeight / canvas.defaultHeight) * canvas.height;
     this.position.x = position.x - this.width / 2;
     this.position.y = position.y - this.height - this.groundPlacement;
   }

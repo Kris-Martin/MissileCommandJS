@@ -15,9 +15,11 @@ export const cannon = new Cannon(canvas.width, canvas.height);
 
 const ctx = canvas.context;
 const background = new Background(canvas.width, canvas.height);
-const cities = new Cities(canvas.width, canvas.height);
+const cities = new Cities(canvas);
 const mouse = new Mouse();
 const enemy = new EnemyController(canvas.width, canvas.height);
+
+console.log(cities.cities[0].width);
 
 let gameRunning = false;
 let explosions = new Array();
