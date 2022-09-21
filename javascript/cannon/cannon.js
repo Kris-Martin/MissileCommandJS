@@ -12,7 +12,8 @@ export default class Cannon {
   barrel;
   angle = 0;
   missiles = new Array();
-  missileSpeed = 4;
+  defaultMissileSpeed = 4;
+  missileSpeed = this.defaultMissileSpeed;
 
   /**
    * Create cannon
@@ -23,6 +24,9 @@ export default class Cannon {
     this.base = new Base(canvas);
     this.wheel = new Wheel(canvas);
     this.barrel = new Barrel(canvas);
+    this.missileSpeed =
+      (this.defaultMissileSpeed / canvas.defaultHeight) * canvas.height;
+    console.log('Player missile speed: ', this.missileSpeed);
   }
 
   /**

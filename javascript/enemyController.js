@@ -6,7 +6,8 @@ export default class EnemyController {
   startingPos = new Vector();
   target = new Vector();
   missiles = new Array();
-  missileSpeed = 1;
+  defaultMissileSpeed = 1;
+  missileSpeed = this.defaultMissileSpeed;
   #maxX;
   #startY = 0;
   #targetY;
@@ -18,6 +19,9 @@ export default class EnemyController {
   constructor(canvas) {
     this.#maxX = canvas.width;
     this.#targetY = canvas.height;
+    this.missileSpeed =
+      (this.defaultMissileSpeed / canvas.defaultHeight) * canvas.height;
+    console.log('Enemy missile speed: ', this.missileSpeed);
   }
 
   /**
