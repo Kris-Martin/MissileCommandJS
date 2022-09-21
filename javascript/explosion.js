@@ -4,6 +4,7 @@ export default class Explosion {
   live = true;
   position = new Vector();
   radius = 0;
+  static defaultSize = 64;
   size;
   time = 0;
   duration;

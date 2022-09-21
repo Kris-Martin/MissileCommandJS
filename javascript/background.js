@@ -9,12 +9,14 @@ export default class Background {
   position = new Vector(0, 0);
   width;
   height;
+  static groundHeight;
 
   ground = {
     color: '#834444',
     position: new Vector(),
     width: 0,
-    height: 15,
+    defaultHeight: 15,
+    height: 0,
     /**
      * Draw ground.
      * @param {CanvasRenderingContext2D} ctx - canvas context
@@ -37,6 +39,8 @@ export default class Background {
   constructor(canvas) {
     this.width = canvas.width;
     this.height = canvas.height;
+    this.ground.height =
+      (this.ground.defaultHeight / canvas.defaultHeight) * canvas.height;
     this.ground.position.y = this.height - this.ground.height;
     this.ground.width = this.width;
   }

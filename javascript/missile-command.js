@@ -15,6 +15,7 @@ export const cannon = new Cannon(canvas);
 
 const ctx = canvas.context;
 const background = new Background(canvas);
+Background.groundHeight = background.ground.height;
 const cities = new Cities(canvas);
 const mouse = new Mouse();
 const enemy = new EnemyController(canvas);
