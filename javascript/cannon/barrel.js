@@ -4,15 +4,24 @@ import Vector from '../vector.js';
 export default class Barrel {
   image = images.cannonBarrel;
 
-  width = 50;
-  height = 80;
-  dimension = new Vector(this.width, this.height);
+  defaultWidth = 50;
+  defaultHeight = 80;
+  width = this.defaultWidth;
+  height = this.defaultHeight;
+  dimension = new Vector();
   position = new Vector();
   midPoint = new Vector();
 
-  constructor(canvasWidth, canvasHeight) {
-    this.position.x = canvasWidth / 2 - this.width / 2;
-    this.position.y = canvasHeight - this.height;
+  /**
+   * Create Barrel
+   * @param {Canvas} canvas
+   */
+  constructor(canvas) {
+    this.width = (this.defaultWidth / canvas.defaultWidth) * canvas.width;
+    this.height = (this.defaultHeight / canvas.defaultHeight) * canvas.height;
+    this.dimension.set(new Vector(this.width, this.height));
+    this.position.x = canvas.width / 2 - this.width / 2;
+    this.position.y = canvas.height - this.height;
     this.midPoint.set(this.position.add(this.dimension.divide(2)));
   }
 

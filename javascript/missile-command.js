@@ -11,15 +11,13 @@ import Explosion from './explosion.js';
 
 export const canvas = new Canvas();
 export const images = new LoadImages();
-export const cannon = new Cannon(canvas.width, canvas.height);
+export const cannon = new Cannon(canvas);
 
 const ctx = canvas.context;
 const background = new Background(canvas.width, canvas.height);
 const cities = new Cities(canvas);
 const mouse = new Mouse();
 const enemy = new EnemyController(canvas.width, canvas.height);
-
-console.log(cities.cities[0].width);
 
 let gameRunning = false;
 let explosions = new Array();

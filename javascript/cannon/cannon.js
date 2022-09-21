@@ -3,6 +3,7 @@ import Barrel from './barrel.js';
 import Base from './base.js';
 import Wheel from './wheel.js';
 import Vector from '../vector.js';
+import Canvas from '../canvas.js';
 
 export default class Cannon {
   base;
@@ -12,10 +13,14 @@ export default class Cannon {
   missiles = new Array();
   missileSpeed = 4;
 
-  constructor(canvasWidth, canvasHeight) {
-    this.base = new Base(canvasWidth, canvasHeight);
-    this.wheel = new Wheel(canvasWidth, canvasHeight);
-    this.barrel = new Barrel(canvasWidth, canvasHeight);
+  /**
+   * Create cannon
+   * @param {Canvas} canvas
+   */
+  constructor(canvas) {
+    this.base = new Base(canvas);
+    this.wheel = new Wheel(canvas);
+    this.barrel = new Barrel(canvas);
   }
 
   /**
