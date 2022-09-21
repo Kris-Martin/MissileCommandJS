@@ -5,9 +5,9 @@
 }
 
 body {
+  width: 100vw;
   background-color: black;
   font-family: monospace;
-  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -16,7 +16,7 @@ body {
 canvas {
   background-image: url('../assets/images/startingScreen.png');
   background-size: contain;
-  width: 100%;
+  width: 100vw;
   cursor: crosshair;
 }
 
@@ -38,9 +38,12 @@ div {
 }
 
 #buttons {
+  display: flex;
+  gap: 1em;
   position: absolute;
   /* Midpoint - 1/2 view width - (width of buttons + gap/2) */
-  margin-left: calc(100vw / 2 - 11rem / 2);
+  margin-left: calc(100vw / 2 - ((100vw / 50) * 4) + 1em);
+  margin-top: 0.1em;
 }
 
 #clock {
@@ -49,7 +52,7 @@ div {
 
 #cityScores {
   justify-content: space-around;
-  margin: 0 5em;
+  margin: 0 3em;
 }
 
 div p {
@@ -57,17 +60,13 @@ div p {
   padding: 0.5em;
   margin: 0;
   border: 1px solid white;
-  font-size: 1rem;
-}
-
-#buttons {
-  display: flex;
-  gap: 1em;
+  font-size: calc(100vw / 100);
 }
 
 button {
-  height: 2rem;
-  width: 2rem;
+  display: flex;
+  height: calc(100vw / 50);
+  width: calc(100vw / 50);
   padding: 0;
   margin: 0;
   background-color: black;
@@ -77,9 +76,9 @@ button {
 }
 
 #reload {
-  border: 3px solid white;
+  /* border: 1px solid white; */
   border-radius: 100%;
-  padding: 0.3em;
+  /* padding: 3px; */
 }
 
 #reload:hover {
@@ -87,13 +86,13 @@ button {
 }
 
 button:active {
-  height: 2.2rem;
-  width: 2.2rem;
+  height: calc(100vw / 52);
+  width: calc(100vw / 52);
 }
 
 button:disabled > svg {
-  height: 2rem;
-  width: 2rem;
+  height: calc(100vw / 50);
+  width: calc(100vw / 50);
   fill: lightgray;
   cursor: default;
 }
