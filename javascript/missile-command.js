@@ -15,7 +15,6 @@ export const cannon = new Cannon(canvas);
 
 const ctx = canvas.context;
 const background = new Background(canvas);
-Background.groundHeight = background.ground.height;
 const cities = new Cities(canvas);
 const mouse = new Mouse();
 const enemy = new EnemyController(canvas);
@@ -62,7 +61,7 @@ function checkCollision(gameObjectA, gameObjectB) {
 function checkCityCollision(missile, city) {
   if (checkCollision(missile, city) && city.live) {
     // Add explosion at location of hit
-    explosions.push(new Explosion(missile.position));
+    explosions.push(new Explosion(missile.position, canvas));
     console.log('Missile has hit city!');
     missile.live = false;
     // Reduce city health
@@ -82,7 +81,7 @@ function checkCityCollision(missile, city) {
 function checkMissileCollision(playerMissile, enemyMissile) {
   if (checkCollision(playerMissile, enemyMissile)) {
     // Add explosion at location of hit
-    explosions.push(new Explosion(playerMissile.position));
+    explosions.push(new Explosion(playerMissile.position, canvas));
     // Log hit to console
     console.log('Enemy missile destroyed!');
     // Score based on height of enemy missile - higher score closer to ground

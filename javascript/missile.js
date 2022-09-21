@@ -62,16 +62,16 @@ export default class Missile {
       this.position.y >= canvas.height - Background.groundHeight &&
       this.explosions.length < 1
     )
-      this.explosions.push(new Explosion(this.position));
+      this.explosions.push(new Explosion(this.position, canvas));
 
     // If out of bounds set live to false
     // + explosion size allows time for explosion to finish
     if (
       !(
         this.position.y < 0 ||
-        this.position.y > canvas.height + Explosion.defaultSize * 2 ||
+        this.position.y > canvas.height + Explosion.currentSize * 2 ||
         this.position.x < 0 ||
-        this.position.x > canvas.width + Explosion.defaultSize * 2
+        this.position.x > canvas.width + Explosion.currentSize * 2
       )
     ) {
       this.position.set(this.position.add(this.velocity));

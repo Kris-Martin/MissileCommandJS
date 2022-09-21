@@ -1,22 +1,27 @@
+import Canvas from './canvas.js';
 import Vector from './vector.js';
 
 export default class Explosion {
   live = true;
   position = new Vector();
   radius = 0;
-  static defaultSize = 64;
-  size;
+  defaultSize = 64;
+  size = this.defaultSize;
   time = 0;
-  duration;
+  duration = 32;
+
+  static currentSize = this.defaultSize;
 
   /**
    * Create explosion.
    * @param {Vector} position - explode here
+   * @param {Canvas} canvas
    */
-  constructor(position, size = 64, duration = 32) {
-    this.size = size;
-    this.duration = duration;
+  constructor(position, canvas) {
+    this.size = (this.defaultSize / canvas.defaultWidth) * canvas.width;
     this.position.set(position);
+
+    Explosion.currentSize = this.size;
   }
 
   /**

@@ -9,13 +9,13 @@ export default class Background {
   position = new Vector(0, 0);
   width;
   height;
-  static groundHeight;
+  static defaultGroundHeight = 15;
 
   ground = {
     color: '#834444',
     position: new Vector(),
     width: 0,
-    defaultHeight: 15,
+    defaultHeight: Background.defaultGroundHeight,
     height: 0,
     /**
      * Draw ground.
@@ -43,6 +43,8 @@ export default class Background {
       (this.ground.defaultHeight / canvas.defaultHeight) * canvas.height;
     this.ground.position.y = this.height - this.ground.height;
     this.ground.width = this.width;
+
+    Background.groundHeight = this.ground.height;
   }
 
   /**
