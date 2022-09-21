@@ -6,6 +6,7 @@ import Vector from '../vector.js';
 import Canvas from '../canvas.js';
 
 export default class Cannon {
+  canvas;
   base;
   wheel;
   barrel;
@@ -18,6 +19,7 @@ export default class Cannon {
    * @param {Canvas} canvas
    */
   constructor(canvas) {
+    this.canvas = canvas;
     this.base = new Base(canvas);
     this.wheel = new Wheel(canvas);
     this.barrel = new Barrel(canvas);
@@ -53,10 +55,11 @@ export default class Cannon {
   /**
    * Fire cannon.
    * @param {Vector} target - position to target
+   * @param {Canvas} canvas
    */
   fire(target) {
     this.missiles.push(
-      new Missile(this.barrel.midPoint, target, this.missileSpeed),
+      new Missile(this.barrel.midPoint, this.canvas, target, this.missileSpeed),
     );
   }
 }

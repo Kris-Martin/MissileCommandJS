@@ -1,10 +1,13 @@
+import Canvas from './canvas.js';
 import Explosion from './explosion.js';
 import Vector from './vector.js';
 
 export default class Missile {
   live = true;
-  width = 8;
-  height = 8;
+  defaultWidth = 8;
+  defaultHeight = 8;
+  width = this.defaultWidth;
+  height = this.defaultHeight;
   position = new Vector();
   velocity = new Vector();
   speed = 4;
@@ -14,11 +17,14 @@ export default class Missile {
   /**
    * Create a missile.
    * @param {Vector} position - starting position
+   * @param {Canvas} canvas
    * @param {Vector} target - the position to target
    * @param {number} speed - speed of missile
    */
-  constructor(position, target, speed) {
+  constructor(position, canvas, target, speed) {
     this.position.set(position);
+    this.width = (this.defaultWidth / canvas.defaultWidth) * canvas.width;
+    this.height = (this.defaultHeight / canvas.defaultHeight) * canvas.height;
     this.target.set(target);
     this.speed = speed;
     this.velocity.set(

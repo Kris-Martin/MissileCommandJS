@@ -20,11 +20,15 @@ export default class EnemyController {
     this.#targetY = canvas.height;
   }
 
-  #generateMissiles() {
+  /**
+   * Generate a missile.
+   * @param {Canvas} canvas
+   * */
+  #generateMissiles(canvas) {
     this.startingPos.set(new Vector(this.#getRandomX(), this.#startY));
     this.target.set(new Vector(this.#getRandomX(), this.#targetY));
     this.missiles.push(
-      new Missile(this.startingPos, this.target, this.missileSpeed),
+      new Missile(this.startingPos, canvas, this.target, this.missileSpeed),
     );
   }
 
@@ -36,10 +40,11 @@ export default class EnemyController {
    * Draw enemy missiles to screen.
    * @param {CanvasRenderingContext2D} ctx
    * @param {number} tick
-   * @param {number} canvas
+   * @param {Canvas} canvas
    * */
   draw(ctx, tick, canvas) {
-    this.update(tick);
+    // Update missiles
+    this.update(canvas, tick);
     // Draw the missiles
     if (this.missiles.length > 0)
       this.missiles.forEach((missile) => missile.draw(ctx, canvas));
@@ -49,11 +54,12 @@ export default class EnemyController {
 
   /**
    * Generate a missile every 300 ticks.
+   * @param {Canvas} canvas
    * @param {number} tick
    * */
-  update(tick) {
+  update(canvas, tick) {
     if (tick % 300 === 0) {
-      this.#generateMissiles();
+      this.#generateMissiles(canvas);
     }
     //console.log('length', this.missiles.length);
   }
