@@ -15,10 +15,4 @@ export default class Canvas {
     this.element.height = this.height;
     this.context = this.element.getContext('2d');
   }
-
-  update(ctx, canvasWidth, canvasHeight) {
-    this.width = canvasWidth;
-    this.height = canvasHeight;
-    ctx.scale(this.width, this.height);
-  }
 }
