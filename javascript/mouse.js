@@ -1,29 +1,18 @@
-import { canvas, cannon } from './missile-command.js';
+import Canvas from './canvas.js';
 import Vector from './vector.js';
 
 export default class Mouse {
   position = new Vector(0, 0);
 
-  constructor() {
-    canvas.element.addEventListener('mousemove', this.setPosition, false);
-    canvas.element.addEventListener('click', this.setClicked, false);
-  }
+  constructor() {}
 
   /**
    * Store current position of mouse on canvas.
    * @param {Event} e - event
+   * @param {Canvas} e - canvas
    */
-  setPosition(e) {
+  setPosition(e, canvas) {
     const bounds = canvas.element.getBoundingClientRect();
     this.position = new Vector(e.clientX - bounds.left, e.clientY - bounds.top);
-    cannon.setAngle(this.position);
-  }
-
-  /**
-   * Store result of clicked event.
-   * @param {Event} e - event
-   */
-  setClicked(e) {
-    if (e.type === 'click') cannon.fire(this.position);
   }
 }

@@ -9,13 +9,13 @@ import LoadImages from './load-images.js';
 import Missile from './missile.js';
 import Mouse from './mouse.js';
 
-export const canvas = new Canvas();
 export const images = new LoadImages();
-export const cannon = new Cannon(canvas);
 
+const canvas = new Canvas();
 const ctx = canvas.context;
 const background = new Background(canvas);
 const cities = new Cities(canvas);
+const cannon = new Cannon(canvas);
 const mouse = new Mouse();
 const enemy = new EnemyController(canvas);
 
@@ -35,6 +35,21 @@ playBtn.addEventListener('click', startGame);
 pauseBtn.addEventListener('click', pauseGame);
 stopBtn.addEventListener('click', stopGame);
 reloadBtn.addEventListener('click', reloadGame);
+canvas.element.addEventListener(
+  'mousemove',
+  (e) => {
+    mouse.setPosition(e, canvas);
+    cannon.setAngle(mouse.position);
+  },
+  false,
+);
+canvas.element.addEventListener(
+  'click',
+  (e) => {
+    cannon.fire(mouse.position);
+  },
+  false,
+);
 
 /**
  * Returns true if gameObjectA hits gameObjectB, otherwise false.

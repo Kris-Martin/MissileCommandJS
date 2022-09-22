@@ -1,9 +1,9 @@
+import Canvas from '../canvas.js';
 import Missile from '../missile.js';
+import Vector from '../vector.js';
 import Barrel from './barrel.js';
 import Base from './base.js';
 import Wheel from './wheel.js';
-import Vector from '../vector.js';
-import Canvas from '../canvas.js';
 
 export default class Cannon {
   canvas;
