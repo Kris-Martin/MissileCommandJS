@@ -1,13 +1,13 @@
-import Canvas from './canvas.js';
-import LoadImages from './load-images.js';
 import Background from './background.js';
-import Cities from './cities.js';
 import Cannon from './cannon/cannon.js';
-import Mouse from './mouse.js';
-import EnemyController from './enemyController.js';
-import Missile from './missile.js';
+import Canvas from './canvas.js';
+import Cities from './cities.js';
 import City from './city.js';
+import EnemyController from './enemyController.js';
 import Explosion from './explosion.js';
+import LoadImages from './load-images.js';
+import Missile from './missile.js';
+import Mouse from './mouse.js';
 
 export const canvas = new Canvas();
 export const images = new LoadImages();
