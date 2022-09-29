@@ -6,6 +6,27 @@ A JavaScript/HTML5 Canvas port of a Processing(Java) project I originally made w
 
 The first 209 commits of this project show the processing project, after which I deleted everything to start with JavaScript and HTM5 Canvas using the old processing project as a reference.
 
+### MVP
+
+1. Six cities that are under attack.
+2. Ballistic missiles that rain down on the cities.
+3. Anti-ballistic missile battery that fires counter-missiles.
+4. A scoring system that rewards the player for shooting the ballistic missiles and any left-over munitions at the end of a given round.
+5. The game should reset (and potentially move to a harder level) when the player destroys all of the ballistic missiles in a given round.
+
+### TODO
+
+- Add level and rounds system - finite number of ballistic and counter missiles per round/level
+- Add scoring bonus for unused counter missiles
+- Add sound
+- Ballistic missiles that come into contact with the explosion from a detonating counter missile should be destroyed
+- Add display to show missiles left
+
+### Future features that could be added
+
+- Additional types of attackers (e.g. The Smart \* Bombs that can be seen in the Atari 2600 Gameplay).
+- Multiple missile batteries with different counter missiles (e.g. some might move faster)
+
 ### The goals of this project are:
 
 - Have the game run on the web using JavaScript and HTML5 Canvas
