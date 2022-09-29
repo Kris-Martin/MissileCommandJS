@@ -16,6 +16,7 @@ export default class LoadImages {
 
   /**
    * Loads images needed for game.
+   * City and cannon images created by Kris Martin using InkScape.
    * */
   load() {
     this.city.src = 'assets/images/city/city1.png';
