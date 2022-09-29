@@ -2,7 +2,7 @@ import City from './city.js';
 import Vector from './vector.js';
 
 export default class Cities {
-  cities = new Array(6);
+  collection = new Array(6);
 
   /**
    * Creates cities
@@ -17,7 +17,7 @@ export default class Cities {
    * @param {Canvas} canvas
    */
   create(canvas) {
-    for (let i = 0; i < this.cities.length; i++) {
+    for (let i = 0; i < this.collection.length; i++) {
       // Leave space in the middle for the cannon
       let pos = i < 3 ? i + 1 : i + 2;
       const city = new City(
@@ -25,7 +25,7 @@ export default class Cities {
         new Vector((canvas.width * pos) / 8, canvas.height),
         canvas,
       );
-      this.cities[i] = city;
+      this.collection[i] = city;
     }
   }
 
@@ -34,8 +34,8 @@ export default class Cities {
    * @param {CanvasRenderingContext2D} ctx - canvas context
    */
   draw(ctx, tick) {
-    for (let i = 0; i < this.cities.length; i++) {
-      this.cities[i].draw(ctx, tick);
+    for (let i = 0; i < this.collection.length; i++) {
+      this.collection[i].draw(ctx, tick);
     }
   }
 }

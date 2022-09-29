@@ -1,12 +1,13 @@
 import Canvas from './canvas.js';
 import Missile from './missile.js';
+import { Settings } from './settings.js';
 import Vector from './vector.js';
 
 export default class EnemyController {
   startingPos = new Vector();
   target = new Vector();
   missiles = new Array();
-  defaultMissileSpeed = 1;
+  defaultMissileSpeed = Settings.enemyMissileSpeed;
   missileSpeed = this.defaultMissileSpeed;
   #maxX;
   #startY = 0;
@@ -57,12 +58,12 @@ export default class EnemyController {
   }
 
   /**
-   * Generate a missile every 300 ticks.
+   * Generate a missile every n ticks as set in Settings.
    * @param {Canvas} canvas
    * @param {number} tick
    * */
   update(canvas, tick) {
-    if (tick % 300 === 0) {
+    if (tick % Settings.enemyFireRate === 0) {
       this.#generateMissiles(canvas);
     }
     //console.log('length', this.missiles.length);

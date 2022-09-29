@@ -11,7 +11,7 @@ export default class Missile {
   height = this.defaultHeight;
   position = new Vector();
   velocity = new Vector();
-  speed = 4;
+  speed = 0;
   target = new Vector();
   explosions = new Array();
 

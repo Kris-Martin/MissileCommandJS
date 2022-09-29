@@ -4,6 +4,7 @@ import Vector from '../vector.js';
 import Barrel from './barrel.js';
 import Base from './base.js';
 import Wheel from './wheel.js';
+import { Settings } from '../settings.js';
 
 export default class Cannon {
   canvas;
@@ -12,7 +13,7 @@ export default class Cannon {
   barrel;
   angle = 0;
   missiles = new Array();
-  defaultMissileSpeed = 4;
+  defaultMissileSpeed = Settings.playerMissileSpeed;
   missileSpeed = this.defaultMissileSpeed;
 
   /**

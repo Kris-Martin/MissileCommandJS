@@ -1,6 +1,8 @@
-import { images } from './missile-command.js';
-import Vector from './vector.js';
 import Canvas from './canvas.js';
+import { images } from './missile-command.js';
+import { Settings } from './settings.js';
+import Vector from './vector.js';
+
 export default class City {
   index;
   city = images.city;
@@ -8,7 +10,7 @@ export default class City {
   cityOnFire = images.cityOnFire;
   frame = 0;
 
-  healthMax = 256;
+  healthMax = Settings.cityHealth;
   health = this.healthMax;
   live = true;
 

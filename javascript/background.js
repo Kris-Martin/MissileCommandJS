@@ -1,5 +1,6 @@
 import Canvas from './canvas.js';
 import { images } from './missile-command.js';
+import { Settings } from './settings.js';
 import Vector from './vector.js';
 
 export default class Background {
@@ -48,11 +49,15 @@ export default class Background {
   }
 
   /**
-   * Update background frame every 1200 ticks.
+   * Update background frame every game hour.
    * @param {number} tick
    */
   update(tick) {
-    if (this.frame < this.frames.length && tick % 1200 === 0 && tick !== 0) {
+    if (
+      this.frame < this.frames.length &&
+      tick % Settings.ticksPerHour === 0 &&
+      tick !== 0
+    ) {
       this.frame++;
     }
 

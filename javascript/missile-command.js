@@ -8,6 +8,7 @@ import Explosion from './explosion.js';
 import LoadImages from './load-images.js';
 import Missile from './missile.js';
 import Mouse from './mouse.js';
+import { Settings } from './settings.js';
 
 function gameInit() {
   const canvas = new Canvas();
@@ -103,7 +104,11 @@ function checkCityCollision(missile, city) {
     console.log('Missile has hit city!');
     missile.live = false;
     // Reduce city health
-    if (city.live) city.health = city.health >= 20 ? city.health - 20 : 0;
+    if (city.live)
+      city.health =
+        city.health >= Settings.missileDamage
+          ? city.health - Settings.missileDamage
+          : 0;
     // Update city health display
     document.getElementById(
       city.index.toString(),
@@ -125,8 +130,9 @@ function checkMissileCollision(playerMissile, enemyMissile) {
     // Log hit to console
     console.log('Enemy missile destroyed!');
     // Score based on height of enemy missile - higher score closer to ground
-    gameState.score += Math.floor(
-      Math.pow(enemyMissile.position.y / gameState.canvas.height, 2) * 250,
+    gameState.score += Settings.calcScore(
+      enemyMissile.position.y,
+      gameState.canvas.height,
     );
     // Update score display
     document.getElementById('score').innerText = `Score: ${gameState.score}`;
@@ -138,7 +144,7 @@ function checkMissileCollision(playerMissile, enemyMissile) {
 
 function updateGameClock() {
   if (
-    gameState.tick % 1200 === 0 &&
+    gameState.tick % Settings.ticksPerHour === 0 &&
     gameState.tick !== 0 &&
     gameState.hour !== 25
   )
@@ -153,7 +159,7 @@ function updateGameClock() {
 // Check if game is over and leave time for city rubble to appear
 function checkGameOver() {
   if (
-    (gameState.cities.cities.filter((city) => city.live).length === 0 ||
+    (gameState.cities.collection.filter((city) => city.live).length === 0 ||
       !gameState.gameRunning) &&
     gameState.tick % 20 === 0
   ) {
@@ -196,20 +202,21 @@ function game() {
     (explosion) => explosion.live,
   );
 
-  // Check collisions
+  // Check collisions between all missiles and cities
+  gameState.cannon.missiles
+    .concat(gameState.enemy.missiles)
+    .forEach((missile) => {
+      gameState.cities.collection.forEach((city) =>
+        checkCityCollision(missile, city),
+      );
+    });
+
+  // Check collisions between player missiles and enemy missiles
   gameState.cannon.missiles.forEach((playerMissile) => {
-    gameState.cities.cities.forEach((city) =>
-      checkCityCollision(playerMissile, city),
-    );
     gameState.enemy.missiles.forEach((enemyMissile) =>
       checkMissileCollision(playerMissile, enemyMissile),
     );
   });
-  gameState.enemy.missiles.forEach((missile) =>
-    gameState.cities.cities.forEach((city) =>
-      checkCityCollision(missile, city),
-    ),
-  );
 
   // Check if game is over and display end game message
   if (checkGameOver()) {
