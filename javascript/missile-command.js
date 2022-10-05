@@ -156,15 +156,17 @@ function updateGameClock() {
   }
 }
 
-// Check if game is over and leave time for city rubble to appear
+// Check if game is over and leave time for explosion to finish
+// and city rubble to appear
 function checkGameOver() {
   if (
     (gameState.cities.collection.filter((city) => city.live).length === 0 ||
       !gameState.gameRunning) &&
-    gameState.tick % 20 === 0
+    gameState.tick % (Explosion.currentSize * 2) === 0
   ) {
     return true;
   }
+  return false;
 }
 
 function startGame() {
